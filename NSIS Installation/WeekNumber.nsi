@@ -8,7 +8,7 @@
 
   ;Name and file
   Name "WeekNumber ${VERSION}"
-  OutFile "WeekNumberInstaller - ${VERSION}.exe"
+  OutFile "WeekNumberInstaller_${VERSION}.exe"
 
   ;Default installation folder
   InstallDir "$LOCALAPPDATA\WeekNumber"
