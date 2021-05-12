@@ -54,7 +54,6 @@ Section "WeekNumber application" SecWeekNumber
 
   SetOutPath "$INSTDIR"
 
-  ;ADD YOUR OWN FILES HERE...
   File "..\bin\x86\Release\WeekNumber.exe"
   File "..\bin\x86\Release\WeekNumber.exe.Config"
   ;Store installation folder
@@ -80,16 +79,9 @@ SectionEnd
 ;Uninstaller Section
 
 Section "Uninstall"
-
-  ;ADD YOUR OWN FILES HERE...
-
   Delete "$INSTDIR\WeekNumber.exe"
   Delete "$INSTDIR\WeekNumber.exe.Config"
-
   Delete "$INSTDIR\Uninstall.exe"
-
   RMDir "$INSTDIR"
-
   DeleteRegKey /ifempty HKCU "Software\WeekNumber"
-
 SectionEnd

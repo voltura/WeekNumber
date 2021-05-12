@@ -63,7 +63,7 @@ namespace WeekNumber {
         /// <summary>
         ///   Looks up a localized string similar to WeekNumber by Voltura AB
         ///
-        ///https://github.com/voltura/VolturaTools
+        ///https://github.com/voltura/WeekNumber_mini/releases
         ///
         ///Free for all..
         /// </summary>

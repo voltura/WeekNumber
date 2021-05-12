@@ -18,7 +18,7 @@ namespace WeekNumber
 
         #region Constructor
 
-        internal TaskbarGui(int week = 1)
+        internal TaskbarGui(int week)
         {
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);

@@ -16,11 +16,11 @@ namespace WeekNumber
 
         internal static bool StartWithWindows
         {
-            get => Registry.GetValue("HKEY_CURRENT_USER\\Software\\Microsoft\\Windows\\CurrentVersion\\Run\\", Application.ProductName, null) != null;
+            get => Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\", Application.ProductName, null) != null;
             set
             {
                 using (RegistryKey registryKey = Registry.CurrentUser)
-                using (RegistryKey regRun = registryKey?.OpenSubKey("Software\\Microsoft\\Windows\\CurrentVersion\\Run\\", true))
+                using (RegistryKey regRun = registryKey?.OpenSubKey(@"Software\Microsoft\Windows\CurrentVersion\Run\", true))
                 {
                     if (value)
                     {

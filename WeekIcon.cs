@@ -12,7 +12,7 @@ namespace WeekNumber
     {
         #region Icon Size
 
-        private const int _size = 256;
+        private const int _size = 512;
 
         #endregion Icon Size
 

@@ -41,21 +41,21 @@ namespace WeekNumber
             }
             finally
             {
-                //                if (context != null)
-                {
-                    context?.Dispose();
-                }
+                context?.Dispose();
                 Mutex.ReleaseMutex();
             }
         }
 
         #endregion Application starting point
 
-        internal static void SetGCSettings()
+        #region Private method that configures garbarge collection settings
+
+        private static void SetGCSettings()
         {
             GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
             GCSettings.LatencyMode = GCLatencyMode.Batch;
         }
 
+        #endregion Private method that configures garbarge collection settings
     }
 }
