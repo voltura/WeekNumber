@@ -52,6 +52,15 @@ namespace WeekNumber
             return ConfigurationManager.AppSettings.Get(setting);
         }
 
+        internal static int GetIntSetting(string setting, int defaultValue = 0)
+        {
+            if (int.TryParse(GetSetting(setting), out int settingInt))
+            {
+                return settingInt;
+            }
+            return defaultValue;
+        }
+
         internal static void UpdateSetting(string setting, string value)
         {
             CreateSettings();
@@ -79,8 +88,12 @@ namespace WeekNumber
   <appSettings>
     <add key=""DayOfWeek"" value=""{firstDay}""/>
     <add key=""CalendarWeekRule"" value=""{calendarWeekRule}"" />
-    <add key=""Background"" value=""Black""/>
-    <add key=""Foreground"" value=""White""/>
+    <add key=""BackgroundR"" value=""0""/>
+    <add key=""BackgroundG"" value=""0""/>
+    <add key=""BackgroundB"" value=""0""/>
+    <add key=""ForegroundR"" value=""255""/>
+    <add key=""ForegroundG"" value=""255""/>
+    <add key=""ForegroundB"" value=""255""/>
     <add key=""ForceRedraw"" value=""False""/>
   </appSettings>
 </configuration>";

@@ -128,11 +128,23 @@ Free for all.</value>
   <data name="AboutMenu" xml:space="preserve">
     <value>About WeekNumber</value>
   </data>
+  <data name="B" xml:space="preserve">
+    <value>B</value>
+  </data>
   <data name="Background" xml:space="preserve">
     <value>Background</value>
   </data>
+  <data name="BackgroundB" xml:space="preserve">
+    <value>BackgroundB</value>
+  </data>
+  <data name="BackgroundG" xml:space="preserve">
+    <value>BackgroundG</value>
+  </data>
   <data name="BackgroundMenu" xml:space="preserve">
     <value>Background</value>
+  </data>
+  <data name="BackgroundR" xml:space="preserve">
+    <value>BackgroundR</value>
   </data>
   <data name="CalendarRuleMenu" xml:space="preserve">
     <value>Calendar week rule</value>
@@ -187,11 +199,23 @@ Please report to feedback@voltura.se!</value>
   <data name="Foreground" xml:space="preserve">
     <value>Foreground</value>
   </data>
+  <data name="ForegroundB" xml:space="preserve">
+    <value>ForegroundB</value>
+  </data>
+  <data name="ForegroundG" xml:space="preserve">
+    <value>ForegroundG</value>
+  </data>
   <data name="ForegroundMenu" xml:space="preserve">
     <value>Foreground</value>
   </data>
+  <data name="ForegroundR" xml:space="preserve">
+    <value>ForegroundR</value>
+  </data>
   <data name="FridayMenu" xml:space="preserve">
     <value>Friday</value>
+  </data>
+  <data name="G" xml:space="preserve">
+    <value>G</value>
   </data>
   <data name="MondayMenu" xml:space="preserve">
     <value>Monday</value>
@@ -201,6 +225,9 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="NotStartWithWindows" xml:space="preserve">
     <value>WeekNumber will not start with Windows</value>
+  </data>
+  <data name="R" xml:space="preserve">
+    <value>R</value>
   </data>
   <data name="ResetColors" xml:space="preserve">
     <value>Colors reset</value>

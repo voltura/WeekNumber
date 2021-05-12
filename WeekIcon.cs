@@ -77,8 +77,14 @@ namespace WeekNumber
 
         private static void DrawBackgroundOnGraphics(Graphics graphics)
         {
-            Color backgroundColor = Color.FromName(Settings.GetSetting(Resources.Background));
-            Color foregroundColor = Color.FromName(Settings.GetSetting(Resources.Foreground));
+            Color backgroundColor = Color.FromArgb(
+                Settings.GetIntSetting(Resources.BackgroundR),
+                Settings.GetIntSetting(Resources.BackgroundG),
+                Settings.GetIntSetting(Resources.BackgroundB));
+            Color foregroundColor = Color.FromArgb(
+                Settings.GetIntSetting(Resources.ForegroundR, 255),
+                Settings.GetIntSetting(Resources.ForegroundG, 255),
+                Settings.GetIntSetting(Resources.ForegroundB, 255));
             using (SolidBrush foregroundBrush = new SolidBrush(foregroundColor))
             using (SolidBrush backgroundBrush = new SolidBrush(backgroundColor))
             {
@@ -100,7 +106,10 @@ namespace WeekNumber
             float fontSize = (float)System.Math.Abs(_size * .78125);
             float insetX = (float)-System.Math.Abs(fontSize * .14);
             float insetY = (float)System.Math.Abs(fontSize * .2);
-            Color foregroundColor = Color.FromName(Settings.GetSetting(Resources.Foreground));
+            Color foregroundColor = Color.FromArgb(
+                Settings.GetIntSetting(Resources.ForegroundR),
+                Settings.GetIntSetting(Resources.ForegroundG),
+                Settings.GetIntSetting(Resources.ForegroundB));
 
             using (Font font = new Font(FontFamily.GenericMonospace, fontSize, FontStyle.Bold,
                 GraphicsUnit.Pixel, 0, false))

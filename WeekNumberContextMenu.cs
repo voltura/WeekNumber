@@ -68,11 +68,16 @@ namespace WeekNumber
                         FullOpen = false,
                         SolidColorOnly = true,
                         ShowHelp = false,
-                        Color = System.Drawing.Color.FromName(Settings.GetSetting(mi.Name))
+                        Color = System.Drawing.Color.FromArgb(
+                            Settings.GetIntSetting(mi.Name + Resources.R),
+                            Settings.GetIntSetting(mi.Name + Resources.G),
+                            Settings.GetIntSetting(mi.Name + Resources.B))
                     })
                     {
                         cd.ShowDialog();
-                        Settings.UpdateSetting(mi.Name, cd.Color.Name);
+                        Settings.UpdateSetting(mi.Name + Resources.R, cd.Color.R.ToString());
+                        Settings.UpdateSetting(mi.Name + Resources.G, cd.Color.G.ToString());
+                        Settings.UpdateSetting(mi.Name + Resources.B, cd.Color.B.ToString());
                     }
                 }
 
