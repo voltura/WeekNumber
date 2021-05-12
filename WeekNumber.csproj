@@ -81,7 +81,7 @@
     <StartupObject>WeekNumber.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>Resources\weekicon.ico</ApplicationIcon>
+    <ApplicationIcon>weekicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\settings.manifest</ApplicationManifest>
@@ -132,6 +132,7 @@
     <None Include="WeekNumber.snk" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="weekicon.ico" />
     <None Include="NSIS Installation\License.txt" />
     <Content Include="Resources\weekicon.ico" />
   </ItemGroup>
