@@ -13,22 +13,27 @@ namespace WeekNumber
         #region Icon Size
 
         private const int _size = 512;
+        private const int _saveSize = 256;
 
         #endregion Icon Size
 
         #region Internal static functions
 
-        internal static Icon GetIcon(int weekNumber)
+        internal static Icon GetIcon(int weekNumber, int size = 0)
         {
+            if (size == 0)
+            {
+                size = _size;
+            }
             Icon icon = null;
-            using (Bitmap bitmap = new Bitmap(_size, _size))
+            using (Bitmap bitmap = new Bitmap(size, size))
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {
-                DrawBackgroundOnGraphics(graphics);
-                DrawWeekNumberOnGraphics(weekNumber, graphics);
+                DrawBackgroundOnGraphics(graphics, size);
+                DrawWeekNumberOnGraphics(weekNumber, graphics, size);
                 System.IntPtr bHicon = bitmap.GetHicon();
                 Icon newIcon = Icon.FromHandle(bHicon);
-                icon = new Icon(newIcon, _size, _size);
+                icon = new Icon(newIcon, size, size);
                 CleanupIcon(ref newIcon);
             }
             return icon;
@@ -51,7 +56,7 @@ namespace WeekNumber
 
             try
             {
-                icon = GetIcon(weekNumber);
+                icon = GetIcon(weekNumber, _saveSize);
                 using (FileStream fs = new FileStream(fullPath, FileMode.Create,
                     FileAccess.Write, FileShare.None))
                 {
@@ -75,8 +80,12 @@ namespace WeekNumber
 
         #region Privare static helper methods
 
-        private static void DrawBackgroundOnGraphics(Graphics graphics)
+        private static void DrawBackgroundOnGraphics(Graphics graphics, int size = 0)
         {
+            if (size == 0)
+            {
+                size = _size;
+            }
             Color backgroundColor = Color.FromArgb(
                 Settings.GetIntSetting(Resources.BackgroundR),
                 Settings.GetIntSetting(Resources.BackgroundG),
@@ -88,22 +97,26 @@ namespace WeekNumber
             using (SolidBrush foregroundBrush = new SolidBrush(foregroundColor))
             using (SolidBrush backgroundBrush = new SolidBrush(backgroundColor))
             {
-                float inset = (float)System.Math.Abs(_size * .03125);
-                graphics?.FillRectangle(backgroundBrush, inset, inset, _size - inset, _size - inset);
+                float inset = (float)System.Math.Abs(size * .03125);
+                graphics?.FillRectangle(backgroundBrush, inset, inset, size - inset, size - inset);
                 using (Pen pen = new Pen(foregroundColor, inset * 2))
                 {
-                    graphics?.DrawRectangle(pen, inset, inset, _size - inset * 2, _size - inset * 2);
+                    graphics?.DrawRectangle(pen, inset, inset, size - inset * 2, size - inset * 2);
                 }
-                float leftInset = (float)System.Math.Abs(_size * .15625);
+                float leftInset = (float)System.Math.Abs(size * .15625);
                 graphics?.FillRectangle(foregroundBrush, leftInset, inset / 2, inset * 3, inset * 5);
-                float rightInset = (float)System.Math.Abs(_size * .75);
+                float rightInset = (float)System.Math.Abs(size * .75);
                 graphics?.FillRectangle(foregroundBrush, rightInset, inset / 2, inset * 3, inset * 5);
             }
         }
 
-        private static void DrawWeekNumberOnGraphics(int weekNumber, Graphics graphics)
+        private static void DrawWeekNumberOnGraphics(int weekNumber, Graphics graphics, int size = 0)
         {
-            float fontSize = (float)System.Math.Abs(_size * .78125);
+            if (size == 0)
+            {
+                size = _size;
+            }
+            float fontSize = (float)System.Math.Abs(size * .78125);
             float insetX = (float)-System.Math.Abs(fontSize * .14);
             float insetY = (float)System.Math.Abs(fontSize * .2);
             Color foregroundColor = Color.FromArgb(
