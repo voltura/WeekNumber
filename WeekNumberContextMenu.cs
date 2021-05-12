@@ -57,8 +57,12 @@ namespace WeekNumber
                 mi.Enabled = false;
                 if (mi.Name == Resources.ResetColors)
                 {
-                    Settings.UpdateSetting(Resources.Foreground, System.Drawing.Color.White.Name);
-                    Settings.UpdateSetting(Resources.Background, System.Drawing.Color.Black.Name);
+                    Settings.UpdateSetting(Resources.ForegroundR, 255.ToString());
+                    Settings.UpdateSetting(Resources.ForegroundB, 255.ToString());
+                    Settings.UpdateSetting(Resources.ForegroundG, 255.ToString());
+                    Settings.UpdateSetting(Resources.BackgroundR, 0.ToString());
+                    Settings.UpdateSetting(Resources.BackgroundG, 0.ToString());
+                    Settings.UpdateSetting(Resources.BackgroundB, 0.ToString());
                 }
                 else
                 {
