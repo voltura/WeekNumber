@@ -78,6 +78,8 @@ namespace WeekNumber
                             Settings.GetIntSetting(mi.Name + Resources.B))
                     })
                     {
+                        cd.FullOpen = true;
+                        cd.AnyColor = true;
                         cd.AllowFullOpen = true;
                         cd.ShowDialog();
                         Settings.UpdateSetting(mi.Name + Resources.R, cd.Color.R.ToString());
