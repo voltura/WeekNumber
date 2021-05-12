@@ -66,7 +66,7 @@ namespace WeekNumber
                     {
                         AllowFullOpen = false,
                         FullOpen = false,
-                        SolidColorOnly = true,
+                        SolidColorOnly = false,
                         ShowHelp = false,
                         Color = System.Drawing.Color.FromArgb(
                             Settings.GetIntSetting(mi.Name + Resources.R),
@@ -74,6 +74,7 @@ namespace WeekNumber
                             Settings.GetIntSetting(mi.Name + Resources.B))
                     })
                     {
+                        cd.AllowFullOpen = true;
                         cd.ShowDialog();
                         Settings.UpdateSetting(mi.Name + Resources.R, cd.Color.R.ToString());
                         Settings.UpdateSetting(mi.Name + Resources.G, cd.Color.G.ToString());
