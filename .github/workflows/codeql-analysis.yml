@@ -39,7 +39,7 @@ jobs:
     - name: Add msbuild to PATH
       uses: microsoft/setup-msbuild@v1.0.2
       with:
-        vs-version: '[16.9.5)'
+        vs-version: '[16.9,)'
     #   make release
 
     - name: Release build
