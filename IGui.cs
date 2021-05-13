@@ -15,5 +15,10 @@
         /// Disposes GUI
         /// </summary>
         void Dispose();
+
+        /// <summary>
+        /// Event handler for when GUI (icon) update is requested
+        /// </summary>
+        event System.EventHandler UpdateRequest;
     }
 }

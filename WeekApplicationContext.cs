@@ -17,9 +17,8 @@ namespace WeekNumber
 
         #region Private variables
 
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("CodeQuality", "IDE0052:Remove unread private members", Justification = "It is used")]
-        private readonly Week _week;
         private readonly Timer _timer;
+        private int currentWeek;
 
         #endregion Private variables
 
@@ -30,8 +29,9 @@ namespace WeekNumber
             try
             {
                 Application.ApplicationExit += OnApplicationExit;
-                _week = new Week();
-                Gui = new TaskbarGui(Week.Current());
+                currentWeek = Week.Current();
+                Gui = new TaskbarGui(currentWeek);
+                Gui.UpdateRequest += GuiUpdateRequestHandler;
                 _timer = GetTimer;
             }
             catch (Exception ex)
@@ -51,9 +51,10 @@ namespace WeekNumber
         {
             get
             {
+                if (_timer != null) return _timer;
                 Timer timer = new Timer
                 {
-                    Interval = 1000,
+                    Interval = 60000,
                     Enabled = true
                 };
                 timer.Tick += OnTimerTick;
@@ -65,6 +66,11 @@ namespace WeekNumber
 
         #region Private event handlers
 
+        private void GuiUpdateRequestHandler(object sender, EventArgs e)
+        {
+            UpdateIcon(true);
+        }
+
         private void OnApplicationExit(object sender, EventArgs e)
         {
             Cleanup(false);
@@ -72,12 +78,21 @@ namespace WeekNumber
 
         private void OnTimerTick(object sender, EventArgs e)
         {
-            Timer timer = (Timer)sender;
-            timer?.Stop();
+            UpdateIcon();
+        }
+
+        private void UpdateIcon(bool force = false)
+        {
+            if (currentWeek == Week.Current() && force == false)
+            {
+                return;
+            }
+            _timer?.Stop();
             Application.DoEvents();
             try
             {
-                Gui?.UpdateIcon(Week.Current());
+                currentWeek = Week.Current();
+                Gui?.UpdateIcon(currentWeek);
             }
             catch (Exception ex)
             {
@@ -85,7 +100,7 @@ namespace WeekNumber
                 Cleanup();
                 throw;
             }
-            timer?.Start();
+            _timer?.Start();
         }
 
         #endregion Private event handlers

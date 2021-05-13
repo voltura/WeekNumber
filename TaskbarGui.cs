@@ -9,6 +9,12 @@ namespace WeekNumber
 {
     internal class TaskbarGui : IDisposable, IGui
     {
+        #region Public event handler (update icon request)
+
+        public event EventHandler UpdateRequest;
+
+        #endregion Public event handler (update icon request)
+
         #region Private variables
 
         private NotifyIcon _notifyIcon;
@@ -23,9 +29,15 @@ namespace WeekNumber
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
             UpdateIcon(week, ref _notifyIcon);
+            _contextMenu.SettingsChangedHandler += OnSettingsChange;
         }
 
         #endregion Constructor
+
+        private void OnSettingsChange(object sender, EventArgs e)
+        {
+            UpdateRequest?.Invoke(null, null);
+        }
 
         #region Public UpdateIcon method
 

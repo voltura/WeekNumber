@@ -25,14 +25,20 @@ namespace WeekNumber
 
         #endregion Internal constructor
 
-        #region Event handling
+        #region Internal event handling (used for icon update)
+
+        internal event EventHandler SettingsChangedHandler;
+
+        #endregion Internal event handling (used for icon update)
+
+        #region Private event handling
 
         private static void ExitMenuClick(object o, EventArgs e)
         {
             Application.Exit();
         }
 
-        private static void FirstDayOfWeekClick(object o, EventArgs e)
+        private void FirstDayOfWeekClick(object o, EventArgs e)
         {
             try
             {
@@ -41,6 +47,7 @@ namespace WeekNumber
                 CheckMenuItemUncheckSiblings(mi);
                 Settings.UpdateSetting(Week.DayOfWeekString, mi.Name);
                 EnableMenuItem(mi);
+                SettingsChangedHandler?.Invoke(null, null);
             }
             catch (Exception ex)
             {
@@ -96,9 +103,13 @@ namespace WeekNumber
                 Message.Show(Resources.FailedToUpdateColor, ex);
                 throw;
             }
+            finally
+            {
+                SettingsChangedHandler?.Invoke(null, null);
+            }
         }
 
-        private static void CalendarWeekRuleClick(object o, EventArgs e)
+        private void CalendarWeekRuleClick(object o, EventArgs e)
         {
             try
             {
@@ -108,6 +119,7 @@ namespace WeekNumber
                 string calendarWeekRuleSetting = mi.Name;
                 Settings.UpdateSetting(Week.CalendarWeekRuleString, calendarWeekRuleSetting);
                 EnableMenuItem(mi);
+                SettingsChangedHandler?.Invoke(null, null);
             }
             catch (Exception ex)
             {
@@ -167,7 +179,7 @@ namespace WeekNumber
             EnableMenuItem(mi);
         }
 
-        #endregion Event handling
+        #endregion Private event handling
 
         #region Private method for context menu creation
 
@@ -218,7 +230,7 @@ namespace WeekNumber
             });
         }
 
-        private static MenuItem CalendarRuleMenu()
+        private MenuItem CalendarRuleMenu()
         {
             return new MenuItem(Resources.CalendarRuleMenu, new MenuItem[3]
             {
@@ -240,7 +252,7 @@ namespace WeekNumber
             });
         }
 
-        private static MenuItem FirstDayOfWeekMenu()
+        private MenuItem FirstDayOfWeekMenu()
         {
             return new MenuItem(Resources.FirstDayOfWeekMenu, new MenuItem[7]
             {
