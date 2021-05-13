@@ -35,7 +35,11 @@ jobs:
       uses: github/codeql-action/init@v1
       with:
         languages: ${{ matrix.language }}
-
+    #   Add msbuild
+    - name: Add msbuild to PATH
+      uses: microsoft/setup-msbuild@v1.0.2
+      with:
+        vs-version: '[16.9.5)'
     #   make release
 
     - name: Release build
