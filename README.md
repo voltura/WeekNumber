@@ -1,7 +1,7 @@
 # WeekNumber
-Windows 10 taskbar application that display current week number
+Windows 10 taskbar application that displays the current week number
 
-Options to start with Windows and to customize the icon colors, change calendar rules via right-click on icon.
+Options to start with Windows, customize the icon colors and change calendar rules via right-click on icon.
 
 Download installer and run to install, to remove the application run the uninstaller.
 
