@@ -39,7 +39,6 @@
 
   !insertmacro MUI_PAGE_WELCOME
   !insertmacro MUI_PAGE_LICENSE "License.txt"
-  ;!insertmacro MUI_PAGE_COMPONENTS
   !insertmacro MUI_PAGE_DIRECTORY
   
    ;Start Menu Folder Page Configuration
@@ -48,8 +47,12 @@
   !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
   
   !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
-  
+
   !insertmacro MUI_PAGE_INSTFILES
+
+  !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
+  !define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
+
   !insertmacro MUI_PAGE_FINISH
 
   !insertmacro MUI_UNPAGE_WELCOME
