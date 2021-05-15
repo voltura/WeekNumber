@@ -92,6 +92,9 @@
   <PropertyGroup>
     <AssemblyOriginatorKeyFile>WeekNumber.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
