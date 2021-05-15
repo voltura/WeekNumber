@@ -51,10 +51,13 @@ namespace WeekNumber
         {
             get
             {
-                if (_timer != null) return _timer;
+                if (_timer != null)
+                {
+                    return _timer;
+                }
                 Timer timer = new Timer
                 {
-                    Interval = 60000,
+                    Interval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000),
                     Enabled = true
                 };
                 timer.Tick += OnTimerTick;
@@ -100,7 +103,11 @@ namespace WeekNumber
                 Cleanup();
                 throw;
             }
-            _timer?.Start();
+            if (_timer != null)
+            {
+                _timer.Interval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
+                _timer.Start();
+            }
         }
 
         #endregion Private event handlers
