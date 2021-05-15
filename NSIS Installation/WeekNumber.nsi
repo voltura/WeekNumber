@@ -8,7 +8,7 @@
 
   ;Name and file
   Name "WeekNumber ${VERSION}"
-  OutFile "WeekNumber ${VERSION} Installer.exe"
+  OutFile "WeekNumber_${VERSION}_Installer.exe"
 
   ;Default installation folder
   InstallDir "$LOCALAPPDATA\Voltura AB\WeekNumber"
