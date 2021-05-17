@@ -18,11 +18,11 @@ Download installer and run to install*, to remove the application run the uninst
 The executable is tiny and its memory consumption low.
 ![image](https://user-images.githubusercontent.com/2292809/118325509-dfd8f880-b503-11eb-8cef-5b24f6e8007f.png)
 
-*) I have not paid for a Software Signing Certificate, but I have validated it through [CodeNotary by vChain](https://www.codenotary.com/) so when installing please 
+*) I have not paid for a Software Signing Certificate, but I have Notarized it through [CodeNotary by vChain](https://www.codenotary.com/) so when installing please 
 1) Choose to keep the file downloaded if prompted 
 ![image](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
 
-2) Validate the downloaded file on the CodeNotary site https://authenticate.codenotary.io/ and/or via the md5 file hash available on this site
+2) Validate the downloaded file on the CodeNotary authenticate feature found here https://authenticate.codenotary.io/ and/or via the md5 file hash available on this site
 ![image](https://user-images.githubusercontent.com/2292809/118525502-8bba5800-b73f-11eb-992a-3af7a83e3024.png)
 ![image](https://user-images.githubusercontent.com/2292809/118525596-a5f43600-b73f-11eb-979b-9569b7619587.png)
 
