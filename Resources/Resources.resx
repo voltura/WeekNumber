@@ -120,9 +120,9 @@
   <data name="About" xml:space="preserve">
     <value>WeekNumber by Voltura AB
 
-https://github.com/voltura
+https://voltura.github.io/WeekNumber
 
-Free for all.</value>
+Copyright © Voltura AB 2018-2021</value>
     <comment>About box text</comment>
   </data>
   <data name="AboutMenu" xml:space="preserve">
