@@ -22,7 +22,7 @@ The executable is tiny and its memory consumption low.
 1) Choose to keep the file downloaded if prompted 
 ![image](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
 
-2) Validate the downloaded file on the CodeNotary authenticate feature found here https://authenticate.codenotary.io/ and/or via the md5 file hash available on this site
+2) Validate the downloaded file via CodeNotary's authenticate feature found here https://authenticate.codenotary.io/ and/or via the md5 file hash available on this site
 ![image](https://user-images.githubusercontent.com/2292809/118525502-8bba5800-b73f-11eb-992a-3af7a83e3024.png)
 ![image](https://user-images.githubusercontent.com/2292809/118525596-a5f43600-b73f-11eb-979b-9569b7619587.png)
 
