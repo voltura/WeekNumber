@@ -18,6 +18,6 @@ Download installer and run to install*, to remove the application run the uninst
 The executable is tiny and its memory consumption low.
 ![image](https://user-images.githubusercontent.com/2292809/118325509-dfd8f880-b503-11eb-8cef-5b24f6e8007f.png)
 
-*) I have not paid for a Software Signing Certificate, so when installing please use below actions to run the installer;
+*) I have not paid for a Software Signing Certificate, but I have validated it through CodeNotary by vChain so when installing please 1) choose to keep the file downloaded 2) validate the downloaded file on site https://authenticate.codenotary.io/ 3) use below actions to run the installer;
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
