@@ -19,7 +19,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 [assembly: Guid("550adc75-8afb-4813-ac91-8c8c6cb681ae")]
 [assembly: AssemblyVersion("1.6.*")]
-[assembly: AssemblyFileVersion("1.6.0.8")]
+[assembly: AssemblyFileVersion("1.6.0.9")]
 [assembly: NeutralResourcesLanguage("en-US")]
 
 #endregion Assembly information

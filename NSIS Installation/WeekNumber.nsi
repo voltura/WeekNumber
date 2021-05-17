@@ -6,9 +6,31 @@
 ;--------------------------------
 ;General
 
+  !define PRODUCT_NAME "WeekNumber by Voltura AB"
+  !define PRODUCT_VERSION ${VERSION}
+  !define PRODUCT_GROUP "WeekNumber"
+  !define PRODUCT_PUBLISHER "Voltura AB"
+  !define PRODUCT_WEB_SITE "https://github.com/voltura"
+  !define PRODUCT_ID "{550adc75-8afb-4813-ac91-8c8c6cb681ae}"
+
   ;Name and file
   Name "WeekNumber ${VERSION}"
   OutFile "WeekNumber_${VERSION}_Installer.exe"
+
+  Caption "${PRODUCT_NAME} Installer"
+  VIProductVersion ${VERSION}
+  VIAddVersionKey ProductName "${PRODUCT_NAME} Installer"
+  VIAddVersionKey Comments "An installer for ${PRODUCT_NAME}"
+  VIAddVersionKey CompanyName "${PRODUCT_PUBLISHER}"
+  VIAddVersionKey LegalCopyright "Copyright © ${PRODUCT_PUBLISHER} 2018-2021"
+  VIAddVersionKey FileDescription "${PRODUCT_NAME} Installer"
+  VIAddVersionKey FileVersion ${VERSION}
+  VIAddVersionKey ProductVersion ${VERSION}
+  VIAddVersionKey InternalName "${PRODUCT_NAME} Installer"
+  VIAddVersionKey OriginalFilename "WeekNumber_${VERSION}_Installer.exe"
+  VIAddVersionKey PrivateBuild "${VERSION}"
+  VIAddVersionKey SpecialBuild "${VERSION}"
+  ;LegalTrademarks
 
   ;Default installation folder
   InstallDir "$LOCALAPPDATA\Voltura AB\WeekNumber"
