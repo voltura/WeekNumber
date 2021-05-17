@@ -109,6 +109,25 @@ namespace WeekNumber
             }
         }
 
+        private void IconResolutionMenuClick(object o, EventArgs e)
+        {
+            try
+            {
+                MenuItem mi = (MenuItem)o;
+                mi.Enabled = false;
+                int iconSizeSelected = (int)IconSize.Icon256;
+                int.TryParse(mi.Name.Replace(Resources.Icon, string.Empty), out iconSizeSelected);
+                Settings.UpdateSetting(Resources.IconResolution, iconSizeSelected.ToString());
+                CheckMenuItemUncheckSiblings(mi);
+                SettingsChangedHandler?.Invoke(null, null);
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.FailedToChangeIconResolution, ex);
+                throw;
+            }
+        }
+
         private void CalendarWeekRuleClick(object o, EventArgs e)
         {
             try
@@ -191,7 +210,7 @@ namespace WeekNumber
                 {
                     DefaultItem = true
                 },
-                new MenuItem(Resources.SettingsMenu, new MenuItem[5]
+                new MenuItem(Resources.SettingsMenu, new MenuItem[6]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
@@ -200,7 +219,8 @@ namespace WeekNumber
                     FirstDayOfWeekMenu(),
                     CalendarRuleMenu(),
                     ColorsMenu(),
-                    new MenuItem(Resources.SaveIconMenu, SaveIconClick)
+                    new MenuItem(Resources.SaveIconMenu, SaveIconClick),
+                    IconResolutionMenu()
                 }),
                 new MenuItem(Resources.SeparatorMenu),
                 new MenuItem(Resources.ExitMenu, ExitMenuClick)
@@ -226,6 +246,75 @@ namespace WeekNumber
                 new MenuItem(Resources.ResetColorsMenu, ColorMenuClick)
                 {
                     Name = Resources.ResetColors
+                }
+            });
+        }
+
+        private MenuItem IconResolutionMenu()
+        {
+            int iconResolutionSetting = Settings.GetIntSetting(Resources.IconResolution, (int)IconSize.Icon256);
+            string selectedIconResolutionName = $"Icon{iconResolutionSetting}";
+            return new MenuItem(Resources.IconResolutionMenu, new MenuItem[10]
+            {
+                new MenuItem(Resources.Icon16, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon16),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon16),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon16)
+                },
+                new MenuItem(Resources.Icon20, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon20),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon20),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon20)
+                },
+                new MenuItem(Resources.Icon24, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon24),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon24),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon24)
+                },
+                new MenuItem(Resources.Icon32, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon32),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon32),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon32)
+                },
+                new MenuItem(Resources.Icon40, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon40),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon40),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon40)
+                },
+                new MenuItem(Resources.Icon48, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon48),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon48),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon48)
+                },
+                new MenuItem(Resources.Icon64, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon64),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon64),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon64)
+                },
+                new MenuItem(Resources.Icon128, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon128),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon128),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon128)
+                },
+                new MenuItem(Resources.Icon256, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon256),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon256),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon256)
+                },
+                new MenuItem(Resources.Icon512, IconResolutionMenuClick)
+                {
+                    Name = nameof(Resources.Icon512),
+                    Checked = selectedIconResolutionName == nameof(Resources.Icon512),
+                    Enabled = selectedIconResolutionName != nameof(Resources.Icon512)
                 }
             });
         }
@@ -311,8 +400,10 @@ namespace WeekNumber
             foreach (MenuItem m in mi.Parent?.MenuItems)
             {
                 m.Checked = false;
+                m.Enabled = true;
             }
             mi.Checked = true;
+            mi.Enabled = false;
         }
 
         #endregion Private helper methods for menu items

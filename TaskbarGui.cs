@@ -24,41 +24,46 @@ namespace WeekNumber
 
         #region Constructor
 
-        internal TaskbarGui(int week)
+        internal TaskbarGui(int week, int iconResolution = (int)IconSize.Icon256)
         {
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
-            UpdateIcon(week, ref _notifyIcon);
+            UpdateIcon(week, ref _notifyIcon, iconResolution);
             _contextMenu.SettingsChangedHandler += OnSettingsChange;
         }
 
         #endregion Constructor
+
+        #region Private event handler
 
         private void OnSettingsChange(object sender, EventArgs e)
         {
             UpdateRequest?.Invoke(null, null);
         }
 
+        #endregion Private event handler
+
         #region Public UpdateIcon method
 
         /// <summary>
         /// Updates icon on GUI with given week number
         /// </summary>
-        /// <param name="weekNumber"></param>
-        public void UpdateIcon(int weekNumber)
+        /// <param name="weekNumber">The week number to display on icon</param>
+        /// <param name="iconResolution">The width and height of the icon</param>
+        public void UpdateIcon(int weekNumber, int iconResolution = (int)IconSize.Icon256)
         {
-            UpdateIcon(weekNumber, ref _notifyIcon);
+            UpdateIcon(weekNumber, ref _notifyIcon, iconResolution);
         }
 
         #endregion Public UpdateIcon method
 
         #region Private static UpdateIcon method
 
-        private static void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon)
+        private static void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon, int iconResolution)
         {
             notifyIcon.Text = Resources.Week + weekNumber;
             System.Drawing.Icon prevIcon = notifyIcon.Icon;
-            notifyIcon.Icon = WeekIcon.GetIcon(weekNumber);
+            notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
             WeekIcon.CleanupIcon(ref prevIcon);
         }
 

@@ -12,8 +12,8 @@ namespace WeekNumber
     {
         #region Icon Size
 
-        private const int _size = 512;
-        private const int _saveSize = 256;
+        private const int _defaultSize = (int)IconSize.Icon256;
+        private const int _saveSize = (int)IconSize.Icon256;
 
         #endregion Icon Size
 
@@ -23,7 +23,7 @@ namespace WeekNumber
         {
             if (size == 0)
             {
-                size = _size;
+                size = _defaultSize;
             }
             Icon icon = null;
             using (Bitmap bitmap = new Bitmap(size, size))
@@ -84,7 +84,7 @@ namespace WeekNumber
         {
             if (size == 0)
             {
-                size = _size;
+                size = _defaultSize;
             }
             Color backgroundColor = Color.FromArgb(
                 Settings.GetIntSetting(Resources.BackgroundR),
@@ -114,7 +114,7 @@ namespace WeekNumber
         {
             if (size == 0)
             {
-                size = _size;
+                size = _defaultSize;
             }
             float fontSize = (float)System.Math.Abs(size * .78125);
             float insetX = (float)-System.Math.Abs(fontSize * .14);

@@ -158,6 +158,9 @@ Free for all.</value>
   <data name="ExitMenu" xml:space="preserve">
     <value>Exit WeekNumber</value>
   </data>
+  <data name="FailedToChangeIconResolution" xml:space="preserve">
+    <value>Failed to update icon resolution.</value>
+  </data>
   <data name="FailedToSetIcon" xml:space="preserve">
     <value>Could not set Icon. 
 
@@ -216,6 +219,45 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="G" xml:space="preserve">
     <value>G</value>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="Icon128" xml:space="preserve">
+    <value>128x128</value>
+  </data>
+  <data name="Icon16" xml:space="preserve">
+    <value>16x16</value>
+  </data>
+  <data name="Icon20" xml:space="preserve">
+    <value>20x20</value>
+  </data>
+  <data name="Icon24" xml:space="preserve">
+    <value>24x24</value>
+  </data>
+  <data name="Icon256" xml:space="preserve">
+    <value>256x256</value>
+  </data>
+  <data name="Icon32" xml:space="preserve">
+    <value>32x32</value>
+  </data>
+  <data name="Icon40" xml:space="preserve">
+    <value>40x40</value>
+  </data>
+  <data name="Icon48" xml:space="preserve">
+    <value>48x48</value>
+  </data>
+  <data name="Icon512" xml:space="preserve">
+    <value>512x512</value>
+  </data>
+  <data name="Icon64" xml:space="preserve">
+    <value>64x64</value>
+  </data>
+  <data name="IconResolution" xml:space="preserve">
+    <value>IconResolution</value>
+  </data>
+  <data name="IconResolutionMenu" xml:space="preserve">
+    <value>Icon resolution</value>
   </data>
   <data name="MondayMenu" xml:space="preserve">
     <value>Monday</value>

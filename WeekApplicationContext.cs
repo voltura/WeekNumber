@@ -30,7 +30,8 @@ namespace WeekNumber
             {
                 Application.ApplicationExit += OnApplicationExit;
                 currentWeek = Week.Current();
-                Gui = new TaskbarGui(currentWeek);
+                int iconResolution = Settings.GetIntSetting(Resources.IconResolution, (int)IconSize.Icon256);
+                Gui = new TaskbarGui(currentWeek, iconResolution);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
                 _timer = GetTimer;
             }
@@ -95,7 +96,8 @@ namespace WeekNumber
             try
             {
                 currentWeek = Week.Current();
-                Gui?.UpdateIcon(currentWeek);
+                int iconResolution = Settings.GetIntSetting(Resources.IconResolution, (int)IconSize.Icon256);
+                Gui?.UpdateIcon(currentWeek, iconResolution);
             }
             catch (Exception ex)
             {

@@ -173,6 +173,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to update icon resolution..
+        /// </summary>
+        internal static string FailedToChangeIconResolution {
+            get {
+                return ResourceManager.GetString("FailedToChangeIconResolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not set Icon. 
         ///
         ///Please report to feedback@voltura.se!.
@@ -330,6 +339,123 @@ namespace WeekNumber {
         internal static string G {
             get {
                 return ResourceManager.GetString("G", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon.
+        /// </summary>
+        internal static string Icon {
+            get {
+                return ResourceManager.GetString("Icon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 128x128.
+        /// </summary>
+        internal static string Icon128 {
+            get {
+                return ResourceManager.GetString("Icon128", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 16x16.
+        /// </summary>
+        internal static string Icon16 {
+            get {
+                return ResourceManager.GetString("Icon16", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 20x20.
+        /// </summary>
+        internal static string Icon20 {
+            get {
+                return ResourceManager.GetString("Icon20", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 24x24.
+        /// </summary>
+        internal static string Icon24 {
+            get {
+                return ResourceManager.GetString("Icon24", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 256x256.
+        /// </summary>
+        internal static string Icon256 {
+            get {
+                return ResourceManager.GetString("Icon256", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 32x32.
+        /// </summary>
+        internal static string Icon32 {
+            get {
+                return ResourceManager.GetString("Icon32", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 40x40.
+        /// </summary>
+        internal static string Icon40 {
+            get {
+                return ResourceManager.GetString("Icon40", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 48x48.
+        /// </summary>
+        internal static string Icon48 {
+            get {
+                return ResourceManager.GetString("Icon48", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 512x512.
+        /// </summary>
+        internal static string Icon512 {
+            get {
+                return ResourceManager.GetString("Icon512", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 64x64.
+        /// </summary>
+        internal static string Icon64 {
+            get {
+                return ResourceManager.GetString("Icon64", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconResolution.
+        /// </summary>
+        internal static string IconResolution {
+            get {
+                return ResourceManager.GetString("IconResolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon resolution.
+        /// </summary>
+        internal static string IconResolutionMenu {
+            get {
+                return ResourceManager.GetString("IconResolutionMenu", resourceCulture);
             }
         }
         

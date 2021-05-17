@@ -95,6 +95,7 @@ namespace WeekNumber
     <add key=""ForegroundG"" value=""255""/>
     <add key=""ForegroundB"" value=""255""/>
     <add key=""ForceRedraw"" value=""False""/>
+    <add key=""IconResolution"" value=""256""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);
