@@ -26,8 +26,7 @@ namespace WeekNumber
 
         internal static void Show(string text)
         {
-            MessageBox.Show(text, _caption,
-                MessageBoxButtons.OK, MessageBoxIcon.Information, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            Show(text, null);
         }
 
         #endregion Show Information or Error dialog methods
