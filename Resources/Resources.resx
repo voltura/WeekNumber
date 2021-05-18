@@ -161,6 +161,11 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="FailedToChangeIconResolution" xml:space="preserve">
     <value>Failed to update icon resolution.</value>
   </data>
+  <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
+    <value>Could not inform Windows about change of taskbar icon size.
+
+Please report to feedback@voltura.se!</value>
+  </data>
   <data name="FailedToSetIcon" xml:space="preserve">
     <value>Could not set Icon. 
 
@@ -296,6 +301,11 @@ Please report to feedback@voltura.se!</value>
   <data name="SettingsMenu" xml:space="preserve">
     <value>Settings</value>
   </data>
+  <data name="SomethingWentWrong" xml:space="preserve">
+    <value>Oups! This was unexpected!
+
+Please report to feedback@voltura.se!</value>
+  </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>WeekNumber set to start with Windows</value>
   </data>
@@ -304,6 +314,12 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="SundayMenu" xml:space="preserve">
     <value>Sunday</value>
+  </data>
+  <data name="SwitchToLargeTaskbarButtonsMenu" xml:space="preserve">
+    <value>Use large taskbar buttons</value>
+  </data>
+  <data name="SwitchToSmallTaskbarButtonsMenu" xml:space="preserve">
+    <value>Use small taskbar buttons</value>
   </data>
   <data name="ThursdayMenu" xml:space="preserve">
     <value>Thursday</value>

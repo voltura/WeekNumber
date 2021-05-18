@@ -182,6 +182,17 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Could not inform Windows about change of taskbar icon size.
+        ///
+        ///Please report to feedback@voltura.se!.
+        /// </summary>
+        internal static string FailedToNotifyWindowsOfTaskbarIconSizeChange {
+            get {
+                return ResourceManager.GetString("FailedToNotifyWindowsOfTaskbarIconSizeChange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not set Icon. 
         ///
         ///Please report to feedback@voltura.se!.
@@ -568,6 +579,17 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Oups! This was unexpected!
+        ///
+        ///Please report to feedback@voltura.se!.
+        /// </summary>
+        internal static string SomethingWentWrong {
+            get {
+                return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to WeekNumber set to start with Windows.
         /// </summary>
         internal static string StartWithWindows {
@@ -591,6 +613,24 @@ namespace WeekNumber {
         internal static string SundayMenu {
             get {
                 return ResourceManager.GetString("SundayMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use large taskbar buttons.
+        /// </summary>
+        internal static string SwitchToLargeTaskbarButtonsMenu {
+            get {
+                return ResourceManager.GetString("SwitchToLargeTaskbarButtonsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use small taskbar buttons.
+        /// </summary>
+        internal static string SwitchToSmallTaskbarButtonsMenu {
+            get {
+                return ResourceManager.GetString("SwitchToSmallTaskbarButtonsMenu", resourceCulture);
             }
         }
         

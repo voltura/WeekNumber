@@ -81,7 +81,7 @@
     <StartupObject>WeekNumber.Program</StartupObject>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationIcon>weekicon.ico</ApplicationIcon>
+    <ApplicationIcon>Resources\weekicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationManifest>Properties\settings.manifest</ApplicationManifest>
@@ -90,12 +90,13 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>WeekNumber.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>Properties\WeekNumber.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <PropertyGroup>
     <SignManifests>false</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="PresentationFramework" />
     <Reference Include="System" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Configuration" />
@@ -118,6 +119,7 @@
     </Compile>
     <Compile Include="Settings.cs" />
     <Compile Include="TaskbarGui.cs" />
+    <Compile Include="TaskbarUtil.cs" />
     <Compile Include="Week.cs" />
     <Compile Include="WeekApplicationContext.cs" />
     <Compile Include="WeekIcon.cs" />
@@ -133,10 +135,9 @@
     </None>
     <None Include="NSIS Installation\RunCompileInstaller.bat" />
     <None Include="NSIS Installation\WeekNumber.nsi" />
-    <None Include="WeekNumber.snk" />
+    <None Include="Properties\WeekNumber.snk" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="weekicon.ico" />
     <None Include="NSIS Installation\License.txt" />
     <Content Include="Resources\weekicon.ico" />
   </ItemGroup>

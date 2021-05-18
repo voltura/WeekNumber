@@ -33,6 +33,21 @@ namespace WeekNumber
 
         #region Private event handling
 
+        private void ToogleTaskbarIconSizeMenuClick(object o, EventArgs e)
+        {
+            try
+            {
+                MenuItem mi = (MenuItem)o;
+                TaskbarUtil.ToogleTaskbarIconSize();
+                mi.Text = TaskbarUtil.UsingSmallTaskbarButtons() ? Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu;
+                SettingsChangedHandler?.Invoke(null, null);
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.SomethingWentWrong, ex);
+            }
+        }
+
         private static void ExitMenuClick(object o, EventArgs e)
         {
             Application.Exit();
@@ -202,7 +217,7 @@ namespace WeekNumber
 
         #region Private method for context menu creation
 
-        private void CreateContextMenu()
+        internal void CreateContextMenu()
         {
             ContextMenu = new ContextMenu(new MenuItem[4]
             {
@@ -210,12 +225,15 @@ namespace WeekNumber
                 {
                     DefaultItem = true
                 },
-                new MenuItem(Resources.SettingsMenu, new MenuItem[6]
+                new MenuItem(Resources.SettingsMenu, new MenuItem[7]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
                         Checked = Settings.StartWithWindows
                     },
+                    new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ? 
+                        Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu, 
+                        ToogleTaskbarIconSizeMenuClick),
                     FirstDayOfWeekMenu(),
                     CalendarRuleMenu(),
                     ColorsMenu(),

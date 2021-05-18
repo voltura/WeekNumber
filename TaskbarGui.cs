@@ -50,9 +50,15 @@ namespace WeekNumber
         /// </summary>
         /// <param name="weekNumber">The week number to display on icon</param>
         /// <param name="iconResolution">The width and height of the icon</param>
-        public void UpdateIcon(int weekNumber, int iconResolution = (int)IconSize.Icon256)
+        /// <param name="redrawContextMenu">Redraw context menu</param>
+        public void UpdateIcon(int weekNumber, int iconResolution = (int)IconSize.Icon256, bool redrawContextMenu = false)
         {
             UpdateIcon(weekNumber, ref _notifyIcon, iconResolution);
+            if (redrawContextMenu)
+            {
+                _contextMenu.CreateContextMenu();
+                _notifyIcon.ContextMenu = _contextMenu.ContextMenu;
+            }
         }
 
         #endregion Public UpdateIcon method

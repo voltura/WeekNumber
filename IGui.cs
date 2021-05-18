@@ -10,7 +10,8 @@
         /// </summary>
         /// <param name="weekNumber">The week number to display on icon</param>
         /// <param name="iconResolution">The width and height of the icon</param>
-        void UpdateIcon(int weekNumber, int iconResolution = (int)IconSize.Icon256);
+        /// <param name="redrawContextMenu">Redraw context menu</param>
+        void UpdateIcon(int weekNumber, int iconResolution = (int)IconSize.Icon256, bool redrawContextMenu = false);
 
         /// <summary>
         /// Disposes GUI

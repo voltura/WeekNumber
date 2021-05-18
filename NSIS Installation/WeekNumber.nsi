@@ -50,11 +50,11 @@
 ;Interface Settings
 
   !define MUI_ABORTWARNING
-  !define MUI_ICON "..\weekicon.ico"
-  !define MUI_UNICON "..\weekicon.ico"
-  !define MUI_HEADERIMAGE_BITMAP "..\WeekNumber.bmp"
+  !define MUI_ICON "..\Resources\weekicon.ico"
+  !define MUI_UNICON "..\Resources\weekicon.ico"
+  !define MUI_HEADERIMAGE_BITMAP "..\Resources\WeekNumber.bmp"
   !define MUI_HEADERIMAGE_BITMAP_STRETCH AspectFitHeight
-  !define MUI_HEADERIMAGE_UNBITMAP "..\WeekNumber.bmp"
+  !define MUI_HEADERIMAGE_UNBITMAP "..\Resources\WeekNumber.bmp"
   !define MUI_HEADERIMAGE_UNBITMAP_STRETCH AspectFitHeight
 ;--------------------------------
 ;Pages
