@@ -55,10 +55,8 @@ namespace WeekNumber
             if (forceUpdate || iconResolution == -1)
             {
                 // guess what icon resolution to use based on system
-                bool usesSmallTaskbarButtons = TaskbarUtil.UsingSmallTaskbarButtons();
-                double number = System.Windows.SystemParameters.SmallIconHeight;
-                number *= GetWindowsZoom() * 2;
-                number *= usesSmallTaskbarButtons ? 1 : 1.5;
+                double number = System.Windows.SystemParameters.SmallIconHeight *
+                                GetWindowsZoom() * (TaskbarUtil.UsingSmallTaskbarButtons() ? 1 : 1.5);
                 // find closes match to existing configs
                 List<int> list = new List<int> { 20, 24, 32, 40, 48, 64, 128, 256, 512 };
                 int closest = list.Aggregate((x, y) => Math.Abs(x - number) < Math.Abs(y - number) ? x : y);
