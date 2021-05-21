@@ -32,6 +32,7 @@ namespace WeekNumber
         {
             try
             {
+                Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
                 _currentWeek = Week.Current();

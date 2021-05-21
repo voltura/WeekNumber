@@ -1,6 +1,6 @@
 @ECHO OFF
 TITLE Running script to create WeekNumber installer...
-SET VERSION=1.6.1.0
+SET VERSION=1.6.2.0
 START /WAIT CompileInstaller.bat %VERSION%
 SET RESULT=%ERRORLEVEL%
 IF %RESULT%==0 (

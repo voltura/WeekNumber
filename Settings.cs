@@ -16,7 +16,11 @@ namespace WeekNumber
 
         internal static bool StartWithWindows
         {
-            get => Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\", Application.ProductName, null) != null;
+            get
+            {
+                bool startWithWindows = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\", Application.ProductName, null) != null;                
+                return startWithWindows;
+            }
             set
             {
                 using (RegistryKey registryKey = Registry.CurrentUser)
@@ -25,11 +29,13 @@ namespace WeekNumber
                     if (value)
                     {
                         regRun?.SetValue(Application.ProductName, Application.ExecutablePath);
+                        UpdateSetting(Resources.StartWithWindows, true.ToString());
                     }
                     else
                     {
                         if (regRun?.GetValue(Application.ProductName) != null)
                             regRun?.DeleteValue(Application.ProductName);
+                        UpdateSetting(Resources.StartWithWindows, false.ToString());
                     }
                     registryKey?.Flush();
                 }
@@ -96,6 +102,7 @@ namespace WeekNumber
     <add key=""ForegroundB"" value=""255""/>
     <add key=""ForceRedraw"" value=""False""/>
     <add key=""IconResolution"" value=""""/>
+    <add key=""StartWithWindows"" value=""False""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

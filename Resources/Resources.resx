@@ -270,9 +270,6 @@ Please report to feedback@voltura.se!</value>
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Sorry, this function is not implemented yet.</value>
   </data>
-  <data name="NotStartWithWindows" xml:space="preserve">
-    <value>WeekNumber will not start with Windows</value>
-  </data>
   <data name="R" xml:space="preserve">
     <value>R</value>
   </data>
@@ -307,7 +304,7 @@ Please report to feedback@voltura.se!</value>
 Please report to feedback@voltura.se!</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
-    <value>WeekNumber set to start with Windows</value>
+    <value>StartWithWindows</value>
   </data>
   <data name="StartWithWindowsMenu" xml:space="preserve">
     <value>Start with Windows</value>

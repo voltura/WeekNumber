@@ -489,15 +489,6 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WeekNumber will not start with Windows.
-        /// </summary>
-        internal static string NotStartWithWindows {
-            get {
-                return ResourceManager.GetString("NotStartWithWindows", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to R.
         /// </summary>
         internal static string R {
@@ -590,7 +581,7 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to WeekNumber set to start with Windows.
+        ///   Looks up a localized string similar to StartWithWindows.
         /// </summary>
         internal static string StartWithWindows {
             get {
