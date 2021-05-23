@@ -30,6 +30,20 @@ namespace WeekNumber
             Show(text, null);
         }
 
+        internal static void Show(string message, bool isError)
+        {
+            if (isError) Log.Info = message; else Log.ErrorString = message;
+            MessageBoxIcon icon = isError ? MessageBoxIcon.Information : MessageBoxIcon.Error;
+            MessageBox.Show(message, CAPTION, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+        }
+
+        internal static bool UserAcceptedQuestion(string message)
+        {
+            Log.Info = message;
+            DialogResult userAnswer = MessageBox.Show(message, CAPTION, MessageBoxButtons.YesNo, MessageBoxIcon.Question, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            return userAnswer == DialogResult.Yes;
+        }
+
         #endregion Show Information or Error dialog methods
     }
 }

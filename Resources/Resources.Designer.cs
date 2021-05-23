@@ -146,6 +146,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check for updated version.
+        /// </summary>
+        internal static string CheckForNewVersionMenu {
+            get {
+                return ResourceManager.GetString("CheckForNewVersionMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon colors.
         /// </summary>
         internal static string ColorsMenu {
@@ -169,6 +178,15 @@ namespace WeekNumber {
         internal static string FailedToChangeIconResolution {
             get {
                 return ResourceManager.GetString("FailedToChangeIconResolution", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to perform version check, cannot find an active internet connection..
+        /// </summary>
+        internal static string FailedToCheckUpdateNoInternet {
+            get {
+                return ResourceManager.GetString("FailedToCheckUpdateNoInternet", resourceCulture);
             }
         }
         
@@ -485,6 +503,15 @@ namespace WeekNumber {
         internal static string NotImplementedYet {
             get {
                 return ResourceManager.GetString("NotImplementedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Open application web page.
+        /// </summary>
+        internal static string OpenApplicationWebPageMenu {
+            get {
+                return ResourceManager.GetString("OpenApplicationWebPageMenu", resourceCulture);
             }
         }
         

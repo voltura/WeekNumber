@@ -270,12 +270,14 @@ namespace WeekNumber
         internal void CreateContextMenu()
         {
             Log.LogCaller();
-            ContextMenu = new ContextMenu(new MenuItem[4]
+            ContextMenu = new ContextMenu(new MenuItem[6]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
                     DefaultItem = true
                 },
+                new MenuItem(Resources.CheckForNewVersionMenu, UpdateHandler.UpdateClick),
+                new MenuItem(Resources.OpenApplicationWebPageMenu, UpdateHandler.OpenApplicationWebPageClick),
                 new MenuItem(Resources.SettingsMenu, new MenuItem[9]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)

@@ -123,6 +123,7 @@
     <Compile Include="Settings.cs" />
     <Compile Include="TaskbarGui.cs" />
     <Compile Include="TaskbarUtil.cs" />
+    <Compile Include="UpdateHandler.cs" />
     <Compile Include="Week.cs" />
     <Compile Include="WeekApplicationContext.cs" />
     <Compile Include="WeekIcon.cs" />

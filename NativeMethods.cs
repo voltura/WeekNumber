@@ -32,6 +32,19 @@ namespace WeekNumber
 
         #endregion External user32.dll function to inform Windows about changed taskbar setting
 
+        #region External wininet.dll function to check Internet connection state
+
+        [DllImport("wininet.dll", CharSet = CharSet.Auto)]
+        [return: MarshalAs(UnmanagedType.Bool)] 
+        private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
+
+        internal static bool IsConnectedToInternet()
+        {
+            return InternetGetConnectedState(out _, 0);
+        }
+
+        #endregion External wininet.dll function to check Internet connection state
+
         #region Refresh tray area (only English user interface)
 
         [StructLayout(LayoutKind.Sequential)]

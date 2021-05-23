@@ -149,6 +149,9 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="CalendarRuleMenu" xml:space="preserve">
     <value>Calendar week rule</value>
   </data>
+  <data name="CheckForNewVersionMenu" xml:space="preserve">
+    <value>Check for updated version</value>
+  </data>
   <data name="ColorsMenu" xml:space="preserve">
     <value>Icon colors</value>
   </data>
@@ -157,6 +160,9 @@ Copyright © Voltura AB 2018-2021</value>
   </data>
   <data name="FailedToChangeIconResolution" xml:space="preserve">
     <value>Failed to update icon resolution.</value>
+  </data>
+  <data name="FailedToCheckUpdateNoInternet" xml:space="preserve">
+    <value>Failed to perform version check, cannot find an active internet connection.</value>
   </data>
   <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
     <value>Could not inform Windows about change of taskbar icon size.
@@ -269,6 +275,9 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Sorry, this function is not implemented yet.</value>
+  </data>
+  <data name="OpenApplicationWebPageMenu" xml:space="preserve">
+    <value>Open application web page</value>
   </data>
   <data name="R" xml:space="preserve">
     <value>R</value>
