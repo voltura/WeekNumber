@@ -11,7 +11,7 @@ Download installer and run to install*, to remove the application run the uninst
 
 ![image](https://user-images.githubusercontent.com/2292809/118048375-7da1bb80-b37c-11eb-9393-0c4a3736dd83.png)
 
-![image](https://user-images.githubusercontent.com/2292809/119262057-2b616580-bbda-11eb-8264-0bc93c09f75a.png)
+![image](https://user-images.githubusercontent.com/2292809/119267508-3672c080-bbef-11eb-915e-69d6fc7618b7.png)
 
 ![image](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png)
 
