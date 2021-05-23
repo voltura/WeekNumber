@@ -149,6 +149,7 @@ namespace WeekNumber
                         {
                             if (File.Exists(destinationFullPath))
                             {
+                                Settings.BackupSettings();
                                 using (Process process = new Process()
                                 {
                                     StartInfo = new ProcessStartInfo(destinationFullPath)

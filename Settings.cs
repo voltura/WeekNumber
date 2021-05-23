@@ -1,10 +1,12 @@
 ﻿#region Using statements
 
 using Microsoft.Win32;
+using System;
 using System.Configuration;
 using System.Globalization;
 using System.IO;
 using System.Windows.Forms;
+using System.Xml;
 
 #endregion Using statements
 
@@ -76,6 +78,71 @@ namespace WeekNumber
             configFile.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
             Log.Info = $"'{setting}' set to '{value}'";
+        }
+
+        /// <summary>
+        /// Creates a backup of the applications current settings file
+        /// </summary>
+        internal static void BackupSettings()
+        {
+            Log.LogCaller();
+            string settingsFile = Application.ExecutablePath + ".config";
+            string settingsBackupDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp");
+            string settingsFileBackup = Path.Combine(settingsBackupDir, Application.ExecutablePath + ".config.bak");
+            try
+            {
+                if (File.Exists(settingsFile))
+                {
+                    if (!Directory.Exists(settingsBackupDir)) Directory.CreateDirectory(settingsBackupDir);
+                    File.Copy(settingsFile, settingsFileBackup, true);
+                    Log.Info = "Backup of settings file performed successfully";
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            }
+        }
+
+        internal static void RestoreBackupSettings()
+        {
+            Log.LogCaller();
+            string settingsFile = Application.ExecutablePath + ".config";
+            string settingsBackupDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp");
+            string settingsFileBackup = Path.Combine(settingsBackupDir, Application.ExecutablePath + ".config.bak");
+            try
+            {
+                if (!File.Exists(settingsFileBackup)) return;
+                if (!File.Exists(settingsFile)) CreateSettings();
+                XmlDocument doc = new XmlDocument();
+                doc.Load(settingsFileBackup);
+                XmlNodeList nodeList = doc.SelectNodes("/configuration/appSettings");
+                foreach (XmlNode node in nodeList)
+                    foreach (XmlNode child in node.ChildNodes)
+                        if (child.Name == "add")
+                        {
+                            XmlAttributeCollection attribs = child.Attributes;
+                            if (attribs.Count == 2)
+                            {
+                                string settingsName = attribs[0].Value;
+                                string settingsValue = attribs[1].Value;
+                                try
+                                {
+                                    UpdateSetting(settingsName, settingsValue);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error = ex;
+                                }
+                            }
+                        }
+                File.Delete(settingsFileBackup);
+                Log.Info = "Removed backup settings file after restore.";
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            }
         }
 
         #endregion Internal static methods

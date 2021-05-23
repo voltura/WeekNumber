@@ -32,6 +32,7 @@ namespace WeekNumber
             {
                 Log.Info = "=== Application started ===";
                 Log.Info = Application.ProductName + " version " + Application.ProductVersion;
+                Settings.RestoreBackupSettings();
                 AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 NativeMethods.RefreshTrayArea();
                 SetGCSettings();

@@ -146,6 +146,9 @@ Section "Uninstall"
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall WeekNumber.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
   DeleteRegKey HKCU "Software\WeekNumber"
+  IfSilent +2
+  DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Run\WeekNumber"
+  
 SectionEnd
 
 ;--------------------------------
