@@ -71,7 +71,8 @@ Manually check for newer version here:
                 string internetVersion = versionInfo[0];
                 string latestInstallerFileName = versionInfo[1];
 
-                if (!IsNewerVersion(runningVersion, internetVersion)) {
+                if (!IsNewerVersion(runningVersion, internetVersion))
+                {
                     Message.Show($@"You have the latest version!");
                     return;
                 }

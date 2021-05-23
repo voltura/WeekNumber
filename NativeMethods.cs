@@ -35,7 +35,7 @@ namespace WeekNumber
         #region External wininet.dll function to check Internet connection state
 
         [DllImport("wininet.dll", CharSet = CharSet.Auto)]
-        [return: MarshalAs(UnmanagedType.Bool)] 
+        [return: MarshalAs(UnmanagedType.Bool)]
         private extern static bool InternetGetConnectedState(out int Description, int ReservedValue);
 
         internal static bool IsConnectedToInternet()
