@@ -20,6 +20,7 @@ namespace WeekNumber
 
         internal WeekNumberContextMenu()
         {
+            Log.LogCaller();
             CreateContextMenu();
         }
 
@@ -37,6 +38,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 TaskbarUtil.ToogleTaskbarIconSize();
                 mi.Text = TaskbarUtil.UsingSmallTaskbarButtons() ? Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu;
@@ -44,12 +46,13 @@ namespace WeekNumber
             }
             catch (Exception ex)
             {
-                Message.Show(Resources.SomethingWentWrong, ex);
+                Message.Show(Resources.UnhandledException, ex);
             }
         }
 
         private static void ExitMenuClick(object o, EventArgs e)
         {
+            Log.LogCaller();
             Application.Exit();
         }
 
@@ -57,6 +60,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 mi.Enabled = false;
                 CheckMenuItemUncheckSiblings(mi);
@@ -75,6 +79,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 mi.Enabled = false;
                 if (mi.Name == Resources.ResetColors)
@@ -116,7 +121,6 @@ namespace WeekNumber
             catch (Exception ex)
             {
                 Message.Show(Resources.FailedToUpdateColor, ex);
-                throw;
             }
             finally
             {
@@ -128,6 +132,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 mi.Enabled = false;
                 int iconSizeSelected = (int)IconSize.Icon256;
@@ -139,7 +144,6 @@ namespace WeekNumber
             catch (Exception ex)
             {
                 Message.Show(Resources.FailedToChangeIconResolution, ex);
-                throw;
             }
         }
 
@@ -147,6 +151,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 mi.Enabled = false;
                 CheckMenuItemUncheckSiblings(mi);
@@ -158,7 +163,50 @@ namespace WeekNumber
             catch (Exception ex)
             {
                 Message.Show(Resources.FailedToUpdateCalendarWeekRule, ex);
-                throw;
+            }
+        }
+
+        private void UseApplicationLogClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    mi.Checked = !mi.Checked;
+                    Settings.UpdateSetting(Resources.UseApplicationLog, mi.Checked ? "True" : "False");
+                    Log.Init();
+                    EnableMenuItem(mi);
+                    SettingsChangedHandler?.Invoke(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+        }
+
+        private void ShowApplicationLogClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    if (Settings.SettingIsValue(Resources.UseApplicationLog, "True"))
+                    {
+                        Log.Show();
+                        mi.Enabled = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
             }
         }
 
@@ -166,6 +214,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 MenuItem mi = (MenuItem)o;
                 if (mi != null)
                 {
@@ -178,12 +227,12 @@ namespace WeekNumber
             catch (Exception ex)
             {
                 Message.Show(Resources.FailedToUpdateRegistry, ex);
-                throw;
             }
         }
 
         private void AboutClick(object o, EventArgs e)
         {
+            Log.LogCaller();
             MenuItem mi = (MenuItem)o;
             mi.Enabled = false;
             Message.Show(Resources.About);
@@ -192,6 +241,7 @@ namespace WeekNumber
 
         private static void SaveIconClick(object o, EventArgs e)
         {
+            Log.LogCaller();
             MenuItem mi = (MenuItem)o;
             mi.Enabled = false;
             using (SaveFileDialog saveFileDialog = new SaveFileDialog
@@ -219,20 +269,30 @@ namespace WeekNumber
 
         internal void CreateContextMenu()
         {
+            Log.LogCaller();
             ContextMenu = new ContextMenu(new MenuItem[4]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
                     DefaultItem = true
                 },
-                new MenuItem(Resources.SettingsMenu, new MenuItem[7]
+                new MenuItem(Resources.SettingsMenu, new MenuItem[9]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
                         Checked = Settings.StartWithWindows
                     },
-                    new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ? 
-                        Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu, 
+                    new MenuItem(Resources.UseApplicationLogMenu, UseApplicationLogClick)
+                    {
+                        Checked = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                    },
+                    new MenuItem(Resources.ShowLogMenu, ShowApplicationLogClick)
+                    {
+                        Name = Resources.ShowLog,
+                        Enabled = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                    },
+                    new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
+                        Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu,
                         ToogleTaskbarIconSizeMenuClick),
                     FirstDayOfWeekMenu(),
                     CalendarRuleMenu(),
@@ -251,6 +311,7 @@ namespace WeekNumber
 
         private MenuItem ColorsMenu()
         {
+            Log.LogCaller();
             return new MenuItem(Resources.ColorsMenu, new MenuItem[3]
             {
                 new MenuItem(Resources.ForegroundMenu, ColorMenuClick)
@@ -270,6 +331,7 @@ namespace WeekNumber
 
         private MenuItem IconResolutionMenu()
         {
+            Log.LogCaller();
             int iconResolutionSetting = Settings.GetIntSetting(Resources.IconResolution, (int)IconSize.Icon256);
             string selectedIconResolutionName = $"Icon{iconResolutionSetting}";
             return new MenuItem(Resources.IconResolutionMenu, new MenuItem[10]
@@ -339,6 +401,7 @@ namespace WeekNumber
 
         private MenuItem CalendarRuleMenu()
         {
+            Log.LogCaller();
             return new MenuItem(Resources.CalendarRuleMenu, new MenuItem[3]
             {
                 new MenuItem(Resources.FirstDayMenu, CalendarWeekRuleClick)
@@ -361,6 +424,7 @@ namespace WeekNumber
 
         private MenuItem FirstDayOfWeekMenu()
         {
+            Log.LogCaller();
             return new MenuItem(Resources.FirstDayOfWeekMenu, new MenuItem[7]
             {
                 new MenuItem(Resources.MondayMenu, FirstDayOfWeekClick)
@@ -415,6 +479,7 @@ namespace WeekNumber
             {
                 return;
             }
+            Log.LogCaller();
             foreach (MenuItem m in mi.Parent?.MenuItems)
             {
                 m.Checked = false;
@@ -448,6 +513,7 @@ namespace WeekNumber
 
         private void CleanupContextMenu()
         {
+            Log.LogCaller();
             ContextMenu?.Dispose();
             ContextMenu = null;
         }

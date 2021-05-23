@@ -44,9 +44,9 @@ namespace WeekNumber
             catch (Exception ex)
             {
                 _timer?.Stop();
+                Log.LogCaller();
                 Message.Show(Resources.UnhandledException, ex);
                 Application.Exit();
-                throw;
             }
         }
 
@@ -56,11 +56,24 @@ namespace WeekNumber
             if (forceUpdate || iconResolution == -1)
             {
                 // guess what icon resolution to use based on system
+                double winZoomLvl = GetWindowsZoom();
+                bool usingSmallTaskbarIcons = TaskbarUtil.UsingSmallTaskbarButtons();
+
+                Log.Info = $"SmallIconHeight={System.Windows.SystemParameters.SmallIconHeight}";
+                Log.Info = $"WindowsZoomLevel={winZoomLvl * 100}";
+                Log.Info = $"UsingSmallTaskbarButtons={usingSmallTaskbarIcons}";
+
                 double number = System.Windows.SystemParameters.SmallIconHeight *
-                                GetWindowsZoom() * (TaskbarUtil.UsingSmallTaskbarButtons() ? 1 : 1.5);
+                                winZoomLvl * (usingSmallTaskbarIcons ? 1 : 1.5);
+
+                Log.Info = $"Guessed icon resolution={number}x{number}";
+
                 // find closes match to existing configs
                 List<int> list = new List<int> { 20, 24, 32, 40, 48, 64, 128, 256, 512 };
                 int closest = list.Aggregate((x, y) => Math.Abs(x - number) < Math.Abs(y - number) ? x : y);
+
+                Log.Info = $"Closest icon resolution={closest}x{closest}";
+
                 Settings.UpdateSetting(Resources.IconResolution, closest.ToString());
                 iconResolution = closest;
             }
@@ -80,11 +93,13 @@ namespace WeekNumber
                 {
                     return _timer;
                 }
+                int calculatedInterval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
                 Timer timer = new Timer
                 {
-                    Interval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000),
+                    Interval = calculatedInterval,
                     Enabled = true
                 };
+                Log.Info = $"Timer interval={calculatedInterval / 1000}s";
                 timer.Tick += OnTimerTick;
                 return timer;
             }
@@ -96,16 +111,19 @@ namespace WeekNumber
 
         private void GuiUpdateRequestHandler(object sender, EventArgs e)
         {
-            UpdateIcon(true);
+            Log.LogCaller();
+            UpdateIcon(true, true);
         }
 
         private void OnApplicationExit(object sender, EventArgs e)
         {
+            Log.LogCaller();
             Cleanup(false);
         }
 
         private void OnUserPreferenceChanged(object sender, EventArgs e)
         {
+            Log.LogCaller();
             int iconRes = GetIconResolution(true);
             if (iconRes != _lastIconRes)
             {
@@ -129,8 +147,10 @@ namespace WeekNumber
             Application.DoEvents();
             try
             {
+                Log.LogCaller();
                 _currentWeek = Week.Current();
                 int iconResolution = Settings.GetIntSetting(Resources.IconResolution, (int)IconSize.Icon256);
+                Log.Info = $"Update icon with week number {_currentWeek} using resolution {iconResolution}x{iconResolution}, redraw context menu={redrawContextMenu}, forced update={force}";
                 Gui?.UpdateIcon(_currentWeek, iconResolution, redrawContextMenu);
             }
             catch (Exception ex)
@@ -141,7 +161,9 @@ namespace WeekNumber
             }
             if (_timer != null)
             {
-                _timer.Interval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
+                int calculatedInterval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
+                _timer.Interval = calculatedInterval;
+                Log.Info = $"Timer interval={calculatedInterval / 1000}s";
                 _timer.Start();
             }
         }
@@ -152,6 +174,7 @@ namespace WeekNumber
 
         private void Cleanup(bool forceExit = true)
         {
+            Log.LogCaller();
             _timer?.Stop();
             _timer?.Dispose();
             Gui?.Dispose();

@@ -2,7 +2,6 @@
 
 using Microsoft.Win32;
 using System;
-using System.Security.AccessControl;
 
 #endregion Using statements
 
@@ -30,8 +29,9 @@ namespace WeekNumber
                         Message.Show(Resources.FailedToUpdateRegistry);
                         return;
                     }
-                    int value = (int) key?.GetValue(TASKBAR_SMALL_ICONS_REG_NAME, 0, RegistryValueOptions.None);
-                    key?.SetValue(TASKBAR_SMALL_ICONS_REG_NAME, Math.Abs(value - 1), RegistryValueKind.DWord);
+                    int newValue = Math.Abs(((int)key?.GetValue(TASKBAR_SMALL_ICONS_REG_NAME, 0, RegistryValueOptions.None)) - 1);
+                    key?.SetValue(TASKBAR_SMALL_ICONS_REG_NAME, newValue, RegistryValueKind.DWord);
+                    Log.Info = $"{TASKBAR_SMALL_ICONS_REG_NAME}={(newValue == 0 ? "false" : "true")}";
                 }
             }
             catch (Exception ex)
@@ -42,7 +42,7 @@ namespace WeekNumber
             try
             {
                 if (!NativeMethods.SendNotifyMessage((IntPtr)NativeMethods.HWND_BROADCAST,
-                    NativeMethods.WM_SETTINGCHANGE, (UIntPtr)NativeMethods.NULL, "TraySettings"))
+                    NativeMethods.WM_SETTINGCHANGE, UIntPtr.Zero, "TraySettings")) //NOTE: Will only work for English Windows UI locale
                 {
                     Message.Show(Resources.FailedToNotifyWindowsOfTaskbarIconSizeChange);
                 }
@@ -66,8 +66,10 @@ namespace WeekNumber
                     return (int)key?.GetValue(TASKBAR_SMALL_ICONS_REG_NAME, 0, RegistryValueOptions.None) != 0;
                 }
             }
-            catch (Exception)
+            catch (Exception ex)
             {
+                Log.LogCaller();
+                Log.Error = ex;
             }
             return true;
         }

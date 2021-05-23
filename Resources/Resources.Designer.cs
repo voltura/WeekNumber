@@ -146,15 +146,6 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to    !   .
-        /// </summary>
-        internal static string ClearThroat {
-            get {
-                return ResourceManager.GetString("ClearThroat", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Icon colors.
         /// </summary>
         internal static string ColorsMenu {
@@ -471,6 +462,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to logFileSizeMB.
+        /// </summary>
+        internal static string logFileSizeMB {
+            get {
+                return ResourceManager.GetString("logFileSizeMB", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Monday.
         /// </summary>
         internal static string MondayMenu {
@@ -570,13 +570,20 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Oups! This was unexpected!
-        ///
-        ///Please report to feedback@voltura.se!.
+        ///   Looks up a localized string similar to ShowLog.
         /// </summary>
-        internal static string SomethingWentWrong {
+        internal static string ShowLog {
             get {
-                return ResourceManager.GetString("SomethingWentWrong", resourceCulture);
+                return ResourceManager.GetString("ShowLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show application log.
+        /// </summary>
+        internal static string ShowLogMenu {
+            get {
+                return ResourceManager.GetString("ShowLogMenu", resourceCulture);
             }
         }
         
@@ -651,6 +658,24 @@ namespace WeekNumber {
         internal static string UnhandledException {
             get {
                 return ResourceManager.GetString("UnhandledException", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UseApplicationLog.
+        /// </summary>
+        internal static string UseApplicationLog {
+            get {
+                return ResourceManager.GetString("UseApplicationLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use application log.
+        /// </summary>
+        internal static string UseApplicationLogMenu {
+            get {
+                return ResourceManager.GetString("UseApplicationLogMenu", resourceCulture);
             }
         }
         

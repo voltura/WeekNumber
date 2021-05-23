@@ -30,6 +30,10 @@ namespace WeekNumber
             WeekApplicationContext context = null;
             try
             {
+                Log.Info = "=== Application started ===";
+                Log.Info = Application.ProductName + " version " + Application.ProductVersion;
+                AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
+                NativeMethods.RefreshTrayArea();
                 SetGCSettings();
                 Application.EnableVisualStyles();
                 Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
@@ -41,6 +45,7 @@ namespace WeekNumber
             }
             finally
             {
+                Log.Close("=== Application ended ===");
                 context?.Dispose();
                 Mutex.ReleaseMutex();
             }
@@ -52,10 +57,31 @@ namespace WeekNumber
 
         private static void SetGCSettings()
         {
+            Log.LogCaller();
             GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
             GCSettings.LatencyMode = GCLatencyMode.Batch;
         }
 
         #endregion Private method that configures garbarge collection settings
+
+        #region Global unhandled Exception trap
+
+        /// <summary>
+        /// Catches all unhandled exceptions for the application
+        /// Writes the exception to the application log file
+        /// Terminates the application with exit code -1
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private static void UnhandledExceptionTrapper(object sender, UnhandledExceptionEventArgs e)
+        {
+            Exception ex = (Exception)e.ExceptionObject;
+            Log.Error = ex;
+            Message.Show(Resources.UnhandledException, ex);
+            Log.Close("=== Application ended ===");
+            Environment.Exit(1);
+        }
+
+        #endregion Global unhandled Exception trap
     }
 }

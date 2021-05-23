@@ -26,6 +26,7 @@ namespace WeekNumber
 
         internal TaskbarGui(int week, int iconResolution = (int)IconSize.Icon256)
         {
+            Log.LogCaller();
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
             UpdateIcon(week, ref _notifyIcon, iconResolution);
@@ -67,6 +68,7 @@ namespace WeekNumber
 
         private static void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon, int iconResolution)
         {
+            Log.LogCaller();
             notifyIcon.Text = Resources.Week + weekNumber;
             System.Drawing.Icon prevIcon = notifyIcon.Icon;
             notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);

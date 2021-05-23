@@ -18,7 +18,7 @@ namespace WeekNumber
         {
             get
             {
-                bool startWithWindows = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\", Application.ProductName, null) != null;                
+                bool startWithWindows = Registry.GetValue(@"HKEY_CURRENT_USER\Software\Microsoft\Windows\CurrentVersion\Run\", Application.ProductName, null) != null;
                 return startWithWindows;
             }
             set
@@ -75,6 +75,7 @@ namespace WeekNumber
             settings[setting].Value = value;
             configFile.Save(ConfigurationSaveMode.Modified);
             ConfigurationManager.RefreshSection(configFile.AppSettings.SectionInformation.Name);
+            Log.Info = $"'{setting}' set to '{value}'";
         }
 
         #endregion Internal static methods
@@ -86,6 +87,7 @@ namespace WeekNumber
             string settingsFile = Application.ExecutablePath + ".config";
             if (!File.Exists(settingsFile))
             {
+                Log.LogCaller();
                 CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
                 System.DayOfWeek firstDay = currentCultureInfo.DateTimeFormat.FirstDayOfWeek;
                 CalendarWeekRule calendarWeekRule = currentCultureInfo.DateTimeFormat.CalendarWeekRule;
@@ -103,9 +105,12 @@ namespace WeekNumber
     <add key=""ForceRedraw"" value=""False""/>
     <add key=""IconResolution"" value=""""/>
     <add key=""StartWithWindows"" value=""False""/>
+    <add key=""logFileSizeMB"" value=""10""/>
+    <add key=""UseApplicationLog"" value=""False""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);
+                Log.Info = $"Created '{settingsFile}'";
             }
         }
 

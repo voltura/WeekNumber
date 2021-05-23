@@ -21,8 +21,10 @@ namespace WeekNumber
 
         internal static Icon GetIcon(int weekNumber, int size = 0)
         {
+            Log.LogCaller();
             if (size == 0)
             {
+                Log.Info = $"Using default icon size {_defaultSize}x{_defaultSize}";
                 size = _defaultSize;
             }
             Icon icon = null;
@@ -56,18 +58,19 @@ namespace WeekNumber
 
             try
             {
+                Log.LogCaller();
                 icon = GetIcon(weekNumber, _saveSize);
                 using (FileStream fs = new FileStream(fullPath, FileMode.Create,
                     FileAccess.Write, FileShare.None))
                 {
                     icon.Save(fs);
+                    Log.Info = $"Save app icon as '{fullPath}'";
                 }
             }
             catch (System.Exception ex)
             {
                 Message.Show(Resources.UnhandledException, ex);
                 result = false;
-                throw;
             }
             finally
             {

@@ -11,7 +11,6 @@ namespace WeekNumber
     {
         #region Internal constants
 
-        internal const int NULL = 0;
         internal const int HWND_BROADCAST = 0xffff;
         internal const int WM_SETTINGCHANGE = 0x001a;
 
@@ -32,5 +31,59 @@ namespace WeekNumber
         internal static extern bool SendNotifyMessage(IntPtr hWnd, uint Msg, UIntPtr wParam, string lParam);
 
         #endregion External user32.dll function to inform Windows about changed taskbar setting
+
+        #region Refresh tray area (only English user interface)
+
+        [StructLayout(LayoutKind.Sequential)]
+        public struct RECT
+        {
+            public int left;
+            public int top;
+            public int right;
+            public int bottom;
+        }
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr FindWindowEx(IntPtr hwndParent, IntPtr hwndChildAfter, string lpszClass,
+            string lpszWindow);
+
+        [DllImport("user32.dll")]
+        public static extern bool GetClientRect(IntPtr hWnd, out RECT lpRect);
+
+        [DllImport("user32.dll")]
+        public static extern IntPtr SendMessage(IntPtr hWnd, uint msg, int wParam, int lParam);
+
+        public static void RefreshTrayArea()
+        {
+            Log.LogCaller();
+            IntPtr systemTrayContainerHandle = FindWindow("Shell_TrayWnd", null);
+            IntPtr systemTrayHandle = FindWindowEx(systemTrayContainerHandle, IntPtr.Zero, "TrayNotifyWnd", null);
+            IntPtr sysPagerHandle = FindWindowEx(systemTrayHandle, IntPtr.Zero, "SysPager", null);
+            IntPtr notificationAreaHandle = FindWindowEx(sysPagerHandle, IntPtr.Zero, "ToolbarWindow32", "Notification Area");
+            if (notificationAreaHandle == IntPtr.Zero)
+            {
+                notificationAreaHandle = FindWindowEx(sysPagerHandle, IntPtr.Zero, "ToolbarWindow32",
+                    "User Promoted Notification Area");
+                IntPtr notifyIconOverflowWindowHandle = FindWindow("NotifyIconOverflowWindow", null);
+                IntPtr overflowNotificationAreaHandle = FindWindowEx(notifyIconOverflowWindowHandle, IntPtr.Zero,
+                    "ToolbarWindow32", "Overflow Notification Area");
+                RefreshTrayArea(overflowNotificationAreaHandle);
+            }
+            RefreshTrayArea(notificationAreaHandle);
+        }
+
+        private static void RefreshTrayArea(IntPtr windowHandle)
+        {
+            const uint wmMousemove = 0x0200;
+            GetClientRect(windowHandle, out RECT rect);
+            for (var x = 0; x < rect.right; x += 5)
+                for (var y = 0; y < rect.bottom; y += 5)
+                    SendMessage(windowHandle, wmMousemove, 0, (y << 16) + x);
+        }
+
+        #endregion Refresh tray area (only English user interface)
     }
 }

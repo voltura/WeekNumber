@@ -149,9 +149,6 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="CalendarRuleMenu" xml:space="preserve">
     <value>Calendar week rule</value>
   </data>
-  <data name="ClearThroat" xml:space="preserve">
-    <value>   !   </value>
-  </data>
   <data name="ColorsMenu" xml:space="preserve">
     <value>Icon colors</value>
   </data>
@@ -264,6 +261,9 @@ Please report to feedback@voltura.se!</value>
   <data name="IconResolutionMenu" xml:space="preserve">
     <value>Icon resolution</value>
   </data>
+  <data name="logFileSizeMB" xml:space="preserve">
+    <value>logFileSizeMB</value>
+  </data>
   <data name="MondayMenu" xml:space="preserve">
     <value>Monday</value>
   </data>
@@ -298,10 +298,11 @@ Please report to feedback@voltura.se!</value>
   <data name="SettingsMenu" xml:space="preserve">
     <value>Settings</value>
   </data>
-  <data name="SomethingWentWrong" xml:space="preserve">
-    <value>Oups! This was unexpected!
-
-Please report to feedback@voltura.se!</value>
+  <data name="ShowLog" xml:space="preserve">
+    <value>ShowLog</value>
+  </data>
+  <data name="ShowLogMenu" xml:space="preserve">
+    <value>Show application log</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>StartWithWindows</value>
@@ -328,6 +329,12 @@ Please report to feedback@voltura.se!</value>
     <value>Something went wrong. 
 
 Please report to feedback@voltura.se!</value>
+  </data>
+  <data name="UseApplicationLog" xml:space="preserve">
+    <value>UseApplicationLog</value>
+  </data>
+  <data name="UseApplicationLogMenu" xml:space="preserve">
+    <value>Use application log</value>
   </data>
   <data name="Version" xml:space="preserve">
     <value>version</value>

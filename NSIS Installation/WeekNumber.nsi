@@ -7,7 +7,7 @@
 Unicode True
 
 !ifndef VERSION
-  !define VERSION "1.6.2.0"
+  !define VERSION "1.6.2.1"
 !endif
 
 !define PRODUCT_NAME "WeekNumber by Voltura AB"

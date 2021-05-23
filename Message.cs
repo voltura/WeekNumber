@@ -9,19 +9,20 @@ namespace WeekNumber
 {
     internal static class Message
     {
-        #region Private caption
+        #region Caption
 
-        private static readonly string _caption = $"{Application.ProductName} {Resources.Version} {Application.ProductVersion}";
+        internal static readonly string CAPTION = $"{Application.ProductName} {Resources.Version} {Application.ProductVersion}";
 
-        #endregion Private caption
+        #endregion Caption
 
         #region Show Information or Error dialog methods
 
         internal static void Show(string text, Exception ex = null)
         {
             var message = ex is null ? text : $"{text}\r\n{ex}";
+            if (ex is null) Log.Info = message; else Log.ErrorString = message;
             MessageBoxIcon icon = ex is null ? MessageBoxIcon.Information : MessageBoxIcon.Error;
-            MessageBox.Show(message, _caption, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
+            MessageBox.Show(message, CAPTION, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
         }
 
         internal static void Show(string text)

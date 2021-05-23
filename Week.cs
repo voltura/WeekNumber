@@ -57,6 +57,7 @@ namespace WeekNumber
             {
                 _week = Current();
             }
+            Log.Info = $"Current week number is {_week} and this was {(changed ? "a change" : "same as last checked")}";
             return changed;
         }
 
@@ -82,6 +83,7 @@ namespace WeekNumber
             {
                 week = 1;
             }
+            Log.Info = $"Current week number is {week}";
             return week;
         }
 
