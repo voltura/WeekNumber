@@ -90,8 +90,8 @@ Var KillResult
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\WeekNumber" 
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
-Page custom nsDialogsSettingsPage nsDialogsSettingsPageLeave
 !insertmacro MUI_PAGE_INSTFILES
+Page custom nsDialogsSettingsPage nsDialogsSettingsPageLeave
 !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
 !insertmacro MUI_PAGE_FINISH
@@ -138,6 +138,7 @@ LangString DESC_SecWeekNumber ${LANG_ENGLISH} "WeekNumber application"
 ;Uninstaller Section
 Section "Uninstall"
   Delete "$INSTDIR\WeekNumber.exe"
+  Delete "$INSTDIR\WeekNumber.exe.log"
   Delete "$INSTDIR\WeekNumber.exe.Config"
   Delete "$INSTDIR\Uninstall WeekNumber.exe"
   RMDir "$INSTDIR"
