@@ -107,6 +107,7 @@ namespace WeekNumber
     <add key=""StartWithWindows"" value=""False""/>
     <add key=""logFileSizeMB"" value=""10""/>
     <add key=""UseApplicationLog"" value=""False""/>
+    <add key=""AutoUpdate"" value=""False""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

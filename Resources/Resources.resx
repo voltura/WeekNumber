@@ -128,6 +128,15 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="AboutMenu" xml:space="preserve">
     <value>About WeekNumber</value>
   </data>
+  <data name="AutoUpdate" xml:space="preserve">
+    <value>AutoUpdate</value>
+  </data>
+  <data name="AutoUpdateMenu" xml:space="preserve">
+    <value>Update automatically</value>
+  </data>
+  <data name="AvailableVersion" xml:space="preserve">
+    <value>New version:</value>
+  </data>
   <data name="B" xml:space="preserve">
     <value>B</value>
   </data>
@@ -149,14 +158,26 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="CalendarRuleMenu" xml:space="preserve">
     <value>Calendar week rule</value>
   </data>
+  <data name="CheckBrowserNavigation" xml:space="preserve">
+    <value>Check if you can navigate via a web browser to this address:</value>
+  </data>
+  <data name="CheckForNewVersionHere" xml:space="preserve">
+    <value>Manually check for newer version here:</value>
+  </data>
   <data name="CheckForNewVersionMenu" xml:space="preserve">
     <value>Check for updated version</value>
   </data>
   <data name="ColorsMenu" xml:space="preserve">
     <value>Icon colors</value>
   </data>
+  <data name="DownloadAndInstallQuestion" xml:space="preserve">
+    <value>Download and install new version now?</value>
+  </data>
   <data name="ExitMenu" xml:space="preserve">
     <value>Exit WeekNumber</value>
+  </data>
+  <data name="FailedAutoInstall" xml:space="preserve">
+    <value>Failed to download and run the installer automatically.</value>
   </data>
   <data name="FailedToChangeIconResolution" xml:space="preserve">
     <value>Failed to update icon resolution.</value>
@@ -164,15 +185,24 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="FailedToCheckUpdateNoInternet" xml:space="preserve">
     <value>Failed to perform version check, cannot find an active internet connection.</value>
   </data>
+  <data name="FailedToDownloadNewVersion" xml:space="preserve">
+    <value>Failed to download new version.</value>
+  </data>
   <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
     <value>Could not inform Windows about change of taskbar icon size.
 
 Please report to feedback@voltura.se!</value>
   </data>
+  <data name="FailedToPerformVersionCheck" xml:space="preserve">
+    <value>Failed to perform version check.</value>
+  </data>
   <data name="FailedToSetIcon" xml:space="preserve">
     <value>Could not set Icon. 
 
 Please report to feedback@voltura.se!</value>
+  </data>
+  <data name="FailedToStartInstaller" xml:space="preserve">
+    <value>Failed to start the installer automatically.</value>
   </data>
   <data name="FailedToUpdateCalendarWeekRule" xml:space="preserve">
     <value>Could not calendar week rule setting. 
@@ -267,11 +297,20 @@ Please report to feedback@voltura.se!</value>
   <data name="IconResolutionMenu" xml:space="preserve">
     <value>Icon resolution</value>
   </data>
+  <data name="InstalledVersion" xml:space="preserve">
+    <value>Your version:</value>
+  </data>
+  <data name="LatestVersionInstalled" xml:space="preserve">
+    <value>You have the latest version!</value>
+  </data>
   <data name="logFileSizeMB" xml:space="preserve">
     <value>logFileSizeMB</value>
   </data>
   <data name="MondayMenu" xml:space="preserve">
     <value>Monday</value>
+  </data>
+  <data name="NewVersionAvailable" xml:space="preserve">
+    <value>There is a new version available!</value>
   </data>
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Sorry, this function is not implemented yet.</value>

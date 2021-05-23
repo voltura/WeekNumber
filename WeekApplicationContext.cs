@@ -112,6 +112,7 @@ namespace WeekNumber
         private void GuiUpdateRequestHandler(object sender, EventArgs e)
         {
             Log.LogCaller();
+            AutoUpdateCheck();
             UpdateIcon(true, true);
         }
 
@@ -124,6 +125,7 @@ namespace WeekNumber
         private void OnUserPreferenceChanged(object sender, EventArgs e)
         {
             Log.LogCaller();
+            AutoUpdateCheck();
             int iconRes = GetIconResolution(true);
             if (iconRes != _lastIconRes)
             {
@@ -135,6 +137,17 @@ namespace WeekNumber
         private void OnTimerTick(object sender, EventArgs e)
         {
             UpdateIcon();
+            AutoUpdateCheck();
+        }
+
+        private void AutoUpdateCheck()
+        {
+            Log.LogCaller();
+            if (!Settings.SettingIsValue(Resources.AutoUpdate, "True"))
+            {
+                return;
+            }
+            UpdateHandler.PerformUpdateCheck(silent: true);
         }
 
         private void UpdateIcon(bool force = false, bool redrawContextMenu = false)

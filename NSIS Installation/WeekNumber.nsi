@@ -18,10 +18,10 @@ Unicode True
 !define PRODUCT_ID "{550adc75-8afb-4813-ac91-8c8c6cb681ae}"
 
 ;Name and file
-Name "WeekNumber ${VERSION}"
+Name "WeekNumber"
 OutFile "WeekNumber_${VERSION}_Installer.exe"
 BrandingText `${PRODUCT_NAME} Installer`
-Caption "${PRODUCT_NAME} Installer"
+Caption "${PRODUCT_NAME} ${VERSION} Installer"
 VIProductVersion ${VERSION}
 VIAddVersionKey ProductName "${PRODUCT_NAME} Installer"
 VIAddVersionKey Comments "An installer for ${PRODUCT_NAME}"
@@ -44,10 +44,10 @@ RequestExecutionLevel user
 ;--------------------------------
 ;Variables
 Var StartMenuFolder
-Var Dialog
-Var Label
-Var Checkbox
-Var Checkbox_State
+;Var Dialog
+;Var Label
+;Var Checkbox
+;Var Checkbox_State
 Var KillResult
 
 ;--------------------------------
@@ -107,6 +107,7 @@ Var KillResult
 Section "WeekNumber application" SecWeekNumber
   Call weekNumberExeRunning
   ${If} $KillResult == "NOK"
+    IfSilent +2
     Messagebox MB_OK|MB_ICONSTOP "WeekNumber is running, close it and run installer again."
     Abort
   ${EndIf}
@@ -195,10 +196,18 @@ Function weekNumberExeRunning
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
   IntCmp $R0 0 notRunning
   DetailPrint "Installation aborted - WeekNumber is running"
+  IfSilent +2
   MessageBox MB_OK|MB_ICONEXCLAMATION "WeekNumber #1 is running. Please close before installing." /SD IDOK
   StrCpy $KillResult "NOK"
   Abort
   notRunning:
   StrCpy $KillResult "OK"
   DetailPrint "WeekNumber is not running"
+FunctionEnd
+
+Function .onInstSuccess
+
+IfSilent 0 +2
+Exec '"$INSTDIR\WeekNumber.exe"'
+
 FunctionEnd

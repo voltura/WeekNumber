@@ -83,6 +83,33 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to AutoUpdate.
+        /// </summary>
+        internal static string AutoUpdate {
+            get {
+                return ResourceManager.GetString("AutoUpdate", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Update automatically.
+        /// </summary>
+        internal static string AutoUpdateMenu {
+            get {
+                return ResourceManager.GetString("AutoUpdateMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New version:.
+        /// </summary>
+        internal static string AvailableVersion {
+            get {
+                return ResourceManager.GetString("AvailableVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to B.
         /// </summary>
         internal static string B {
@@ -146,6 +173,24 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Check if you can navigate via a web browser to this address:.
+        /// </summary>
+        internal static string CheckBrowserNavigation {
+            get {
+                return ResourceManager.GetString("CheckBrowserNavigation", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Manually check for newer version here:.
+        /// </summary>
+        internal static string CheckForNewVersionHere {
+            get {
+                return ResourceManager.GetString("CheckForNewVersionHere", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Check for updated version.
         /// </summary>
         internal static string CheckForNewVersionMenu {
@@ -164,11 +209,29 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Download and install new version now?.
+        /// </summary>
+        internal static string DownloadAndInstallQuestion {
+            get {
+                return ResourceManager.GetString("DownloadAndInstallQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Exit WeekNumber.
         /// </summary>
         internal static string ExitMenu {
             get {
                 return ResourceManager.GetString("ExitMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to download and run the installer automatically..
+        /// </summary>
+        internal static string FailedAutoInstall {
+            get {
+                return ResourceManager.GetString("FailedAutoInstall", resourceCulture);
             }
         }
         
@@ -191,6 +254,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to download new version..
+        /// </summary>
+        internal static string FailedToDownloadNewVersion {
+            get {
+                return ResourceManager.GetString("FailedToDownloadNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not inform Windows about change of taskbar icon size.
         ///
         ///Please report to feedback@voltura.se!.
@@ -202,6 +274,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Failed to perform version check..
+        /// </summary>
+        internal static string FailedToPerformVersionCheck {
+            get {
+                return ResourceManager.GetString("FailedToPerformVersionCheck", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Could not set Icon. 
         ///
         ///Please report to feedback@voltura.se!.
@@ -209,6 +290,15 @@ namespace WeekNumber {
         internal static string FailedToSetIcon {
             get {
                 return ResourceManager.GetString("FailedToSetIcon", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to start the installer automatically..
+        /// </summary>
+        internal static string FailedToStartInstaller {
+            get {
+                return ResourceManager.GetString("FailedToStartInstaller", resourceCulture);
             }
         }
         
@@ -480,6 +570,24 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Your version:.
+        /// </summary>
+        internal static string InstalledVersion {
+            get {
+                return ResourceManager.GetString("InstalledVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You have the latest version!.
+        /// </summary>
+        internal static string LatestVersionInstalled {
+            get {
+                return ResourceManager.GetString("LatestVersionInstalled", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to logFileSizeMB.
         /// </summary>
         internal static string logFileSizeMB {
@@ -494,6 +602,15 @@ namespace WeekNumber {
         internal static string MondayMenu {
             get {
                 return ResourceManager.GetString("MondayMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There is a new version available!.
+        /// </summary>
+        internal static string NewVersionAvailable {
+            get {
+                return ResourceManager.GetString("NewVersionAvailable", resourceCulture);
             }
         }
         

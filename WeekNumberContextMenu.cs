@@ -230,6 +230,27 @@ namespace WeekNumber
             }
         }
 
+        private void AutoUpdateClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    mi.Checked = !mi.Checked;
+                    Settings.UpdateSetting(Resources.AutoUpdate, mi.Checked ? "True" : "False");
+                    EnableMenuItem(mi);
+                    SettingsChangedHandler?.Invoke(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+        }
+
         private void AboutClick(object o, EventArgs e)
         {
             Log.LogCaller();
@@ -270,7 +291,7 @@ namespace WeekNumber
         internal void CreateContextMenu()
         {
             Log.LogCaller();
-            ContextMenu = new ContextMenu(new MenuItem[6]
+            ContextMenu = new ContextMenu(new MenuItem[7]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
@@ -278,6 +299,10 @@ namespace WeekNumber
                 },
                 new MenuItem(Resources.CheckForNewVersionMenu, UpdateHandler.UpdateClick),
                 new MenuItem(Resources.OpenApplicationWebPageMenu, UpdateHandler.OpenApplicationWebPageClick),
+                new MenuItem(Resources.AutoUpdateMenu, AutoUpdateClick)
+                {
+                    Checked = Settings.SettingIsValue(Resources.AutoUpdate, "True")
+                },
                 new MenuItem(Resources.SettingsMenu, new MenuItem[9]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
