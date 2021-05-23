@@ -4,6 +4,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 TITLE Creating WeekNumber release...
 CLS
 
+SET SKIP_VERSION_UPDATE_PARAM=%1
 SET "VERSION="
 SET SEVEN_ZIP_FULLPATH=C:\Program Files\7-Zip\7z.exe
 SET MSBUILD_FULLPATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\amd64\MSBuild.exe
@@ -89,7 +90,13 @@ FOR /F "tokens=1,2,3,4 delims=." %%G IN ("%CurrentAssemblyFileVersion%") DO (
 	SET /A BUILD=%%I
 	SET /A REVISION=%%J
 )
+IF "%SKIP_VERSION_UPDATE_PARAM%" EQU "" GOTO :UPDATE_REVISION
 
+:SKIP_VERSION_UPDATE
+SET VERSION=%MAJOR%.%MINOR%.%BUILD%.%REVISION%
+GOTO :EOF
+
+:UPDATE_REVISION
 IF %REVISION% GEQ 9 GOTO :UPDATE_BUILD
 SET /A REVISION=%REVISION%+1
 SET NewAssemblyFileVersion=%MAJOR%.%MINOR%.%BUILD%.%REVISION%
@@ -118,6 +125,12 @@ GOTO :EOF
 
 :COMPILE_RELEASE
 PUSHD ..
-"%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /property:Configuration=Release -m
+CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /property:Configuration=Release -m
+SET BUILD_RESULT=%ERRORLEVEL%
+IF "%BUILD_RESULT%" NEQ "0" (
+	@ECHO BUILD FAILED. Cannot create release.
+	@PAUSE
+	@EXIT
+)
 POPD
 GOTO :EOF

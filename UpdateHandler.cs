@@ -156,9 +156,39 @@ Try manually downloading it via a web browser from this address:
 
         #region Private methods
 
+        /// <summary>
+        /// Ugly code to check if a newer version exist, need refactoring
+        /// </summary>
+        /// <param name="existingVersion"></param>
+        /// <param name="internetVersion"></param>
+        /// <returns></returns>
         private static bool IsNewerVersion(string existingVersion, string internetVersion)
         {
-            return existingVersion != internetVersion;
+            bool result = existingVersion != internetVersion;
+            char[] dotSeparator = new char[] { '.' };
+            string[] existingVersionParts = existingVersion.Split(dotSeparator);
+            string[] internetVersionParts = internetVersion.Split(dotSeparator);
+
+            bool parseVer = Int32.TryParse(existingVersionParts[0], out int eMajor);
+            if (!parseVer) return result;
+            parseVer = Int32.TryParse(internetVersionParts[0], out int iMajor);
+            if (!parseVer) return result;
+            if (iMajor > eMajor) return true;
+            parseVer = Int32.TryParse(existingVersionParts[1], out int eMinor);
+            if (!parseVer) return result;
+            parseVer = Int32.TryParse(internetVersionParts[1], out int iMinor);
+            if (!parseVer) return result;
+            if (iMinor > eMinor) return true;
+            parseVer = Int32.TryParse(existingVersionParts[2], out int eBuild);
+            if (!parseVer) return result;
+            parseVer = Int32.TryParse(internetVersionParts[2], out int iBuild);
+            if (!parseVer) return result;
+            if (iBuild > eBuild) return true;
+            parseVer = Int32.TryParse(existingVersionParts[3], out int eRevision);
+            if (!parseVer) return result;
+            parseVer = Int32.TryParse(internetVersionParts[3], out int iRevision);
+            if (!parseVer) return result;
+            if (iRevision > eRevision) return true; else return false;
         }
 
         #endregion Private methods

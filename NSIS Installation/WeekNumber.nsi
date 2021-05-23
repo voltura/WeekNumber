@@ -91,9 +91,15 @@ Var KillResult
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
-Page custom nsDialogsSettingsPage nsDialogsSettingsPageLeave
+;Page custom nsDialogsSettingsPage nsDialogsSettingsPageLeave
 !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
+
+!define MUI_FINISHPAGE_SHOWREADME ""
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "Start WeekNumber with Windows"
+!define MUI_FINISHPAGE_SHOWREADME_FUNCTION configureStartWithWindows
+;!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
+
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -151,29 +157,35 @@ SectionEnd
 
 ;--------------------------------
 ; Functions
-Function nsDialogsSettingsPage
-  DetailPrint "Displaying Setting Page"
-  nsDialogs::Create 1018
-  Pop $Dialog
-  ${If} $Dialog == error
-  	Abort
-  ${EndIf}
-  ${NSD_CreateLabel} 0 0 100% 12u "Tick the checkbox if you want WeekNumber to start with Windows"
-  Pop $Label
-  ${NSD_CreateCheckbox} 0 30u 100% 10u "&Start with Windows"
-  Pop $Checkbox
-  ${NSD_SetState} $Checkbox_State ${BST_CHECKED}
-  nsDialogs::Show
-FunctionEnd
+;Function nsDialogsSettingsPage
+;  DetailPrint "Displaying Setting Page"
+;  nsDialogs::Create 1018
+;  Pop $Dialog
+;  ${If} $Dialog == error
+;  	Abort
+;  ${EndIf}
+;  ${NSD_CreateLabel} 0 0 100% 12u "Tick the checkbox if you want WeekNumber to start with Windows"
+;  Pop $Label
+;  ${NSD_CreateCheckbox} 0 30u 100% 10u "&Start with Windows"
+;  Pop $Checkbox
+;  ${NSD_SetState} $Checkbox_State ${BST_CHECKED}
+;  nsDialogs::Show
+;FunctionEnd
 
-Function nsDialogsSettingsPageLeave
-  ${NSD_GetState} $Checkbox $Checkbox_State
-  ${If} $Checkbox_State == ${BST_CHECKED}
+Function configureStartWithWindows
     ;Add Start with Windows setting
     DetailPrint "Configuring WeekNumber to start with Windows..."
     !insertmacro AdjustConfigValue "$INSTDIR\WeekNumber.exe.config" "StartWithWindows" "True"	
-  ${EndIf}
 FunctionEnd
+
+;Function nsDialogsSettingsPageLeave
+;  ${NSD_GetState} $Checkbox $Checkbox_State
+;  ${If} $Checkbox_State == ${BST_CHECKED}
+;    ;Add Start with Windows setting
+;    DetailPrint "Configuring WeekNumber to start with Windows..."
+;    !insertmacro AdjustConfigValue "$INSTDIR\WeekNumber.exe.config" "StartWithWindows" "True"	
+;  ${EndIf}
+;FunctionEnd
 
 Function onGUIInit
   Aero::Apply
