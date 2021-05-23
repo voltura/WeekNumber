@@ -50,14 +50,6 @@ Var Checkbox
 Var Checkbox_State
 Var KillResult
 
-!ifndef TARGETDIR
-  !ifdef NSIS_UNICODE
-    !define TARGETDIR ".\Plugins\nsisXML\binU"
-  !else
-    !define TARGETDIR ".\Plugins\nsisXML\bin"
-  !endif
-!endif
-
 ;--------------------------------
 ;Macros
 !macro AdjustConfigValue ConfigFile Key Value
