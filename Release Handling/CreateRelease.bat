@@ -43,8 +43,11 @@ SET "TARGET_COMMITISH=master"
 SET "NAME="
 ::"Release of version %VERSION%"
 SET "BODY="
-SET "DRAFT=false"
-SET "PRERELEASE=false"
+SET DRAFT=false
+SET PRERELEASE=false
+SET "UPLOAD_URL="
+SET "CURL_RESULT="
+SET "UPLOAD_URL="
 
 :: ==========================
 :: Tools
@@ -110,7 +113,7 @@ for /F "skip=1" %%G in ('CertUtil -hashfile %1 MD5') do (
 COLOR 1C
 ECHO.
 ECHO Failed to generate MD5 for '%1'.
-TIMEOUT /T 5 /NOBREAK
+TIMEOUT /T 5 /NOBREAK >NUL
 COLOR 1E
 GOTO :EOF
 
@@ -128,7 +131,7 @@ IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" (
 	@COLOR 1C
 	@ECHO 7-zip not found, cannot compress installer.
 	@COLOR 1E
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 	@GOTO :EOF
 )
 "%SEVEN_ZIP_FULLPATH%" a -t7z -y WeekNumber_%VERSION%_Installer.7z WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
@@ -138,7 +141,7 @@ IF "%SEVEN_ZIP_RESULT%" NEQ "0" (
 	@COLOR 1C
 	@ECHO 7-zip failed to compress installer. Result = %SEVEN_ZIP_RESULT%
 	@COLOR 1E
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 )
 GOTO :EOF
 
@@ -148,7 +151,7 @@ IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" (
 	@COLOR 1C
 	@ECHO 7-zip not found, cannot compress installer.
 	@COLOR 1E
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 	@GOTO :EOF
 )
 "%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumber.zip WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
@@ -158,7 +161,7 @@ IF "%SEVEN_ZIP_RESULT%" NEQ "0" (
 	@COLOR 1C
 	@ECHO 7-zip failed to generate WeekNumber.zip. Result = %SEVEN_ZIP_RESULT%
 	@COLOR 1E
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 )
 GOTO :EOF
 
@@ -245,7 +248,7 @@ IF "%FART_RESULT%" NEQ "0" (
 	@COLOR 1C
 	@ECHO Failed to update version.
 	@COLOR 1E
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 )
 SET VERSION=%NewAssemblyFileVersion%
 IF "%FART_RESULT%" NEQ "0" SET VERSION=%CurrentAssemblyFileVersion%
@@ -265,7 +268,7 @@ IF "%BUILD_RESULT%" NEQ "0" (
 	@COLOR 1C
 	@ECHO.
 	@ECHO BUILD FAILED. Cannot create release.
-	@TIMEOUT /T 5 /NOBREAK
+	@TIMEOUT /T 5 /NOBREAK >NUL
 	@COLOR 1E
 	@START ReleaseManager.bat %SCRIPT_RESULT%
 	@EXIT
@@ -278,31 +281,88 @@ IF "%PUBLISH_REL%" NEQ "TRUE" GOTO :EOF
 COLOR 1E
 ECHO.
 ECHO Publishing release to Github...
-::%GITHUB_ACCESS_TOKEN%
-::%REPO_OWNER% (voltura)
-::%REPO_NAME% (WeekNumber)
 SET TAG_NAME=v%VERSION%
-::%TARGET_COMMITISH% (master)
-SET "NAME=WeekNumber %VERSION%"
-SET "BODY=Release of version %VERSION%"
-::%DRAFT% (false)
-::%PRERELEASE% (false)
-SET JSON={"tag_name": "%TAG_NAME%","target_commitish": "%TARGET_COMMITISH%","name": "%NAME%","body": "%BODY%","draft": %DRAFT%,"prerelease": %PRERELEASE%}
-
-ECHO JSON=%JSON%
-
-COLOR 1A
-ECHO Not implemented yet.
-COLOR 1E
-
-TIMEOUT /T 10 /NOBREAK
+SET NAME=WeekNumber %VERSION%
+SET BODY=Release of version %VERSION%
+"%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type:application/json" "https://api.github.com/repos/%REPO_OWNER%/%REPO_NAME%/releases" -d "{ \"tag_name\": \"%TAG_NAME%\", \"target_commitish\": \"%TARGET_COMMITISH%\",\"name\": \"%NAME%\",\"body\": \"%BODY%\",\"draft\": false, \"prerelease\": true}" >release_info.txt
+SET CURL_RESULT=%ERRORLEVEL%
+ECHO RESULT = %CURL_RESULT%
+IF "%CURL_RESULT%" NEQ "0" (
+	@COLOR 1C
+	@ECHO Failed to publish release
+	@TIMEOUT /T 10 /NOBREAK >NUL
+	@START ReleaseManager.bat %CURL_RESULT%
+	@EXIT
+)
+ECHO.
+ECHO Successfully published release.
+TIMEOUT /T 10 /NOBREAK >NUL
+CALL :PARSE_RELEASE_INFO
+CALL :UPLOAD_RELEASE_ASSETS
 GOTO :EOF
 
-SET CURL_RESULT=%ERRORLEVEL%
-SET /A SCRIPT_RESULT=%SCRIPT_RESULT%+%CURL_RESULT%
-IF "%CURL_RESULT%" NEQ "0" COLOR 1C
+:PARSE_RELEASE_INFO
 ECHO.
-ECHO GitHub release creation returned %CURL_RESULT%.
-COLOR 1E
+ECHO Parsing release info...
+TYPE release_info.txt|FINDSTR upload_url >UPLOAD_URL.TXT
+DEL /F /Q release_info.txt >NUL
+SET /P UPLOAD_URL=<UPLOAD_URL.TXT
+DEL /F /Q UPLOAD_URL.TXT >NUL
+SET UPLOAD_URL=%UPLOAD_URL:~17,-15%
+ECHO UPLOAD_URL=%UPLOAD_URL%
+ECHO.
+ECHO Successfully parsed received release info.
+TIMEOUT /T 2 /NOBREAK >NUL
+GOTO :EOF
 
+:UPLOAD_RELEASE_ASSETS
+ECHO.
+ECHO Uploading release assets...
+PUSHD ..\Releases\%VERSION%
+CALL :UPLOAD_FILE WeekNumber.zip
+CALL :UPLOAD_FILE WeekNumber.zip.MD5
+CALL :UPLOAD_FILE WeekNumber_%VERSION%_Installer.7z zip
+CALL :UPLOAD_FILE "WeekNumber_%VERSION%_Installer.7z.MD5"
+CALL :UPLOAD_FILE "WeekNumber_%VERSION%_Installer.exe"
+CALL :UPLOAD_FILE "WeekNumber_%VERSION%_Installer.exe.MD5"
+CALL :UPLOAD_FILE VERSION.TXT
+POPD
+ECHO.
+ECHO Upload completed.
+GOTO :EOF
+
+:UPLOAD_FILE
+SET FILE_TO_UPLOAD=%1
+CALL :CHECK_IF_MISSING_FILE %FILE_TO_UPLOAD%
+ECHO.
+ECHO Uploading %FILE_TO_UPLOAD%...
+ECHO.
+"%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type: application/octet-stream" --data-binary @%FILE_TO_UPLOAD% "%UPLOAD_URL%?name=%FILE_TO_UPLOAD%&label=%FILE_TO_UPLOAD%"
+SET CURL_RESULT=%ERRORLEVEL%
+:: Note: curl result can be 0 but file not uploaded, need to parse received json to validate success
+ECHO RESULT = %CURL_RESULT%
+IF "%CURL_RESULT%" NEQ "0" (
+	@COLOR 1C
+	@ECHO Failed to upload %FILE_TO_UPLOAD%
+	@COLOR 1E
+	@TIMEOUT /T 10 /NOBREAK >NUL
+	@START ReleaseManager.bat %CURL_RESULT%
+	@EXIT
+)
+ECHO.
+ECHO Successfully uploaded %FILE_TO_UPLOAD%.
+TIMEOUT /T 5 /NOBREAK >NUL
+GOTO :EOF
+
+:CHECK_IF_MISSING_FILE
+SET FILE_TO_CHECK=%1
+ECHO.
+IF NOT EXIST "%FILE_TO_CHECK%" (
+	@COLOR 1C
+	@ECHO Missing "%FILE_TO_CHECK%", cannot publish file.
+	@COLOR 1E
+	@TIMEOUT /T 10 /NOBREAK >NUL
+	@START ReleaseManager.bat %CURL_RESULT%
+	@EXIT
+)
 GOTO :EOF
