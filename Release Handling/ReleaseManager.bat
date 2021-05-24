@@ -4,6 +4,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 TITLE WeekNumber Release Manager
 SET Result=%1
 CLS
+IF "%Result%" EQU "" GOTO :MENU
 IF "%Result%" NEQ "0" (
 	@COLOR 0C
 	@ECHO ==========================
