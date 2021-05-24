@@ -363,3 +363,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 /Tools/fart.exe
+GITHUB_ACCESS_TOKEN.bat
+/Release Handling/CreateGithubRelease.bat
+/Tools/curl-7.76.1_2-win64-mingw.zip
