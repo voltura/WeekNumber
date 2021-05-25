@@ -313,7 +313,6 @@ IF "%FART_RESULT%" NEQ "1" (
 	@START ReleaseManager.bat 66
 	@EXIT
 )
-:: TODO: Now that the source is updated, push to git
 CD /D %SCRIPT_DIR%
 CD ..
 SET VERSION=%NewAssemblyFileVersion%
@@ -371,7 +370,7 @@ IF "%CURL_RESULT%" NEQ "0" (
 )
 ECHO.
 ECHO Successfully published release.
-TIMEOUT /T 10 /NOBREAK >NUL
+TIMEOUT /T 2 /NOBREAK >NUL
 CALL :PARSE_RELEASE_INFO
 CALL :UPLOAD_RELEASE_ASSETS
 GOTO :EOF

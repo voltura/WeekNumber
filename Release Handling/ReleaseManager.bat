@@ -1,22 +1,22 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
 @ECHO OFF
 SET Result=%1
-SET ScriptVersion=1.0
+SET ScriptVersion=1.1
 TITLE WeekNumber Release Manager %ScriptVersion%
 CLS
 IF "%Result%" EQU "" GOTO :MENU
 IF "%Result%" NEQ "0" (
 	@COLOR 0C
-	@ECHO =================================
+	@ECHO ======================================
 	@ECHO Last operation failed!
-	@ECHO =================================
+	@ECHO ======================================
 	@ECHO Return code = %Result%
 )
 IF "%Result%" EQU "0" (
 	@COLOR 0A
-	@ECHO =================================
+	@ECHO ======================================
 	@ECHO Last operation completed successfully!
-	@ECHO =================================
+	@ECHO ======================================
 )
 
 :MENU
