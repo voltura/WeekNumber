@@ -39,6 +39,7 @@ namespace WeekNumber
                 _lastIconRes = GetIconResolution();
                 Gui = new TaskbarGui(_currentWeek, _lastIconRes);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
+                AutoUpdateCheck();
                 _timer = GetTimer;
             }
             catch (Exception ex)
