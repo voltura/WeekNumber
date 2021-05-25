@@ -313,9 +313,18 @@ IF "%FART_RESULT%" NEQ "1" (
 	@START ReleaseManager.bat 66
 	@EXIT
 )
+:: TODO: Now that the source is updated, push to git
+CD /D %SCRIPT_DIR%
+CD ..
 SET VERSION=%NewAssemblyFileVersion%
 IF "%FART_RESULT%" NEQ "1" SET VERSION=%CurrentAssemblyFileVersion%
 ECHO Current version set to %VERSION% (previous version was %CurrentAssemblyFileVersion%).
+IF %CurrentAssemblyFileVersion% NEQ %NewAssemblyFileVersion% (
+	GIT pull -q
+	GIT add --all
+	GIT commit -a  -m "Updated version to %VERSION%"
+	git push --all
+)
 TIMEOUT /T 2 /NOBREAK >NUL
 GOTO :EOF
 
