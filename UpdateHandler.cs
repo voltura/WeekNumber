@@ -56,7 +56,6 @@ namespace WeekNumber
                 {
                     Message.Show(Resources.FailedToCheckUpdateNoInternet, isError: true);
                 }
-
                 return;
             }
             string runningVersion = Application.ProductVersion;

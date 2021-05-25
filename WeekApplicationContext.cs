@@ -32,6 +32,7 @@ namespace WeekNumber
         {
             try
             {
+                Log.LogCaller();
                 Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
@@ -40,7 +41,7 @@ namespace WeekNumber
                 Gui = new TaskbarGui(_currentWeek, _lastIconRes);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
                 _timer = GetTimer;
-                _timer.Interval = 10000; // set first interval to 10s to trigger update check
+                AutoUpdateCheck();
             }
             catch (Exception ex)
             {
