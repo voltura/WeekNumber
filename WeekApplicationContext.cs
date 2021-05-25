@@ -39,8 +39,8 @@ namespace WeekNumber
                 _lastIconRes = GetIconResolution();
                 Gui = new TaskbarGui(_currentWeek, _lastIconRes);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
-                AutoUpdateCheck();
                 _timer = GetTimer;
+                _timer.Interval = 10000; // set first interval to 10s to trigger update check
             }
             catch (Exception ex)
             {
