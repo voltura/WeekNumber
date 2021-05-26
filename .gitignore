@@ -364,6 +364,6 @@ MigrationBackup/
 FodyWeavers.xsd
 /Tools/fart.exe
 GITHUB_ACCESS_TOKEN.bat
-/Release Handling/CreateGithubRelease.bat
+CreateGithubRelease.bat
 /Tools/curl-7.76.1_2-win64-mingw.zip
-/Release Handling/curl_examples.txt
+curl_examples.txt
