@@ -59,8 +59,11 @@ IF %USER_SELECTION%==5 (
 EXIT
 
 :SYNC_SOURCE
-GIT pull -q
-GIT add --all
-GIT commit -a  -m "Auto update via Release Manager %ScriptVersion%"
-git push --all
+CLS
+ECHO Syncing sources...
+GIT pull -q >NUL 2>&1
+GIT add --all >NUL 2>&1
+GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
+git push --all >NUL 2>&1
+CLS
 GOTO :EOF
