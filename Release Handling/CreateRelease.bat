@@ -71,8 +71,7 @@ EXIT
 :: Functions
 :: ==========================
 :CREATE_INSTALLER_AND_FILES_FOR_RELEASE
-ECHO.
-ECHO Compiling installer, please be patient...
+CALL :DISP_MSG "Compiling installer, please be patient..." 0
 START "Compile Installer" /MIN /WAIT "%NSIS_SCRIPT_FOLDER%\CompileInstaller.bat" %VERSION%
 SET RESULT=%ERRORLEVEL%
 CD /D "%NSIS_SCRIPT_FOLDER%"
@@ -95,8 +94,7 @@ CD /D "%SCRIPT_DIR%"
 GOTO :EOF
 
 :GENERATE_MD5
-ECHO.
-ECHO Generating MD5 for '%1'...
+CALL :DISP_MSG "Generating MD5 for '%1'..." 0
 SET "MD5="
 FOR /F "skip=1" %%G IN ('CertUtil -hashfile %1 MD5') DO (
 	@SET "MD5=%%G"
@@ -108,7 +106,7 @@ SET FILE_NAME=%1
 ECHO.
 ECHO %MD5%  %FILE_NAME%> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
 ECHO.>> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
-ECHO Generated MD5 checksum file '%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5'.
+CALL :DISP_MSG "Generated MD5 checksum file '%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5'." 0
 GOTO :EOF
 
 :COMPRESS_INSTALLER
@@ -121,8 +119,7 @@ IF "%SEVEN_ZIP_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to compress ins
 GOTO :EOF
 
 :COMPRESS_WEEKNUMBER_ZIP
-ECHO.
-ECHO Archiving installer...
+CALL :DISP_MSG "Archiving installer..." 0
 IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "7-zip not found '%SEVEN_ZIP_FULLPATH%', cannot compress installer." 10
 CD /D "%NSIS_SCRIPT_FOLDER%"
 "%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumber.zip WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
@@ -133,14 +130,13 @@ ECHO Completed.
 GOTO :EOF
 
 :GENERATE_VERSION_INFO
-ECHO.
+CALL :DISP_MSG "Generating version info..." 0
 ECHO %1 %2> "%NSIS_SCRIPT_FOLDER%\VERSION.TXT"
 ECHO '%NSIS_SCRIPT_FOLDER%\VERSION.TXT' created.
 GOTO :EOF
 
 :COPY_RELEASE
-ECHO.
-ECHO Copying release files to release folder...
+CALL :DISP_MSG "Copying release files to release folder..." 0
 MD "%SCRIPT_DIR%\..\Releases\%VERSION%" >NUL 2>&1
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip could not be copied" 10
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
@@ -166,8 +162,7 @@ IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to copy release files
 GOTO :EOF
 
 :UPDATE_VERSION
-ECHO.
-ECHO Getting current version from project...
+CALL :DISP_MSG "Getting current version from project..." 0
 TYPE "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs"|FINDSTR AssemblyFileVersion >"%SCRIPT_DIR%\VERSION_REPLACE.TXT"
 SET /P AssemblyFileVersion=<"%SCRIPT_DIR%\VERSION_REPLACE.TXT"
 DEL /F /Q "%SCRIPT_DIR%\VERSION_REPLACE.TXT"
@@ -176,7 +171,6 @@ SET "MAJOR="
 SET "MINOR="
 SET "BUILD="
 SET "REVISION="
-
 FOR /F "tokens=1,2,3,4 delims=." %%G IN ("%CurrentAssemblyFileVersion%") DO (
 	SET /A MAJOR=%%G
 	SET /A MINOR=%%H
@@ -223,9 +217,7 @@ SET NewAssemblyFileVersion=%MAJOR%.0.0.0
 GOTO :DO_VER_UPDATE
 
 :DO_VER_UPDATE
-ECHO.
-ECHO Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'...
-ECHO.
+CALL :DISP_MSG "Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'..." 0
 "%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion%
 SET FART_RESULT=%ERRORLEVEL%
 IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 10
@@ -238,8 +230,7 @@ git push --all
 GOTO :EOF
 
 :COMPILE_RELEASE
-ECHO.
-ECHO Compiling solution release build...
+CALL :DISP_MSG "Compiling solution release build..." 0
 PUSHD "%SCRIPT_DIR%\.."
 	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Rebuild /property:Configuration=Release -m
 	SET BUILD_RESULT=%ERRORLEVEL%
@@ -263,8 +254,7 @@ CALL :UPLOAD_RELEASE_ASSETS
 GOTO :EOF
 
 :PARSE_RELEASE_INFO
-ECHO.
-ECHO Parsing release info...
+CALL :DISP_MSG "ECHO Parsing release info..." 0
 TYPE "%SCRIPT_DIR%\release_info.txt"|FINDSTR upload_url >"%SCRIPT_DIR%\UPLOAD_URL.TXT"
 DEL /F /Q "%SCRIPT_DIR%\release_info.txt" >NUL
 SET /P UPLOAD_URL=<"%SCRIPT_DIR%\UPLOAD_URL.TXT"
@@ -275,7 +265,6 @@ CALL :DISP_MSG "Successfully parsed received release info." 1
 GOTO :EOF
 
 :UPLOAD_RELEASE_ASSETS
-ECHO.
 CALL :DISP_MSG "Uploading release '%NAME%' assets to Github..." 1
 PUSHD "%SCRIPT_DIR%\..\Releases\%VERSION%"
 	CALL :UPLOAD_FILE WeekNumber.zip
@@ -293,12 +282,12 @@ GOTO :EOF
 ECHO.
 SET FILE_TO_UPLOAD=%1
 CALL :CHECK_IF_MISSING_FILE %FILE_TO_UPLOAD%
-ECHO Uploading '%FILE_TO_UPLOAD%' to release '%NAME%' on Github...
+CALL :DISP_MSG "Uploading '%FILE_TO_UPLOAD%' to release '%NAME%' on Github..." 0
 "%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type: application/octet-stream" --data-binary @%FILE_TO_UPLOAD% "%UPLOAD_URL%?name=%FILE_TO_UPLOAD%&label=%FILE_TO_UPLOAD%"
 SET CURL_RESULT=%ERRORLEVEL%
 :: Note: curl result can be 0 but file not uploaded, need to parse received json to validate success
 IF "%CURL_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to upload '%FILE_TO_UPLOAD%'" 10
-CALL :DISP_MSG "Successfully uploaded '%FILE_TO_UPLOAD%'."
+CALL :DISP_MSG "Successfully uploaded '%FILE_TO_UPLOAD%'." 1
 GOTO :EOF
 
 :CHECK_IF_MISSING_FILE
