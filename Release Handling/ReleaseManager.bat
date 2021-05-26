@@ -6,7 +6,7 @@ SET ScriptVersion=1.2
 SET SCRIPT_DIR=%~dp0
 
 TITLE Release Manager %ScriptVersion%
-MODE 39,21
+MODE 39,24
 CLS
 
 IF "%Result%" EQU "" GOTO :MENU
@@ -63,5 +63,4 @@ GIT pull -q
 GIT add --all
 GIT commit -a  -m "Auto update via Release Manager %ScriptVersion%"
 git push --all
-PAUSE
 GOTO :EOF
