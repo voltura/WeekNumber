@@ -63,8 +63,8 @@ CALL :UPDATE_VERSION
 CALL :COMPILE_RELEASE
 CALL :CREATE_INSTALLER_AND_FILES_FOR_RELEASE
 CALL :PUBLISH_RELEASE
-CALL :DISP_MSG "All tasks completed successfully, launching the Release Manager..."
-START "Release Manager" "%RELEASE_MANAGER%" 2
+CALL :DISP_MSG "All tasks completed successfully, launching the Release Manager..." 2
+START "Release Manager" "%RELEASE_MANAGER%" 0
 EXIT
 
 :: ==========================
@@ -192,9 +192,7 @@ IF "%UPDATE_VER%" EQU "TRUE" (
 GOTO :EOF
 
 :SKIP_VERSION_UPDATE
-ECHO.
-ECHO Current version = %VERSION%, will not update the version.
-TIMEOUT /T 2 /NOBREAK >NUL
+CALL :DISP_MSG "Current version = %VERSION%." 2
 GOTO :EOF
 
 :UPDATE_REVISION
@@ -236,12 +234,11 @@ GIT pull -q
 GIT add --all
 GIT commit -a  -m "Updated version to %VERSION%"
 git push --all
-TIMEOUT /T 2 /NOBREAK >NUL
 GOTO :EOF
 
 :COMPILE_RELEASE
 ECHO.
-ECHO Compiling release build...
+ECHO Compiling solution release build...
 PUSHD "%SCRIPT_DIR%\.."
 	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Rebuild /property:Configuration=Release -m
 	SET BUILD_RESULT=%ERRORLEVEL%
@@ -252,8 +249,7 @@ GOTO :EOF
 
 :PUBLISH_RELEASE
 IF "%PUBLISH_REL%" NEQ "TRUE" GOTO :EOF
-ECHO.
-ECHO Publishing release to Github...
+CALL :DISP_MSG "Publishing release to Github..." 1
 SET "TAG_NAME=v%VERSION%"
 SET "NAME=WeekNumber %VERSION%"
 SET "BODY=Release of version %VERSION%"
@@ -274,12 +270,12 @@ SET /P UPLOAD_URL=<"%SCRIPT_DIR%\UPLOAD_URL.TXT"
 DEL /F /Q "%SCRIPT_DIR%\UPLOAD_URL.TXT" >NUL
 SET UPLOAD_URL=%UPLOAD_URL:~17,-15%
 ECHO UPLOAD_URL=%UPLOAD_URL%
-CALL :DISP_MSG "Successfully parsed received release info."
+CALL :DISP_MSG "Successfully parsed received release info." 1
 GOTO :EOF
 
 :UPLOAD_RELEASE_ASSETS
 ECHO.
-ECHO Uploading release '%NAME%' assets to Github...
+CALL :DISP_MSG "Uploading release '%NAME%' assets to Github..." 1
 PUSHD "%SCRIPT_DIR%\..\Releases\%VERSION%"
 	CALL :UPLOAD_FILE WeekNumber.zip
 	CALL :UPLOAD_FILE WeekNumber.zip.MD5
