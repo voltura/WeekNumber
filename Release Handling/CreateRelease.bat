@@ -305,7 +305,7 @@ ECHO   ==================================================
 ECHO   CODE:  %CODE%
 ECHO   ERROR: %MSG%
 ECHO   ==================================================
-ECHO Press any key to restart the Release Manager...
+ECHO   Press any key to restart the Release Manager...
 PAUSE >NUL
 START "Release Manager" "%RELEASE_MANAGER%" %CODE%
 EXIT
