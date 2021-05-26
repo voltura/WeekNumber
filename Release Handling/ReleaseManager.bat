@@ -31,16 +31,16 @@ ECHO =======================================
 ECHO.
 ECHO A) Build solution and create release
 ECHO.
-ECHO B) Update version, sync source, 
+ECHO B) Update version, sync sources, 
 ECHO    build solution and create release
 ECHO.
 ECHO C) Build solution, create and publish
 ECHO    release
 ECHO.
-ECHO D) Update version, sync source, build
+ECHO D) Update version, sync sources, build
 ECHO    solution, create and publish release
 ECHO.
-ECHO E) Sync source
+ECHO E) Sync sources
 ECHO.
 ECHO X) Exit
 ECHO.
@@ -60,7 +60,7 @@ EXIT
 
 :SYNC_SOURCE
 CLS
-ECHO Syncing sources...
+ECHO Syncing sources, please wait...
 GIT pull -q >NUL 2>&1
 GIT add --all >NUL 2>&1
 GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
