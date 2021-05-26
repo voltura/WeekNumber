@@ -140,6 +140,8 @@
     <None Include="NSIS Installation\RunCompileInstaller.bat" />
     <None Include="NSIS Installation\WeekNumber.nsi" />
     <None Include="Properties\WeekNumber.snk" />
+    <None Include="Release Handling\CreateRelease.bat" />
+    <None Include="Release Handling\ReleaseManager.bat" />
   </ItemGroup>
   <ItemGroup>
     <None Include="NSIS Installation\License.txt" />

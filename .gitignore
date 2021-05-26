@@ -367,3 +367,4 @@ GITHUB_ACCESS_TOKEN.bat
 CreateGithubRelease.bat
 /Tools/curl-7.76.1_2-win64-mingw.zip
 curl_examples.txt
+GITHUB_ACCESS_TOKEN.bat
