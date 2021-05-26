@@ -64,7 +64,7 @@ CALL :COMPILE_RELEASE
 CALL :CREATE_INSTALLER_AND_FILES_FOR_RELEASE
 CALL :PUBLISH_RELEASE
 CALL :DISP_MSG "All tasks completed successfully, launching the Release Manager..."
-START "Release Manager" "%RELEASE_MANAGER%" 0
+START "Release Manager" "%RELEASE_MANAGER%" 2
 EXIT
 
 :: ==========================
