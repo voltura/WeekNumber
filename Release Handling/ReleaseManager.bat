@@ -6,38 +6,41 @@ SET ScriptVersion=1.2
 SET SCRIPT_DIR=%~dp0
 
 TITLE WeekNumber Release Manager %ScriptVersion%
-MODE 56,20
+MODE 39,21
 CLS
 
 IF "%Result%" EQU "" GOTO :MENU
 
 IF "%Result%" NEQ "0" (
-	@COLOR 1C
-	@ECHO ======================================
-	@ECHO Last operation failed!
-	@ECHO ======================================
-	@ECHO Return code = %Result%
+	@ECHO =======================================
+	@ECHO Last operation failed! Return code = %Result%
+	@ECHO =======================================
 )
 IF "%Result%" EQU "0" (
-	@COLOR 1A
-	@ECHO ======================================
+	@ECHO =======================================
 	@ECHO Last operation completed successfully!
-	@ECHO ======================================
+	@ECHO =======================================
 )
 
 :MENU
 CD /D "%SCRIPT_DIR%"
-ECHO.
 COLOR 1E
-ECHO ======================================
+ECHO =======================================
 ECHO WeekNumber Release Manager version %ScriptVersion%
-ECHO ======================================
+ECHO =======================================
 ECHO.
-ECHO A: Build release
-ECHO B: Update version and build release
-ECHO C: Build release and publish
-ECHO D: Update version, build release and publish
-ECHO X: Exit
+ECHO A) Build solution and create release
+ECHO.
+ECHO B) Update version, sync source, 
+ECHO    build solution and create release
+ECHO.
+ECHO C) Build solution, create and publish
+ECHO    release
+ECHO.
+ECHO D) Update version, sync source, build
+ECHO    solution, create and publish release
+ECHO.
+ECHO X) Exit
 ECHO.
 CHOICE /C ABCDX /M "Select action"
 SET USER_SELECTION=%ERRORLEVEL%
