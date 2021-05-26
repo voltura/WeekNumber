@@ -225,6 +225,7 @@ GOTO :DO_VER_UPDATE
 :DO_VER_UPDATE
 ECHO.
 ECHO Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'...
+ECHO.
 "%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion%
 SET FART_RESULT=%ERRORLEVEL%
 IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 10
