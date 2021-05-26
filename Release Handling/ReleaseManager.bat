@@ -5,7 +5,7 @@ SET Result=%1
 SET ScriptVersion=1.2
 SET SCRIPT_DIR=%~dp0
 
-TITLE WeekNumber Release Manager %ScriptVersion%
+TITLE Release Manager %ScriptVersion%
 MODE 39,21
 CLS
 
@@ -40,14 +40,28 @@ ECHO.
 ECHO D) Update version, sync source, build
 ECHO    solution, create and publish release
 ECHO.
+ECHO E) Sync source
+ECHO.
 ECHO X) Exit
 ECHO.
-CHOICE /C ABCDX /M "Select action"
+CHOICE /C ABCDEX /M "Select action"
 SET USER_SELECTION=%ERRORLEVEL%
 
 IF %USER_SELECTION%==1 START /MAX CreateRelease.bat
 IF %USER_SELECTION%==2 START /MAX CreateRelease.bat U
 IF %USER_SELECTION%==3 START /MAX CreateRelease.bat P
 IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
+IF %USER_SELECTION%==5 (
+	@CALL :SYNC_SOURCE
+	GOTO :MENU
+)
 
 EXIT
+
+:SYNC_SOURCE
+GIT pull -q
+GIT add --all
+GIT commit -a  -m "Auto update via Release Manager %ScriptVersion%"
+git push --all
+PAUSE
+GOTO :EOF
