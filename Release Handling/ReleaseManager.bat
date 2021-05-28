@@ -81,17 +81,17 @@ SET /A DELAY_SEC=%3+0
 COLOR 1F
 IF "%CODE%" NEQ "0" COLOR 4F
 ECHO.
-ECHO   ==========================
 ECHO   %MSG%
-ECHO   Result: %CODE%
-ECHO   ==========================
 IF "%CODE%" NEQ "0" (
+	@ECHO   ==========================
+	@ECHO   Result: %CODE%
+	@ECHO   ==========================
 	@ECHO   Press any key to return to menu...
 	@PAUSE >NUL
 	@COLOR 1E
 	@GOTO :MENU
 ) ELSE (
-	TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
+	@TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
 )
 COLOR 1E
 GOTO :EOF
