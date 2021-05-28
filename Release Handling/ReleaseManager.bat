@@ -60,12 +60,38 @@ EXIT
 
 :SYNC_SOURCE
 CLS
-ECHO Syncing sources, please wait...
+CALL :DISP_MSG "Syncing sources, please wait..." 0 0
 GIT pull -q >NUL 2>&1
+CALL :DISP_MSG "Get changes from git" %ERRORLEVEL% 2
 GIT add --all >NUL 2>&1
+CALL :DISP_MSG "Add all changes" %ERRORLEVEL% 2
 GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
+CALL :DISP_MSG "Commit all changes" %ERRORLEVEL% 2
 GIT push --all >NUL 2>&1
-ECHO Sync complete.
-TIMEOUT /T 5 /NOBREAK >NUL
+CALL :DISP_MSG "Push all changes" %ERRORLEVEL% 2
+CALL :DISP_MSG "Sync complete." 0 5
 CLS
+GOTO :EOF
+
+:DISP_MSG
+SET MSG=%1
+SET MSG=%MSG:~1,-1%
+SET CODE=%2
+SET /A DELAY_SEC=%3+0
+COLOR 1F
+IF "%CODE%" NEQ "0" COLOR 4F
+ECHO.
+ECHO   ==========================
+ECHO   %MSG%
+ECHO   Result: %CODE%
+ECHO   ==========================
+IF "%CODE%" NEQ "0" (
+	@ECHO   Press any key to return to menu...
+	@PAUSE >NUL
+	@COLOR 1E
+	@GOTO :MENU
+) ELSE (
+	TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
+)
+COLOR 1E
 GOTO :EOF
