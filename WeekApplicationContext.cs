@@ -33,6 +33,7 @@ namespace WeekNumber
             try
             {
                 Log.LogCaller();
+                MonitorProcess.Run();
                 Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;

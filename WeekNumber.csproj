@@ -106,7 +106,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="GhostProcess.cs" />
+    <Compile Include="MonitorProcess.cs" />
     <Compile Include="IconSize.cs" />
     <Compile Include="IGui.cs" />
     <Compile Include="Log.cs" />
