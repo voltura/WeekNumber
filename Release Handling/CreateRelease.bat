@@ -103,7 +103,6 @@ FOR /F "skip=1" %%G IN ('CertUtil -hashfile %1 MD5') DO (
 CALL :ERROR_MESSAGE_EXIT "Failed to generate MD5 for '%1'." 10
 :CREATE_MD5
 SET FILE_NAME=%1
-ECHO.
 ECHO %MD5%  %FILE_NAME%> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
 ECHO.>> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
 CALL :DISP_MSG "Generated MD5 checksum file '%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5'." 0
@@ -254,7 +253,7 @@ CALL :UPLOAD_RELEASE_ASSETS
 GOTO :EOF
 
 :PARSE_RELEASE_INFO
-CALL :DISP_MSG "ECHO Parsing release info..." 0
+CALL :DISP_MSG "Parsing release info..." 0
 TYPE "%SCRIPT_DIR%\release_info.txt"|FINDSTR upload_url >"%SCRIPT_DIR%\UPLOAD_URL.TXT"
 DEL /F /Q "%SCRIPT_DIR%\release_info.txt" >NUL
 SET /P UPLOAD_URL=<"%SCRIPT_DIR%\UPLOAD_URL.TXT"
@@ -279,7 +278,6 @@ CALL :DISP_MSG "Upload completed." 2
 GOTO :EOF
 
 :UPLOAD_FILE
-ECHO.
 SET FILE_TO_UPLOAD=%1
 CALL :CHECK_IF_MISSING_FILE %FILE_TO_UPLOAD%
 CALL :DISP_MSG "Uploading '%FILE_TO_UPLOAD%' to release '%NAME%' on Github..." 0
