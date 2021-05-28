@@ -64,6 +64,8 @@ ECHO Syncing sources, please wait...
 GIT pull -q >NUL 2>&1
 GIT add --all >NUL 2>&1
 GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
-git push --all >NUL 2>&1
+GIT push --all >NUL 2>&1
+ECHO Sync complete.
+TIMEOUT /T 5 /NOBREAK >NUL
 CLS
 GOTO :EOF
