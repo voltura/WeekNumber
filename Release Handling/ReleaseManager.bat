@@ -68,7 +68,7 @@ CALL :DISP_MSG " - Add all changes" %ERRORLEVEL% 0
 GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
 CALL :DISP_MSG " - Commit all changes" %ERRORLEVEL% 0
 GIT push --all >NUL 2>&1
-CALL :DISP_MSG "Push all changes" %ERRORLEVEL% 0
+CALL :DISP_MSG " - Push all changes" %ERRORLEVEL% 0
 CALL :DISP_MSG "Sync complete." 0 2
 CLS
 GOTO :EOF
