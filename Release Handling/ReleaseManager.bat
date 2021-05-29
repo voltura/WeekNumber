@@ -2,7 +2,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 @ECHO OFF
 
 SET Result=%1
-SET ScriptVersion=1.3
+SET ScriptVersion=1.4
 SET SCRIPT_DIR=%~dp0
 
 TITLE Release Manager %ScriptVersion%
@@ -22,7 +22,7 @@ IF "%Result%" EQU "0" (
 
 :MENU
 CD /D "%SCRIPT_DIR%"
-COLOR 1E
+COLOR 1F
 ECHO    __________       .__                               
 ECHO    \______   \ ____ ^|  ^|   ____ _____    ______ ____  
 ECHO     ^|       _// __ \^|  ^| _/ __ \\__  \  /  ___// __ \ 
@@ -53,16 +53,17 @@ ECHO  F) Open a command line window
 ECHO. 
 ECHO  X) Exit
 ECHO. 
-CHOICE /C ABCDEFX /N /M "Select action"
+CHOICE /C ABCDEFX /N /M "Select action:"
 SET USER_SELECTION=%ERRORLEVEL%
 
 IF %USER_SELECTION%==1 START /MAX CreateRelease.bat
 IF %USER_SELECTION%==2 START /MAX CreateRelease.bat U
 IF %USER_SELECTION%==3 START /MAX CreateRelease.bat P
 IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
-IF %USER_SELECTION%==5 START "RM v%ScriptVersion% Command line" /I CMD.EXE
-IF %USER_SELECTION%==6 CALL :SYNC_SOURCE
+IF %USER_SELECTION%==5 CALL :SYNC_SOURCE
+IF %USER_SELECTION%==6 CALL :LAUNCH_CMD
 IF %USER_SELECTION%==7 EXIT
+CLS
 GOTO :MENU
 
 :SYNC_SOURCE
@@ -77,7 +78,6 @@ CALL :DISP_MSG " - Commit all changes" %ERRORLEVEL% 0
 GIT push --all >NUL 2>&1
 CALL :DISP_MSG " - Push all changes" %ERRORLEVEL% 0
 CALL :DISP_MSG "Sync complete." 0 1
-CLS
 GOTO :EOF
 
 :DISP_MSG
@@ -95,10 +95,16 @@ IF "%CODE%" NEQ "0" (
 	ECHO   ==========================
 	ECHO   Press any key to return to menu...
 	PAUSE >NUL
-	COLOR 1E
+	COLOR 1F
 	GOTO :MENU
 ) ELSE (
 	TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
 )
-COLOR 1E
+COLOR 1F
+GOTO :EOF
+
+:LAUNCH_CMD
+PUSHD "%SCRIPT_DIR%\..\Releases"
+START "Release Manager v%ScriptVersion% Command line" /I CMD.EXE /K DIR
+POPD
 GOTO :EOF

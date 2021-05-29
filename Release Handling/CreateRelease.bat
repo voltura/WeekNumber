@@ -57,7 +57,7 @@ SET "CURL=C:\Program Files\curl-7.76.1-win64-mingw\bin\curl.exe"
 :: Script logic
 :: ==========================
 TITLE Creating WeekNumber release...
-COLOR 1E
+COLOR 1F
 CLS
 CALL :UPDATE_VERSION
 CALL :COMPILE_RELEASE
@@ -317,5 +317,5 @@ ECHO   ==================================================
 ECHO   %MSG%
 ECHO   ==================================================
 TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
-COLOR 1E
+COLOR 1F
 GOTO :EOF
