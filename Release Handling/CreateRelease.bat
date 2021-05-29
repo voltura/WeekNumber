@@ -85,7 +85,7 @@ IF "%RESULT%" EQU "0" (
 	@CALL :GENERATE_VERSION_INFO %VERSION% WeekNumber_%VERSION%_Installer.exe
 	@CALL :COPY_RELEASE
 	@DEL /F /Q "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
-	@CALL :DISP_MSG "Generated all release files successfully." 2
+	@CALL :DISP_MSG "Generated all release files successfully." 0
 ) ELSE (
 	@NOTEPAD.EXE "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
 	@CALL :ERROR_MESSAGE_EXIT "Failed to compile installer." %RESULT%
@@ -109,7 +109,7 @@ CALL :DISP_MSG "Generated MD5 checksum file '%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD
 GOTO :EOF
 
 :COMPRESS_INSTALLER
-IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "Compress tool not found, cannot compress installer." 10
+IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "Compress tool not found, cannot compress installer." 20
 CD /D %NSIS_SCRIPT_FOLDER%
 "%SEVEN_ZIP_FULLPATH%" a -t7z -y WeekNumber_%VERSION%_Installer.7z WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
 SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
@@ -119,7 +119,7 @@ GOTO :EOF
 
 :COMPRESS_WEEKNUMBER_ZIP
 CALL :DISP_MSG "Archiving installer..." 0
-IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "7-zip not found '%SEVEN_ZIP_FULLPATH%', cannot compress installer." 10
+IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "7-zip not found '%SEVEN_ZIP_FULLPATH%', cannot compress installer." 30
 CD /D "%NSIS_SCRIPT_FOLDER%"
 "%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumber.zip WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
 SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
@@ -137,27 +137,27 @@ GOTO :EOF
 :COPY_RELEASE
 CALL :DISP_MSG "Copying release files to release folder..." 0
 MD "%SCRIPT_DIR%\..\Releases\%VERSION%" >NUL 2>&1
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip could not be copied" 10
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip could not be copied" 40
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip" 10
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip.MD5 not found" 10
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip" 50
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip.MD5 not found" 60
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip.MD5" 10
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" CALL :ERROR_MESSAGE_EXIT "WeekNumber_%VERSION%_Installer.7z not found" 10
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip.MD5" 70
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" CALL :ERROR_MESSAGE_EXIT "WeekNumber_%VERSION%_Installer.7z not found" 80
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber_%VERSION%_Installer.7z" 10
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 11
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber_%VERSION%_Installer.7z" 90
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 100
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 11
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 110
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe" GOTO :FAILED_COPY_RELEASE
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Copy failed" 12
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 12
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Copy failed" 120
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 130
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 13
-IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 13
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 140
+IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 150
 MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
-IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to copy release files." 10
+IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to copy release files." 160
 GOTO :EOF
 
 :UPDATE_VERSION
@@ -219,7 +219,7 @@ GOTO :DO_VER_UPDATE
 CALL :DISP_MSG "Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'..." 0
 "%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion%
 SET FART_RESULT=%ERRORLEVEL%
-IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 10
+IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
 SET VERSION=%NewAssemblyFileVersion%
 CALL :DISP_MSG "Version updated from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'." 2
 GIT pull -q
@@ -234,8 +234,8 @@ PUSHD "%SCRIPT_DIR%\.."
 	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Rebuild /property:Configuration=Release -m
 	SET BUILD_RESULT=%ERRORLEVEL%
 POPD
-IF "%BUILD_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Build failed. Cannot create release." 10
-IF "%BUILD_RESULT%" EQU "0" CALL :DISP_MSG "Build was successfully executed." 2
+IF "%BUILD_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Build failed. Cannot create release." 180
+IF "%BUILD_RESULT%" EQU "0" CALL :DISP_MSG "Build was successfully executed." 0
 GOTO :EOF
 
 :PUBLISH_RELEASE
@@ -246,8 +246,8 @@ SET "NAME=WeekNumber %VERSION%"
 SET "BODY=Release of version %VERSION%"
 "%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type:application/json" "https://api.github.com/repos/%REPO_OWNER%/%REPO_NAME%/releases" -d "{ \"tag_name\": \"%TAG_NAME%\", \"target_commitish\": \"%TARGET_COMMITISH%\",\"name\": \"%NAME%\",\"body\": \"%BODY%\",\"draft\": %DRAFT%, \"prerelease\": %PRERELEASE%}" >"%SCRIPT_DIR%\release_info.txt"
 SET CURL_RESULT=%ERRORLEVEL%
-IF "%CURL_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to publish release" 10
-CALL :DISP_MSG "Successfully published release." 2
+IF "%CURL_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to publish release" 190
+CALL :DISP_MSG "Successfully published release." 0
 CALL :PARSE_RELEASE_INFO
 CALL :UPLOAD_RELEASE_ASSETS
 GOTO :EOF
@@ -259,7 +259,6 @@ DEL /F /Q "%SCRIPT_DIR%\release_info.txt" >NUL
 SET /P UPLOAD_URL=<"%SCRIPT_DIR%\UPLOAD_URL.TXT"
 DEL /F /Q "%SCRIPT_DIR%\UPLOAD_URL.TXT" >NUL
 SET UPLOAD_URL=%UPLOAD_URL:~17,-15%
-ECHO UPLOAD_URL=%UPLOAD_URL%
 CALL :DISP_MSG "Successfully parsed received release info." 1
 GOTO :EOF
 
@@ -274,7 +273,7 @@ PUSHD "%SCRIPT_DIR%\..\Releases\%VERSION%"
 	CALL :UPLOAD_FILE "WeekNumber_%VERSION%_Installer.exe.MD5"
 	CALL :UPLOAD_FILE VERSION.TXT
 POPD
-CALL :DISP_MSG "Upload completed." 2
+CALL :DISP_MSG "Upload completed." 0
 GOTO :EOF
 
 :UPLOAD_FILE
@@ -284,13 +283,13 @@ CALL :DISP_MSG "Uploading '%FILE_TO_UPLOAD%' to release '%NAME%' on Github..." 0
 "%CURL%" -s -H "Accept: application/vnd.github.v3+json" -H "Authorization: token %GITHUB_ACCESS_TOKEN%" -H "Content-Type: application/octet-stream" --data-binary @%FILE_TO_UPLOAD% "%UPLOAD_URL%?name=%FILE_TO_UPLOAD%&label=%FILE_TO_UPLOAD%"
 SET CURL_RESULT=%ERRORLEVEL%
 :: Note: curl result can be 0 but file not uploaded, need to parse received json to validate success
-IF "%CURL_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to upload '%FILE_TO_UPLOAD%'" 10
+IF "%CURL_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to upload '%FILE_TO_UPLOAD%'" 200
 CALL :DISP_MSG "Successfully uploaded '%FILE_TO_UPLOAD%'." 1
 GOTO :EOF
 
 :CHECK_IF_MISSING_FILE
 SET FILE_TO_CHECK=%1
-IF NOT EXIST "%FILE_TO_CHECK%" CALL :ERROR_MESSAGE_EXIT "Missing '%FILE_TO_CHECK%', cannot publish file." 10
+IF NOT EXIST "%FILE_TO_CHECK%" CALL :ERROR_MESSAGE_EXIT "Missing '%FILE_TO_CHECK%', cannot publish file." 210
 GOTO :EOF
 
 :ERROR_MESSAGE_EXIT
