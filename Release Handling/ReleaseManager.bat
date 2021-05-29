@@ -52,7 +52,7 @@ IF %USER_SELECTION%==2 START /MAX CreateRelease.bat U
 IF %USER_SELECTION%==3 START /MAX CreateRelease.bat P
 IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
 IF %USER_SELECTION%==5 (
-	@CALL :SYNC_SOURCE
+	CALL :SYNC_SOURCE
 	GOTO :MENU
 )
 
@@ -69,7 +69,7 @@ GIT commit -a -m "Auto update via Release Manager %ScriptVersion%" >NUL 2>&1
 CALL :DISP_MSG " - Commit all changes" %ERRORLEVEL% 0
 GIT push --all >NUL 2>&1
 CALL :DISP_MSG " - Push all changes" %ERRORLEVEL% 0
-CALL :DISP_MSG "Sync complete." 0 2
+CALL :DISP_MSG "Sync complete." 0 1
 CLS
 GOTO :EOF
 
@@ -83,15 +83,15 @@ IF "%CODE%" NEQ "0" COLOR 4F
 ECHO.
 ECHO   %MSG%
 IF "%CODE%" NEQ "0" (
-	@ECHO   ==========================
-	@ECHO   Result: %CODE%
-	@ECHO   ==========================
-	@ECHO   Press any key to return to menu...
-	@PAUSE >NUL
-	@COLOR 1E
-	@GOTO :MENU
+	ECHO   ==========================
+	ECHO   Result: %CODE%
+	ECHO   ==========================
+	ECHO   Press any key to return to menu...
+	PAUSE >NUL
+	COLOR 1E
+	GOTO :MENU
 ) ELSE (
-	@TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
+	TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
 )
 COLOR 1E
 GOTO :EOF
