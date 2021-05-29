@@ -2,61 +2,68 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 @ECHO OFF
 
 SET Result=%1
-SET ScriptVersion=1.2
+SET ScriptVersion=1.3
 SET SCRIPT_DIR=%~dp0
 
 TITLE Release Manager %ScriptVersion%
-MODE 41,24
+MODE 60,34
 CLS
 
 IF "%Result%" EQU "" GOTO :MENU
 
 IF "%Result%" NEQ "0" (
-	@ECHO  =======================================
-	@ECHO  Last operation failed! Return code = %Result%
-	@ECHO  =======================================
+	ECHO  Last operation failed. Return code = %Result%
+	ECHO  =======================================
 )
 IF "%Result%" EQU "0" (
-	@ECHO  =======================================
-	@ECHO  Last operation completed successfully!
-	@ECHO  =======================================
+	ECHO  Last operation completed successfully!
+	ECHO  =======================================
 )
 
 :MENU
 CD /D "%SCRIPT_DIR%"
 COLOR 1E
-ECHO  =======================================
-ECHO  WeekNumber Release Manager version %ScriptVersion%
-ECHO  =======================================
+ECHO    __________       .__                               
+ECHO    \______   \ ____ ^|  ^|   ____ _____    ______ ____  
+ECHO     ^|       _// __ \^|  ^| _/ __ \\__  \  /  ___// __ \ 
+ECHO     ^|    ^|   \  ___/^|  ^|_\  ___/ / __ \_\___ \\  ___/ 
+ECHO     ^|____^|_  /\___  ^>____/\___  ^>____  /____  ^>\___  ^>
+ECHO            \/     \/          \/     \/     \/     \/ 
+ECHO      _____                                             
+ECHO     /     \ _____    ____ _____     ____   ___________ 
+ECHO    /  \ /  \\__  \  /    \\__  \   / ___\_/ __ \_  __ \
+ECHO   /    Y    \/ __ \^|   ^|  \/ __ \_/ /_/  ^>  ___/^|  ^| \/
+ECHO   \____^|__  (____  /___^|  (____  /\___  / \___  ^>__^|   
+ECHO           \/     \/     \/     \//_____/      \/       
+ECHO                                                      v%ScriptVersion%
 ECHO. 
 ECHO  A) Build solution and create release
 ECHO. 
 ECHO  B) Update version, sync sources, 
 ECHO     build solution and create release
 ECHO. 
-ECHO  C) Build solution, create and publish
-ECHO     release
+ECHO  C) Build solution, create and publish release
 ECHO. 
 ECHO  D) Update version, sync sources, build
 ECHO     solution, create and publish release
 ECHO. 
 ECHO  E) Sync sources
 ECHO. 
+ECHO  F) Open a command line window
+ECHO. 
 ECHO  X) Exit
 ECHO. 
-CHOICE /C ABCDEX /M "Select action"
+CHOICE /C ABCDEFX /N /M "Select action"
 SET USER_SELECTION=%ERRORLEVEL%
 
 IF %USER_SELECTION%==1 START /MAX CreateRelease.bat
 IF %USER_SELECTION%==2 START /MAX CreateRelease.bat U
 IF %USER_SELECTION%==3 START /MAX CreateRelease.bat P
 IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
-IF %USER_SELECTION%==5 (
-	CALL :SYNC_SOURCE
-	GOTO :MENU
-)
-
-EXIT
+IF %USER_SELECTION%==5 START "RM v%ScriptVersion% Command line" /I CMD.EXE
+IF %USER_SELECTION%==6 CALL :SYNC_SOURCE
+IF %USER_SELECTION%==7 EXIT
+GOTO :MENU
 
 :SYNC_SOURCE
 CLS
