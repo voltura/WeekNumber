@@ -105,6 +105,6 @@ GOTO :EOF
 
 :LAUNCH_CMD
 PUSHD "%SCRIPT_DIR%\..\Releases"
-START "Release Manager v%ScriptVersion% Command line" /I CMD.EXE /K DIR
+START "Release Manager v%ScriptVersion% Command line" /I CMD.EXE /K DIR /O-D /4 /S
 POPD
 GOTO :EOF
