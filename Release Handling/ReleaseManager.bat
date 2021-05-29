@@ -1,5 +1,5 @@
 SETLOCAL ENABLEDELAYEDEXPANSION
-@ECHO OFF
+ECHO OFF
 
 SET Result=%1
 SET ScriptVersion=1.4
@@ -63,6 +63,7 @@ IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
 IF %USER_SELECTION%==5 CALL :SYNC_SOURCE
 IF %USER_SELECTION%==6 CALL :LAUNCH_CMD
 IF %USER_SELECTION%==7 EXIT
+IF %USER_SELECTION% LEQ 4 EXIT
 CLS
 GOTO :MENU
 
@@ -85,7 +86,6 @@ SET MSG=%1
 SET MSG=%MSG:~1,-1%
 SET CODE=%2
 SET /A DELAY_SEC=%3+0
-COLOR 1F
 IF "%CODE%" NEQ "0" COLOR 4F
 ECHO.
 ECHO   %MSG%
@@ -95,16 +95,14 @@ IF "%CODE%" NEQ "0" (
 	ECHO   ==========================
 	ECHO   Press any key to return to menu...
 	PAUSE >NUL
-	COLOR 1F
 	GOTO :MENU
 ) ELSE (
 	TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
 )
-COLOR 1F
 GOTO :EOF
 
 :LAUNCH_CMD
 PUSHD "%SCRIPT_DIR%\..\Releases"
-START "Release Manager v%ScriptVersion% Command line" /I CMD.EXE /K DIR /O-D /4 /S
+START "WeekNumber Release Manager v%ScriptVersion% Command line" /I CMD.EXE /K DIR /O-D /4 /S
 POPD
 GOTO :EOF

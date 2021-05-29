@@ -2,7 +2,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 @ECHO OFF
 
 :: ==========================
-:: Optional input parameter
+:: Optional input parameters
 :: ==========================
 :: Parameter values:
 ::  <no value given> = do not update version and do not publish
@@ -311,11 +311,9 @@ EXIT
 SET MSG=%1
 SET MSG=%MSG:~1,-1%
 SET /A DELAY_SEC=%2+0
-COLOR 1F
 ECHO.
 ECHO   ==================================================
 ECHO   %MSG%
 ECHO   ==================================================
 TIMEOUT /T %DELAY_SEC% /NOBREAK >NUL
-COLOR 1F
 GOTO :EOF
