@@ -31,6 +31,7 @@ namespace WeekNumber
             using (Bitmap bitmap = new Bitmap(size, size))
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
                 DrawBackgroundOnGraphics(graphics, size);
                 DrawWeekNumberOnGraphics(weekNumber, graphics, size);
                 System.IntPtr bHicon = bitmap.GetHicon();
