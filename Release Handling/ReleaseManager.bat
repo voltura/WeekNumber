@@ -5,7 +5,7 @@ SET Result=%1
 SET ScriptVersion=1.4
 SET SCRIPT_DIR=%~dp0
 
-TITLE Release Manager %ScriptVersion%
+TITLE WeekNumber Release Manager v%ScriptVersion%
 MODE 60,34
 CLS
 
