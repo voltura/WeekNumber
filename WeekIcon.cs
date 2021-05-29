@@ -120,8 +120,8 @@ namespace WeekNumber
                 size = _defaultSize;
             }
             float fontSize = (float)System.Math.Abs(size * .78125);
-            float insetX = (float)-System.Math.Abs(fontSize * .14);
-            float insetY = (float)System.Math.Abs(fontSize * .2);
+            float insetX = (float)-(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .14) : System.Math.Abs(fontSize * .07));
+            float insetY = (float) (size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .2) : System.Math.Abs(fontSize * .08));
             Color foregroundColor = Color.FromArgb(
                 Settings.GetIntSetting(Resources.ForegroundR),
                 Settings.GetIntSetting(Resources.ForegroundG),
