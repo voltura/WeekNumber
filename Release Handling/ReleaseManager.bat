@@ -47,13 +47,13 @@ ECHO.
 ECHO  D) Update version, sync sources, build
 ECHO     solution, create and publish release
 ECHO. 
-ECHO  E) Sync sources
+ECHO  S) Sync sources
 ECHO. 
-ECHO  F) Open a command line window
+ECHO  F) Show local releases
 ECHO. 
 ECHO  X) Exit
 ECHO. 
-CHOICE /C ABCDEFX /N /M "Select action:"
+CHOICE /C ABCDSFX /N /M "Select action:"
 SET USER_SELECTION=%ERRORLEVEL%
 
 IF %USER_SELECTION%==1 START /MAX CreateRelease.bat
