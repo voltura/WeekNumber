@@ -56,30 +56,18 @@ namespace WeekNumber
         private static int GetIconResolution(bool forceUpdate = false)
         {
             int iconResolution = Settings.GetIntSetting(Resources.IconResolution, -1);
-            double myDbl;
+            double myDbl = 1.0d;
             if (forceUpdate || iconResolution == -1)
             {
                 // guess what icon resolution to use based on system
                 double winZoomLvl = GetWindowsZoom();
                 bool usingSmallTaskbarIcons = TaskbarUtil.UsingSmallTaskbarButtons();
-
+                myDbl = (double)System.Windows.SystemParameters.SmallIconHeight * winZoomLvl;
+                if (!usingSmallTaskbarIcons) myDbl *= 1.5d;
+                if (System.Windows.SystemParameters.PrimaryScreenWidth > 1600) myDbl *= 2.0d;
                 Log.Info = $"SmallIconHeight={System.Windows.SystemParameters.SmallIconHeight}";
                 Log.Info = $"WindowsZoomLevel={winZoomLvl * 100}";
                 Log.Info = $"UsingSmallTaskbarButtons={usingSmallTaskbarIcons}";
-                Decimal smallIconSize = (Decimal)System.Windows.SystemParameters.SmallIconHeight;
-
-                //double number = (double)((double)smallIconSize * (double)winZoomLvl) * 1.0d;
-                //Double calcNo = new Double();
-                myDbl = 1.0d;
-                myDbl = (double) Decimal.Multiply((Decimal)smallIconSize, (Decimal)winZoomLvl);
-                if (!usingSmallTaskbarIcons)
-                {
-                    myDbl = (double)Decimal.Multiply((Decimal)myDbl, (Decimal)1.5d);
-                }
-                if (System.Windows.SystemParameters.PrimaryScreenWidth > 1600)
-                {
-                    myDbl *= 2.0d;
-                }
                 Log.Info = $"Guessed icon resolution={myDbl}x{myDbl}";
 
                 // find closes match to existing configs (do not allow 16,20,24)
