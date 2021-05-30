@@ -56,6 +56,7 @@ namespace WeekNumber
         private static int GetIconResolution(bool forceUpdate = false)
         {
             int iconResolution = Settings.GetIntSetting(Resources.IconResolution, -1);
+            double myDbl;
             if (forceUpdate || iconResolution == -1)
             {
                 // guess what icon resolution to use based on system
@@ -65,15 +66,25 @@ namespace WeekNumber
                 Log.Info = $"SmallIconHeight={System.Windows.SystemParameters.SmallIconHeight}";
                 Log.Info = $"WindowsZoomLevel={winZoomLvl * 100}";
                 Log.Info = $"UsingSmallTaskbarButtons={usingSmallTaskbarIcons}";
+                Decimal smallIconSize = (Decimal)System.Windows.SystemParameters.SmallIconHeight;
 
-                double number = System.Windows.SystemParameters.SmallIconHeight *
-                                winZoomLvl * (usingSmallTaskbarIcons ? 1 : 1.5);
-
-                Log.Info = $"Guessed icon resolution={number}x{number}";
+                //double number = (double)((double)smallIconSize * (double)winZoomLvl) * 1.0d;
+                //Double calcNo = new Double();
+                myDbl = 1.0d;
+                myDbl = (double) Decimal.Multiply((Decimal)smallIconSize, (Decimal)winZoomLvl);
+                if (!usingSmallTaskbarIcons)
+                {
+                    myDbl = (double)Decimal.Multiply((Decimal)myDbl, (Decimal)1.5d);
+                }
+                if (System.Windows.SystemParameters.PrimaryScreenWidth > 1600)
+                {
+                    myDbl *= 2.0d;
+                }
+                Log.Info = $"Guessed icon resolution={myDbl}x{myDbl}";
 
                 // find closes match to existing configs (do not allow 16,20,24)
                 List<int> list = new List<int> { 32, 40, 48, 64, 128, 256, 512 };
-                int closest = list.Aggregate((x, y) => Math.Abs(x - number) < Math.Abs(y - number) ? x : y);
+                int closest = list.Aggregate((x, y) => Math.Abs(x - myDbl) < Math.Abs(y - myDbl) ? x : y);
 
                 Log.Info = $"Closest icon resolution={closest}x{closest}";
 
