@@ -5,7 +5,7 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 :: Optional input parameters
 :: ==========================
 :: Parameter values:
-::  <no value given> = do not update version and do not publish
+::  A                = do not update version and do not publish
 ::  U                = update version but do not publish
 ::  P                = do not update version only publish
 ::  UP               = update version and publish
@@ -24,6 +24,10 @@ SET "SCRIPT_DIR=%~dp0"
 SET "SCRIPT_DIR=%SCRIPT_DIR:~0,-1%"
 SET "RELEASE_MANAGER=%SCRIPT_DIR%\ReleaseManager.bat"
 SET "NSIS_SCRIPT_FOLDER=%SCRIPT_DIR%\..\NSIS Installation"
+IF "%SCRIPT_PARAMETER%" EQU "" (
+	START "Release Manager" "%RELEASE_MANAGER%"
+	EXIT
+)
 
 :: ==========================
 :: GitHub release API variables
