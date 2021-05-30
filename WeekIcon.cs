@@ -31,7 +31,10 @@ namespace WeekNumber
             using (Bitmap bitmap = new Bitmap(size, size))
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {
-                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.AntiAlias;
+                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                graphics.TextContrast = 1;
                 DrawBackgroundOnGraphics(graphics, size);
                 DrawWeekNumberOnGraphics(weekNumber, graphics, size);
                 System.IntPtr bHicon = bitmap.GetHicon();
@@ -116,10 +119,7 @@ namespace WeekNumber
 
         private static void DrawWeekNumberOnGraphics(int weekNumber, Graphics graphics, int size = 0)
         {
-            if (size == 0)
-            {
-                size = _defaultSize;
-            }
+            if (size == 0) size = _defaultSize;
             float fontSize = (float)System.Math.Abs(size * .78125);
             float insetX = (float)-(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .12) : System.Math.Abs(fontSize * .07));
             float insetY = (float)(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .2) : System.Math.Abs(fontSize * .08));
@@ -131,9 +131,7 @@ namespace WeekNumber
             using (Font font = new Font(FontFamily.GenericMonospace, fontSize, FontStyle.Bold,
                 GraphicsUnit.Pixel, 0, false))
             using (Brush brush = new SolidBrush(foregroundColor))
-            {
                 graphics?.DrawString(weekNumber.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), font, brush, insetX, insetY);
-            }
         }
 
         #endregion Private static helper methods
