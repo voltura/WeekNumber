@@ -49,4 +49,3 @@ Download installer and run to install, to remove the application run the uninsta
 
 ![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumber&countColorcountColor&countColor=%235690f2)
 
-![Github stats](https://github-readme-stats.vercel.app/api?username=voltura)
