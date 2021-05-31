@@ -17,6 +17,9 @@ Windows 10 taskbar application that displays the current week number
 [![image](https://img.shields.io/github/languages/code-size/voltura/WeekNumber)]()
 [![image](https://img.shields.io/github/forks/voltura/WeekNumber)]()
 [![image](https://img.shields.io/github/stars/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/search/voltura/WeekNumber/goto)]()
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fvoltura%2FWeekNumber%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
+![GitHub last commit](https://img.shields.io/github/last-commit/voltura/WeekNumber?color=red)
 
 **Features**
 
@@ -42,3 +45,7 @@ Download installer and run to install, to remove the application run the uninsta
 2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active;
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
+
+![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumber&countColorcountColor&countColor=%235690f2)
+
+![Github stats](https://github-readme-stats.vercel.app/api?username=voltura)
