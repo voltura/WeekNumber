@@ -5,6 +5,8 @@ Windows 10 taskbar application that displays the current week number
 
 [Download latest release](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
 
+[![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
+
 **Features**
 
 Options to start with Windows, auto update, customize colors, resolution and set calendar rules via right-click on the application icon.
