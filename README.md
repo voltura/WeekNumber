@@ -7,14 +7,16 @@ Windows 10 taskbar application that displays the current week number
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
-[![image](https://img.shields.io/github/stars/voltura/WeekNumber)]()
 
-[![image](https://img.shields.io/github/languages/count/voltura/WeekNumber)]()
-[![image](https://img.shields.io/github/languages/code-size/voltura/WeekNumber)]()
-[![image](https://img.shields.io/github/forks/voltura/WeekNumber)]()
 [![image](https://img.shields.io/github/issues/voltura/WeekNumber)]()
 [![image](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
 [![image](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumber%2F)]()
+
+[![image](https://img.shields.io/github/languages/count/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/languages/top/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/languages/code-size/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/forks/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/stars/voltura/WeekNumber)]()
 
 **Features**
 
