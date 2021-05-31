@@ -1,7 +1,7 @@
 # WeekNumber
 Windows 10 taskbar application that displays the current week number
 
-![image](https://user-images.githubusercontent.com/2292809/118544468-bca58780-b755-11eb-8711-735242585480.png)
+<img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" />
 
 [![image](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
 
