@@ -12,19 +12,6 @@ Windows 10 taskbar application that displays the current week number
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
 
-[![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
-[![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
-[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumber%2F)]()
-
-[![Number of programming langauges](https://img.shields.io/github/languages/count/voltura/WeekNumber)]()
-[![Top programming language](https://img.shields.io/github/languages/top/voltura/WeekNumber)]()
-[![Code size](https://img.shields.io/github/languages/code-size/voltura/WeekNumber)]()
-[![Number of repo forks](https://img.shields.io/github/forks/voltura/WeekNumber)]()
-[![Number of repo stars](https://img.shields.io/github/stars/voltura/WeekNumber)]()
-[![goto counter](https://img.shields.io/github/search/voltura/WeekNumber/goto)]()
-[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fvoltura%2FWeekNumber%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
-![GitHub last commit](https://img.shields.io/github/last-commit/voltura/WeekNumber?color=red)
-
 ## Features
 
 Options to start with Windows, auto update, customize colors, resolution and set calendar rules via right-click on the application icon.
@@ -82,5 +69,18 @@ If the program icon is not visible then press the ^ symbol on the taskbar, click
 - **Exit WeekNumber** - _Closes the application_
 
 ## Statistics
+
+[![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
+[![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
+[![Website Status](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumber%2F)]()
+
+[![Number of programming langauges](https://img.shields.io/github/languages/count/voltura/WeekNumber)]()
+[![Top programming language](https://img.shields.io/github/languages/top/voltura/WeekNumber)]()
+[![Code size](https://img.shields.io/github/languages/code-size/voltura/WeekNumber)]()
+[![Number of repo forks](https://img.shields.io/github/forks/voltura/WeekNumber)]()
+[![Number of repo stars](https://img.shields.io/github/stars/voltura/WeekNumber)]()
+[![goto counter](https://img.shields.io/github/search/voltura/WeekNumber/goto)]()
+[![Hits](https://hits.seeyoufarm.com/api/count/incr/badge.svg?url=https%3A%2F%2Fgithub.com%2Fvoltura%2FWeekNumber%2Fhit-counter&count_bg=%2379C83D&title_bg=%23555555&icon=&icon_color=%23E7E7E7&title=hits&edge_flat=false)]()
+![GitHub last commit](https://img.shields.io/github/last-commit/voltura/WeekNumber?color=red)
 
 ![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumber&countColorcountColor&countColor=%235690f2)
