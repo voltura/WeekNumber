@@ -67,7 +67,7 @@ Context menu options:
 
 - **About WeekNumber** - _Displays version information_
 - **Check for updated version** - _Checks if newer version is available, option to update if that is the case_
-- **Open application web page** - _Opens the default browser pointing to the application web page
+- **Open application web page** - _Opens the default browser pointing to the application web page_
 - **Update automatically** - _If ticked the application will update itself automatically without user interaction_
 - **Settings** - _Additional application settings displayed in sub-menus_
    - **Start with Windows** - _Application starts automatically when user login to Windows if ticked_
