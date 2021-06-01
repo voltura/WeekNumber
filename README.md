@@ -28,7 +28,7 @@ The application is tiny and its memory consumption low. For details see _Help se
 ![Screenshot 4](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 
 ## Installation
-Download installer and run to install, to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
+Download installer and run to install (option to start when installer finishes), to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
 
 ### Installation notes
 
@@ -68,7 +68,7 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
    - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
    - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
    - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
-- **Exit WeekNumber** - _Closes the application_
+- **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
 ## Statistics
 
