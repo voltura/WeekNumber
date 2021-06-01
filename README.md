@@ -41,7 +41,8 @@ The executable is tiny and its memory consumption low.
 ![Screenshot 4](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 
 ## Installation
-Download installer and run to install, to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via command line.
+Download installer and run to install, to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
+
 To silently install call the installer with /S parameter.
 > WeekNumber_{VERSION}_Installer.exe /S
 
