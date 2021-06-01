@@ -9,7 +9,7 @@ Windows 10 taskbar application that displays the current week number
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
 [![image](https://img.shields.io/badge/donate-paypal-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG)
 
-[![image](https://img.shields.io/github/issues/voltura/WeekNumber)]()
+[![image](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
 [![image](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
 [![image](https://img.shields.io/website?url=https%3A%2F%2Fvoltura.github.io%2FWeekNumber%2F)]()
 
