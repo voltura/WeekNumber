@@ -7,14 +7,14 @@
 Unicode True
 
 !ifndef VERSION
-  !define VERSION "1.6.2.1"
+  !define VERSION "1.0.0.0"
 !endif
 
 !define PRODUCT_NAME "WeekNumber by Voltura AB"
 !define PRODUCT_VERSION ${VERSION}
 !define PRODUCT_GROUP "WeekNumber"
 !define PRODUCT_PUBLISHER "Voltura AB"
-!define PRODUCT_WEB_SITE "https://github.com/voltura"
+!define PRODUCT_WEB_SITE "https://voltura.github.io/WeekNumber"
 !define PRODUCT_ID "{550adc75-8afb-4813-ac91-8c8c6cb681ae}"
 
 ;Name and file
@@ -38,16 +38,12 @@ VIAddVersionKey SpecialBuild "${VERSION}"
 InstallDir "$LOCALAPPDATA\Voltura AB\WeekNumber"
 ;Get installation folder from registry if available
 InstallDirRegKey HKCU "Software\WeekNumber" ""
-;Request application privileges for Windows Vista
+;Request application privileges for Windows
 RequestExecutionLevel user
 
 ;--------------------------------
 ;Variables
 Var StartMenuFolder
-;Var Dialog
-;Var Label
-;Var Checkbox
-;Var Checkbox_State
 Var KillResult
 
 ;--------------------------------
@@ -77,21 +73,16 @@ Var KillResult
 !insertmacro MUI_PAGE_WELCOME
 !insertmacro MUI_PAGE_LICENSE "License.txt"
 !insertmacro MUI_PAGE_DIRECTORY
-;Start Menu Folder Page Configuration
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\WeekNumber" 
 !define MUI_STARTMENUPAGE_REGISTRY_VALUENAME "Start Menu Folder"
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
-;Page custom nsDialogsSettingsPage nsDialogsSettingsPageLeave
 !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
-
 !define MUI_FINISHPAGE_SHOWREADME ""
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "Start WeekNumber with Windows"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION configureStartWithWindows
-;!define MUI_FINISHPAGE_SHOWREADME_NOTCHECKED
-
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
 !insertmacro MUI_UNPAGE_CONFIRM
@@ -120,6 +111,22 @@ Section "WeekNumber application" SecWeekNumber
   WriteRegStr HKCU "Software\WeekNumber" "" $INSTDIR
   ;Create uninstaller
   WriteUninstaller "$INSTDIR\Uninstall WeekNumber.exe"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "DisplayName" "WeekNumber by Voltura AB"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "UninstallString" "$\"$INSTDIR\Uninstall WeekNumber.exe$\""
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "QuietUninstallString" "$\"$INSTDIR\Uninstall WeekNumber.exe$\" /S"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "InstallLocation" "$\"$INSTDIR$\""
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "Publisher" "Voltura AB"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "Readme" "https://voltura.github.io/WeekNumber"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "URLUpdateInfo" "https://github.com/voltura/weeknumber/releases/latest/download/VERSION.TXT"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "URLInfoAbout" "https://voltura.github.io/WeekNumber"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "HelpLink" "https://voltura.github.io/WeekNumber"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "DisplayVersion" "${VERSION}"
+  WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "NoModify" "1"
+  WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "NoRepair" "1"
+  WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "EstimatedSize" "512"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "Comments" "Displays current week number in the Windows taskbar"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "DisplayIcon" "$\"$INSTDIR\WeekNumber.exe$\""
+  
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
     ;Create shortcuts
     CreateDirectory "$SMPROGRAMS\$StartMenuFolder"
@@ -136,58 +143,68 @@ LangString DESC_SecWeekNumber ${LANG_ENGLISH} "WeekNumber application"
 ;--------------------------------
 ;Uninstaller Section
 Section "Uninstall"
+  Call un.weekNumberExeRunning
+  ${If} $KillResult == "NOK"
+    IfSilent +2
+    Messagebox MB_OK|MB_ICONSTOP "WeekNumber is running, close it and run uninstaller again."
+    Abort
+  ${EndIf}
   Delete "$INSTDIR\WeekNumber.exe"
   Delete "$INSTDIR\WeekNumber.exe.log"
   Delete "$INSTDIR\WeekNumber.exe.Config"
   Delete "$INSTDIR\Uninstall WeekNumber.exe"
+  Delete "$LOCALAPPDATA\WeekNumber.exe.log"
+  Delete "$LOCALAPPDATA\WeekNumber\WeekNumber.exe.log"
+  Delete "$LOCALAPPDATA\Temp\WeekNumberCleanup.exe"
+  Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe"
+  Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe.MD5"
   RMDir "$INSTDIR"
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
   Delete "$SMPROGRAMS\$StartMenuFolder\WeekNumber.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall WeekNumber.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
+  RMDir "$LOCALAPPDATA\WeekNumber"
   DeleteRegKey HKCU "Software\WeekNumber"
-  IfSilent +2
+  IfSilent +3
   DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Run\WeekNumber"
+  DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber"
   
 SectionEnd
 
 ;--------------------------------
 ; Functions
-;Function nsDialogsSettingsPage
-;  DetailPrint "Displaying Setting Page"
-;  nsDialogs::Create 1018
-;  Pop $Dialog
-;  ${If} $Dialog == error
-;  	Abort
-;  ${EndIf}
-;  ${NSD_CreateLabel} 0 0 100% 12u "Tick the checkbox if you want WeekNumber to start with Windows"
-;  Pop $Label
-;  ${NSD_CreateCheckbox} 0 30u 100% 10u "&Start with Windows"
-;  Pop $Checkbox
-;  ${NSD_SetState} $Checkbox_State ${BST_CHECKED}
-;  nsDialogs::Show
-;FunctionEnd
-
 Function configureStartWithWindows
     ;Add Start with Windows setting
     DetailPrint "Configuring WeekNumber to start with Windows..."
     !insertmacro AdjustConfigValue "$INSTDIR\WeekNumber.exe.config" "StartWithWindows" "True"	
 FunctionEnd
 
-;Function nsDialogsSettingsPageLeave
-;  ${NSD_GetState} $Checkbox $Checkbox_State
-;  ${If} $Checkbox_State == ${BST_CHECKED}
-;    ;Add Start with Windows setting
-;    DetailPrint "Configuring WeekNumber to start with Windows..."
-;    !insertmacro AdjustConfigValue "$INSTDIR\WeekNumber.exe.config" "StartWithWindows" "True"	
-;  ${EndIf}
-;FunctionEnd
-
 Function onGUIInit
   Aero::Apply
 FunctionEnd
 
 Function weekNumberExeRunning
+  StrCpy $R0 2
+  DetailPrint "Checking if WeekNumber is running..."
+  System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
+  IntCmp $R0 0 notRunning
+  System::Call 'kernel32::CloseHandle(i $R0)'
+  DetailPrint "WeekNumber is running, trying to stop it..."
+  LockedList::CloseProcess /kill WeekNumber.exe
+  Sleep 2000
+  System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
+  IntCmp $R0 0 notRunning
+  DetailPrint "Installation aborted - WeekNumber is running"
+  IfSilent +2
+  MessageBox MB_OK|MB_ICONEXCLAMATION "WeekNumber #1 is running. Please close before installing." /SD IDOK
+  StrCpy $KillResult "NOK"
+  Abort
+  notRunning:
+  StrCpy $KillResult "OK"
+  DetailPrint "WeekNumber is not running"
+FunctionEnd
+
+Function un.weekNumberExeRunning
   StrCpy $R0 2
   DetailPrint "Checking if WeekNumber is running..."
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'

@@ -1,4 +1,3 @@
 ﻿Application improvement ideas
 =============================
 - Add multi language support
-- Add option to uninstall from Windows 10 native Add or Remove Programs
