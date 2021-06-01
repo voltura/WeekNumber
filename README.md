@@ -5,9 +5,12 @@ Windows 10 taskbar application that displays the current week number
 
 [![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
 
+*- Completely Free and Open Source! Donations are highly appriciated!*
+
+[![Donate](https://img.shields.io/badge/donate-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG)
+
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
-[![Donate](https://img.shields.io/badge/donate-paypal-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG)
 
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
 [![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
@@ -53,5 +56,7 @@ To silently uninstall call the uninstaller with /S parameter.
 2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active;
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
+
+## Statistics
 
 ![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumber&countColorcountColor&countColor=%235690f2)
