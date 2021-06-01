@@ -59,6 +59,7 @@ namespace WeekNumber
         {
             string runningVersion = Application.ProductVersion;
             VersionInfo internetVersionInfo = GetInternetVersion(silent);
+            if (internetVersionInfo.Error) return;
             if (!IsNewerVersion(runningVersion, internetVersionInfo.Version))
             {
                 LogAndShow(Resources.LatestVersionInstalled, silent);
@@ -159,6 +160,7 @@ Try manually downloading it via a web browser from this address:
         {
             VersionInfo vi = new VersionInfo
             {
+                Version = "0.0.0.0",
                 Error = true
             };
             if (!NativeMethods.IsConnectedToInternet())
@@ -255,7 +257,7 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
             {
                 Log.ErrorString = msg;
                 Log.Error = ex;
-                if (!silent) Message.Show(msg, ex);
+                if (!silent) Message.Show(msg, isError: ex != null);
             }
         }
 
