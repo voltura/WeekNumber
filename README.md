@@ -35,10 +35,12 @@ Download installer and run to install (option to start when installer finishes),
 1) Choose to keep the file downloaded if prompted 
 ![Keep file if prompted](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
 
-2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active;
-![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/120403793-3ab48180-c345-11eb-9293-8db858936f3a.png)
+2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active:
 
-![MS Defender Smartscreen_2](https://user-images.githubusercontent.com/2292809/120403830-486a0700-c345-11eb-967e-59140078a2bd.png)
+![smartscreen_0](https://user-images.githubusercontent.com/2292809/120404034-c201f500-c345-11eb-9abd-670e927c4a36.png)
+
+![smartscreen_1](https://user-images.githubusercontent.com/2292809/120404043-c4fce580-c345-11eb-945d-a5931bb5b721.png)
+
 
 #### Distributed / Silent install / uninstall options
 
