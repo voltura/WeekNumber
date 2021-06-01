@@ -33,7 +33,7 @@ namespace WeekNumber
         internal static void Show(string message, bool isError)
         {
             if (isError) Log.Info = message; else Log.ErrorString = message;
-            MessageBoxIcon icon = isError ? MessageBoxIcon.Information : MessageBoxIcon.Error;
+            MessageBoxIcon icon = isError ? MessageBoxIcon.Exclamation : MessageBoxIcon.Information;
             MessageBox.Show(message, CAPTION, MessageBoxButtons.OK, icon, MessageBoxDefaultButton.Button1, MessageBoxOptions.DefaultDesktopOnly);
         }
 
