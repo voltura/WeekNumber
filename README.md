@@ -30,12 +30,6 @@ The executable is tiny and its memory consumption low. For details see _Help sec
 ## Installation
 Download installer and run to install, to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
 
-To silently install call the installer with /S parameter.
-> WeekNumber_{VERSION}_Installer.exe /S
-
-To silently uninstall call the uninstaller with /S parameter.
-> Uninstall WeekNumber.exe /S
-
 ### Installation notes
 
 1) Choose to keep the file downloaded if prompted 
@@ -44,6 +38,14 @@ To silently uninstall call the uninstaller with /S parameter.
 2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active;
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
+
+#### Silent install / uninstall
+
+To silently install call the installer with /S parameter.
+> WeekNumber_{VERSION}_Installer.exe /S
+
+To silently uninstall call the uninstaller with /S parameter.
+> Uninstall WeekNumber.exe /S
 
 ## Help section
 
