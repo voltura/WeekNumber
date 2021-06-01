@@ -15,7 +15,7 @@ Windows 10 taskbar application that displays the current week number
 ## Features
 
 Options to start with Windows, auto update, customize colors, resolution and set calendar rules via right-click on the application icon.
-The executable is tiny and its memory consumption low. For details see _Help section_ below.
+The application is tiny and its memory consumption low. For details see _Help section_ below.
 
 ## Screenshots
 
@@ -39,7 +39,7 @@ Download installer and run to install, to remove the application run the uninsta
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
 
-#### Silent install / uninstall
+#### Distributed / Silent install / uninstall options
 
 To silently install call the installer with /S parameter.
 > WeekNumber_{VERSION}_Installer.exe /S
@@ -49,8 +49,8 @@ To silently uninstall call the uninstaller with /S parameter.
 
 ## Help section
 
-All program features are accessable via right mouse click on the application icon residing in the Windows taskbar.
-If the program icon is not visible then press the ^ symbol on the taskbar, click and hold on the application icon and then drag it to the visible taskbar area to pin it there.
+All application features are accessable via right mouse click on the application icon residing in the Windows taskbar.
+If the application icon is not visible then press the ^ symbol on the taskbar, click and hold on the application icon and then drag it to the visible taskbar area to pin it there.
 
 ### Context menu options:
 
