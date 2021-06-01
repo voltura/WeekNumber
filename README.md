@@ -63,7 +63,7 @@ To silently uninstall call the uninstaller with /S parameter.
 All program features are accessable via right mouse click on the application icon residing in the Windows taskbar.
 If the program icon is not visible then press the ^ symbol on the taskbar, click and hold on the application icon and then drag it to the visible taskbar area to pin it there.
 
-Context menu options:
+### Context menu options:
 
 - **About WeekNumber** - _Displays version information_
 - **Check for updated version** - _Checks if newer version is available, option to update if that is the case_
