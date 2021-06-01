@@ -76,7 +76,7 @@ If the program icon is not visible then press the ^ symbol on the taskbar, click
    - **Use small / large taskbar icons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number then try large taskbar icons_
    - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
    - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
-   - **Icon colors** - _Allows user to change icon background and text color or reset colors used back to default in sub-menus_
+   - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
    - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
    - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
 - **Exit WeekNumber** - _Closes the application_
