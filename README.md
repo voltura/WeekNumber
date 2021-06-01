@@ -58,6 +58,29 @@ To silently uninstall call the uninstaller with /S parameter.
 ![MS Defender SmartScreen_1](https://user-images.githubusercontent.com/2292809/118373685-651de500-b5b8-11eb-94ed-92791f061266.png)
 ![MS Defender SmartScreen_2](https://user-images.githubusercontent.com/2292809/118373689-6a7b2f80-b5b8-11eb-8413-9a7e8c5c3779.png)
 
+## Help section
+
+All program features are accessable via right mouse click on the application icon residing in the Windows taskbar.
+If the program icon is not visible then press the ^ symbol on the taskbar, click and hold on the application icon and then drag it to the visible taskbar area to pin it there.
+
+Context menu options:
+
+- **About WeekNumber** - _Displays version information_
+- **Check for updated version** - _Checks if newer version is available, option to update if that is the case_
+- **Open application web page** - _Opens the default browser pointing to the application web page
+- **Update automatically** - _If ticked the application will update itself automatically without user interaction_
+- **Settings** - _Additional application settings displayed in sub-menus_
+   - **Start with Windows** - _Application starts automatically when user login to Windows if ticked_
+   - **Use application log** - _Application writes to a log file if ticked (technical)_
+   - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
+   - **Use small|large taskbar icons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match_
+   - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+   - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+   - **Icon colors** - _Allows user to change icon background and text color or reset colors used back to default in sub-menus_
+   - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
+   - **Icon resolution** - _Possobility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+- **Exit WeekNumber** - _Closes the application_
+
 ## Statistics
 
 ![Visitors](https://estruyf-github.azurewebsites.net/api/VisitorHit?user=volturaf&repo=WeekNumber&countColorcountColor&countColor=%235690f2)
