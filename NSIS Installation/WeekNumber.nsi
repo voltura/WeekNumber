@@ -124,7 +124,7 @@ Section "WeekNumber application" SecWeekNumber
   WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "NoModify" "1"
   WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "NoRepair" "1"
   WriteRegDWORD HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "EstimatedSize" "512"
-  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "Comments" "Displays current week number in the Windows taskbar"
+  WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "Comments" "Taskbar app - shows current week number"
   WriteRegStr HKCU "Software\Microsoft\Windows\CurrentVersion\Uninstall\WeekNumber" "DisplayIcon" "$\"$INSTDIR\WeekNumber.exe$\""
   
   !insertmacro MUI_STARTMENU_WRITE_BEGIN Application
