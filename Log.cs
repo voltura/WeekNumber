@@ -14,7 +14,7 @@ namespace WeekNumber
         #region Static variables
 
         private static readonly string logFile = Path.GetFileNameWithoutExtension(Application.ExecutablePath) + ".log";
-        private static readonly string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application.ProductName);
+        private static readonly string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), Application.CompanyName, Application.ProductName);
         private static readonly string logFileFullPath = Path.Combine(appDataFolder, logFile);
         private static readonly int DEFAULT_LOGFILE_SIZE_IN_MEGABYTES = 10;
 
@@ -166,7 +166,8 @@ namespace WeekNumber
             {
                 try
                 {
-                    Trace.TraceInformation($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {value}");
+                    string formattedValue = value.Replace('\r', ' ').Replace('\n', ' ').Trim();
+                    Trace.TraceInformation($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {formattedValue}");
                 }
                 catch (Exception ex)
                 {
@@ -185,7 +186,8 @@ namespace WeekNumber
             {
                 try
                 {
-                    Trace.TraceError($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {value}");
+                    string formattedValue = value.ToString().Replace('\r', ' ').Replace('\n', ' ').Trim();
+                    Trace.TraceError($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {formattedValue}");
                 }
                 catch (Exception ex)
                 {
@@ -200,7 +202,18 @@ namespace WeekNumber
         internal static string ErrorString
         {
             private get => string.Empty;
-            set => Trace.TraceError($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {value}");
+            set
+            {
+                try
+                {
+                    string formattedValue = value.Replace('\r', ' ').Replace('\n', ' ').Trim();
+                    Trace.TraceError($"{DateTime.Now.ToString("yyyy-MM-dd hh:mm:ss.fff", CultureInfo.InvariantCulture)} {formattedValue}");
+                }
+                catch (Exception ex)
+                {
+                    Debug.WriteLine(ex);
+                }
+            }
         }
 
         #endregion
