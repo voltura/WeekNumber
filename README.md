@@ -7,7 +7,7 @@ Windows 10 taskbar application that displays the current week number
 
 *- Completely Free and Open Source! Donations are highly appriciated!*
 
-[![Donate](https://img.shields.io/badge/donate-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG)
+[![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
