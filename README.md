@@ -73,12 +73,12 @@ Context menu options:
    - **Start with Windows** - _Application starts automatically when user login to Windows if ticked_
    - **Use application log** - _Application writes to a log file if ticked (technical)_
    - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
-   - **Use small|large taskbar icons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match_
+   - **Use small|large taskbar icons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number then try large taskbar icons_
    - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
    - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
    - **Icon colors** - _Allows user to change icon background and text color or reset colors used back to default in sub-menus_
    - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
-   - **Icon resolution** - _Possobility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+   - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
 - **Exit WeekNumber** - _Closes the application_
 
 ## Statistics
