@@ -1,5 +1,4 @@
-﻿Application icon improvement (if working with NotificationIcon)
-===============================================================
-potentially, to get correct looking week number icon (not jagged/squewed), create icon using class IconFactory instead of 
-single resolution icon as per today, this would then potentially make windows select correct resolution to display from within
-the icon images in different resolutions
+﻿Application improvement ideas
+=============================
+- Add multi language support
+- Add option to uninstall from Windows 10 native Add or Remove Programs

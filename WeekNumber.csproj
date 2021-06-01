@@ -112,7 +112,6 @@
     <Compile Include="Log.cs" />
     <Compile Include="Message.cs" />
     <Compile Include="NativeMethods.cs" />
-    <Compile Include="Others code not used\IconFactory.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Resources\Resources.Designer.cs">
