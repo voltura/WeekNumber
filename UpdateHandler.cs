@@ -174,7 +174,7 @@ Try manually downloading it via a web browser from this address:
             {
                 using (WebClient client = new WebClient())
                 {
-                    versionInfoFromInternet = client.DownloadString(VERSION_CHECK_URL);
+                    versionInfoFromInternet = client.DownloadString(VERSION_CHECK_URL).Replace('\r', ' ').Replace('\n', ' ').TrimEnd();
                 }
                 Log.Info = $"versionInfoFromInternet='{versionInfoFromInternet}'";
             }
