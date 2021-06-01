@@ -15,7 +15,7 @@ Windows 10 taskbar application that displays the current week number
 ## Features
 
 Options to start with Windows, auto update, customize colors, resolution and set calendar rules via right-click on the application icon.
-The executable is tiny and its memory consumption low.
+The executable is tiny and its memory consumption low. For details see _Help section_ below.
 
 ## Screenshots
 
