@@ -80,29 +80,29 @@ START "Compile Installer" /MIN /WAIT "%NSIS_SCRIPT_FOLDER%\CompileInstaller.bat"
 SET RESULT=%ERRORLEVEL%
 CD /D "%NSIS_SCRIPT_FOLDER%"
 IF "%RESULT%" EQU "0" (
-	@CALL :DISP_MSG "Installer successfully compiled." 2
-	@CALL :GENERATE_MD5 WeekNumber_%VERSION%_Installer.exe
-	@CALL :COMPRESS_INSTALLER
-	@CALL :GENERATE_MD5 WeekNumber_%VERSION%_Installer.7z
-	@CALL :COMPRESS_WEEKNUMBER_ZIP
-	@CALL :GENERATE_MD5 WeekNumber.zip
-	@CALL :GENERATE_VERSION_INFO %VERSION% WeekNumber_%VERSION%_Installer.exe
-	@CALL :COPY_RELEASE
-	@DEL /F /Q "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
-	@CALL :DISP_MSG "Generated all release files successfully." 0
+	CALL :DISP_MSG "Installer successfully compiled." 2
+	CALL :GENERATE_MD5 WeekNumber_%VERSION%_Installer.exe
+	CALL :COMPRESS_INSTALLER
+	CALL :GENERATE_MD5 WeekNumber_%VERSION%_Installer.7z
+	CALL :COMPRESS_WEEKNUMBER_ZIP
+	CALL :GENERATE_MD5 WeekNumber.zip
+	CALL :GENERATE_VERSION_INFO %VERSION% WeekNumber_%VERSION%_Installer.exe
+	CALL :COPY_RELEASE
+	DEL /F /Q "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
+	CALL :DISP_MSG "Generated all release files successfully." 0
 ) ELSE (
-	@NOTEPAD.EXE "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
-	@CALL :ERROR_MESSAGE_EXIT "Failed to compile installer." %RESULT%
+	NOTEPAD.EXE "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
+	CALL :ERROR_MESSAGE_EXIT "Failed to compile installer." %RESULT%
 )
 CD /D "%SCRIPT_DIR%"
 GOTO :EOF
 
 :GENERATE_MD5
-CALL :DISP_MSG "Generating MD5 for '%1'..." 0
+CALL :DISP_MSG "Generating MD5 for '%NSIS_SCRIPT_FOLDER%\%1'..." 0
 SET "MD5="
-FOR /F "skip=1" %%G IN ('CertUtil -hashfile %1 MD5') DO (
-	@SET "MD5=%%G"
-	@GOTO :CREATE_MD5 %1
+FOR /F "skip=1" %%G IN ('CertUtil -hashfile "%NSIS_SCRIPT_FOLDER%\%1" MD5') DO (
+	SET "MD5=%%G"
+	GOTO :CREATE_MD5 %1
 )
 CALL :ERROR_MESSAGE_EXIT "Failed to generate MD5 for '%1'." 10
 :CREATE_MD5
@@ -182,9 +182,9 @@ FOR /F "tokens=1,2,3,4 delims=." %%G IN ("%CurrentAssemblyFileVersion%") DO (
 )
 SET VERSION=%MAJOR%.%MINOR%.%BUILD%.%REVISION%
 IF "%UPDATE_VER%" EQU "TRUE" (
-	@CALL :UPDATE_REVISION
+	CALL :UPDATE_REVISION
 ) ELSE (
-	@CALL :SKIP_VERSION_UPDATE
+	CALL :SKIP_VERSION_UPDATE
 )
 GOTO :EOF
 
@@ -235,7 +235,7 @@ GOTO :EOF
 :COMPILE_RELEASE
 CALL :DISP_MSG "Compiling solution release build..." 0
 PUSHD "%SCRIPT_DIR%\.."
-	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Rebuild /property:Configuration=Release -m
+	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Clean,Build /property:Configuration=Release -maxcpucount
 	SET BUILD_RESULT=%ERRORLEVEL%
 POPD
 IF "%BUILD_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Build failed. Cannot create release." 180
