@@ -226,10 +226,20 @@ SET FART_RESULT=%ERRORLEVEL%
 IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
 SET VERSION=%NewAssemblyFileVersion%
 CALL :DISP_MSG "Version updated from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'." 2
-GIT pull -q
-GIT add --all
-GIT commit -a  -m "Updated version to %VERSION%"
-git push --all
+CALL :SYNC_SOURCE
+GOTO :EOF
+
+:SYNC_SOURCE
+CALL :DISP_MSG "Syncing sources, please wait..." 0
+GIT pull -q >NUL 2>&1
+ECHO  - Get changes from git result = %ERRORLEVEL%
+GIT add --all >NUL 2>&1
+ECHO  - Add all changes result = %ERRORLEVEL%
+GIT commit -a -m "Updated version to %VERSION%" >NUL 2>&1
+ECHO  - Commit all changes result = %ERRORLEVEL%
+GIT push --all >NUL 2>&1
+ECHO  - Push all changes result = %ERRORLEVEL%
+CALL :DISP_MSG "Sync complete." 0
 GOTO :EOF
 
 :COMPILE_RELEASE
