@@ -161,6 +161,7 @@ Try manually downloading it via a web browser from this address:
 
         private static VersionInfo GetInternetVersion(bool silent)
         {
+            Log.LogCaller();
             VersionInfo vi = new VersionInfo
             {
                 Version = "0.0.0.0",
@@ -222,6 +223,7 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
         /// <returns></returns>
         private static bool IsNewerVersion(string existingVersion, string internetVersion)
         {
+            Log.LogCaller();
             bool result = existingVersion != internetVersion;
             char[] dotSeparator = new char[] { '.' };
             string[] existingVersionParts = existingVersion.Split(dotSeparator);
@@ -266,14 +268,32 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
 
         private static string CalculateMD5(string filename)
         {
-            using (var md5 = System.Security.Cryptography.MD5.Create())
+            Log.LogCaller();
+            string fileMD5Hash = string.Empty;
+            try
             {
-                using (var stream = File.OpenRead(filename))
+                if (File.Exists(filename))
                 {
-                    var hash = md5.ComputeHash(stream);
-                    return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                    using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
+                    {
+                        using (FileStream stream = File.OpenRead(filename))
+                        {
+                            byte[] hash = md5.ComputeHash(stream);
+                            fileMD5Hash = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
+                            Log.Info = $"Calculated MD5 hash for file '{filename}' to '{fileMD5Hash}'";
+                        }
+                    }
+                }
+                else
+                {
+                    Log.ErrorString = $"Cannot calculate MD5 hash for file '{filename}' since the file does not exist.";
                 }
             }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            }
+            return fileMD5Hash;
         }
 
         /// <summary>
@@ -285,8 +305,8 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
         /// <param name="fullPath"></param>
         private static bool UnblockFile(string fullPath)
         {
-            bool result = false;
             Log.LogCaller();
+            bool result = false;
             string parameters = @"-Command ""& {Unblock-File -Path """ + fullPath + @""" }""";
             try
             {
