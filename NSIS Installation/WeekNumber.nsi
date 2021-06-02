@@ -150,7 +150,12 @@ Section "Uninstall"
     Abort
   ${EndIf}
   Delete "$INSTDIR\WeekNumber.exe"
+  
+  ;do not delete old application log files if silently uninstalling, 
+  ;normal scenario for silent uninstall is auto-update
+  IfSilent +2
   Delete "$INSTDIR\WeekNumber.exe.log"
+  
   Delete "$INSTDIR\WeekNumber.exe.Config"
   Delete "$INSTDIR\Uninstall WeekNumber.exe"
   
