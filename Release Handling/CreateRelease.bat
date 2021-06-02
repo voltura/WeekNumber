@@ -194,28 +194,28 @@ GOTO :EOF
 
 :UPDATE_REVISION
 IF %REVISION% GEQ 9 GOTO :UPDATE_BUILD
-ECHO Updating revision number
+ECHO   - Updating revision number
 SET /A REVISION=%REVISION%+1
 SET NewAssemblyFileVersion=%MAJOR%.%MINOR%.%BUILD%.%REVISION%
 GOTO :DO_VER_UPDATE
 
 :UPDATE_BUILD
 IF %BUILD% GEQ 9 GOTO :UPDATE_MINOR
-ECHO Updating build number
+ECHO   - Updating build number
 SET /A BUILD=%BUILD%+1
 SET NewAssemblyFileVersion=%MAJOR%.%MINOR%.%BUILD%.0
 GOTO :DO_VER_UPDATE
 
 :UPDATE_MINOR
 IF %MINOR% GEQ 9 GOTO :UPDATE_MAJOR
-ECHO Updating minor number
+ECHO   - Updating minor number
 SET /A MINOR=%MINOR%+1
 SET NewAssemblyFileVersion=%MAJOR%.%MINOR%.0.0
 GOTO :DO_VER_UPDATE
 
 :UPDATE_MAJOR
 SET /A MAJOR=%MAJOR%+1
-ECHO Updating major number
+ECHO   - Updating major number
 SET NewAssemblyFileVersion=%MAJOR%.0.0.0
 GOTO :DO_VER_UPDATE
 
