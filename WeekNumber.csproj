@@ -136,7 +136,6 @@
     <None Include="Properties\settings.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NSIS Installation\RunCompileInstaller.bat" />
     <None Include="NSIS Installation\WeekNumber.nsi" />
     <None Include="Properties\WeekNumber.snk" />
     <None Include="Release Handling\CreateRelease.bat" />

@@ -57,6 +57,7 @@ namespace WeekNumber
 
         internal static void PerformUpdateCheck(bool silent = false)
         {
+            Log.LogCaller();
             string runningVersion = Application.ProductVersion;
             VersionInfo internetVersionInfo = GetInternetVersion(silent);
             if (internetVersionInfo.Error) return;
@@ -86,6 +87,8 @@ namespace WeekNumber
                         if (File.Exists(destinationFullPath) &&
                             File.Exists(destinationFullPath + ".MD5"))
                         {
+                            //remove smartscreen filter (alternative data stream Zone.Identifier) on downloaded installer executable file
+                            UnblockFile(destinationFullPath);
                             //validate installer checksum
                             string installerMD5 = CalculateMD5(destinationFullPath);
                             string installerInternetMD5 = File.ReadAllText(destinationFullPath + ".MD5").PadRight(32).Substring(0, 32);
@@ -271,6 +274,64 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
                     return BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
                 }
             }
+        }
+
+        /// <summary>
+        /// Removes Zone Identification tagging that are using Alternate Data Streams (Zone.Identifier) created on file 
+        /// when downloaded from internet, also called 'Mark of the Web'
+        /// Allows to execute file without Microsoft Defender SmartScreen interferance.
+        /// See https://www.winhelponline.com/blog/bulk-unblock-files-downloaded-internet/ for more info
+        /// </summary>
+        /// <param name="fullPath"></param>
+        private static bool UnblockFile(string fullPath)
+        {
+            bool result = false;
+            Log.LogCaller();
+            string parameters = @"-Command ""& {Unblock-File -Path """ + fullPath + @""" }""";
+            try
+            {
+                if (!File.Exists(fullPath))
+                {
+                    Log.ErrorString = $"File '{fullPath}' not found.";
+                    return result;
+                }
+                using (Process p = new Process()
+                {
+                    StartInfo = new ProcessStartInfo("powershell.exe", parameters)
+                    {
+                        CreateNoWindow = true,
+                        WindowStyle = ProcessWindowStyle.Hidden,
+                        UseShellExecute = true
+                    }
+                })
+                {
+                    Log.Info = $"About to unblock file '{fullPath}'...";
+                    if (p.Start())
+                    {
+                        result = p.WaitForExit(10000);
+                    }
+                    else
+                    {
+                        Log.ErrorString = $"Failed to start 'powershell.exe {parameters}'";
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            } 
+            finally
+            {
+                if (result)
+                {
+                    Log.Info = $"File '{fullPath}' unblocked successfully.";
+                }
+                else
+                {
+                    Log.ErrorString = $"Failed unblock file '{fullPath}'.";
+                }
+            }
+            return result;
         }
 
         #endregion Private methods
