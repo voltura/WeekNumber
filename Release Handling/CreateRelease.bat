@@ -88,7 +88,7 @@ IF "%RESULT%" EQU "0" (
 	CALL :GENERATE_MD5 WeekNumber.zip
 	CALL :GENERATE_VERSION_INFO %VERSION% WeekNumber_%VERSION%_Installer.exe
 	CALL :COPY_RELEASE
-	DEL /F /Q "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
+	DEL /F /Q "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log" >NUL
 	CALL :DISP_MSG "Generated all release files successfully." 0
 ) ELSE (
 	NOTEPAD.EXE "%NSIS_SCRIPT_FOLDER%\WeekNumber_%VERSION%_Installer.log"
@@ -115,7 +115,7 @@ GOTO :EOF
 :COMPRESS_INSTALLER
 IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "Compress tool not found, cannot compress installer." 20
 CD /D %NSIS_SCRIPT_FOLDER%
-"%SEVEN_ZIP_FULLPATH%" a -t7z -y WeekNumber_%VERSION%_Installer.7z WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
+"%SEVEN_ZIP_FULLPATH%" a -t7z -y WeekNumber_%VERSION%_Installer.7z WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5 >NUL
 SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
 CD /D %SCRIPT_DIR%
 IF "%SEVEN_ZIP_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to compress installer" %SEVEN_ZIP_RESULT%
@@ -125,42 +125,42 @@ GOTO :EOF
 CALL :DISP_MSG "Archiving installer..." 0
 IF NOT EXIST "%SEVEN_ZIP_FULLPATH%" CALL :ERROR_MESSAGE_EXIT "7-zip not found '%SEVEN_ZIP_FULLPATH%', cannot compress installer." 30
 CD /D "%NSIS_SCRIPT_FOLDER%"
-"%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumber.zip WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5
+"%SEVEN_ZIP_FULLPATH%" a -tzip -y WeekNumber.zip WeekNumber_%VERSION%_Installer.exe WeekNumber_%VERSION%_Installer.exe.MD5 >NUL
 SET SEVEN_ZIP_RESULT=%ERRORLEVEL%
 CD /D "%SCRIPT_DIR%"
 IF "%SEVEN_ZIP_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "7-zip failed to generate 'WeekNumber.zip'." %SEVEN_ZIP_RESULT%
-ECHO Completed.
+CALL :DISP_MSG "Archiving installer completed." 0
 GOTO :EOF
 
 :GENERATE_VERSION_INFO
 CALL :DISP_MSG "Generating version info..." 0
 ECHO %1 %2> "%NSIS_SCRIPT_FOLDER%\VERSION.TXT"
-ECHO '%NSIS_SCRIPT_FOLDER%\VERSION.TXT' created.
+CALL :DISP_MSG "%NSIS_SCRIPT_FOLDER%\VERSION.TXT created" 0
 GOTO :EOF
 
 :COPY_RELEASE
 CALL :DISP_MSG "Copying release files to release folder..." 0
 MD "%SCRIPT_DIR%\..\Releases\%VERSION%" >NUL 2>&1
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip could not be copied" 40
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip" 50
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" CALL :ERROR_MESSAGE_EXIT "WeekNumber.zip.MD5 not found" 60
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber.zip.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber.zip.MD5" 70
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" CALL :ERROR_MESSAGE_EXIT "WeekNumber_%VERSION%_Installer.7z not found" 80
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to move WeekNumber_%VERSION%_Installer.7z" 90
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 100
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.7z.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 110
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe" GOTO :FAILED_COPY_RELEASE
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Copy failed" 120
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 130
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\WeekNumber_%VERSION%_Installer.exe.MD5" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Move failed" 140
 IF NOT EXIST "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" CALL :ERROR_MESSAGE_EXIT "Failed, missing file" 150
-MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" "%SCRIPT_DIR%\..\Releases\%VERSION%\"
+MOVE /Y "%SCRIPT_DIR%\..\NSIS Installation\VERSION.TXT" "%SCRIPT_DIR%\..\Releases\%VERSION%\" >NUL 2>&1
 IF "%ERRORLEVEL%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Failed to copy release files." 160
 GOTO :EOF
 
@@ -221,7 +221,7 @@ GOTO :DO_VER_UPDATE
 
 :DO_VER_UPDATE
 CALL :DISP_MSG "Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'..." 0
-"%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion%
+"%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion% >NUL
 SET FART_RESULT=%ERRORLEVEL%
 IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
 SET VERSION=%NewAssemblyFileVersion%
@@ -235,7 +235,7 @@ GOTO :EOF
 :COMPILE_RELEASE
 CALL :DISP_MSG "Compiling solution release build..." 0
 PUSHD "%SCRIPT_DIR%\.."
-	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Clean,Build /property:Configuration=Release -maxcpucount
+	CALL "%MSBUILD_FULLPATH%" WeekNumber.sln /p:Platform=x86 /t:Clean,Build /property:Configuration=Release -maxcpucount >NUL
 	SET BUILD_RESULT=%ERRORLEVEL%
 POPD
 IF "%BUILD_RESULT%" NEQ "0" CALL :ERROR_MESSAGE_EXIT "Build failed. Cannot create release." 180
