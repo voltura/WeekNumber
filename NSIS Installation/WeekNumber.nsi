@@ -165,12 +165,22 @@ Section "Uninstall"
   Delete "$LOCALAPPDATA\Temp\WeekNumberCleanup.exe"
   Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe"
   Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe.MD5"
+  
+  ;do not remove install folder if silent uninstall (normally happens during auto-update), 
+  ;we want to keep log file
+  IfSilent +2
   RMDir "$INSTDIR"
+  
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
   Delete "$SMPROGRAMS\$StartMenuFolder\WeekNumber.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall WeekNumber.lnk"
   RMDir "$SMPROGRAMS\$StartMenuFolder"
+
+  ;do not remove local appdata folder if silent uninstall (normally happens during auto-update), 
+  ;we want to keep log file
+  IfSilent +2
   RMDir "$LOCALAPPDATA\WeekNumber"
+
   DeleteRegKey HKCU "Software\WeekNumber"
   IfSilent +3
   DeleteRegKey HKCU "Software\Microsoft\Windows\CurrentVersion\Run\WeekNumber"
