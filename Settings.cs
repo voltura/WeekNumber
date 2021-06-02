@@ -143,10 +143,6 @@ namespace WeekNumber
             {
                 Log.Error = ex;
             }
-            finally
-            {
-                Log.Init();
-            }
         }
 
         #endregion Internal static methods

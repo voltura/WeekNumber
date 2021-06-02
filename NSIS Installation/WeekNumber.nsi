@@ -153,10 +153,15 @@ Section "Uninstall"
   Delete "$INSTDIR\WeekNumber.exe.log"
   Delete "$INSTDIR\WeekNumber.exe.Config"
   Delete "$INSTDIR\Uninstall WeekNumber.exe"
+  
+  ;do not delete old application log files if silently uninstalling, 
+  ;normal scenario for silent uninstall is auto-update
+  IfSilent +5
   Delete "$LOCALAPPDATA\WeekNumber.exe.log"
   Delete "$LOCALAPPDATA\WeekNumber\WeekNumber.exe.log"
   Delete "$LOCALAPPDATA\Voltura AB\WeekNumber.exe.log"
   Delete "$LOCALAPPDATA\Voltura AB\WeekNumber\WeekNumber.exe.log"
+  
   Delete "$LOCALAPPDATA\Temp\WeekNumberCleanup.exe"
   Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe"
   Delete "$LOCALAPPDATA\Temp\WeekNumber_*_Installer.exe.MD5"
@@ -228,8 +233,7 @@ Function un.weekNumberExeRunning
 FunctionEnd
 
 Function .onInstSuccess
-
-IfSilent 0 +2
-Exec '"$INSTDIR\WeekNumber.exe"'
+  IfSilent 0 +2
+  Exec '"$INSTDIR\WeekNumber.exe"'
 
 FunctionEnd
