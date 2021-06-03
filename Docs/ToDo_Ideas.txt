@@ -1,3 +1,10 @@
 ﻿Application improvement ideas
 =============================
 - Add multi language support
+- New feature:
+	- Select a date to get week number for that date
+		- New context menu option "Get week number for date..." *done*
+		- New form to input year, month and day 
+			- Automatically display week number when input values are changed (dropdown values)
+- Custom context menu colors for text and background (use contextmenustrip...)
+- Add custom dialog boxes for message dialogs, not standard *done*

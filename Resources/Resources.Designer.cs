@@ -63,8 +63,6 @@ namespace WeekNumber {
         /// <summary>
         ///   Looks up a localized string similar to WeekNumber by Voltura AB
         ///
-        ///https://voltura.github.io/WeekNumber
-        ///
         ///Copyright © Voltura AB 2018-2021.
         /// </summary>
         internal static string About {
@@ -196,6 +194,15 @@ namespace WeekNumber {
         internal static string CheckForNewVersionMenu {
             get {
                 return ResourceManager.GetString("CheckForNewVersionMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Get week number for date....
+        /// </summary>
+        internal static string CheckWeekForDateMenu {
+            get {
+                return ResourceManager.GetString("CheckWeekForDateMenu", resourceCulture);
             }
         }
         
@@ -620,6 +627,15 @@ namespace WeekNumber {
         internal static string NotImplementedYet {
             get {
                 return ResourceManager.GetString("NotImplementedYet", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string OK {
+            get {
+                return ResourceManager.GetString("OK", resourceCulture);
             }
         }
         

@@ -69,7 +69,7 @@ namespace WeekNumber
         private static void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon, int iconResolution)
         {
             Log.LogCaller();
-            notifyIcon.Text = Resources.Week + weekNumber;
+            notifyIcon.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
             System.Drawing.Icon prevIcon = notifyIcon.Icon;
             notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
             WeekIcon.CleanupIcon(ref prevIcon);

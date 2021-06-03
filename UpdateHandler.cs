@@ -16,7 +16,7 @@ namespace WeekNumber
 
         private static readonly string VERSION_CHECK_BASE_URL = "http://github.com/voltura/weeknumber/releases/latest/download/";
         private static readonly string VERSION_CHECK_URL = $"{VERSION_CHECK_BASE_URL}VERSION.TXT";
-        private static readonly string APPLICATION_URL = "https://voltura.github.io/WeekNumber";
+        internal static readonly string APPLICATION_URL = "https://voltura.github.io/WeekNumber";
 
         #endregion Private constants
 
@@ -262,7 +262,7 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
             {
                 Log.ErrorString = msg;
                 Log.Error = ex;
-                if (!silent) Message.Show(msg, isError: ex != null);
+                if (!silent) Message.Show($"\r\n\r\n{msg}", isError: ex != null);
             }
         }
 

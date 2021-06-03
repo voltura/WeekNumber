@@ -120,8 +120,6 @@
   <data name="About" xml:space="preserve">
     <value>WeekNumber by Voltura AB
 
-https://voltura.github.io/WeekNumber
-
 Copyright © Voltura AB 2018-2021</value>
     <comment>About box text</comment>
   </data>
@@ -166,6 +164,9 @@ Copyright © Voltura AB 2018-2021</value>
   </data>
   <data name="CheckForNewVersionMenu" xml:space="preserve">
     <value>Check for updated version</value>
+  </data>
+  <data name="CheckWeekForDateMenu" xml:space="preserve">
+    <value>Get week number for date...</value>
   </data>
   <data name="ColorsMenu" xml:space="preserve">
     <value>Icon colors</value>
@@ -314,6 +315,9 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="NotImplementedYet" xml:space="preserve">
     <value>Sorry, this function is not implemented yet.</value>
+  </data>
+  <data name="OK" xml:space="preserve">
+    <value>OK</value>
   </data>
   <data name="OpenApplicationWebPageMenu" xml:space="preserve">
     <value>Open application web page</value>

@@ -255,9 +255,15 @@ namespace WeekNumber
         {
             Log.LogCaller();
             MenuItem mi = (MenuItem)o;
-            mi.Enabled = false;
-            Message.Show(Resources.About);
-            EnableMenuItem(mi);
+            try
+            {
+                mi.Enabled = false;
+                Forms.MessageForm.LogAndDisplayLinkMessage(Resources.About, UpdateHandler.APPLICATION_URL);
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
         }
 
         private static void SaveIconClick(object o, EventArgs e)
@@ -283,6 +289,20 @@ namespace WeekNumber
             }
             EnableMenuItem(mi);
         }
+        private void CheckWeekForDateClick(object o, EventArgs e)
+        {
+            Log.LogCaller();
+            MenuItem mi = (MenuItem)o;
+            try
+            {
+                mi.Enabled = false;
+                // TODO: Open form to enter date to get week number
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
+        }
 
         #endregion Private event handling
 
@@ -291,7 +311,7 @@ namespace WeekNumber
         internal void CreateContextMenu()
         {
             Log.LogCaller();
-            ContextMenu = new ContextMenu(new MenuItem[7]
+            ContextMenu = new ContextMenu(new MenuItem[8]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
@@ -327,6 +347,7 @@ namespace WeekNumber
                     new MenuItem(Resources.SaveIconMenu, SaveIconClick),
                     IconResolutionMenu()
                 }),
+                new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick) { Enabled = false },
                 new MenuItem(Resources.SeparatorMenu),
                 new MenuItem(Resources.ExitMenu, ExitMenuClick)
             });

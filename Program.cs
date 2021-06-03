@@ -1,6 +1,7 @@
 ﻿#region Using statements
 
 using System;
+using System.Globalization;
 using System.Runtime;
 using System.Threading;
 using System.Windows.Forms;
@@ -30,6 +31,7 @@ namespace WeekNumber
             WeekApplicationContext context = null;
             try
             {
+                SetCultureInfoToUS();
                 AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 Settings.RestoreBackupSettings();
                 Log.Init();
@@ -55,8 +57,11 @@ namespace WeekNumber
 
         #endregion Application starting point
 
-        #region Private method that configures garbarge collection settings
+        #region Private methods
 
+        /// <summary>
+        /// Configures garbarge collection settings
+        /// </summary>
         private static void SetGCSettings()
         {
             Log.LogCaller();
@@ -64,7 +69,16 @@ namespace WeekNumber
             GCSettings.LatencyMode = GCLatencyMode.Batch;
         }
 
-        #endregion Private method that configures garbarge collection settings
+        /// <summary>
+        /// Set application culture info to US English (used for long date display)
+        /// </summary>
+        private static void SetCultureInfoToUS()
+        {
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US", false);
+            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US", false);
+        }
+
+        #endregion Private methods that configures garbarge collection settings
 
         #region Global unhandled Exception trap
 
