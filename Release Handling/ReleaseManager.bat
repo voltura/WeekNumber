@@ -23,47 +23,48 @@ IF "%Result%" EQU "0" (
 :MENU
 CD /D "%SCRIPT_DIR%"
 COLOR 1F
-ECHO    __________       .__                               
-ECHO    \______   \ ____ ^|  ^|   ____ _____    ______ ____  
-ECHO     ^|       _// __ \^|  ^| _/ __ \\__  \  /  ___// __ \ 
-ECHO     ^|    ^|   \  ___/^|  ^|_\  ___/ / __ \_\___ \\  ___/ 
+ECHO    __________       .__
+ECHO    \______   \ ____ ^|  ^|   ____ _____    ______ ____
+ECHO     ^|       _// __ \^|  ^| _/ __ \\__  \  /  ___// __ \
+ECHO     ^|    ^|   \  ___/^|  ^|_\  ___/ / __ \_\___ \\  ___/
 ECHO     ^|____^|_  /\___  ^>____/\___  ^>____  /____  ^>\___  ^>
-ECHO            \/     \/          \/     \/     \/     \/ 
+ECHO            \/     \/          \/     \/     \/     \/
 ECHO      _____                                             
-ECHO     /     \ _____    ____ _____     ____   ___________ 
+ECHO     /     \ _____    ____ _____     ____   ___________
 ECHO    /  \ /  \\__  \  /    \\__  \   / ___\_/ __ \_  __ \
 ECHO   /    Y    \/ __ \^|   ^|  \/ __ \_/ /_/  ^>  ___/^|  ^| \/
-ECHO   \____^|__  (____  /___^|  (____  /\___  / \___  ^>__^|   
-ECHO           \/     \/     \/     \//_____/      \/       
+ECHO   \____^|__  (____  /___^|  (____  /\___  / \___  ^>__^|
+ECHO           \/     \/     \/     \//_____/      \/
 ECHO                                                      v%ScriptVersion%
-ECHO. 
-ECHO  A) Build solution and create release
-ECHO. 
-ECHO  B) Update version, sync sources, 
+ECHO  1) Build solution and create release
+ECHO.
+ECHO  2) Update version, sync sources, 
 ECHO     build solution and create release
-ECHO. 
-ECHO  C) Build solution, create and publish release
-ECHO. 
-ECHO  D) Update version, sync sources, build
+ECHO.
+ECHO  3) Build solution, create and publish release
+ECHO.
+ECHO  4) Build solution, create and publish pre-release
+ECHO.
+ECHO  5) Update version, sync sources, build
 ECHO     solution, create and publish release
-ECHO. 
-ECHO  S) Sync sources
-ECHO. 
-ECHO  F) Show local releases
-ECHO. 
-ECHO  X) Exit
-ECHO. 
-CHOICE /C ABCDSFX /N /M "Select action:"
+ECHO.
+ECHO  6) Update version, sync sources, build
+ECHO     solution, create and publish pre-release
+ECHO.
+ECHO  7) Sync sources 8) Show releases X) Exit
+ECHO.
+CHOICE /C 12345678X /N /M "Select action:"
 SET USER_SELECTION=%ERRORLEVEL%
-
 IF %USER_SELECTION%==1 START /MAX CreateRelease.bat A
 IF %USER_SELECTION%==2 START /MAX CreateRelease.bat U
 IF %USER_SELECTION%==3 START /MAX CreateRelease.bat P
-IF %USER_SELECTION%==4 START /MAX CreateRelease.bat UP
-IF %USER_SELECTION%==5 CALL :SYNC_SOURCE
-IF %USER_SELECTION%==6 CALL :LAUNCH_CMD
-IF %USER_SELECTION%==7 EXIT
-IF %USER_SELECTION% LEQ 4 EXIT
+IF %USER_SELECTION%==4 START /MAX CreateRelease.bat P P
+IF %USER_SELECTION%==5 START /MAX CreateRelease.bat UP
+IF %USER_SELECTION%==6 START /MAX CreateRelease.bat UP P
+IF %USER_SELECTION%==7 CALL :SYNC_SOURCE
+IF %USER_SELECTION%==8 CALL :LAUNCH_CMD
+IF %USER_SELECTION%==9 EXIT
+IF %USER_SELECTION% LEQ 7 EXIT
 CLS
 GOTO :MENU
 

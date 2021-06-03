@@ -4,12 +4,16 @@ SETLOCAL ENABLEDELAYEDEXPANSION
 :: ==========================
 :: Optional input parameters
 :: ==========================
-:: Parameter values:
+:: Parameter #1 values:
 ::  A                = do not update version and do not publish
 ::  U                = update version but do not publish
 ::  P                = do not update version only publish
 ::  UP               = update version and publish
+:: Parameter #2 values:
+::  P                = Pre-release
+
 SET SCRIPT_PARAMETER=%1
+SET USE_PRE_RELEASE=%2
 
 :: ==========================
 :: Global script variables
@@ -46,6 +50,7 @@ SET "NAME="
 SET "BODY="
 SET "DRAFT=false"
 SET "PRERELEASE=false"
+IF "%USE_PRE_RELEASE%" EQU "P" SET "PRERELEASE=true"
 SET "CURL_RESULT="
 SET "UPLOAD_URL="
 
