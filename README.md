@@ -32,8 +32,10 @@ Download installer and run to install (option to start when installer finishes),
 
 ### Installation notes
 
-1) Choose to keep the file downloaded if prompted 
-![Keep file if prompted](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
+1) Choose to keep the file downloaded if prompted (it will look similar to this, depends on your browser and settings)
+![Keep file if prompted #1](https://user-images.githubusercontent.com/2292809/120716901-fa7d0c80-c4c6-11eb-9232-f279f959f0a6.png)
+
+![Keep file if prompted #2](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
 
 2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active:
 
