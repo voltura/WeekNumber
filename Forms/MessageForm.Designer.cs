@@ -187,7 +187,6 @@ namespace WeekNumber.Forms
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
             this.ResumeLayout(false);
-
         }
 
         #endregion
@@ -198,6 +197,6 @@ namespace WeekNumber.Forms
         private Button btnOK;
         private Panel settingsPanel;
         private LinkLabel Link;
-        public TextBox messageBox;
+        private TextBox messageBox;
     }
 }

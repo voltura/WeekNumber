@@ -85,10 +85,10 @@ namespace WeekNumber.Forms
         }
 
         /// <summary>
-        /// Displays a message on dialog with specified icon
+        /// Displays a message on dialogbox with matching icon
         /// </summary>
         /// <param name="messageText"></param>
-        /// <param name="ico"></param>
+        /// <param name="error"></param>
         public static void DisplayMessage(string messageText, bool error = false)
         {
             using (MessageForm message = new MessageForm(messageText))
