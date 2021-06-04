@@ -1,19 +1,32 @@
-﻿using System;
+﻿#region Using statements
+
+using System;
 using System.Diagnostics;
 using System.Runtime;
 using System.Runtime.InteropServices;
 
+#endregion Using statements
+
+/// <summary>
+/// This program is used by WeekNumber to refresh taskbar notification area if WeekNumber.exe is process is terminated 
+/// and its notification area icon is still displayed, even though the WeekNumber application is not running.
+/// This projects compiled executable file contents has been manually converted into a base64 encoded string which is utilized from 
+/// WeekNumber::MonitorProcess class which writes the exe to %LOCALAPPDATA%\temp and starts the program when WeekNumber.exe
+/// is started.
+/// </summary>
 internal class Program
 {
+    #region Application starting point
+
     [STAThread]
     private static void Main(string[] args)
     {
-        int _id = int.Parse(args[0]);
-        GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
-        GCSettings.LatencyMode = GCLatencyMode.Batch;
         try
         {
-            using (Process p = Process.GetProcessById(_id)) 
+            int id = int.Parse(args[0]);
+            GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
+            GCSettings.LatencyMode = GCLatencyMode.Batch;
+            using (Process p = Process.GetProcessById(id)) 
             {
                 p.WaitForExit();
             }
@@ -23,6 +36,10 @@ internal class Program
         }
         RefreshTrayArea();
     }
+
+    #endregion Application starting point
+
+    #region Logic for refreshing taskbar notification area
 
     [StructLayout(LayoutKind.Sequential)]
     private struct RECT
@@ -73,4 +90,5 @@ internal class Program
                 SendMessage(windowHandle, wmMousemove, 0, (y << 16) + x);
     }
 
+    #endregion Logic for refreshing taskbar notification area
 }
