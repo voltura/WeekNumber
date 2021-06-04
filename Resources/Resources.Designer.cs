@@ -81,6 +81,24 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to ApplicationLog.
+        /// </summary>
+        internal static string ApplicationLog {
+            get {
+                return ResourceManager.GetString("ApplicationLog", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Application log.
+        /// </summary>
+        internal static string ApplicationLogMenu {
+            get {
+                return ResourceManager.GetString("ApplicationLogMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to AutoUpdate.
         /// </summary>
         internal static string AutoUpdate {
@@ -212,6 +230,24 @@ namespace WeekNumber {
         internal static string ColorsMenu {
             get {
                 return ResourceManager.GetString("ColorsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisplayStartupMessage.
+        /// </summary>
+        internal static string DisplayStartupMessage {
+            get {
+                return ResourceManager.GetString("DisplayStartupMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Display startup message.
+        /// </summary>
+        internal static string DisplayStartupMessageMenu {
+            get {
+                return ResourceManager.GetString("DisplayStartupMessageMenu", resourceCulture);
             }
         }
         
@@ -744,6 +780,52 @@ namespace WeekNumber {
         internal static string ShowLogMenu {
             get {
                 return ResourceManager.GetString("ShowLogMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SilentStartupMessage.
+        /// </summary>
+        internal static string SilentStartupMessage {
+            get {
+                return ResourceManager.GetString("SilentStartupMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Silent startup message.
+        /// </summary>
+        internal static string SilentStartupMessageMenu {
+            get {
+                return ResourceManager.GetString("SilentStartupMessageMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to StartupMessage.
+        /// </summary>
+        internal static string StartupMessage {
+            get {
+                return ResourceManager.GetString("StartupMessage", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Startup message.
+        /// </summary>
+        internal static string StartupMessageMenu {
+            get {
+                return ResourceManager.GetString("StartupMessageMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Right-click on icon in taskbar 
+        ///for features and settings.
+        /// </summary>
+        internal static string StartupMessageText {
+            get {
+                return ResourceManager.GetString("StartupMessageText", resourceCulture);
             }
         }
         

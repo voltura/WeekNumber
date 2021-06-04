@@ -1,5 +1,6 @@
 ﻿#region Using statements
 
+using Microsoft.Win32;
 using System;
 using System.Windows.Forms;
 
@@ -30,10 +31,51 @@ namespace WeekNumber
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
             UpdateIcon(week, ref _notifyIcon, iconResolution);
+            DisplayUserInfoBalloonTipSilently();
             _contextMenu.SettingsChangedHandler += OnSettingsChange;
         }
 
         #endregion Constructor
+
+        #region Display NotifyIcon BalloonTip silently
+
+        private void DisplayUserInfoBalloonTipSilently()
+        {
+            if (Settings.SettingIsValue(Resources.DisplayStartupMessage, "False")) return;
+            Log.LogCaller();
+            bool siletMsg = Settings.SettingIsValue(Resources.SilentStartupMessage, "True");
+            object currentSound = null;
+            if (siletMsg)
+            {
+                using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings", true))
+                {
+                    currentSound = regKey.GetValue("NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND");
+                    regKey.SetValue("NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND", 0);
+                    regKey.Flush();
+                    regKey.Close();
+                }
+            }
+            _notifyIcon.ShowBalloonTip(10000, Message.CAPTION, $"{_notifyIcon.Text}\r\n{Resources.StartupMessageText}", ToolTipIcon.None);
+            if (siletMsg)
+            {
+                using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings", true))
+                {
+                    System.Threading.Thread.Sleep(1000);
+                    if (currentSound is null)
+                    {
+                        regKey.DeleteValue("NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND");
+                    }
+                    else
+                    {
+                        regKey.SetValue("NOC_GLOBAL_SETTING_ALLOW_NOTIFICATION_SOUND", currentSound);
+                    }
+                    regKey.Flush();
+                    regKey.Close();
+                }
+            }
+        }
+
+        #endregion
 
         #region Private event handler
 

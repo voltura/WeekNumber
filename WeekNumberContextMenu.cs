@@ -188,6 +188,53 @@ namespace WeekNumber
             }
         }
 
+        private void DisplayStartupMessageClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    mi.Checked = !mi.Checked;
+                    Settings.UpdateSetting(Resources.DisplayStartupMessage, mi.Checked ? "True" : "False");
+                    foreach (MenuItem m in mi.Parent?.MenuItems)
+                    {
+                        if (m.Name == Resources.StartupMessage)
+                        {
+                            m.Enabled = mi.Checked;
+                        }
+                    }
+                    EnableMenuItem(mi);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+        }
+
+        private void SilentStartupMessageClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    mi.Checked = !mi.Checked;
+                    Settings.UpdateSetting(Resources.SilentStartupMessage, mi.Checked ? "True" : "False");
+                    EnableMenuItem(mi);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+        }
+
         private void ShowApplicationLogClick(object o, EventArgs e)
         {
             try
@@ -329,14 +376,37 @@ namespace WeekNumber
                     {
                         Checked = Settings.StartWithWindows
                     },
-                    new MenuItem(Resources.UseApplicationLogMenu, UseApplicationLogClick)
+                    new MenuItem(Resources.ApplicationLogMenu, new MenuItem[2]
                     {
-                        Checked = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        new MenuItem(Resources.UseApplicationLogMenu, UseApplicationLogClick)
+                        {
+                            Checked = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        },
+                        new MenuItem(Resources.ShowLogMenu, ShowApplicationLogClick)
+                        {
+                            Name = Resources.ShowLog,
+                            Enabled = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        }
+                    }) 
+                    { 
+                        Name = Resources.ApplicationLog
                     },
-                    new MenuItem(Resources.ShowLogMenu, ShowApplicationLogClick)
+                    new MenuItem(Resources.StartupMessageMenu, new MenuItem[2]
                     {
-                        Name = Resources.ShowLog,
-                        Enabled = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        new MenuItem(Resources.DisplayStartupMessageMenu, DisplayStartupMessageClick)
+                        {
+                            Name = Resources.DisplayStartupMessage,
+                            Checked = Settings.SettingIsValue(Resources.DisplayStartupMessage, "True")
+                        },
+                        new MenuItem(Resources.SilentStartupMessageMenu, SilentStartupMessageClick)
+                        {
+                            Name = Resources.SilentStartupMessage,
+                            Enabled = Settings.SettingIsValue(Resources.DisplayStartupMessage, "True"),
+                            Checked = Settings.SettingIsValue(Resources.SilentStartupMessage, "True")
+                        }
+                    })
+                    {
+                        Name = Resources.StartupMessage
                     },
                     new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
                         Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu,

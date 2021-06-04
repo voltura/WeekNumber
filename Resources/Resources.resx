@@ -126,6 +126,12 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="AboutMenu" xml:space="preserve">
     <value>About WeekNumber</value>
   </data>
+  <data name="ApplicationLog" xml:space="preserve">
+    <value>ApplicationLog</value>
+  </data>
+  <data name="ApplicationLogMenu" xml:space="preserve">
+    <value>Application log</value>
+  </data>
   <data name="AutoUpdate" xml:space="preserve">
     <value>AutoUpdate</value>
   </data>
@@ -170,6 +176,12 @@ Copyright © Voltura AB 2018-2021</value>
   </data>
   <data name="ColorsMenu" xml:space="preserve">
     <value>Icon colors</value>
+  </data>
+  <data name="DisplayStartupMessage" xml:space="preserve">
+    <value>DisplayStartupMessage</value>
+  </data>
+  <data name="DisplayStartupMessageMenu" xml:space="preserve">
+    <value>Display startup message</value>
   </data>
   <data name="DownloadAndInstallQuestion" xml:space="preserve">
     <value>Download and install new version now?</value>
@@ -355,6 +367,22 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="ShowLogMenu" xml:space="preserve">
     <value>Show application log</value>
+  </data>
+  <data name="SilentStartupMessage" xml:space="preserve">
+    <value>SilentStartupMessage</value>
+  </data>
+  <data name="SilentStartupMessageMenu" xml:space="preserve">
+    <value>Silent startup message</value>
+  </data>
+  <data name="StartupMessage" xml:space="preserve">
+    <value>StartupMessage</value>
+  </data>
+  <data name="StartupMessageMenu" xml:space="preserve">
+    <value>Startup message</value>
+  </data>
+  <data name="StartupMessageText" xml:space="preserve">
+    <value>Right-click on icon in taskbar 
+for features and settings</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>StartWithWindows</value>

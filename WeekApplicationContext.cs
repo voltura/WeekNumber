@@ -2,8 +2,6 @@
 
 using Microsoft.Win32;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Windows.Forms;
 
 #endregion Using statements
@@ -38,7 +36,7 @@ namespace WeekNumber
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
                 _currentWeek = Week.Current();
-                _lastIconRes = GetIconResolution();
+                _lastIconRes = WeekIcon.GetIconResolution();
                 Gui = new TaskbarGui(_currentWeek, _lastIconRes);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
                 _timer = GetTimer;
@@ -51,36 +49,6 @@ namespace WeekNumber
                 Message.Show(Resources.UnhandledException, ex);
                 Application.Exit();
             }
-        }
-
-        private static int GetIconResolution(bool forceUpdate = false)
-        {
-            int iconResolution = Settings.GetIntSetting(Resources.IconResolution, -1);
-            double myDbl = 1.0d;
-            if (forceUpdate || iconResolution == -1)
-            {
-                // guess what icon resolution to use based on system
-                double winZoomLvl = GetWindowsZoom();
-                bool usingSmallTaskbarIcons = TaskbarUtil.UsingSmallTaskbarButtons();
-                myDbl = (double)System.Windows.SystemParameters.SmallIconHeight * winZoomLvl;
-                if (!usingSmallTaskbarIcons) myDbl *= 1.5d;
-                if (System.Windows.SystemParameters.PrimaryScreenWidth > 1600) myDbl *= 2.0d;
-                Log.Info = $"SmallIconHeight={System.Windows.SystemParameters.SmallIconHeight}";
-                Log.Info = $"WindowsZoomLevel={winZoomLvl * 100}";
-                Log.Info = $"UsingSmallTaskbarButtons={usingSmallTaskbarIcons}";
-                Log.Info = $"Guessed icon resolution={myDbl}x{myDbl}";
-
-                // find closes match to existing configs (do not allow 16,20,24)
-                List<int> list = new List<int> { 32, 40, 48, 64, 128, 256, 512 };
-                int closest = list.Aggregate((x, y) => Math.Abs(x - myDbl) < Math.Abs(y - myDbl) ? x : y);
-
-                Log.Info = $"Closest icon resolution={closest}x{closest}";
-
-                Settings.UpdateSetting(Resources.IconResolution, closest.ToString());
-                iconResolution = closest;
-            }
-
-            return iconResolution;
         }
 
         #endregion Constructor
@@ -128,7 +96,7 @@ namespace WeekNumber
         {
             Log.LogCaller();
             AutoUpdateCheck();
-            int iconRes = GetIconResolution(true);
+            int iconRes = WeekIcon.GetIconResolution(true);
             if (iconRes != _lastIconRes)
             {
                 UpdateIcon(true, true);
@@ -198,11 +166,6 @@ namespace WeekNumber
             {
                 Application.Exit();
             }
-        }
-
-        private static double GetWindowsZoom()
-        {
-            return (double)(Screen.PrimaryScreen.WorkingArea.Width / System.Windows.SystemParameters.PrimaryScreenWidth);
         }
 
         #endregion Private methods
