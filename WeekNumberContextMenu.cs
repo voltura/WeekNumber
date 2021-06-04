@@ -201,12 +201,13 @@ namespace WeekNumber
                     Settings.UpdateSetting(Resources.DisplayStartupMessage, mi.Checked ? "True" : "False");
                     foreach (MenuItem m in mi.Parent?.MenuItems)
                     {
-                        if (m.Name == Resources.StartupMessage)
+                        if (m.Name == Resources.SilentStartupMessage)
                         {
                             m.Enabled = mi.Checked;
                         }
                     }
                     EnableMenuItem(mi);
+                    SettingsChangedHandler?.Invoke(null, null);
                 }
             }
             catch (Exception ex)
@@ -601,10 +602,9 @@ namespace WeekNumber
             foreach (MenuItem m in mi.Parent?.MenuItems)
             {
                 m.Checked = false;
-                m.Enabled = true;
             }
             mi.Checked = true;
-            mi.Enabled = false;
+            mi.Enabled = true;
         }
 
         #endregion Private helper methods for menu items
