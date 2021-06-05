@@ -18,26 +18,32 @@ Options to start with Windows, auto update, customize colors, set icon resolutio
 The application is tiny and its memory consumption low. For details see _Help section_ below.
 
 ## Screenshots
+![Screenshot #1](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
 
-![Screenshot 1](https://user-images.githubusercontent.com/2292809/118048375-7da1bb80-b37c-11eb-9393-0c4a3736dd83.png)
+![Screenshot #2](https://user-images.githubusercontent.com/2292809/120904846-af8e0100-c64e-11eb-9fff-6725bbd4fce2.png)
 
-![Screenshot 2](https://user-images.githubusercontent.com/2292809/119267508-3672c080-bbef-11eb-915e-69d6fc7618b7.png)
+![Screenshot #3](https://user-images.githubusercontent.com/2292809/120904877-e49a5380-c64e-11eb-80b5-c44d6f71fab6.png)
 
-![Screenshot 3](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png)
+![Screenshot #4](https://user-images.githubusercontent.com/2292809/120904919-101d3e00-c64f-11eb-8c9d-323a2cd33807.png)
 
-![Screenshot 4](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
+![Screenshot #5](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png)
+
+![Screenshot #6](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
+
+![Screenshot #7](https://user-images.githubusercontent.com/2292809/120905023-a5203700-c64f-11eb-8785-7d4557f2339e.png)
 
 ## Installation
 Download installer and run to install (option to start when installer finishes), to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
 
 ### Installation notes
 
-1) Choose to keep the file downloaded if prompted (it will look similar to this, depends on your browser and settings)
+Choose to keep the file downloaded if prompted (it will look similar to this, depends on your web browser and settings)
+
 ![Keep file if prompted #1](https://user-images.githubusercontent.com/2292809/120716901-fa7d0c80-c4c6-11eb-9232-f279f959f0a6.png)
 
 ![Keep file if prompted #2](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
 
-2) Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active:
+Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active:
 
 ![smartscreen_0](https://user-images.githubusercontent.com/2292809/120404034-c201f500-c345-11eb-9abd-670e927c4a36.png)
 
@@ -65,14 +71,19 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
 - **Update automatically** - _If ticked the application will update itself automatically without user interaction_
 - **Settings** - _Additional application settings displayed in sub-menus_
    - **Start with Windows** - _Application starts automatically when user login to Windows if ticked_
-   - **Use application log** - _Application writes to a log file if ticked (technical)_
-   - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
+   - **Application log** - _Application log settings in sub-menus_
+      - **Use application log** - _Application writes to a log file if ticked (technical)_
+      - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
+   - **Startup message** - _Control application startup message in sub-menus_
+      - **Display startup message** - _If ticked application will show a notification when started_
+      - **Silent message** - _If ticked, startup message does not cause a system sound_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
    - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
    - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
    - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
    - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
    - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+- **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
 ## Statistics
