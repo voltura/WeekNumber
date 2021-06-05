@@ -18,18 +18,19 @@ Options to start with Windows, auto update, customize colors, set icon resolutio
 The application is tiny and its memory consumption low. For details see _Help section_ below.
 
 ## Screenshots
+#### Taskbar icon with default colors
 ![Screenshot #1](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
-
+#### Context menu - accessable via right-click on week number icon
 ![Screenshot #2](https://user-images.githubusercontent.com/2292809/120904846-af8e0100-c64e-11eb-9fff-6725bbd4fce2.png)
-
+#### Get week number for date form
 ![Screenshot #3](https://user-images.githubusercontent.com/2292809/120904877-e49a5380-c64e-11eb-80b5-c44d6f71fab6.png)
-
+#### Settings menu
 ![Screenshot #4](https://user-images.githubusercontent.com/2292809/120904919-101d3e00-c64f-11eb-8c9d-323a2cd33807.png)
-
+#### Taskbar icon with customized colors
 ![Screenshot #5](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png)
-
+#### Icon color picker, possible to define and use custom colors (both icon text and background can be customized)
 ![Screenshot #6](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
-
+#### More context menu options
 ![Screenshot #7](https://user-images.githubusercontent.com/2292809/120905023-a5203700-c64f-11eb-8785-7d4557f2339e.png)
 
 ## Installation
