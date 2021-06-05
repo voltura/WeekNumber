@@ -225,11 +225,29 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close.
+        /// </summary>
+        internal static string Close {
+            get {
+                return ResourceManager.GetString("Close", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon colors.
         /// </summary>
         internal static string ColorsMenu {
             get {
                 return ResourceManager.GetString("ColorsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Day.
+        /// </summary>
+        internal static string Day {
+            get {
+                return ResourceManager.GetString("Day", resourceCulture);
             }
         }
         
@@ -649,6 +667,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Month.
+        /// </summary>
+        internal static string Month {
+            get {
+                return ResourceManager.GetString("Month", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to There is a new version available!.
         /// </summary>
         internal static string NewVersionAvailable {
@@ -945,6 +972,15 @@ namespace WeekNumber {
         internal static string Week {
             get {
                 return ResourceManager.GetString("Week", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Year.
+        /// </summary>
+        internal static string Year {
+            get {
+                return ResourceManager.GetString("Year", resourceCulture);
             }
         }
     }

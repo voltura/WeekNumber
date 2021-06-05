@@ -69,7 +69,7 @@ namespace WeekNumber.Controls
             {
                 using (SolidBrush brush = new SolidBrush(combo.ForeColor))
                 {
-                    e.Graphics.DrawString("TEST", e.Font,
+                    e.Graphics.DrawString(combo.Items[e.Index].ToString(), e.Font,
                         brush, new Point(e.Bounds.X, e.Bounds.Y));
                 }
             }

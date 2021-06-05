@@ -344,7 +344,7 @@ namespace WeekNumber
             try
             {
                 mi.Enabled = false;
-                // TODO: Open form to enter date to get week number
+                Forms.DateForm.DisplayMessage("Please select date");
             }
             finally
             {
@@ -418,7 +418,7 @@ namespace WeekNumber
                     new MenuItem(Resources.SaveIconMenu, SaveIconClick),
                     IconResolutionMenu()
                 }),
-                new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick) { Enabled = false },
+                new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick),
                 new MenuItem(Resources.SeparatorMenu),
                 new MenuItem(Resources.ExitMenu, ExitMenuClick)
             });
