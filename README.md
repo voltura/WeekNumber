@@ -25,7 +25,7 @@ The application is tiny and its memory consumption low. For details see _Help se
 ![Screenshot #1](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
 #### Context menu - accessible via right-click on icon
 ![Screenshot #2](https://user-images.githubusercontent.com/2292809/120904846-af8e0100-c64e-11eb-9fff-6725bbd4fce2.png)
-#### Get week number for date form
+#### Get week number for any date
 ![Screenshot #3](https://user-images.githubusercontent.com/2292809/120904877-e49a5380-c64e-11eb-80b5-c44d6f71fab6.png)
 #### Settings menu
 ![Screenshot #4](https://user-images.githubusercontent.com/2292809/120904919-101d3e00-c64f-11eb-8c9d-323a2cd33807.png)
