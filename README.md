@@ -14,7 +14,10 @@ Windows 10 taskbar application that displays the current week number
 
 ## Features
 
-Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules via right click on the application icon.
+Always see the current week number in Windows taskbar and lookup the week number for any other date via right-click on the application icon.
+
+Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules.
+
 The application is tiny and its memory consumption low. For details see _Help section_ below.
 
 ## Screenshots
@@ -61,7 +64,7 @@ To silently uninstall call the uninstaller with /S parameter.
 
 ## Help section
 
-All application features are accessible via right mouse click on the application icon residing in the Windows taskbar.
+All application features are accessible via right-click on the application icon residing in the Windows taskbar.
 If the application icon is not visible then press the ^ symbol on the taskbar, click and hold on the application icon and then drag it to the visible taskbar area to pin it there.
 
 ### Context menu options:
