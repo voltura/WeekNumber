@@ -103,7 +103,7 @@ CD /D "%SCRIPT_DIR%"
 GOTO :EOF
 
 :GENERATE_MD5
-CALL :DISP_MSG "Generating MD5 for '%NSIS_SCRIPT_FOLDER%\%1'..." 0
+CALL :DISP_MSG "Generating MD5 for '%1'..." 0
 SET "MD5="
 FOR /F "skip=1" %%G IN ('CertUtil -hashfile "%NSIS_SCRIPT_FOLDER%\%1" MD5') DO (
 	SET "MD5=%%G"
@@ -114,7 +114,7 @@ CALL :ERROR_MESSAGE_EXIT "Failed to generate MD5 for '%1'." 10
 SET FILE_NAME=%1
 ECHO %MD5%  %FILE_NAME%> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
 ECHO.>> "%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5"
-CALL :DISP_MSG "Generated MD5 checksum file '%NSIS_SCRIPT_FOLDER%\%FILE_NAME%.MD5'." 0
+CALL :DISP_MSG "Generated MD5 checksum file '%FILE_NAME%.MD5'." 0
 GOTO :EOF
 
 :COMPRESS_INSTALLER
