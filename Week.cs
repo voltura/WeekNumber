@@ -63,7 +63,7 @@ namespace WeekNumber
 
         #endregion Public function to check if week has changed
 
-        #region Public function that returns current week based on calendar rule
+        #region Public functions that returns week number based on calendar rules
 
         /// <summary>
         /// Get current week based on calendar rules in application settings
@@ -87,7 +87,30 @@ namespace WeekNumber
             return week;
         }
 
-        #endregion Public function that returns current week based on calendar rule
+        /// <summary>
+        /// Get week number based on calendar rules in application settings
+        /// </summary>
+        /// <param name="date">Date for which to get week number for</param>
+        /// <returns>Week number as for supplied date</returns>
+        public static int GetWeekNumber(DateTime date)
+        {
+            DayOfWeek dayOfWeek;
+            CalendarWeekRule calendarWeekRule;
+            dayOfWeek = Enum.TryParse(Settings.GetSetting(DayOfWeekString), true, out dayOfWeek) ?
+                dayOfWeek : DayOfWeek.Monday;
+            calendarWeekRule = Enum.TryParse(Settings.GetSetting(CalendarWeekRuleString), true,
+                out calendarWeekRule) ? calendarWeekRule : CalendarWeekRule.FirstFourDayWeek;
+            int week = CultureInfo.CurrentCulture.Calendar.
+                GetWeekOfYear(date, calendarWeekRule, dayOfWeek);
+            if (week == 53 && (!YearHas53Weeks(DateTime.Now.Year)))
+            {
+                week = 1;
+            }
+            Log.Info = $"Week number is {week} for date {date.Year}-{date.Month}-{date.Day}";
+            return week;
+        }
+
+        #endregion Public functions that returns week number based on calendar rules
 
         #region Private helper functions to determine if it is week 1 or 53
 

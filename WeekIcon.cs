@@ -53,6 +53,31 @@ namespace WeekNumber
             return iconResolution;
         }
 
+        internal static Bitmap GetImage(int weekNumber)
+        {
+            Log.LogCaller();
+            int size = 256;
+            using (Bitmap bitmap = new Bitmap(size, size))
+            using (Graphics graphics = Graphics.FromImage(bitmap))
+            {
+                try
+                {
+                    graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
+                    graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
+                    graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
+                    graphics.TextContrast = 1;
+                    DrawBackgroundOnGraphics(graphics, size);
+                    DrawWeekNumberOnGraphics(weekNumber, graphics, size);
+                    return bitmap.Clone(new RectangleF(0, 0, size, size), System.Drawing.Imaging.PixelFormat.DontCare);
+                }
+                finally
+                {
+                    graphics.Dispose();
+                    bitmap?.Dispose();
+                }
+            }
+        }
+
         internal static Icon GetIcon(int weekNumber, int size = 0)
         {
             Log.LogCaller();
@@ -71,7 +96,7 @@ namespace WeekNumber
                 graphics.TextContrast = 1;
                 DrawBackgroundOnGraphics(graphics, size);
                 DrawWeekNumberOnGraphics(weekNumber, graphics, size);
-                System.IntPtr bHicon = bitmap.GetHicon();
+                IntPtr bHicon = bitmap.GetHicon();
                 Icon newIcon = Icon.FromHandle(bHicon);
                 icon = new Icon(newIcon, size, size);
                 CleanupIcon(ref newIcon);

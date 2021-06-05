@@ -344,7 +344,7 @@ namespace WeekNumber
             try
             {
                 mi.Enabled = false;
-                Forms.DateForm.DisplayMessage("Please select date");
+                Forms.DateForm.Display();
             }
             finally
             {

@@ -361,6 +361,10 @@ Please report to feedback@voltura.se!</value>
   <data name="SelectBackgroundColor" xml:space="preserve">
     <value>Please select background color</value>
   </data>
+  <data name="SelectDate" xml:space="preserve">
+    <value>Please select date
+to show week number</value>
+  </data>
   <data name="SelectForegroundColor" xml:space="preserve">
     <value>Please select foreground color</value>
   </data>

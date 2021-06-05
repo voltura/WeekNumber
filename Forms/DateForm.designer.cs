@@ -39,11 +39,11 @@ namespace WeekNumber.Forms
             this.titleIcon = new System.Windows.Forms.PictureBox();
             this.btnClose = new System.Windows.Forms.Button();
             this.settingsPanel = new System.Windows.Forms.Panel();
+            this.lblDay = new System.Windows.Forms.Label();
+            this.lblMonth = new System.Windows.Forms.Label();
+            this.lblYear = new System.Windows.Forms.Label();
             this.pictureBoxWeek = new System.Windows.Forms.PictureBox();
             this.lblInformation = new System.Windows.Forms.Label();
-            this.lblYear = new System.Windows.Forms.Label();
-            this.lblMonth = new System.Windows.Forms.Label();
-            this.lblDay = new System.Windows.Forms.Label();
             this.ccbDay = new WeekNumber.Controls.CustomComboBox();
             this.ccbMonth = new WeekNumber.Controls.CustomComboBox();
             this.ccbYear = new WeekNumber.Controls.CustomComboBox();
@@ -120,7 +120,7 @@ namespace WeekNumber.Forms
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = false;
-            this.btnClose.Click += new System.EventHandler(this.OK_Click);
+            this.btnClose.Click += new System.EventHandler(this.Close_Click);
             // 
             // settingsPanel
             // 
@@ -142,6 +142,36 @@ namespace WeekNumber.Forms
             this.settingsPanel.Size = new System.Drawing.Size(959, 430);
             this.settingsPanel.TabIndex = 2;
             // 
+            // lblDay
+            // 
+            this.lblDay.AutoSize = true;
+            this.lblDay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblDay.Location = new System.Drawing.Point(436, 33);
+            this.lblDay.Name = "lblDay";
+            this.lblDay.Size = new System.Drawing.Size(72, 41);
+            this.lblDay.TabIndex = 20;
+            this.lblDay.Text = "Day";
+            // 
+            // lblMonth
+            // 
+            this.lblMonth.AutoSize = true;
+            this.lblMonth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblMonth.Location = new System.Drawing.Point(236, 33);
+            this.lblMonth.Name = "lblMonth";
+            this.lblMonth.Size = new System.Drawing.Size(113, 41);
+            this.lblMonth.TabIndex = 19;
+            this.lblMonth.Text = "Month";
+            // 
+            // lblYear
+            // 
+            this.lblYear.AutoSize = true;
+            this.lblYear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
+            this.lblYear.Location = new System.Drawing.Point(36, 33);
+            this.lblYear.Name = "lblYear";
+            this.lblYear.Size = new System.Drawing.Size(77, 41);
+            this.lblYear.TabIndex = 18;
+            this.lblYear.Text = "Year";
+            // 
             // pictureBoxWeek
             // 
             this.pictureBoxWeek.Location = new System.Drawing.Point(682, 43);
@@ -159,36 +189,6 @@ namespace WeekNumber.Forms
             this.lblInformation.TabIndex = 16;
             this.lblInformation.Text = "Sunday, 5th of June 2021\r\nWeek 22";
             // 
-            // lblYear
-            // 
-            this.lblYear.AutoSize = true;
-            this.lblYear.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblYear.Location = new System.Drawing.Point(36, 33);
-            this.lblYear.Name = "lblYear";
-            this.lblYear.Size = new System.Drawing.Size(77, 41);
-            this.lblYear.TabIndex = 18;
-            this.lblYear.Text = "Year";
-            // 
-            // lblMonth
-            // 
-            this.lblMonth.AutoSize = true;
-            this.lblMonth.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblMonth.Location = new System.Drawing.Point(236, 33);
-            this.lblMonth.Name = "lblMonth";
-            this.lblMonth.Size = new System.Drawing.Size(113, 41);
-            this.lblMonth.TabIndex = 19;
-            this.lblMonth.Text = "Month";
-            // 
-            // lblDay
-            // 
-            this.lblDay.AutoSize = true;
-            this.lblDay.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold);
-            this.lblDay.Location = new System.Drawing.Point(436, 33);
-            this.lblDay.Name = "lblDay";
-            this.lblDay.Size = new System.Drawing.Size(72, 41);
-            this.lblDay.TabIndex = 20;
-            this.lblDay.Text = "Day";
-            // 
             // ccbDay
             // 
             this.ccbDay.DropDownWidth = 174;
@@ -199,6 +199,7 @@ namespace WeekNumber.Forms
             this.ccbDay.Name = "ccbDay";
             this.ccbDay.Size = new System.Drawing.Size(174, 48);
             this.ccbDay.TabIndex = 15;
+            this.ccbDay.SelectedIndexChanged += new System.EventHandler(this.SelectedDayChanged);
             // 
             // ccbMonth
             // 
@@ -246,6 +247,7 @@ namespace WeekNumber.Forms
             this.SizeGripStyle = System.Windows.Forms.SizeGripStyle.Hide;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
             this.TopMost = true;
+            this.Shown += new System.EventHandler(this.DateForm_Shown);
             this.minimizePanelFrame.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.titleIcon)).EndInit();
             this.settingsPanel.ResumeLayout(false);

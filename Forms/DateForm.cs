@@ -13,20 +13,14 @@ namespace WeekNumber.Forms
     /// </summary>
     public partial class DateForm : Form
     {
-        #region Public methods
+        #region Private variables
 
-        /// <summary>
-        ///     Set message to display in form
-        /// </summary>
-        /// <param name="messageText">Message text</param>
-        public void SetMessage(string messageText)
-        {
-            lblInformation.Text = messageText;
-        }
+        private Image _img;
+        private bool _initComplete = false;
 
-        #endregion
+        #endregion Private variables
 
-        #region Protected class properties
+        #region Protected property
 
         /// <summary>
         /// Mouse location offset used form form movement
@@ -35,24 +29,9 @@ namespace WeekNumber.Forms
 
         #endregion
 
-        #region Constructors
+        #region Private constructor
 
-        /// <summary>
-        ///     Settings form constructor
-        /// </summary>
-        /// <param name="messageText">Message text</param>
-        public DateForm(string messageText)
-        {
-            InitializeComponent();
-            StartPosition = FormStartPosition.CenterScreen;
-            SetControlTexts();
-            SetMessage(messageText);
-        }
-
-        /// <summary>
-        ///     Settings form constructor
-        /// </summary>
-        public DateForm()
+        private DateForm()
         {
             InitializeComponent();
             StartPosition = FormStartPosition.CenterScreen;
@@ -61,30 +40,16 @@ namespace WeekNumber.Forms
 
         #endregion
 
-        #region Public static methods
+        #region Public static method
 
         /// <summary>
-        ///     Display a message
+        /// Displays Date form
         /// </summary>
-        /// <param name="messageText"></param>
-        public static void DisplayMessage(string messageText)
+        public static void Display()
         {
-            using (DateForm message = new DateForm(messageText))
+            using (DateForm dateForm = new DateForm())
             {
-                message.ShowDialog();
-            }
-        }
-
-        /// <summary>
-        ///     Logs and displays message
-        /// </summary>
-        /// <param name="messageText"></param>
-        public static void LogAndDisplayMessage(string messageText)
-        {
-            Log.Info = messageText;
-            using (DateForm message = new DateForm(messageText))
-            {
-                message.ShowDialog();
+                dateForm.ShowDialog();
             }
         }
 
@@ -92,9 +57,17 @@ namespace WeekNumber.Forms
 
         #region Events handling
 
-        private void OK_Click(object sender, EventArgs e)
+        private void Close_Click(object sender, EventArgs e)
         {
+            DisposeImage();
             Close();
+        }
+
+        private void DisposeImage()
+        {
+            _img?.Dispose();
+            _img = pictureBoxWeek.Image;
+            _img?.Dispose();
         }
 
         private void SettingsTitle_MouseDown(object sender, MouseEventArgs e)
@@ -119,27 +92,67 @@ namespace WeekNumber.Forms
 
         private void MinimizePanel_Click(object sender, EventArgs e)
         {
+            DisposeImage();
             Close();
         }
 
         private void MinimizePanelFrame_Click(object sender, EventArgs e)
         {
+            DisposeImage();
             Close();
         }
 
         private void SelectedYearChanged(object sender, EventArgs e)
         {
             UpdateDaysDropdown();
+            UpdateWeekInfo();
         }
 
         private void SelectedMonthChanged(object sender, EventArgs e)
         {
             UpdateDaysDropdown();
+            UpdateWeekInfo();
+        }
+
+        private void SelectedDayChanged(object sender, EventArgs e)
+        {
+            UpdateWeekInfo();
+        }
+
+        private void DateForm_Shown(object sender, EventArgs e)
+        {
+            _initComplete = true;
         }
 
         #endregion
 
         #region Private methods
+
+        private void UpdateWeekInfo(bool initial = false)
+        {
+            if (!_initComplete && !initial) return;
+            if (int.TryParse(ccbYear.SelectedItem?.ToString(), out int year) == true &&
+                int.TryParse(ccbMonth.SelectedItem?.ToString(), out int month) == true &&
+                int.TryParse(ccbDay.SelectedItem?.ToString(), out int day) == true)
+            {
+                DateTime selectedDate = new DateTime(year, month, day);
+                int selectedWeek = Week.GetWeekNumber(selectedDate);
+                lblInformation.Text = $"{selectedDate.ToLongDateString()}\r\n{Resources.Week} {selectedWeek}";
+                _img = pictureBoxWeek.Image;
+                pictureBoxWeek.Image = WeekIcon.GetImage(selectedWeek);
+                _img?.Dispose();
+            }
+            else if (initial)
+            {
+                lblInformation.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {Week.Current()}";
+                pictureBoxWeek.Image = WeekIcon.GetImage(Week.Current());
+            }
+            else
+            {
+                lblInformation.Text = Resources.SelectDate;
+                pictureBoxWeek.Image = null;
+            }
+        }
 
         private void UpdateDaysDropdown()
         {
@@ -175,24 +188,40 @@ namespace WeekNumber.Forms
             lblYear.Text = Resources.Year;
             lblMonth.Text = Resources.Month;
             lblDay.Text = Resources.Day;
-            ccbYear.Items.Clear();
-            for (int i = DateTime.Now.Year - 10; i < DateTime.Now.Year + 10; i++)
-            {
-                ccbYear.Items.Add(i.ToString());
-            }
-            ccbYear.Text = DateTime.Now.Year.ToString();
-            ccbMonth.Items.Clear();
-            for (int i = 1; i < 13; i++)
-            {
-                ccbMonth.Items.Add(i.ToString());
-            }
-            ccbMonth.Text = DateTime.Now.Month.ToString();
+            PopulateYearDropdown();
+            PopulateMonthDropdown();
+            PopulateDayDropdown();
+            UpdateWeekInfo(true);
+        }
+
+        private void PopulateDayDropdown()
+        {
             ccbDay.Items.Clear();
             for (int i = 1; i <= DateTime.DaysInMonth(DateTime.Now.Year, DateTime.Now.Month); i++)
             {
                 ccbDay.Items.Add(i.ToString());
             }
             ccbDay.Text = DateTime.Now.Day.ToString();
+        }
+
+        private void PopulateMonthDropdown()
+        {
+            ccbMonth.Items.Clear();
+            for (int i = 1; i < 13; i++)
+            {
+                ccbMonth.Items.Add(i.ToString());
+            }
+            ccbMonth.Text = DateTime.Now.Month.ToString();
+        }
+
+        private void PopulateYearDropdown()
+        {
+            ccbYear.Items.Clear();
+            for (int i = DateTime.Now.Year - 10; i < DateTime.Now.Year + 10; i++)
+            {
+                ccbYear.Items.Add(i.ToString());
+            }
+            ccbYear.Text = DateTime.Now.Year.ToString();
         }
 
         private void FocusMinimizeIcon()
