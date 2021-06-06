@@ -1,12 +1,12 @@
 ﻿#region Using statements
 
+using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Drawing;
 using System.Globalization;
 using System.IO;
+using System.Linq;
 using System.Windows.Forms;
-using System;
 
 #endregion Using statements
 
@@ -153,13 +153,13 @@ namespace WeekNumber
                 size = _defaultSize;
             }
             Color backgroundColor = Color.FromArgb(
-                Settings.GetIntSetting(Resources.BackgroundR),
-                Settings.GetIntSetting(Resources.BackgroundG),
-                Settings.GetIntSetting(Resources.BackgroundB));
+                Settings.GetIntSetting(Resources.IconBackgroundRed),
+                Settings.GetIntSetting(Resources.IconBackgroundGreen),
+                Settings.GetIntSetting(Resources.IconBackgroundBlue));
             Color foregroundColor = Color.FromArgb(
-                Settings.GetIntSetting(Resources.ForegroundR, 255),
-                Settings.GetIntSetting(Resources.ForegroundG, 255),
-                Settings.GetIntSetting(Resources.ForegroundB, 255));
+                Settings.GetIntSetting(Resources.IconForegroundRed, 255),
+                Settings.GetIntSetting(Resources.IconForegroundGreen, 255),
+                Settings.GetIntSetting(Resources.IconForegroundBlue, 255));
             using (SolidBrush foregroundBrush = new SolidBrush(foregroundColor))
             using (SolidBrush backgroundBrush = new SolidBrush(backgroundColor))
             {
@@ -183,9 +183,9 @@ namespace WeekNumber
             float insetX = (float)-(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .12) : System.Math.Abs(fontSize * .07));
             float insetY = (float)(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .2) : System.Math.Abs(fontSize * .08));
             Color foregroundColor = Color.FromArgb(
-                Settings.GetIntSetting(Resources.ForegroundR),
-                Settings.GetIntSetting(Resources.ForegroundG),
-                Settings.GetIntSetting(Resources.ForegroundB));
+                Settings.GetIntSetting(Resources.IconForegroundRed),
+                Settings.GetIntSetting(Resources.IconForegroundGreen),
+                Settings.GetIntSetting(Resources.IconForegroundBlue));
 
             using (Font font = new Font(FontFamily.GenericMonospace, fontSize, FontStyle.Bold,
                 GraphicsUnit.Pixel, 0, false))

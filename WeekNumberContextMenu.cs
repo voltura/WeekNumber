@@ -1,7 +1,6 @@
 ﻿#region Using statements
 
 using System;
-using System.Globalization;
 using System.Windows.Forms;
 
 #endregion Using statements
@@ -84,12 +83,12 @@ namespace WeekNumber
                 mi.Enabled = false;
                 if (mi.Name == Resources.ResetColors)
                 {
-                    Settings.UpdateSetting(Resources.ForegroundR, 255.ToString());
-                    Settings.UpdateSetting(Resources.ForegroundB, 255.ToString());
-                    Settings.UpdateSetting(Resources.ForegroundG, 255.ToString());
-                    Settings.UpdateSetting(Resources.BackgroundR, 0.ToString());
-                    Settings.UpdateSetting(Resources.BackgroundG, 0.ToString());
-                    Settings.UpdateSetting(Resources.BackgroundB, 0.ToString());
+                    Settings.UpdateSetting(Resources.IconForegroundRed, 255.ToString());
+                    Settings.UpdateSetting(Resources.IconForegroundBlue, 255.ToString());
+                    Settings.UpdateSetting(Resources.IconForegroundGreen, 255.ToString());
+                    Settings.UpdateSetting(Resources.IconBackgroundRed, 0.ToString());
+                    Settings.UpdateSetting(Resources.IconBackgroundGreen, 0.ToString());
+                    Settings.UpdateSetting(Resources.IconBackgroundBlue, 0.ToString());
                 }
                 else
                 {
@@ -100,22 +99,20 @@ namespace WeekNumber
                         SolidColorOnly = false,
                         ShowHelp = false,
                         Color = System.Drawing.Color.FromArgb(
-                            Settings.GetIntSetting(mi.Name + Resources.R),
-                            Settings.GetIntSetting(mi.Name + Resources.G),
-                            Settings.GetIntSetting(mi.Name + Resources.B))
+                            Settings.GetIntSetting(mi.Name + Resources.Red),
+                            Settings.GetIntSetting(mi.Name + Resources.Green),
+                            Settings.GetIntSetting(mi.Name + Resources.Blue))
                     })
                     {
                         cd.FullOpen = true;
                         cd.AnyColor = true;
                         cd.AllowFullOpen = true;
                         cd.ShowDialog();
-                        Settings.UpdateSetting(mi.Name + Resources.R, cd.Color.R.ToString());
-                        Settings.UpdateSetting(mi.Name + Resources.G, cd.Color.G.ToString());
-                        Settings.UpdateSetting(mi.Name + Resources.B, cd.Color.B.ToString());
+                        Settings.UpdateSetting(mi.Name + Resources.Red, cd.Color.R.ToString());
+                        Settings.UpdateSetting(mi.Name + Resources.Green, cd.Color.G.ToString());
+                        Settings.UpdateSetting(mi.Name + Resources.Blue, cd.Color.B.ToString());
                     }
                 }
-
-                Settings.UpdateSetting(Resources.ForceRedraw, true.ToString(CultureInfo.InvariantCulture));
                 EnableMenuItem(mi);
             }
             catch (Exception ex)
@@ -188,7 +185,7 @@ namespace WeekNumber
             }
         }
 
-        private void DisplayStartupMessageClick(object o, EventArgs e)
+        private void DisplayNotificationClick(object o, EventArgs e)
         {
             try
             {
@@ -198,10 +195,10 @@ namespace WeekNumber
                 {
                     mi.Enabled = false;
                     mi.Checked = !mi.Checked;
-                    Settings.UpdateSetting(Resources.DisplayStartupMessage, mi.Checked ? "True" : "False");
+                    Settings.UpdateSetting(mi.Name, mi.Checked ? "True" : "False");
                     foreach (MenuItem m in mi.Parent?.MenuItems)
                     {
-                        if (m.Name == Resources.SilentStartupMessage)
+                        if (m.Name == Resources.UseSilentNotifications)
                         {
                             m.Enabled = mi.Checked;
                         }
@@ -216,7 +213,7 @@ namespace WeekNumber
             }
         }
 
-        private void SilentStartupMessageClick(object o, EventArgs e)
+        private void UseSilentNotificationsClick(object o, EventArgs e)
         {
             try
             {
@@ -226,7 +223,7 @@ namespace WeekNumber
                 {
                     mi.Enabled = false;
                     mi.Checked = !mi.Checked;
-                    Settings.UpdateSetting(Resources.SilentStartupMessage, mi.Checked ? "True" : "False");
+                    Settings.UpdateSetting(Resources.UseSilentNotifications, mi.Checked ? "True" : "False");
                     EnableMenuItem(mi);
                 }
             }
@@ -359,7 +356,7 @@ namespace WeekNumber
         internal void CreateContextMenu()
         {
             Log.LogCaller();
-            ContextMenu = new ContextMenu(new MenuItem[8]
+            ContextMenu = new ContextMenu(new MenuItem[7]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
@@ -367,57 +364,7 @@ namespace WeekNumber
                 },
                 new MenuItem(Resources.CheckForNewVersionMenu, UpdateHandler.UpdateClick),
                 new MenuItem(Resources.OpenApplicationWebPageMenu, UpdateHandler.OpenApplicationWebPageClick),
-                new MenuItem(Resources.AutoUpdateMenu, AutoUpdateClick)
-                {
-                    Checked = Settings.SettingIsValue(Resources.AutoUpdate, "True")
-                },
-                new MenuItem(Resources.SettingsMenu, new MenuItem[9]
-                {
-                    new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
-                    {
-                        Checked = Settings.StartWithWindows
-                    },
-                    new MenuItem(Resources.ApplicationLogMenu, new MenuItem[2]
-                    {
-                        new MenuItem(Resources.UseApplicationLogMenu, UseApplicationLogClick)
-                        {
-                            Checked = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
-                        },
-                        new MenuItem(Resources.ShowLogMenu, ShowApplicationLogClick)
-                        {
-                            Name = Resources.ShowLog,
-                            Enabled = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
-                        }
-                    }) 
-                    { 
-                        Name = Resources.ApplicationLog
-                    },
-                    new MenuItem(Resources.StartupMessageMenu, new MenuItem[2]
-                    {
-                        new MenuItem(Resources.DisplayStartupMessageMenu, DisplayStartupMessageClick)
-                        {
-                            Name = Resources.DisplayStartupMessage,
-                            Checked = Settings.SettingIsValue(Resources.DisplayStartupMessage, "True")
-                        },
-                        new MenuItem(Resources.SilentStartupMessageMenu, SilentStartupMessageClick)
-                        {
-                            Name = Resources.SilentStartupMessage,
-                            Enabled = Settings.SettingIsValue(Resources.DisplayStartupMessage, "True"),
-                            Checked = Settings.SettingIsValue(Resources.SilentStartupMessage, "True")
-                        }
-                    })
-                    {
-                        Name = Resources.StartupMessage
-                    },
-                    new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
-                        Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu,
-                        ToogleTaskbarIconSizeMenuClick),
-                    FirstDayOfWeekMenu(),
-                    CalendarRuleMenu(),
-                    ColorsMenu(),
-                    new MenuItem(Resources.SaveIconMenu, SaveIconClick),
-                    IconResolutionMenu()
-                }),
+                SettingsMenu(),
                 new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick),
                 new MenuItem(Resources.SeparatorMenu),
                 new MenuItem(Resources.ExitMenu, ExitMenuClick)
@@ -428,18 +375,106 @@ namespace WeekNumber
 
         #region Private helper methods for menu items
 
+        private MenuItem SettingsMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.SettingsMenu, new MenuItem[7]
+                {
+                    new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
+                    {
+                        Checked = Settings.StartWithWindows
+                    },
+                    new MenuItem(Resources.AutoUpdateMenu, AutoUpdateClick)
+                    {
+                        Checked = Settings.SettingIsValue(Resources.AutoUpdate, "True")
+                    },
+                    ApplicationLogMenu(),
+                    NotificationsMenu(),
+                    new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
+                        Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu,
+                        ToogleTaskbarIconSizeMenuClick),
+                    CalendarSettingsMenu(),
+                    IconMenu()
+                });
+        }
+
+        private MenuItem IconMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.IconMenu, new MenuItem[3]
+                {
+                    ColorsMenu(),
+                    IconResolutionMenu(),
+                    new MenuItem(Resources.SaveIconMenu, SaveIconClick)
+                });
+        }
+
+        private MenuItem CalendarSettingsMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.CalendarSettingsMenu, new MenuItem[2]
+                {
+                    FirstDayOfWeekMenu(),
+                    CalendarWeekRuleMenu()
+                });
+        }
+
+        private MenuItem NotificationsMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.NotificationsMenu, new MenuItem[3]
+                    {
+                        new MenuItem(Resources.DisplayStartupNotificationMenu, DisplayNotificationClick)
+                        {
+                            Name = Resources.DisplayStartupNotification,
+                            Checked = Settings.SettingIsValue(Resources.DisplayStartupNotification, "True")
+                        },
+                        new MenuItem(Resources.DisplayWeekChangedNotificationMenu, DisplayNotificationClick)
+                        {
+                            Name = Resources.DisplayWeekChangedNotification,
+                            Checked = Settings.SettingIsValue(Resources.DisplayWeekChangedNotification, "True")
+                        },
+                        new MenuItem(Resources.UseSilentNotificationsMenu, UseSilentNotificationsClick)
+                        {
+                            Name = Resources.UseSilentNotifications,
+                            Enabled = Settings.SettingIsValue(Resources.DisplayStartupNotification, "True"),
+                            Checked = Settings.SettingIsValue(Resources.UseSilentNotifications, "True")
+                        }
+                    });
+        }
+
+        private MenuItem ApplicationLogMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.ApplicationLogMenu, new MenuItem[2]
+                    {
+                        new MenuItem(Resources.UseApplicationLogMenu, UseApplicationLogClick)
+                        {
+                            Checked = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        },
+                        new MenuItem(Resources.ShowLogMenu, ShowApplicationLogClick)
+                        {
+                            Name = Resources.ShowLog,
+                            Enabled = Settings.SettingIsValue(Resources.UseApplicationLog, "True")
+                        }
+                    })
+            {
+                Name = Resources.ApplicationLog
+            };
+        }
+
         private MenuItem ColorsMenu()
         {
             Log.LogCaller();
             return new MenuItem(Resources.ColorsMenu, new MenuItem[3]
             {
-                new MenuItem(Resources.ForegroundMenu, ColorMenuClick)
+                new MenuItem(Resources.IconForegroundMenu, ColorMenuClick)
                 {
-                    Name = Resources.Foreground
+                    Name = Resources.IconForeground
                 },
-                new MenuItem(Resources.BackgroundMenu, ColorMenuClick)
+                new MenuItem(Resources.IconBackgroundMenu, ColorMenuClick)
                 {
-                    Name = Resources.Background
+                    Name = Resources.IconBackground
                 },
                 new MenuItem(Resources.ResetColorsMenu, ColorMenuClick)
                 {
@@ -518,10 +553,10 @@ namespace WeekNumber
             });
         }
 
-        private MenuItem CalendarRuleMenu()
+        private MenuItem CalendarWeekRuleMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.CalendarRuleMenu, new MenuItem[3]
+            return new MenuItem(Resources.CalendarWeekRuleMenu, new MenuItem[3]
             {
                 new MenuItem(Resources.FirstDayMenu, CalendarWeekRuleClick)
                 {

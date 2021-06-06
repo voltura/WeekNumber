@@ -26,7 +26,7 @@ internal class Program
             int id = int.Parse(args[0]);
             GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
             GCSettings.LatencyMode = GCLatencyMode.Batch;
-            using (Process p = Process.GetProcessById(id)) 
+            using (Process p = Process.GetProcessById(id))
             {
                 p.WaitForExit();
             }

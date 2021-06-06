@@ -75,7 +75,7 @@ namespace WeekNumber
             {
                 try
                 {
-                    string destinationFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp", 
+                    string destinationFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp",
                         internetVersionInfo.Installer);
                     using (WebClient client = new WebClient())
                     {
@@ -339,7 +339,7 @@ Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataExce
             catch (Exception ex)
             {
                 Log.Error = ex;
-            } 
+            }
             finally
             {
                 if (result)

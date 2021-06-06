@@ -156,27 +156,27 @@ namespace WeekNumber
             {
                 Log.LogCaller();
                 CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
-                System.DayOfWeek firstDay = currentCultureInfo.DateTimeFormat.FirstDayOfWeek;
+                DayOfWeek firstDay = currentCultureInfo.DateTimeFormat.FirstDayOfWeek;
                 CalendarWeekRule calendarWeekRule = currentCultureInfo.DateTimeFormat.CalendarWeekRule;
                 string xml = $@"<?xml version=""1.0"" encoding=""utf-8"" ?>
 <configuration>
   <appSettings>
     <add key=""DayOfWeek"" value=""{firstDay}""/>
     <add key=""CalendarWeekRule"" value=""{calendarWeekRule}"" />
-    <add key=""BackgroundR"" value=""0""/>
-    <add key=""BackgroundG"" value=""0""/>
-    <add key=""BackgroundB"" value=""0""/>
-    <add key=""ForegroundR"" value=""255""/>
-    <add key=""ForegroundG"" value=""255""/>
-    <add key=""ForegroundB"" value=""255""/>
-    <add key=""ForceRedraw"" value=""False""/>
+    <add key=""IconBackgroundRed"" value=""0""/>
+    <add key=""IconBackgroundGreen"" value=""0""/>
+    <add key=""IconBackgroundBlue"" value=""0""/>
+    <add key=""IconForegroundRed"" value=""255""/>
+    <add key=""IconForegroundGreen"" value=""255""/>
+    <add key=""IconForegroundBlue"" value=""255""/>
     <add key=""IconResolution"" value=""""/>
     <add key=""StartWithWindows"" value=""False""/>
-    <add key=""logFileSizeMB"" value=""10""/>
+    <add key=""MaxLogFileSizeInMB"" value=""10""/>
     <add key=""UseApplicationLog"" value=""False""/>
     <add key=""AutoUpdate"" value=""False""/>
-    <add key=""DisplayStartupMessage"" value=""True""/>
-    <add key=""SilentStartupMessage"" value=""True""/>
+    <add key=""DisplayStartupNotification"" value=""True""/>
+    <add key=""DisplayWeekChangedNotification"" value=""True""/>
+    <add key=""UseSilentNotifications"" value=""True""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

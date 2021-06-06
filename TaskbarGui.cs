@@ -20,6 +20,7 @@ namespace WeekNumber
 
         private NotifyIcon _notifyIcon;
         private readonly WeekNumberContextMenu _contextMenu;
+        private int _latestWeek;
 
         #endregion Private variables
 
@@ -28,22 +29,25 @@ namespace WeekNumber
         internal TaskbarGui(int week, int iconResolution = (int)IconSize.Icon256)
         {
             Log.LogCaller();
+            _latestWeek = week;
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
             UpdateIcon(week, ref _notifyIcon, iconResolution);
-            DisplayUserInfoBalloonTipSilently();
+            if (Settings.SettingIsValue(Resources.DisplayStartupNotification, "True"))
+            {
+                DisplayUserInfoBalloonTip($"{_notifyIcon.Text}\r\n{Resources.StartupMessageText}");
+            }
             _contextMenu.SettingsChangedHandler += OnSettingsChange;
         }
 
         #endregion Constructor
 
-        #region Display NotifyIcon BalloonTip silently
+        #region Display NotifyIcon BalloonTip
 
-        private void DisplayUserInfoBalloonTipSilently()
+        private void DisplayUserInfoBalloonTip(string message)
         {
-            if (Settings.SettingIsValue(Resources.DisplayStartupMessage, "False")) return;
             Log.LogCaller();
-            bool siletMsg = Settings.SettingIsValue(Resources.SilentStartupMessage, "True");
+            bool siletMsg = Settings.SettingIsValue(Resources.UseSilentNotifications, "True");
             object currentSound = null;
             if (siletMsg)
             {
@@ -55,7 +59,7 @@ namespace WeekNumber
                     regKey.Close();
                 }
             }
-            _notifyIcon.ShowBalloonTip(10000, Message.CAPTION, $"{_notifyIcon.Text}\r\n{Resources.StartupMessageText}", ToolTipIcon.None);
+            _notifyIcon.ShowBalloonTip(10000, Message.CAPTION, message, ToolTipIcon.None);
             if (siletMsg)
             {
                 using (RegistryKey regKey = Registry.CurrentUser.OpenSubKey(@"SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings", true))
@@ -75,7 +79,7 @@ namespace WeekNumber
             }
         }
 
-        #endregion
+        #endregion Display NotifyIcon BalloonTip
 
         #region Private event handler
 
@@ -106,18 +110,32 @@ namespace WeekNumber
 
         #endregion Public UpdateIcon method
 
-        #region Private static UpdateIcon method
+        #region Private UpdateIcon method
 
-        private static void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon, int iconResolution)
+        private void UpdateIcon(int weekNumber, ref NotifyIcon notifyIcon, int iconResolution)
         {
             Log.LogCaller();
-            notifyIcon.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
-            System.Drawing.Icon prevIcon = notifyIcon.Icon;
-            notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
-            WeekIcon.CleanupIcon(ref prevIcon);
+            try
+            {
+                notifyIcon.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
+                System.Drawing.Icon prevIcon = notifyIcon.Icon;
+                notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
+                WeekIcon.CleanupIcon(ref prevIcon);
+            }
+            finally
+            {
+                if (_latestWeek != weekNumber)
+                {
+                    if (Settings.SettingIsValue(Resources.DisplayWeekChangedNotification, "True"))
+                    {
+                        DisplayUserInfoBalloonTip(notifyIcon.Text);
+                    }
+                    _latestWeek = weekNumber;
+                }
+            }
         }
 
-        #endregion Private static UpdateIcon method
+        #endregion Private UpdateIcon method
 
         #region Private helper property to create NotifyIcon
 

@@ -126,65 +126,29 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to B.
+        ///   Looks up a localized string similar to Blue.
         /// </summary>
-        internal static string B {
+        internal static string Blue {
             get {
-                return ResourceManager.GetString("B", resourceCulture);
+                return ResourceManager.GetString("Blue", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Background.
+        ///   Looks up a localized string similar to Calendar.
         /// </summary>
-        internal static string Background {
+        internal static string CalendarSettingsMenu {
             get {
-                return ResourceManager.GetString("Background", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to BackgroundB.
-        /// </summary>
-        internal static string BackgroundB {
-            get {
-                return ResourceManager.GetString("BackgroundB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to BackgroundG.
-        /// </summary>
-        internal static string BackgroundG {
-            get {
-                return ResourceManager.GetString("BackgroundG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Background.
-        /// </summary>
-        internal static string BackgroundMenu {
-            get {
-                return ResourceManager.GetString("BackgroundMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to BackgroundR.
-        /// </summary>
-        internal static string BackgroundR {
-            get {
-                return ResourceManager.GetString("BackgroundR", resourceCulture);
+                return ResourceManager.GetString("CalendarSettingsMenu", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to Calendar week rule.
         /// </summary>
-        internal static string CalendarRuleMenu {
+        internal static string CalendarWeekRuleMenu {
             get {
-                return ResourceManager.GetString("CalendarRuleMenu", resourceCulture);
+                return ResourceManager.GetString("CalendarWeekRuleMenu", resourceCulture);
             }
         }
         
@@ -252,20 +216,38 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to DisplayStartupMessage.
+        ///   Looks up a localized string similar to DisplayStartupNotification.
         /// </summary>
-        internal static string DisplayStartupMessage {
+        internal static string DisplayStartupNotification {
             get {
-                return ResourceManager.GetString("DisplayStartupMessage", resourceCulture);
+                return ResourceManager.GetString("DisplayStartupNotification", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Display startup message.
+        ///   Looks up a localized string similar to Display startup notification.
         /// </summary>
-        internal static string DisplayStartupMessageMenu {
+        internal static string DisplayStartupNotificationMenu {
             get {
-                return ResourceManager.GetString("DisplayStartupMessageMenu", resourceCulture);
+                return ResourceManager.GetString("DisplayStartupNotificationMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to DisplayWeekChangedNotification.
+        /// </summary>
+        internal static string DisplayWeekChangedNotification {
+            get {
+                return ResourceManager.GetString("DisplayWeekChangedNotification", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New week.
+        /// </summary>
+        internal static string DisplayWeekChangedNotificationMenu {
+            get {
+                return ResourceManager.GetString("DisplayWeekChangedNotificationMenu", resourceCulture);
             }
         }
         
@@ -442,60 +424,6 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ForceRedraw.
-        /// </summary>
-        internal static string ForceRedraw {
-            get {
-                return ResourceManager.GetString("ForceRedraw", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Foreground.
-        /// </summary>
-        internal static string Foreground {
-            get {
-                return ResourceManager.GetString("Foreground", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ForegroundB.
-        /// </summary>
-        internal static string ForegroundB {
-            get {
-                return ResourceManager.GetString("ForegroundB", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ForegroundG.
-        /// </summary>
-        internal static string ForegroundG {
-            get {
-                return ResourceManager.GetString("ForegroundG", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Foreground.
-        /// </summary>
-        internal static string ForegroundMenu {
-            get {
-                return ResourceManager.GetString("ForegroundMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to ForegroundR.
-        /// </summary>
-        internal static string ForegroundR {
-            get {
-                return ResourceManager.GetString("ForegroundR", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Friday.
         /// </summary>
         internal static string FridayMenu {
@@ -505,11 +433,11 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to G.
+        ///   Looks up a localized string similar to Green.
         /// </summary>
-        internal static string G {
+        internal static string Green {
             get {
-                return ResourceManager.GetString("G", resourceCulture);
+                return ResourceManager.GetString("Green", resourceCulture);
             }
         }
         
@@ -613,6 +541,105 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IconBackground.
+        /// </summary>
+        internal static string IconBackground {
+            get {
+                return ResourceManager.GetString("IconBackground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconBackgroundBlue.
+        /// </summary>
+        internal static string IconBackgroundBlue {
+            get {
+                return ResourceManager.GetString("IconBackgroundBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconBackgroundGreen.
+        /// </summary>
+        internal static string IconBackgroundGreen {
+            get {
+                return ResourceManager.GetString("IconBackgroundGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Background.
+        /// </summary>
+        internal static string IconBackgroundMenu {
+            get {
+                return ResourceManager.GetString("IconBackgroundMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconBackgroundRed.
+        /// </summary>
+        internal static string IconBackgroundRed {
+            get {
+                return ResourceManager.GetString("IconBackgroundRed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconForeground.
+        /// </summary>
+        internal static string IconForeground {
+            get {
+                return ResourceManager.GetString("IconForeground", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconForegroundBlue.
+        /// </summary>
+        internal static string IconForegroundBlue {
+            get {
+                return ResourceManager.GetString("IconForegroundBlue", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconForegroundGreen.
+        /// </summary>
+        internal static string IconForegroundGreen {
+            get {
+                return ResourceManager.GetString("IconForegroundGreen", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Foreground.
+        /// </summary>
+        internal static string IconForegroundMenu {
+            get {
+                return ResourceManager.GetString("IconForegroundMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IconForegroundRed.
+        /// </summary>
+        internal static string IconForegroundRed {
+            get {
+                return ResourceManager.GetString("IconForegroundRed", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Icon.
+        /// </summary>
+        internal static string IconMenu {
+            get {
+                return ResourceManager.GetString("IconMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IconResolution.
         /// </summary>
         internal static string IconResolution {
@@ -649,11 +676,11 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to logFileSizeMB.
+        ///   Looks up a localized string similar to MaxLogFileSizeInMB.
         /// </summary>
-        internal static string logFileSizeMB {
+        internal static string MaxLogFileSizeInMB {
             get {
-                return ResourceManager.GetString("logFileSizeMB", resourceCulture);
+                return ResourceManager.GetString("MaxLogFileSizeInMB", resourceCulture);
             }
         }
         
@@ -685,6 +712,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Notifications.
+        /// </summary>
+        internal static string NotificationsMenu {
+            get {
+                return ResourceManager.GetString("NotificationsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Sorry, this function is not implemented yet..
         /// </summary>
         internal static string NotImplementedYet {
@@ -712,11 +748,11 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to R.
+        ///   Looks up a localized string similar to Red.
         /// </summary>
-        internal static string R {
+        internal static string Red {
             get {
-                return ResourceManager.GetString("R", resourceCulture);
+                return ResourceManager.GetString("Red", resourceCulture);
             }
         }
         
@@ -821,42 +857,6 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to SilentStartupMessage.
-        /// </summary>
-        internal static string SilentStartupMessage {
-            get {
-                return ResourceManager.GetString("SilentStartupMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Silent startup message.
-        /// </summary>
-        internal static string SilentStartupMessageMenu {
-            get {
-                return ResourceManager.GetString("SilentStartupMessageMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to StartupMessage.
-        /// </summary>
-        internal static string StartupMessage {
-            get {
-                return ResourceManager.GetString("StartupMessage", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Startup message.
-        /// </summary>
-        internal static string StartupMessageMenu {
-            get {
-                return ResourceManager.GetString("StartupMessageMenu", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to Right-click on icon in taskbar 
         ///for features and settings.
         /// </summary>
@@ -894,7 +894,7 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use large taskbar buttons.
+        ///   Looks up a localized string similar to Use large taskbar.
         /// </summary>
         internal static string SwitchToLargeTaskbarButtonsMenu {
             get {
@@ -903,7 +903,7 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Use small taskbar buttons.
+        ///   Looks up a localized string similar to Use small taskbar.
         /// </summary>
         internal static string SwitchToSmallTaskbarButtonsMenu {
             get {
@@ -955,6 +955,24 @@ namespace WeekNumber {
         internal static string UseApplicationLogMenu {
             get {
                 return ResourceManager.GetString("UseApplicationLogMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to UseSilentNotifications.
+        /// </summary>
+        internal static string UseSilentNotifications {
+            get {
+                return ResourceManager.GetString("UseSilentNotifications", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Silent notifications.
+        /// </summary>
+        internal static string UseSilentNotificationsMenu {
+            get {
+                return ResourceManager.GetString("UseSilentNotificationsMenu", resourceCulture);
             }
         }
         

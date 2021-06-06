@@ -134,6 +134,7 @@ Copyright © Voltura AB 2018-2021</value>
   </data>
   <data name="AutoUpdate" xml:space="preserve">
     <value>AutoUpdate</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="AutoUpdateMenu" xml:space="preserve">
     <value>Update automatically</value>
@@ -141,25 +142,30 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="AvailableVersion" xml:space="preserve">
     <value>New version:</value>
   </data>
-  <data name="B" xml:space="preserve">
-    <value>B</value>
+  <data name="Blue" xml:space="preserve">
+    <value>Blue</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="Background" xml:space="preserve">
+  <data name="IconBackground" xml:space="preserve">
+    <value>IconBackground</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconBackgroundBlue" xml:space="preserve">
+    <value>IconBackgroundBlue</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconBackgroundGreen" xml:space="preserve">
+    <value>IconBackgroundGreen</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconBackgroundMenu" xml:space="preserve">
     <value>Background</value>
   </data>
-  <data name="BackgroundB" xml:space="preserve">
-    <value>BackgroundB</value>
+  <data name="IconBackgroundRed" xml:space="preserve">
+    <value>IconBackgroundRed</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="BackgroundG" xml:space="preserve">
-    <value>BackgroundG</value>
-  </data>
-  <data name="BackgroundMenu" xml:space="preserve">
-    <value>Background</value>
-  </data>
-  <data name="BackgroundR" xml:space="preserve">
-    <value>BackgroundR</value>
-  </data>
-  <data name="CalendarRuleMenu" xml:space="preserve">
+  <data name="CalendarWeekRuleMenu" xml:space="preserve">
     <value>Calendar week rule</value>
   </data>
   <data name="CheckBrowserNavigation" xml:space="preserve">
@@ -183,11 +189,12 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="Day" xml:space="preserve">
     <value>Day</value>
   </data>
-  <data name="DisplayStartupMessage" xml:space="preserve">
-    <value>DisplayStartupMessage</value>
+  <data name="DisplayStartupNotification" xml:space="preserve">
+    <value>DisplayStartupNotification</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="DisplayStartupMessageMenu" xml:space="preserve">
-    <value>Display startup message</value>
+  <data name="DisplayStartupNotificationMenu" xml:space="preserve">
+    <value>Display startup notification</value>
   </data>
   <data name="DownloadAndInstallQuestion" xml:space="preserve">
     <value>Download and install new version now?</value>
@@ -253,29 +260,32 @@ Please report to feedback@voltura.se!</value>
   <data name="FirstFullWeekMenu" xml:space="preserve">
     <value>First Full Week</value>
   </data>
-  <data name="ForceRedraw" xml:space="preserve">
-    <value>ForceRedraw</value>
+  <data name="IconForeground" xml:space="preserve">
+    <value>IconForeground</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="Foreground" xml:space="preserve">
+  <data name="IconForegroundBlue" xml:space="preserve">
+    <value>IconForegroundBlue</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconForegroundGreen" xml:space="preserve">
+    <value>IconForegroundGreen</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconForegroundMenu" xml:space="preserve">
     <value>Foreground</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="ForegroundB" xml:space="preserve">
-    <value>ForegroundB</value>
-  </data>
-  <data name="ForegroundG" xml:space="preserve">
-    <value>ForegroundG</value>
-  </data>
-  <data name="ForegroundMenu" xml:space="preserve">
-    <value>Foreground</value>
-  </data>
-  <data name="ForegroundR" xml:space="preserve">
-    <value>ForegroundR</value>
+  <data name="IconForegroundRed" xml:space="preserve">
+    <value>IconForegroundRed</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="FridayMenu" xml:space="preserve">
     <value>Friday</value>
   </data>
-  <data name="G" xml:space="preserve">
-    <value>G</value>
+  <data name="Green" xml:space="preserve">
+    <value>Green</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="Icon" xml:space="preserve">
     <value>Icon</value>
@@ -312,6 +322,7 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="IconResolution" xml:space="preserve">
     <value>IconResolution</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="IconResolutionMenu" xml:space="preserve">
     <value>Icon resolution</value>
@@ -322,8 +333,9 @@ Please report to feedback@voltura.se!</value>
   <data name="LatestVersionInstalled" xml:space="preserve">
     <value>You have the latest version!</value>
   </data>
-  <data name="logFileSizeMB" xml:space="preserve">
-    <value>logFileSizeMB</value>
+  <data name="MaxLogFileSizeInMB" xml:space="preserve">
+    <value>MaxLogFileSizeInMB</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="MondayMenu" xml:space="preserve">
     <value>Monday</value>
@@ -343,8 +355,9 @@ Please report to feedback@voltura.se!</value>
   <data name="OpenApplicationWebPageMenu" xml:space="preserve">
     <value>Open application web page</value>
   </data>
-  <data name="R" xml:space="preserve">
-    <value>R</value>
+  <data name="Red" xml:space="preserve">
+    <value>Red</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="ResetColors" xml:space="preserve">
     <value>Colors reset</value>
@@ -370,7 +383,7 @@ to show week number</value>
   </data>
   <data name="SeparatorMenu" xml:space="preserve">
     <value>-</value>
-    <comment>Do not change</comment>
+    <comment>Separator character, do not change</comment>
   </data>
   <data name="SettingsMenu" xml:space="preserve">
     <value>Settings</value>
@@ -381,17 +394,15 @@ to show week number</value>
   <data name="ShowLogMenu" xml:space="preserve">
     <value>Show application log</value>
   </data>
-  <data name="SilentStartupMessage" xml:space="preserve">
-    <value>SilentStartupMessage</value>
+  <data name="UseSilentNotifications" xml:space="preserve">
+    <value>UseSilentNotifications</value>
+    <comment>Setting, do not change</comment>
   </data>
-  <data name="SilentStartupMessageMenu" xml:space="preserve">
-    <value>Silent startup message</value>
+  <data name="UseSilentNotificationsMenu" xml:space="preserve">
+    <value>Silent notifications</value>
   </data>
-  <data name="StartupMessage" xml:space="preserve">
-    <value>StartupMessage</value>
-  </data>
-  <data name="StartupMessageMenu" xml:space="preserve">
-    <value>Startup message</value>
+  <data name="NotificationsMenu" xml:space="preserve">
+    <value>Notifications</value>
   </data>
   <data name="StartupMessageText" xml:space="preserve">
     <value>Right-click on icon in taskbar 
@@ -399,6 +410,7 @@ for features and settings</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>StartWithWindows</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="StartWithWindowsMenu" xml:space="preserve">
     <value>Start with Windows</value>
@@ -407,10 +419,10 @@ for features and settings</value>
     <value>Sunday</value>
   </data>
   <data name="SwitchToLargeTaskbarButtonsMenu" xml:space="preserve">
-    <value>Use large taskbar buttons</value>
+    <value>Use large taskbar</value>
   </data>
   <data name="SwitchToSmallTaskbarButtonsMenu" xml:space="preserve">
-    <value>Use small taskbar buttons</value>
+    <value>Use small taskbar</value>
   </data>
   <data name="ThursdayMenu" xml:space="preserve">
     <value>Thursday</value>
@@ -425,6 +437,7 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="UseApplicationLog" xml:space="preserve">
     <value>UseApplicationLog</value>
+    <comment>Setting, do not change</comment>
   </data>
   <data name="UseApplicationLogMenu" xml:space="preserve">
     <value>Use application log</value>
@@ -440,5 +453,18 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="Year" xml:space="preserve">
     <value>Year</value>
+  </data>
+  <data name="CalendarSettingsMenu" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="IconMenu" xml:space="preserve">
+    <value>Icon</value>
+  </data>
+  <data name="DisplayWeekChangedNotification" xml:space="preserve">
+    <value>DisplayWeekChangedNotification</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="DisplayWeekChangedNotificationMenu" xml:space="preserve">
+    <value>New week</value>
   </data>
 </root>

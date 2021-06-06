@@ -14,7 +14,7 @@ namespace WeekNumber
         #region Static variables
 
         private static readonly string logFile = Path.GetFileNameWithoutExtension(Application.ExecutablePath) + ".log";
-        private static readonly string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), 
+        private static readonly string appDataFolder = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
             Application.CompanyName, Application.ProductName);
         private static readonly string logFileFullPath = Path.Combine(appDataFolder, logFile);
         private static readonly int DEFAULT_LOGFILE_SIZE_IN_MEGABYTES = 10;
@@ -93,7 +93,7 @@ namespace WeekNumber
                 FileInfo fi = new FileInfo(logFileFullPath);
                 if (fi.Exists)
                 {
-                    int trimSize = Settings.GetIntSetting(Resources.logFileSizeMB, DEFAULT_LOGFILE_SIZE_IN_MEGABYTES) * 1024 * 1024;
+                    int trimSize = Settings.GetIntSetting(Resources.MaxLogFileSizeInMB, DEFAULT_LOGFILE_SIZE_IN_MEGABYTES) * 1024 * 1024;
                     if (fi.Length > trimSize)
                     {
                         using (MemoryStream ms = new MemoryStream(trimSize))
