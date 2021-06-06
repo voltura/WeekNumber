@@ -30,7 +30,8 @@ The application is tiny and its memory consumption low.
 #### Settings menu
 ![Settings menu](https://user-images.githubusercontent.com/2292809/120920725-8e65f880-c6c0-11eb-8ea8-777f6652203f.png)
 #### Taskbar icon with customized colors
-![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png)
+![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
+
 #### Icon color picker, possible to define and use custom colors (both icon text and background can be customized)
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 #### More context menu options
