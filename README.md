@@ -94,6 +94,7 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
      - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
      - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
 - **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
+  ![image](https://user-images.githubusercontent.com/2292809/120921352-907d8680-c6c3-11eb-8a7a-a79d6e903dc9.png)
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
 ## Statistics
