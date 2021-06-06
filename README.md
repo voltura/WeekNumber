@@ -81,9 +81,11 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
       - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
    - **Notifications** - _Control application startup message in sub-menus_
       - **Display startup notification** - _If ticked application will show a notification when started_
+      
       <img src="https://user-images.githubusercontent.com/2292809/120921660-0b936c80-c6c5-11eb-974b-653954fca5ed.png" width="400">
       
       - **Display new week notification** - _If ticked a notification will be shown when the week changes_
+      
       <img src="https://user-images.githubusercontent.com/2292809/120921898-6da0a180-c6c6-11eb-82f0-4827dfbc2f4c.png" width="400">
 
       - **Use silent notifications** - _If ticked, application notifications will not trigger system sound to be played_
@@ -96,6 +98,7 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
      - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
      - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
 - **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
+
   <img src="https://user-images.githubusercontent.com/2292809/120921352-907d8680-c6c3-11eb-8a7a-a79d6e903dc9.png" width="400">
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
