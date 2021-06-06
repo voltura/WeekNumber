@@ -31,13 +31,11 @@ The application is tiny and its memory consumption low.
 ![Settings menu](https://user-images.githubusercontent.com/2292809/120920725-8e65f880-c6c0-11eb-8ea8-777f6652203f.png)
 #### Taskbar icon with customized colors
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
-
 #### Icon color picker, possible to define and use custom colors (both icon text and background can be customized)
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 #### More context menu options
 ![image](https://user-images.githubusercontent.com/2292809/120920906-7642a900-c6c1-11eb-8d08-7a56986010e7.png)
 ![image](https://user-images.githubusercontent.com/2292809/120920930-91151d80-c6c1-11eb-984b-86469dbf4ff8.png)
-
 
 ## Installation
 Download installer and run to install (option to start when installer finishes), to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
@@ -83,7 +81,11 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
       - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
    - **Notifications** - _Control application startup message in sub-menus_
       - **Display startup notification** - _If ticked application will show a notification when started_
+      <img src="https://user-images.githubusercontent.com/2292809/120921660-0b936c80-c6c5-11eb-974b-653954fca5ed.png" width="400">
+      
       - **Display new week notification** - _If ticked a notification will be shown when the week changes_
+      <img src="https://user-images.githubusercontent.com/2292809/120921898-6da0a180-c6c6-11eb-82f0-4827dfbc2f4c.png" width="400">
+
       - **Use silent notifications** - _If ticked, application notifications will not trigger system sound to be played_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
    - **Calendar** - _Calendar rules used by the application (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
@@ -94,7 +96,7 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
      - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
      - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
 - **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
-  ![image](https://user-images.githubusercontent.com/2292809/120921352-907d8680-c6c3-11eb-8a7a-a79d6e903dc9.png)
+  <img src="https://user-images.githubusercontent.com/2292809/120921352-907d8680-c6c3-11eb-8a7a-a79d6e903dc9.png" width="400">
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
 ## Statistics
