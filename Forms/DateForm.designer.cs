@@ -113,10 +113,10 @@ namespace WeekNumber.Forms
             this.btnClose.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnClose.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnClose.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnClose.Location = new System.Drawing.Point(707, 337);
+            this.btnClose.Location = new System.Drawing.Point(682, 337);
             this.btnClose.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnClose.Name = "btnClose";
-            this.btnClose.Size = new System.Drawing.Size(231, 72);
+            this.btnClose.Size = new System.Drawing.Size(256, 72);
             this.btnClose.TabIndex = 1;
             this.btnClose.Text = "&Close";
             this.btnClose.UseVisualStyleBackColor = false;

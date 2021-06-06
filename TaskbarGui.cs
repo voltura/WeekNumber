@@ -4,6 +4,14 @@ using Microsoft.Win32;
 using System;
 using System.Windows.Forms;
 
+#region Test code
+/*
+using System.Reflection;
+using System.Runtime.InteropServices;
+using System.Drawing;
+*/
+#endregion Test code
+
 #endregion Using statements
 
 namespace WeekNumber
@@ -33,6 +41,13 @@ namespace WeekNumber
             _contextMenu = new WeekNumberContextMenu();
             _notifyIcon = GetNotifyIcon(_contextMenu.ContextMenu);
             UpdateIcon(week, ref _notifyIcon, iconResolution);
+            _notifyIcon.DoubleClick += NotifyIcon_DoubleClick;
+
+            #region Test code
+            /* test code
+            Rectangle rect =NotifyIconHelper.GetIconRect(_notifyIcon);*/
+            #endregion Test code
+
             if (Settings.SettingIsValue(Resources.DisplayStartupNotification, "True"))
             {
                 DisplayUserInfoBalloonTip($"{_notifyIcon.Text}\r\n{Resources.StartupMessageText}");
@@ -81,14 +96,18 @@ namespace WeekNumber
 
         #endregion Display NotifyIcon BalloonTip
 
-        #region Private event handler
+        #region Private event handlers
 
         private void OnSettingsChange(object sender, EventArgs e)
         {
             UpdateRequest?.Invoke(null, null);
         }
+        private void NotifyIcon_DoubleClick(object sender, EventArgs e)
+        {
+            Forms.DateForm.Display();
+        }
 
-        #endregion Private event handler
+        #endregion Private event handlers
 
         #region Public UpdateIcon method
 
@@ -186,4 +205,87 @@ namespace WeekNumber
 
         #endregion IDisposable methods
     }
+
+    /* Use this to clear icon area instead, inspiration code only, need modification, but with area of icon then maybe move mouse over it programmatically instead of current more complex solution
+
+
+
+
+    sealed class NotifyIconHelper
+    {
+
+        public static Rectangle GetIconRect(NotifyIcon icon)
+        {
+            RECT rect = new RECT();
+            NOTIFYICONIDENTIFIER notifyIcon = new NOTIFYICONIDENTIFIER();
+
+            notifyIcon.cbSize = Marshal.SizeOf(notifyIcon);
+            //use hWnd and id of NotifyIcon instead of guid is needed
+            notifyIcon.hWnd = GetHandle(icon);
+            notifyIcon.uID = GetId(icon);
+
+            int hresult = Shell_NotifyIconGetRect(ref notifyIcon, out rect);
+            //rect now has the position and size of icon
+
+            return new Rectangle(rect.left, rect.top, rect.right - rect.left, rect.bottom - rect.top);
+        }
+
+        private static int GetIconID(NotifyIcon icon)
+        {
+            RECT rect = new RECT();
+            NOTIFYICONIDENTIFIER notifyIcon = new NOTIFYICONIDENTIFIER();
+
+            notifyIcon.cbSize = Marshal.SizeOf(notifyIcon);
+            //use hWnd and id of NotifyIcon instead of guid is needed
+            notifyIcon.hWnd = GetHandle(icon);
+            notifyIcon.uID = GetId(icon);
+
+            int hresult = Shell_NotifyIconGetRect(ref notifyIcon, out rect);
+            //rect now has the position and size of icon
+
+            return notifyIcon.uID;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct RECT
+        {
+            public Int32 left;
+            public Int32 top;
+            public Int32 right;
+            public Int32 bottom;
+        }
+
+        [StructLayout(LayoutKind.Sequential)]
+        private struct NOTIFYICONIDENTIFIER
+        {
+            public Int32 cbSize;
+            public IntPtr hWnd;
+            public Int32 uID;
+            public Guid guidItem;
+        }
+
+        [DllImport("shell32.dll", SetLastError = true)]
+        private static extern int Shell_NotifyIconGetRect([In] ref NOTIFYICONIDENTIFIER identifier, [Out] out RECT iconLocation);
+
+        private static FieldInfo windowField = typeof(NotifyIcon).GetField("window", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        private static IntPtr GetHandle(NotifyIcon icon)
+        {
+            if (windowField == null) throw new InvalidOperationException("[Useful error message]");
+            NativeWindow window = windowField.GetValue(icon) as NativeWindow;
+
+            if (window == null) throw new InvalidOperationException("[Useful error message]");  // should not happen?
+            return window.Handle;
+        }
+
+        private static FieldInfo idField = typeof(NotifyIcon).GetField("id", System.Reflection.BindingFlags.NonPublic | System.Reflection.BindingFlags.Instance);
+        
+        private static int GetId(NotifyIcon icon)
+        {
+            if (idField == null) throw new InvalidOperationException("[Useful error message]");
+            return (int)idField.GetValue(icon);
+        }
+
+    }
+
+*/
 }

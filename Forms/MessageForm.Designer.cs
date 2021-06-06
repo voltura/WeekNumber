@@ -106,10 +106,10 @@ namespace WeekNumber.Forms
             this.btnOK.FlatAppearance.MouseOverBackColor = System.Drawing.Color.LightBlue;
             this.btnOK.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnOK.Font = new System.Drawing.Font("Segoe UI", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnOK.Location = new System.Drawing.Point(707, 337);
+            this.btnOK.Location = new System.Drawing.Point(682, 332);
             this.btnOK.Margin = new System.Windows.Forms.Padding(5, 4, 5, 4);
             this.btnOK.Name = "btnOK";
-            this.btnOK.Size = new System.Drawing.Size(231, 72);
+            this.btnOK.Size = new System.Drawing.Size(256, 72);
             this.btnOK.TabIndex = 1;
             this.btnOK.Text = "OK";
             this.btnOK.UseVisualStyleBackColor = false;
@@ -187,6 +187,7 @@ namespace WeekNumber.Forms
             this.settingsPanel.ResumeLayout(false);
             this.settingsPanel.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         #endregion
