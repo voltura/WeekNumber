@@ -16,25 +16,27 @@ Windows 10 taskbar application that displays the current week number
 
 Always see the current week number in Windows taskbar and lookup the week number for any other date via right-click on the application icon.
 
-Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules.
+Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules and more. For details see _**Help section**_ below.
 
-The application is tiny and its memory consumption low. For details see _Help section_ below.
+The application is tiny and its memory consumption low. 
 
 ## Screenshots
 #### Taskbar icon with default colors
-![Screenshot #1](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
+![Taskbar icon](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
 #### Context menu - accessible via right-click on icon
-![Screenshot #2](https://user-images.githubusercontent.com/2292809/120904846-af8e0100-c64e-11eb-9fff-6725bbd4fce2.png)
+![Context menu](https://user-images.githubusercontent.com/2292809/120920695-5d85c380-c6c0-11eb-93f4-3f932b853b03.png)
 #### Find out week number for any date
-![Screenshot #3](https://user-images.githubusercontent.com/2292809/120904877-e49a5380-c64e-11eb-80b5-c44d6f71fab6.png)
+![Weeknumber form](https://user-images.githubusercontent.com/2292809/120904877-e49a5380-c64e-11eb-80b5-c44d6f71fab6.png)
 #### Settings menu
-![Screenshot #4](https://user-images.githubusercontent.com/2292809/120904919-101d3e00-c64f-11eb-8c9d-323a2cd33807.png)
+![Settings menu](https://user-images.githubusercontent.com/2292809/120920725-8e65f880-c6c0-11eb-8ea8-777f6652203f.png)
 #### Taskbar icon with customized colors
-![Screenshot #5](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png)
+![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png)
 #### Icon color picker, possible to define and use custom colors (both icon text and background can be customized)
-![Screenshot #6](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
+![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 #### More context menu options
-![Screenshot #7](https://user-images.githubusercontent.com/2292809/120905023-a5203700-c64f-11eb-8785-7d4557f2339e.png)
+![image](https://user-images.githubusercontent.com/2292809/120920906-7642a900-c6c1-11eb-8d08-7a56986010e7.png)
+![image](https://user-images.githubusercontent.com/2292809/120920930-91151d80-c6c1-11eb-984b-86469dbf4ff8.png)
+
 
 ## Installation
 Download installer and run to install (option to start when installer finishes), to remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
