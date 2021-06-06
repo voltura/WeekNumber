@@ -83,7 +83,7 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
    - **Notifications** - _Control application startup message in sub-menus_
       - **Display startup notification** - _If ticked application will show a notification when started_
       - **Display new week notification** - _If ticked a notification will be shown when the week changes_
-      - **Use silent notifications** - _If ticked, application notifications will trigger a system sound to be played_
+      - **Use silent notifications** - _If ticked, application notifications will not trigger system sound to be played_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
    - **Calendar** - _Calendar rules used by the application (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
      - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
