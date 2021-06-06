@@ -63,7 +63,7 @@ namespace WeekNumber
                 {
                     return _timer;
                 }
-                int calculatedInterval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
+                int calculatedInterval = 86400000 - ((DateTime.Now.Hour * 3600000) + (DateTime.Now.Minute * 60000) + (DateTime.Now.Second * 1000));
                 Timer timer = new Timer
                 {
                     Interval = calculatedInterval,
@@ -144,7 +144,7 @@ namespace WeekNumber
             }
             if (_timer != null)
             {
-                int calculatedInterval = (1440 - ((DateTime.Now.Hour * 60) + DateTime.Now.Minute)) * 60000 + (DateTime.Now.Second * 1000);
+                int calculatedInterval = 86400000 - ((DateTime.Now.Hour * 3600000) + (DateTime.Now.Minute * 60000) + (DateTime.Now.Second * 1000));
                 _timer.Interval = calculatedInterval;
                 Log.Info = $"Timer interval={calculatedInterval / 1000}s";
                 _timer.Start();
