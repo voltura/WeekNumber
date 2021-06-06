@@ -162,7 +162,7 @@ namespace WeekNumber
 <configuration>
   <appSettings>
     <add key=""DayOfWeek"" value=""{firstDay}""/>
-    <add key=""CalendarWeekRule"" value=""{calendarWeekRule}"" />
+    <add key=""CalendarWeekRule"" value=""{calendarWeekRule}""/>
     <add key=""IconBackgroundRed"" value=""0""/>
     <add key=""IconBackgroundGreen"" value=""0""/>
     <add key=""IconBackgroundBlue"" value=""0""/>
