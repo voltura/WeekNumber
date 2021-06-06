@@ -74,21 +74,24 @@ If the application icon is not visible then press the ^ symbol on the taskbar, c
 - **About WeekNumber** - _Displays version information_
 - **Check for updated version** - _Checks if newer version is available, option to update if that is the case_
 - **Open application web page** - _Opens the default browser pointing to the application web page_
-- **Update automatically** - _If ticked the application will update itself automatically without user interaction_
 - **Settings** - _Additional application settings displayed in sub-menus_
    - **Start with Windows** - _Application starts automatically when user login to Windows if ticked_
+   - **Update automatically** - _If ticked the application will update itself automatically without user interaction_
    - **Application log** - _Application log settings in sub-menus_
       - **Use application log** - _Application writes to a log file if ticked (technical)_
       - **Show application log** - _If above is ticked, opens the application log file in Notepad (technical)_
-   - **Startup message** - _Control application startup message in sub-menus_
-      - **Display startup message** - _If ticked application will show a notification when started_
-      - **Silent message** - _If ticked, startup message does not cause a system sound_
+   - **Notifications** - _Control application startup message in sub-menus_
+      - **Display startup notification** - _If ticked application will show a notification when started_
+      - **Display new week notification** - _If ticked a notification will be shown when the week changes_
+      - **Use silent notifications** - _If ticked, application notifications will trigger a system sound to be played_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
-   - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
-   - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
-   - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
-   - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
-   - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+   - **Calendar** - _Calendar rules used by the application (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+     - **First Day Of Week** - _Calendar rule, select what day a week starts on (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+     - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+   - **Icon** - _Application icon settings_
+     - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
+     - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+     - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
 - **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
