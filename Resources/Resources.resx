@@ -399,7 +399,7 @@ to show week number</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="UseSilentNotificationsMenu" xml:space="preserve">
-    <value>Silent notifications</value>
+    <value>Use silent notifications</value>
   </data>
   <data name="NotificationsMenu" xml:space="preserve">
     <value>Notifications</value>
@@ -465,6 +465,6 @@ Please report to feedback@voltura.se!</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="DisplayWeekChangedNotificationMenu" xml:space="preserve">
-    <value>New week</value>
+    <value>Display new week notification</value>
   </data>
 </root>

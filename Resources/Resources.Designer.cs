@@ -243,7 +243,7 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to New week.
+        ///   Looks up a localized string similar to Display new week notification.
         /// </summary>
         internal static string DisplayWeekChangedNotificationMenu {
             get {
@@ -968,7 +968,7 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Silent notifications.
+        ///   Looks up a localized string similar to Use silent notifications.
         /// </summary>
         internal static string UseSilentNotificationsMenu {
             get {
