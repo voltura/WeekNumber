@@ -111,6 +111,8 @@ If the application icon is not visible then press the ^ symbol on the system tra
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
 
+[![ko-fi](https://user-images.githubusercontent.com/2292809/121091832-e8fb7380-c7ea-11eb-9c56-9768b1790ae5.png)](https://ko-fi.com/voltura) __⟵__ _**Press here to buy me a coffee!**_
+
 ## Statistics
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
 [![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()
