@@ -31,10 +31,10 @@ namespace WeekNumber
             WeekApplicationContext context = null;
             try
             {
-                SetCultureInfoToUS();
-                AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 Settings.RestoreBackupSettings();
                 Log.Init();
+                Settings.SetCultureInfoFromSettings();
+                AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 Log.Info = "=== Application started ===";
                 Log.Info = Application.ProductName + " version " + Application.ProductVersion;
                 NativeMethods.RefreshTrayArea();
@@ -67,15 +67,6 @@ namespace WeekNumber
             Log.LogCaller();
             GCSettings.LargeObjectHeapCompactionMode = GCLargeObjectHeapCompactionMode.CompactOnce;
             GCSettings.LatencyMode = GCLatencyMode.Batch;
-        }
-
-        /// <summary>
-        /// Set application culture info to US English (used for long date display)
-        /// </summary>
-        private static void SetCultureInfoToUS()
-        {
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo("en-US", false);
-            Thread.CurrentThread.CurrentCulture = new CultureInfo("en-US", false);
         }
 
         #endregion Private methods that configures garbarge collection settings

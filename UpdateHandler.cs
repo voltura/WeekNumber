@@ -63,7 +63,7 @@ namespace WeekNumber
             if (internetVersionInfo.Error) return;
             if (!IsNewerVersion(runningVersion, internetVersionInfo.Version))
             {
-                LogAndShow(Resources.LatestVersionInstalled, silent);
+                LogAndShow($"\r\n\r\n{Resources.LatestVersionInstalled}", silent);
                 return;
             }
             if (silent || Message.UserAcceptedQuestion($@"{Resources.NewVersionAvailable}
@@ -95,8 +95,8 @@ namespace WeekNumber
                             if (installerMD5 != installerInternetMD5)
                             {
                                 LogAndShow($@"{Resources.FailedAutoInstall}
-Installer checksum incorrect, could not install automatically.
-{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception($"{Resources.FailedAutoInstall} Installer checksum incorrect, could not install automatically."));
+{Resources.InvalidChecksumCouldNotAutoInstall}
+{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception($"{Resources.FailedAutoInstall} {Resources.InvalidChecksumCouldNotAutoInstall}"));
                                 return;
                             }
                             Settings.BackupSettings();
@@ -128,7 +128,7 @@ Installer checksum incorrect, could not install automatically.
                     {
                         LogAndShow($@"{Resources.FailedToStartInstaller}
 
-Close this application and manually run {destinationFullPath} to update the application.", silent, ex);
+{Resources.CloseAppAndManuallyRun} {destinationFullPath} {Resources.ToUpdateTheApplication}", silent, ex);
                         return;
                     }
                 }
@@ -138,7 +138,7 @@ Close this application and manually run {destinationFullPath} to update the appl
                     // An error occurred while downloading the resource.
                     LogAndShow($@"{Resources.FailedToDownloadNewVersion}
 
-Check if you can download it maually via a web browser from this address:
+{Resources.TryDownloadingManuallyFromThisAddress}
 
 {VERSION_CHECK_BASE_URL}", silent, we);
                     return;
@@ -148,7 +148,7 @@ Check if you can download it maually via a web browser from this address:
                     // The method has been called simultaneously on multiple threads.
                     LogAndShow($@"{Resources.FailedToDownloadNewVersion}
 
-Try manually downloading it via a web browser from this address:
+{Resources.TryDownloadingManuallyFromThisAddress}
 
 {VERSION_CHECK_BASE_URL}", silent, nse);
                 }
@@ -206,7 +206,7 @@ Try manually downloading it via a web browser from this address:
             {
                 LogAndShow($@"{Resources.FailedToPerformVersionCheck}
 
-Unable to parse '{VERSION_CHECK_URL}' information.", silent, new InvalidDataException(Resources.FailedToPerformVersionCheck));
+{Resources.UnableToParse} '{VERSION_CHECK_URL}' {Resources.Information}.", silent, new InvalidDataException(Resources.FailedToPerformVersionCheck));
                 return vi;
             }
             vi.Error = false;

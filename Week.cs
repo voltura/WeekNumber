@@ -83,7 +83,7 @@ namespace WeekNumber
             {
                 week = 1;
             }
-            Log.Info = $"Current week number is {week}";
+            Log.Info = $"Current week is #{week}";
             return week;
         }
 

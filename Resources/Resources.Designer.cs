@@ -198,6 +198,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Close this application and manually run.
+        /// </summary>
+        internal static string CloseAppAndManuallyRun {
+            get {
+                return ResourceManager.GetString("CloseAppAndManuallyRun", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Icon colors.
         /// </summary>
         internal static string ColorsMenu {
@@ -257,6 +266,24 @@ namespace WeekNumber {
         internal static string DownloadAndInstallQuestion {
             get {
                 return ResourceManager.GetString("DownloadAndInstallQuestion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to en-US.
+        /// </summary>
+        internal static string English {
+            get {
+                return ResourceManager.GetString("English", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to English.
+        /// </summary>
+        internal static string EnglishMenu {
+            get {
+                return ResourceManager.GetString("EnglishMenu", resourceCulture);
             }
         }
         
@@ -658,11 +685,47 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to information.
+        /// </summary>
+        internal static string Information {
+            get {
+                return ResourceManager.GetString("Information", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Your version:.
         /// </summary>
         internal static string InstalledVersion {
             get {
                 return ResourceManager.GetString("InstalledVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Installer checksum incorrect, could not install automatically..
+        /// </summary>
+        internal static string InvalidChecksumCouldNotAutoInstall {
+            get {
+                return ResourceManager.GetString("InvalidChecksumCouldNotAutoInstall", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string Language {
+            get {
+                return ResourceManager.GetString("Language", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Language.
+        /// </summary>
+        internal static string LanguageMenu {
+            get {
+                return ResourceManager.GetString("LanguageMenu", resourceCulture);
             }
         }
         
@@ -744,6 +807,15 @@ namespace WeekNumber {
         internal static string OpenApplicationWebPageMenu {
             get {
                 return ResourceManager.GetString("OpenApplicationWebPageMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WeekNumber by Voltura AB.
+        /// </summary>
+        internal static string ProductName {
+            get {
+                return ResourceManager.GetString("ProductName", resourceCulture);
             }
         }
         
@@ -857,8 +929,8 @@ namespace WeekNumber {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Right-click on icon in taskbar 
-        ///for features and settings.
+        ///   Looks up a localized string similar to Right-click on icon in the system 
+        ///tray for features and settings.
         /// </summary>
         internal static string StartupMessageText {
             get {
@@ -894,6 +966,24 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to sv-SE.
+        /// </summary>
+        internal static string Swedish {
+            get {
+                return ResourceManager.GetString("Swedish", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Svenska.
+        /// </summary>
+        internal static string SwedishMenu {
+            get {
+                return ResourceManager.GetString("SwedishMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use large taskbar.
         /// </summary>
         internal static string SwitchToLargeTaskbarButtonsMenu {
@@ -921,11 +1011,38 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to to update the application..
+        /// </summary>
+        internal static string ToUpdateTheApplication {
+            get {
+                return ResourceManager.GetString("ToUpdateTheApplication", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Try manually downloading it via a web browser from this address:.
+        /// </summary>
+        internal static string TryDownloadingManuallyFromThisAddress {
+            get {
+                return ResourceManager.GetString("TryDownloadingManuallyFromThisAddress", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Tuesday.
         /// </summary>
         internal static string TuesdayMenu {
             get {
                 return ResourceManager.GetString("TuesdayMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Unable to parse.
+        /// </summary>
+        internal static string UnableToParse {
+            get {
+                return ResourceManager.GetString("UnableToParse", resourceCulture);
             }
         }
         

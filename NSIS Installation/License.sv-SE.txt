@@ -1,0 +1,12 @@
+Copyright © 2021 Voltura AB
+
+Denna programvara tillhandahålls "som den är" utan någon uttrycklig eller underförstådd garanti. Under inga omständigheter kommer författarna att hållas ansvariga för skador som uppstår till följd av användningen av denna programvara.
+
+Tillstånd ges till vem som helst att använda denna programvara för alla ändamål, inklusive kommersiella applikationer, och att ändra den och distribuera den fritt, med förbehåll för följande begränsningar:
+
+1. Ursprunget till denna programvara får inte framställas felaktigt; du får inte hävda att du har skrivit originalprogramvaran.
+   Om du använder den här programvaran i en produkt uppskattas en bekräftelse i produktdokumentationen men är inte nödvändig.
+
+2. Ändrade versioner måste vara tydligt markerade som sådana och får inte förklaras felaktigt som den ursprungliga programvaran.
+
+3. Detta meddelande får inte tas bort eller ändras från någon distribution.

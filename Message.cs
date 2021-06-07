@@ -9,11 +9,12 @@ namespace WeekNumber
 {
     internal static class Message
     {
-        #region Caption
+        #region Internal readonly strings
 
-        internal static readonly string CAPTION = $"{Application.ProductName} {Resources.Version} {Application.ProductVersion}";
+        internal static readonly string[] SWEDISH_DAY_OF_WEEK_PREFIX = { "Söndagen ", "Måndagen ", "Tisdagen ", "Onsdagen ", "Torsdagen ", "Fredagen ", "Lördagen " };
+        internal static readonly string CAPTION = $"{Resources.ProductName} {Resources.Version} {Application.ProductVersion}";
 
-        #endregion Caption
+        #endregion Internal readonly strings
 
         #region Show Information or Error dialog methods
 

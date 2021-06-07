@@ -405,7 +405,7 @@ to show week number</value>
     <value>Notifications</value>
   </data>
   <data name="StartupMessageText" xml:space="preserve">
-    <value>Right-click on icon in the system 
+    <value>Right-click on icon in the system
 tray for features and settings</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">

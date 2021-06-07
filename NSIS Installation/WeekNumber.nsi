@@ -10,7 +10,10 @@ Unicode True
   !define VERSION "1.0.0.0"
 !endif
 
-!define PRODUCT_NAME "WeekNumber by Voltura AB"
+;LoadLanguageFile "${NSISDIR}\Contrib\Language files\English.nlf"
+;LoadLanguageFile "${NSISDIR}\Contrib\Language files\Swedish.nlf"
+
+!define PRODUCT_NAME "$(ProductNameLanguageSpecific)"
 !define PRODUCT_VERSION ${VERSION}
 !define PRODUCT_GROUP "WeekNumber"
 !define PRODUCT_PUBLISHER "Voltura AB"
@@ -56,9 +59,12 @@ Var KillResult
    nsisXML::setAttribute "value" ${Value}
    nsisXML::save ${ConfigFile}
 !macroend
- 
+
+
 ;--------------------------------
 ;Interface Settings
+;Show all languages, despite user's codepage
+!define MUI_LANGDLL_ALLLANGUAGES
 !define MUI_ABORTWARNING
 !define MUI_ICON "..\Resources\weekicon.ico"
 !define MUI_UNICON "..\Resources\weekicon.ico"
@@ -67,11 +73,18 @@ Var KillResult
 !define MUI_HEADERIMAGE_UNBITMAP "..\Resources\WeekNumber.bmp"
 !define MUI_HEADERIMAGE_UNBITMAP_STRETCH AspectFitHeight
 !define MUI_CUSTOMFUNCTION_GUIINIT onGUIInit
+
+;--------------------------------
+;Language Selection Dialog Settings
+;Remember the installer language
+!define MUI_LANGDLL_REGISTRY_ROOT "HKCU" 
+!define MUI_LANGDLL_REGISTRY_KEY "Software\WeekNumber" 
+!define MUI_LANGDLL_REGISTRY_VALUENAME "Installer Language" 
  
 ;--------------------------------
 ;Pages
 !insertmacro MUI_PAGE_WELCOME
-!insertmacro MUI_PAGE_LICENSE "License.txt"
+!insertmacro MUI_PAGE_LICENSE "$(LICENSETXT)"
 !insertmacro MUI_PAGE_DIRECTORY
 !define MUI_STARTMENUPAGE_REGISTRY_ROOT "HKCU" 
 !define MUI_STARTMENUPAGE_REGISTRY_KEY "Software\WeekNumber" 
@@ -81,7 +94,7 @@ Var KillResult
 !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
 !define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
 !define MUI_FINISHPAGE_SHOWREADME ""
-!define MUI_FINISHPAGE_SHOWREADME_TEXT "Start WeekNumber with Windows"
+!define MUI_FINISHPAGE_SHOWREADME_TEXT "$(StartWithWindows)"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION configureStartWithWindows
 !insertmacro MUI_PAGE_FINISH
 !insertmacro MUI_UNPAGE_WELCOME
@@ -91,7 +104,65 @@ Var KillResult
 
 ;--------------------------------
 ;Languages
-!insertmacro MUI_LANGUAGE "English"
+!insertmacro MUI_LANGUAGE "English" ; The first language is the default language
+!insertmacro MUI_LANGUAGE "Swedish"
+
+;Language strings
+LicenseLangString LICENSETXT ${LANG_ENGLISH} "License.en-US.txt"
+
+LicenseLangString LICENSETXT ${LANG_SWEDISH} "License.sv-SE.txt"
+
+LangString WeekNumberIsRunning ${LANG_ENGLISH} "WeekNumber is running, close it and run installer again."
+
+LangString WeekNumberIsRunning ${LANG_SWEDISH} "WeekNumber startad, avsluta programmet installera igen."
+
+LangString unWeekNumberIsRunning ${LANG_ENGLISH} "WeekNumber is running, close it and run uninstaller again."
+
+LangString unWeekNumberIsRunning ${LANG_SWEDISH} "WeekNumber startad, avsluta programmet och avinstallera igen."
+
+LangString ProductNameLanguageSpecific ${LANG_ENGLISH} "WeekNumber by Voltura AB"
+
+LangString ProductNameLanguageSpecific ${LANG_SWEDISH} "WeekNumber av Voltura AB"
+
+LangString StartWithWindows ${LANG_ENGLISH} "Start WeekNumber with Windows"
+
+LangString StartWithWindows ${LANG_SWEDISH} "Starta WeekNumber med Windows"
+
+LangString CheckIfWeekNumberIsRunning ${LANG_ENGLISH} "Checking if WeekNumber is running..."
+
+LangString CheckIfWeekNumberIsRunning ${LANG_SWEDISH} "Kontrollerar om WeekNumber körs..."
+
+LangString ConfigStartWithWindows ${LANG_ENGLISH} "Configuring WeekNumber to start with Windows..."
+
+LangString ConfigStartWithWindows ${LANG_SWEDISH} "Konfigurerar WeekNumber att starta med Windows..."
+
+LangString WeekNumberRunningTryStop ${LANG_ENGLISH} "WeekNumber is running, trying to stop it..."
+
+LangString WeekNumberRunningTryStop ${LANG_SWEDISH} "WeekNumber körs, försöker stoppa..."
+
+LangString WeekNumberRunningAbortInstall ${LANG_ENGLISH} "Installation aborted - WeekNumber is running"
+
+LangString WeekNumberRunningAbortInstall ${LANG_SWEDISH} "Installation avbruten - WeekNumber körs"
+
+LangString WeekNumberRunningAbortUninstall ${LANG_ENGLISH} "Uninstall aborted - WeekNumber is running"
+
+LangString WeekNumberRunningAbortUninstall ${LANG_SWEDISH} "Avinstallation avbruten - WeekNumber körs"
+
+LangString WeekNumberRunningCloseBeforeInstall ${LANG_ENGLISH} "WeekNumber is running. Please close before install."
+
+LangString WeekNumberRunningCloseBeforeInstall ${LANG_SWEDISH} "WeekNumber körs. Vänligen stäng innan installation."
+
+LangString WeekNumberRunningCloseBeforeUninstall ${LANG_ENGLISH} "WeekNumber is running. Please close before uninstall."
+
+LangString WeekNumberRunningCloseBeforeUninstall ${LANG_SWEDISH} "WeekNumber körs. Vänligen stäng innan avinstallation."
+
+LangString WeekNumberNotRunning ${LANG_ENGLISH} "WeekNumber is not running"
+
+LangString WeekNumberNotRunning ${LANG_SWEDISH} "WeekNumber körs ej"
+
+;--------------------------------
+;Reserve Files
+  !insertmacro MUI_RESERVEFILE_LANGDLL
 
 ;--------------------------------
 ;Installer Sections
@@ -99,14 +170,19 @@ Section "WeekNumber application" SecWeekNumber
   Call weekNumberExeRunning
   ${If} $KillResult == "NOK"
     IfSilent +2
-    Messagebox MB_OK|MB_ICONSTOP "WeekNumber is running, close it and run installer again."
+    Messagebox MB_OK|MB_ICONSTOP "$(WeekNumberIsRunning)"
     Abort
   ${EndIf}
   ;Uninstall old version
   ExecWait '"$INSTDIR\Uninstall WeekNumber.exe" /S _?=$INSTDIR'
   SetOutPath "$INSTDIR"
   File "..\bin\x86\Release\WeekNumber.exe"
-  File "..\bin\x86\Release\WeekNumber.exe.Config"
+  File "..\bin\x86\Release\WeekNumber.exe"
+  SetOutPath "$INSTDIR\\sv-SE"
+  SetOverwrite try
+  File "..\bin\x86\Release\sv-SE\WeekNumber.resources.dll"
+  SetOutPath "$INSTDIR\\en-US"
+  File "..\bin\x86\Release\en-US\WeekNumber.resources.dll"
   ;Store installation folder
   WriteRegStr HKCU "Software\WeekNumber" "" $INSTDIR
   ;Create uninstaller
@@ -136,20 +212,17 @@ Section "WeekNumber application" SecWeekNumber
 SectionEnd
 
 ;--------------------------------
-;Descriptions
-;Language strings
-LangString DESC_SecWeekNumber ${LANG_ENGLISH} "WeekNumber application"
-
-;--------------------------------
 ;Uninstaller Section
 Section "Uninstall"
   Call un.weekNumberExeRunning
   ${If} $KillResult == "NOK"
     IfSilent +2
-    Messagebox MB_OK|MB_ICONSTOP "WeekNumber is running, close it and run uninstaller again."
+    Messagebox MB_OK|MB_ICONSTOP "$(UnWeekNumberIsRunning)"
     Abort
   ${EndIf}
   Delete "$INSTDIR\WeekNumber.exe"
+  Delete "$INSTDIR\sv-SE\WeekNumber.resources.dll"
+  Delete "$INSTDIR\en-US\WeekNumber.resources.dll"
   
   ;do not delete old application log files if silently uninstalling, 
   ;normal scenario for silent uninstall is auto-update
@@ -176,6 +249,8 @@ Section "Uninstall"
   IfSilent +2
   RMDir "$INSTDIR"
   
+  RMDir "$INSTDIR\sv-SE"
+  RMDir "$INSTDIR\en-US"
   !insertmacro MUI_STARTMENU_GETFOLDER Application $StartMenuFolder
   Delete "$SMPROGRAMS\$StartMenuFolder\WeekNumber.lnk"
   Delete "$SMPROGRAMS\$StartMenuFolder\Uninstall WeekNumber.lnk"
@@ -197,7 +272,7 @@ SectionEnd
 ; Functions
 Function configureStartWithWindows
     ;Add Start with Windows setting
-    DetailPrint "Configuring WeekNumber to start with Windows..."
+    DetailPrint "$(ConfigStartWithWindows)"
     !insertmacro AdjustConfigValue "$INSTDIR\WeekNumber.exe.config" "StartWithWindows" "True"	
 FunctionEnd
 
@@ -207,48 +282,52 @@ FunctionEnd
 
 Function weekNumberExeRunning
   StrCpy $R0 2
-  DetailPrint "Checking if WeekNumber is running..."
+  DetailPrint "$(CheckIfWeekNumberIsRunning)"
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
   IntCmp $R0 0 notRunning
   System::Call 'kernel32::CloseHandle(i $R0)'
-  DetailPrint "WeekNumber is running, trying to stop it..."
+  DetailPrint "$(WeekNumberRunningTryStop)"
   LockedList::CloseProcess /kill WeekNumber.exe
   Sleep 2000
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
   IntCmp $R0 0 notRunning
-  DetailPrint "Installation aborted - WeekNumber is running"
+  DetailPrint "$(WeekNumberRunningAbortInstall)"
   IfSilent +2
-  MessageBox MB_OK|MB_ICONEXCLAMATION "WeekNumber #1 is running. Please close before installing." /SD IDOK
+  MessageBox MB_OK|MB_ICONEXCLAMATION "$(WeekNumberRunningCloseBeforeInstall)" /SD IDOK
   StrCpy $KillResult "NOK"
   Abort
   notRunning:
   StrCpy $KillResult "OK"
-  DetailPrint "WeekNumber is not running"
+  DetailPrint "$(WeekNumberNotRunning)"
 FunctionEnd
 
 Function un.weekNumberExeRunning
   StrCpy $R0 2
-  DetailPrint "Checking if WeekNumber is running..."
+  DetailPrint "$(CheckIfWeekNumberIsRunning)"
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
   IntCmp $R0 0 notRunning
   System::Call 'kernel32::CloseHandle(i $R0)'
-  DetailPrint "WeekNumber is running, trying to stop it..."
+  DetailPrint "$(WeekNumberRunningTryStop)"
   LockedList::CloseProcess /kill WeekNumber.exe
   Sleep 2000
   System::Call 'kernel32::OpenMutex(i 0x100000, b 0, t "550adc75-8afb-4813-ac91-8c8c6cb681ae") i .R0'
   IntCmp $R0 0 notRunning
-  DetailPrint "Installation aborted - WeekNumber is running"
+  DetailPrint "$(WeekNumberRunningAbortUninstall)"
   IfSilent +2
-  MessageBox MB_OK|MB_ICONEXCLAMATION "WeekNumber #1 is running. Please close before installing." /SD IDOK
+  MessageBox MB_OK|MB_ICONEXCLAMATION "$(WeekNumberRunningCloseBeforeUninstall)" /SD IDOK
   StrCpy $KillResult "NOK"
   Abort
   notRunning:
   StrCpy $KillResult "OK"
-  DetailPrint "WeekNumber is not running"
+  DetailPrint "$(WeekNumberNotRunning)"
 FunctionEnd
 
 Function .onInstSuccess
   IfSilent 0 +2
   Exec '"$INSTDIR\WeekNumber.exe"'
 
+FunctionEnd
+
+Function .onInit
+  !insertmacro MUI_LANGDLL_DISPLAY
 FunctionEnd

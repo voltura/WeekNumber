@@ -145,6 +145,33 @@ namespace WeekNumber
             }
         }
 
+        /// <summary>
+        /// Set application culture info
+        /// </summary>
+        internal static void SetCultureInfoFromSettings()
+        {
+            Log.LogCaller();
+            try
+            {
+                string language = GetSetting(Resources.Language);
+                if (language == string.Empty)
+                {
+                    language = Resources.English;
+                }
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(language, false);
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(language, false);
+                Log.Info = $"Set application Culture to '{language}'";
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+                System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(Resources.English, false);
+                System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(Resources.English, false);
+                Log.Info = $"Set application Culture to '{Resources.English}'";
+            }
+        }
+
+
         #endregion Internal static methods
 
         #region Private method that creates the application settings file if needed
@@ -177,6 +204,7 @@ namespace WeekNumber
     <add key=""DisplayStartupNotification"" value=""True""/>
     <add key=""DisplayWeekChangedNotification"" value=""True""/>
     <add key=""UseSilentNotifications"" value=""True""/>
+    <add key=""Language"" value=""en-US""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

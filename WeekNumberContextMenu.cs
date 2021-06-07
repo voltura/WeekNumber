@@ -185,6 +185,31 @@ namespace WeekNumber
             }
         }
 
+        private void LanguageClick(object o, EventArgs e)
+        {
+            Log.LogCaller();
+            MenuItem mi = (MenuItem)o;
+            try
+            {
+                if (mi != null)
+                {
+                    mi.Enabled = false;
+                    Settings.UpdateSetting(Resources.Language, mi.Name);
+                    CheckMenuItemUncheckSiblings(mi);
+                    Settings.SetCultureInfoFromSettings();
+                    SettingsChangedHandler?.Invoke(null, null);
+                }
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
+        }
+
         private void DisplayNotificationClick(object o, EventArgs e)
         {
             try
@@ -378,7 +403,7 @@ namespace WeekNumber
         private MenuItem SettingsMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.SettingsMenu, new MenuItem[7]
+            return new MenuItem(Resources.SettingsMenu, new MenuItem[8]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
@@ -388,6 +413,7 @@ namespace WeekNumber
                     {
                         Checked = Settings.SettingIsValue(Resources.AutoUpdate, "True")
                     },
+                    LanguageMenu(),
                     ApplicationLogMenu(),
                     NotificationsMenu(),
                     new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
@@ -460,6 +486,26 @@ namespace WeekNumber
                     })
             {
                 Name = Resources.ApplicationLog
+            };
+        }
+        private MenuItem LanguageMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.LanguageMenu, new MenuItem[2]
+                    {
+                        new MenuItem(Resources.EnglishMenu, LanguageClick)
+                        {
+                            Name = Resources.English,
+                            Checked = Settings.SettingIsValue(Resources.Language, Resources.English)
+                        },
+                        new MenuItem(Resources.SwedishMenu, LanguageClick)
+                        {
+                            Name = Resources.Swedish,
+                            Checked = Settings.SettingIsValue(Resources.Language, Resources.Swedish)
+                        }
+                    })
+            {
+                Name = Resources.Language
             };
         }
 

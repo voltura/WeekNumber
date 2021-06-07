@@ -118,32 +118,188 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="About" xml:space="preserve">
-    <value>WeekNumber by Voltura AB
+    <value>WeekNumber av Voltura AB
 
 Copyright © Voltura AB 2018-2021</value>
     <comment>About box text</comment>
   </data>
   <data name="AboutMenu" xml:space="preserve">
-    <value>About WeekNumber</value>
+    <value>Om WeekNumber...</value>
   </data>
   <data name="ApplicationLog" xml:space="preserve">
     <value>ApplicationLog</value>
   </data>
   <data name="ApplicationLogMenu" xml:space="preserve">
-    <value>Application log</value>
+    <value>Applikationslogg</value>
   </data>
   <data name="AutoUpdate" xml:space="preserve">
     <value>AutoUpdate</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="AutoUpdateMenu" xml:space="preserve">
-    <value>Update automatically</value>
+    <value>Uppdatera automatiskt</value>
   </data>
   <data name="AvailableVersion" xml:space="preserve">
-    <value>New version:</value>
+    <value>Ny version:</value>
   </data>
   <data name="Blue" xml:space="preserve">
     <value>Blue</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="CalendarSettingsMenu" xml:space="preserve">
+    <value>Kalender</value>
+  </data>
+  <data name="CalendarWeekRuleMenu" xml:space="preserve">
+    <value>Vecko-regel</value>
+  </data>
+  <data name="CheckBrowserNavigation" xml:space="preserve">
+    <value>Kontrollera om det går att navigera via en brower till denna adress:</value>
+  </data>
+  <data name="CheckForNewVersionHere" xml:space="preserve">
+    <value>Se om ny version finns här manuellt:</value>
+  </data>
+  <data name="CheckForNewVersionMenu" xml:space="preserve">
+    <value>Se om ny version finns</value>
+  </data>
+  <data name="CheckWeekForDateMenu" xml:space="preserve">
+    <value>Få veckonummer för datum...</value>
+  </data>
+  <data name="Close" xml:space="preserve">
+    <value>Stäng</value>
+  </data>
+  <data name="CloseAppAndManuallyRun" xml:space="preserve">
+    <value>Stäng applikationen och kör manuellt</value>
+  </data>
+  <data name="ColorsMenu" xml:space="preserve">
+    <value>Ikonfärger</value>
+  </data>
+  <data name="Day" xml:space="preserve">
+    <value>Dag</value>
+  </data>
+  <data name="DisplayStartupNotification" xml:space="preserve">
+    <value>DisplayStartupNotification</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="DisplayStartupNotificationMenu" xml:space="preserve">
+    <value>Visa uppstartsnotis</value>
+  </data>
+  <data name="DisplayWeekChangedNotification" xml:space="preserve">
+    <value>DisplayWeekChangedNotification</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="DisplayWeekChangedNotificationMenu" xml:space="preserve">
+    <value>Visa ny veckonotis</value>
+  </data>
+  <data name="DownloadAndInstallQuestion" xml:space="preserve">
+    <value>Ladda ner och installera ny version?</value>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>en-US</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="EnglishMenu" xml:space="preserve">
+    <value>English</value>
+  </data>
+  <data name="ExitMenu" xml:space="preserve">
+    <value>Avsluta WeekNumber</value>
+  </data>
+  <data name="FailedAutoInstall" xml:space="preserve">
+    <value>Misslyckades ladda ner och köra installationen automatiskt.</value>
+  </data>
+  <data name="FailedToChangeIconResolution" xml:space="preserve">
+    <value>Misslyckades uppdatera ikonupplösning.</value>
+  </data>
+  <data name="FailedToCheckUpdateNoInternet" xml:space="preserve">
+    <value>Kunde inte kontrollera om ny version fanns, kontrollera internetuppkopplingen.</value>
+  </data>
+  <data name="FailedToDownloadNewVersion" xml:space="preserve">
+    <value>Misslyckades ladda ner ny version.</value>
+  </data>
+  <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
+    <value>Kunde inte informera Windows om att uppdatera storlek på taskbar.</value>
+  </data>
+  <data name="FailedToPerformVersionCheck" xml:space="preserve">
+    <value>Misslyckades kontrollera ny version.</value>
+  </data>
+  <data name="FailedToSetIcon" xml:space="preserve">
+    <value>Kunde inte sätta ikon.</value>
+  </data>
+  <data name="FailedToStartInstaller" xml:space="preserve">
+    <value>Misslyckades att automatiskt starta installationen.</value>
+  </data>
+  <data name="FailedToUpdateCalendarWeekRule" xml:space="preserve">
+    <value>Kunde ej uppdatera veckoregel.</value>
+  </data>
+  <data name="FailedToUpdateColor" xml:space="preserve">
+    <value>Kunde ej uppdatera färg.</value>
+  </data>
+  <data name="FailedToUpdateDayOfWeek" xml:space="preserve">
+    <value>Kunde ej uppdatera 'första dag i vecka'-regel.</value>
+  </data>
+  <data name="FailedToUpdateRegistry" xml:space="preserve">
+    <value>Kunde ej uppdatera registret.</value>
+  </data>
+  <data name="FirstDayMenu" xml:space="preserve">
+    <value>Första dag</value>
+  </data>
+  <data name="FirstDayOfWeekMenu" xml:space="preserve">
+    <value>Första-dag-i-vecka-regel</value>
+  </data>
+  <data name="FirstFourDayWeekMenu" xml:space="preserve">
+    <value>Första 4 dagars vecka</value>
+  </data>
+  <data name="FirstFullWeekMenu" xml:space="preserve">
+    <value>Första hela vecka</value>
+  </data>
+  <data name="FridayMenu" xml:space="preserve">
+    <value>Fredag</value>
+  </data>
+  <data name="Green" xml:space="preserve">
+    <value>Green</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon" xml:space="preserve">
+    <value>Icon</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon128" xml:space="preserve">
+    <value>128x128</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon16" xml:space="preserve">
+    <value>16x16</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon20" xml:space="preserve">
+    <value>20x20</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon24" xml:space="preserve">
+    <value>24x24</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon256" xml:space="preserve">
+    <value>256x256</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon32" xml:space="preserve">
+    <value>32x32</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon40" xml:space="preserve">
+    <value>40x40</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon48" xml:space="preserve">
+    <value>48x48</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon512" xml:space="preserve">
+    <value>512x512</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="Icon64" xml:space="preserve">
+    <value>64x64</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="IconBackground" xml:space="preserve">
@@ -159,106 +315,11 @@ Copyright © Voltura AB 2018-2021</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="IconBackgroundMenu" xml:space="preserve">
-    <value>Background</value>
+    <value>Bakgrundsfärg</value>
   </data>
   <data name="IconBackgroundRed" xml:space="preserve">
     <value>IconBackgroundRed</value>
     <comment>Setting, do not change</comment>
-  </data>
-  <data name="CalendarWeekRuleMenu" xml:space="preserve">
-    <value>Calendar week rule</value>
-  </data>
-  <data name="CheckBrowserNavigation" xml:space="preserve">
-    <value>Check if you can navigate via a web browser to this address:</value>
-  </data>
-  <data name="CheckForNewVersionHere" xml:space="preserve">
-    <value>Manually check for newer version here:</value>
-  </data>
-  <data name="CheckForNewVersionMenu" xml:space="preserve">
-    <value>Check for updated version</value>
-  </data>
-  <data name="CheckWeekForDateMenu" xml:space="preserve">
-    <value>Get week number for date...</value>
-  </data>
-  <data name="Close" xml:space="preserve">
-    <value>Close</value>
-  </data>
-  <data name="ColorsMenu" xml:space="preserve">
-    <value>Icon colors</value>
-  </data>
-  <data name="Day" xml:space="preserve">
-    <value>Day</value>
-  </data>
-  <data name="DisplayStartupNotification" xml:space="preserve">
-    <value>DisplayStartupNotification</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="DisplayStartupNotificationMenu" xml:space="preserve">
-    <value>Display startup notification</value>
-  </data>
-  <data name="DownloadAndInstallQuestion" xml:space="preserve">
-    <value>Download and install new version now?</value>
-  </data>
-  <data name="ExitMenu" xml:space="preserve">
-    <value>Exit WeekNumber</value>
-  </data>
-  <data name="FailedAutoInstall" xml:space="preserve">
-    <value>Failed to download and run the installer automatically.</value>
-  </data>
-  <data name="FailedToChangeIconResolution" xml:space="preserve">
-    <value>Failed to update icon resolution.</value>
-  </data>
-  <data name="FailedToCheckUpdateNoInternet" xml:space="preserve">
-    <value>Failed to perform version check, cannot find an active internet connection.</value>
-  </data>
-  <data name="FailedToDownloadNewVersion" xml:space="preserve">
-    <value>Failed to download new version.</value>
-  </data>
-  <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
-    <value>Could not inform Windows about change of taskbar icon size.
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FailedToPerformVersionCheck" xml:space="preserve">
-    <value>Failed to perform version check.</value>
-  </data>
-  <data name="FailedToSetIcon" xml:space="preserve">
-    <value>Could not set Icon. 
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FailedToStartInstaller" xml:space="preserve">
-    <value>Failed to start the installer automatically.</value>
-  </data>
-  <data name="FailedToUpdateCalendarWeekRule" xml:space="preserve">
-    <value>Could not calendar week rule setting. 
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FailedToUpdateColor" xml:space="preserve">
-    <value>Could not update color.</value>
-  </data>
-  <data name="FailedToUpdateDayOfWeek" xml:space="preserve">
-    <value>Could not update first day of week setting.
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FailedToUpdateRegistry" xml:space="preserve">
-    <value>Could not update registry.
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FirstDayMenu" xml:space="preserve">
-    <value>First Day</value>
-  </data>
-  <data name="FirstDayOfWeekMenu" xml:space="preserve">
-    <value>First Day Of Week</value>
-  </data>
-  <data name="FirstFourDayWeekMenu" xml:space="preserve">
-    <value>First Four Day Week</value>
-  </data>
-  <data name="FirstFullWeekMenu" xml:space="preserve">
-    <value>First Full Week</value>
   </data>
   <data name="IconForeground" xml:space="preserve">
     <value>IconForeground</value>
@@ -273,87 +334,68 @@ Please report to feedback@voltura.se!</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="IconForegroundMenu" xml:space="preserve">
-    <value>Foreground</value>
-    <comment>Setting, do not change</comment>
+    <value>Förgrundsfärg</value>
   </data>
   <data name="IconForegroundRed" xml:space="preserve">
     <value>IconForegroundRed</value>
     <comment>Setting, do not change</comment>
   </data>
-  <data name="FridayMenu" xml:space="preserve">
-    <value>Friday</value>
-  </data>
-  <data name="Green" xml:space="preserve">
-    <value>Green</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="Icon" xml:space="preserve">
-    <value>Icon</value>
-  </data>
-  <data name="Icon128" xml:space="preserve">
-    <value>128x128</value>
-  </data>
-  <data name="Icon16" xml:space="preserve">
-    <value>16x16</value>
-  </data>
-  <data name="Icon20" xml:space="preserve">
-    <value>20x20</value>
-  </data>
-  <data name="Icon24" xml:space="preserve">
-    <value>24x24</value>
-  </data>
-  <data name="Icon256" xml:space="preserve">
-    <value>256x256</value>
-  </data>
-  <data name="Icon32" xml:space="preserve">
-    <value>32x32</value>
-  </data>
-  <data name="Icon40" xml:space="preserve">
-    <value>40x40</value>
-  </data>
-  <data name="Icon48" xml:space="preserve">
-    <value>48x48</value>
-  </data>
-  <data name="Icon512" xml:space="preserve">
-    <value>512x512</value>
-  </data>
-  <data name="Icon64" xml:space="preserve">
-    <value>64x64</value>
+  <data name="IconMenu" xml:space="preserve">
+    <value>Ikon</value>
   </data>
   <data name="IconResolution" xml:space="preserve">
     <value>IconResolution</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="IconResolutionMenu" xml:space="preserve">
-    <value>Icon resolution</value>
+    <value>Ikonupplösning</value>
+  </data>
+  <data name="Information" xml:space="preserve">
+    <value>information</value>
   </data>
   <data name="InstalledVersion" xml:space="preserve">
-    <value>Your version:</value>
+    <value>Installerad version:</value>
+  </data>
+  <data name="InvalidChecksumCouldNotAutoInstall" xml:space="preserve">
+    <value>Installationsprogrammets checksumma var felaktig, kan ej uppdatera automatiskt.</value>
+  </data>
+  <data name="Language" xml:space="preserve">
+    <value>Language</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="LanguageMenu" xml:space="preserve">
+    <value>Språk</value>
   </data>
   <data name="LatestVersionInstalled" xml:space="preserve">
-    <value>You have the latest version!</value>
+    <value>Du har den senaste versionen!</value>
   </data>
   <data name="MaxLogFileSizeInMB" xml:space="preserve">
     <value>MaxLogFileSizeInMB</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="MondayMenu" xml:space="preserve">
-    <value>Monday</value>
+    <value>Måndag</value>
   </data>
   <data name="Month" xml:space="preserve">
-    <value>Month</value>
+    <value>Månad</value>
   </data>
   <data name="NewVersionAvailable" xml:space="preserve">
-    <value>There is a new version available!</value>
+    <value>Det finns en ny version tillgänglig!</value>
+  </data>
+  <data name="NotificationsMenu" xml:space="preserve">
+    <value>Notiser</value>
   </data>
   <data name="NotImplementedYet" xml:space="preserve">
-    <value>Sorry, this function is not implemented yet.</value>
+    <value>Ursäkta, denna funktion är inte implementerad än!</value>
   </data>
   <data name="OK" xml:space="preserve">
     <value>OK</value>
   </data>
   <data name="OpenApplicationWebPageMenu" xml:space="preserve">
-    <value>Open application web page</value>
+    <value>Öppna applikationens webbsida</value>
+  </data>
+  <data name="ProductName" xml:space="preserve">
+    <value>WeekNumber av Voltura AB</value>
   </data>
   <data name="Red" xml:space="preserve">
     <value>Red</value>
@@ -363,144 +405,49 @@ Please report to feedback@voltura.se!</value>
     <value>Colors reset</value>
   </data>
   <data name="ResetColorsMenu" xml:space="preserve">
-    <value>Reset colors</value>
+    <value>Återställ färger</value>
   </data>
   <data name="SaturdayMenu" xml:space="preserve">
-    <value>Saturday</value>
+    <value>Lördag</value>
   </data>
   <data name="SaveIconMenu" xml:space="preserve">
-    <value>Save icon...</value>
+    <value>Spara ikon...</value>
   </data>
   <data name="SelectBackgroundColor" xml:space="preserve">
-    <value>Please select background color</value>
+    <value>Vänligen välj bakgrundsfärg</value>
   </data>
   <data name="SelectDate" xml:space="preserve">
-    <value>Please select date
-to show week number</value>
+    <value>Vänligen välj datum</value>
   </data>
   <data name="SelectForegroundColor" xml:space="preserve">
-    <value>Please select foreground color</value>
+    <value>Vänligen välj förgrundsfärg</value>
   </data>
   <data name="SeparatorMenu" xml:space="preserve">
     <value>-</value>
     <comment>Separator character, do not change</comment>
   </data>
   <data name="SettingsMenu" xml:space="preserve">
-    <value>Settings</value>
+    <value>Inställningar</value>
   </data>
   <data name="ShowLog" xml:space="preserve">
     <value>ShowLog</value>
   </data>
   <data name="ShowLogMenu" xml:space="preserve">
-    <value>Show application log</value>
-  </data>
-  <data name="UseSilentNotifications" xml:space="preserve">
-    <value>UseSilentNotifications</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="UseSilentNotificationsMenu" xml:space="preserve">
-    <value>Use silent notifications</value>
-  </data>
-  <data name="NotificationsMenu" xml:space="preserve">
-    <value>Notifications</value>
+    <value>Visa applikationslogg</value>
   </data>
   <data name="StartupMessageText" xml:space="preserve">
-    <value>Right-click on icon in the system 
-tray for features and settings</value>
+    <value>Höger-klicka på ikonen i systemfältet
+för funktioner och inställningar</value>
   </data>
   <data name="StartWithWindows" xml:space="preserve">
     <value>StartWithWindows</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="StartWithWindowsMenu" xml:space="preserve">
-    <value>Start with Windows</value>
+    <value>Starta med Windows</value>
   </data>
   <data name="SundayMenu" xml:space="preserve">
-    <value>Sunday</value>
-  </data>
-  <data name="SwitchToLargeTaskbarButtonsMenu" xml:space="preserve">
-    <value>Use large taskbar</value>
-  </data>
-  <data name="SwitchToSmallTaskbarButtonsMenu" xml:space="preserve">
-    <value>Use small taskbar</value>
-  </data>
-  <data name="ThursdayMenu" xml:space="preserve">
-    <value>Thursday</value>
-  </data>
-  <data name="TuesdayMenu" xml:space="preserve">
-    <value>Tuesday</value>
-  </data>
-  <data name="UnhandledException" xml:space="preserve">
-    <value>Something went wrong. 
-
-Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="UseApplicationLog" xml:space="preserve">
-    <value>UseApplicationLog</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="UseApplicationLogMenu" xml:space="preserve">
-    <value>Use application log</value>
-  </data>
-  <data name="Version" xml:space="preserve">
-    <value>version</value>
-  </data>
-  <data name="WednesdayMenu" xml:space="preserve">
-    <value>Wednesday</value>
-  </data>
-  <data name="Week" xml:space="preserve">
-    <value>Week </value>
-  </data>
-  <data name="Year" xml:space="preserve">
-    <value>Year</value>
-  </data>
-  <data name="CalendarSettingsMenu" xml:space="preserve">
-    <value>Calendar</value>
-  </data>
-  <data name="IconMenu" xml:space="preserve">
-    <value>Icon</value>
-  </data>
-  <data name="DisplayWeekChangedNotification" xml:space="preserve">
-    <value>DisplayWeekChangedNotification</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="DisplayWeekChangedNotificationMenu" xml:space="preserve">
-    <value>Display new week notification</value>
-  </data>
-  <data name="CloseAppAndManuallyRun" xml:space="preserve">
-    <value>Close this application and manually run</value>
-  </data>
-  <data name="Information" xml:space="preserve">
-    <value>information</value>
-  </data>
-  <data name="InvalidChecksumCouldNotAutoInstall" xml:space="preserve">
-    <value>Installer checksum incorrect, could not install automatically.</value>
-  </data>
-  <data name="ToUpdateTheApplication" xml:space="preserve">
-    <value>to update the application.</value>
-  </data>
-  <data name="TryDownloadingManuallyFromThisAddress" xml:space="preserve">
-    <value>Try manually downloading it via a web browser from this address:</value>
-  </data>
-  <data name="UnableToParse" xml:space="preserve">
-    <value>Unable to parse</value>
-  </data>
-  <data name="English" xml:space="preserve">
-    <value>en-US</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="EnglishMenu" xml:space="preserve">
-    <value>English</value>
-  </data>
-  <data name="Language" xml:space="preserve">
-    <value>Language</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="LanguageMenu" xml:space="preserve">
-    <value>Language</value>
-  </data>
-  <data name="ProductName" xml:space="preserve">
-    <value>WeekNumber by Voltura AB</value>
+    <value>Söndag</value>
   </data>
   <data name="Swedish" xml:space="preserve">
     <value>sv-SE</value>
@@ -508,5 +455,55 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="SwedishMenu" xml:space="preserve">
     <value>Svenska</value>
+  </data>
+  <data name="SwitchToLargeTaskbarButtonsMenu" xml:space="preserve">
+    <value>Använd stora aktivitetsfältsikoner</value>
+  </data>
+  <data name="SwitchToSmallTaskbarButtonsMenu" xml:space="preserve">
+    <value>Använd små aktivitetsfältsikoner</value>
+  </data>
+  <data name="ThursdayMenu" xml:space="preserve">
+    <value>Torsdag</value>
+  </data>
+  <data name="ToUpdateTheApplication" xml:space="preserve">
+    <value>för att uppdatera applikationen.</value>
+  </data>
+  <data name="TryDownloadingManuallyFromThisAddress" xml:space="preserve">
+    <value>Försök att ladda ned manuellt från denna adress:</value>
+  </data>
+  <data name="TuesdayMenu" xml:space="preserve">
+    <value>Tisdag</value>
+  </data>
+  <data name="UnableToParse" xml:space="preserve">
+    <value>Kunde inte tolka</value>
+  </data>
+  <data name="UnhandledException" xml:space="preserve">
+    <value>Något gick fel</value>
+  </data>
+  <data name="UseApplicationLog" xml:space="preserve">
+    <value>UseApplicationLog</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="UseApplicationLogMenu" xml:space="preserve">
+    <value>Använda applikationslogg</value>
+  </data>
+  <data name="UseSilentNotifications" xml:space="preserve">
+    <value>UseSilentNotifications</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="UseSilentNotificationsMenu" xml:space="preserve">
+    <value>Använd tysta notiser</value>
+  </data>
+  <data name="Version" xml:space="preserve">
+    <value>version</value>
+  </data>
+  <data name="WednesdayMenu" xml:space="preserve">
+    <value>Onsdag</value>
+  </data>
+  <data name="Week" xml:space="preserve">
+    <value>Vecka</value>
+  </data>
+  <data name="Year" xml:space="preserve">
+    <value>År</value>
   </data>
 </root>

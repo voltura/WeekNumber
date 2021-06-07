@@ -131,20 +131,29 @@ namespace WeekNumber.Forms
         private void UpdateWeekInfo(bool initial = false)
         {
             if (!_initComplete && !initial) return;
+            string weekDayPrefix = string.Empty;
             if (int.TryParse(ccbYear.SelectedItem?.ToString(), out int year) == true &&
                 int.TryParse(ccbMonth.SelectedItem?.ToString(), out int month) == true &&
                 int.TryParse(ccbDay.SelectedItem?.ToString(), out int day) == true)
             {
                 DateTime selectedDate = new DateTime(year, month, day);
+                if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                {
+                    weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)selectedDate.DayOfWeek];
+                }
                 int selectedWeek = Week.GetWeekNumber(selectedDate);
-                lblInformation.Text = $"{selectedDate.ToLongDateString()}\r\n{Resources.Week} {selectedWeek}";
+                lblInformation.Text = $"{weekDayPrefix}{selectedDate.ToLongDateString()}\r\n{Resources.Week} {selectedWeek}";
                 _img = pictureBoxWeek.Image;
                 pictureBoxWeek.Image = WeekIcon.GetImage(selectedWeek);
                 _img?.Dispose();
             }
             else if (initial)
             {
-                lblInformation.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {Week.Current()}";
+                if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                {
+                    weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
+                }
+                lblInformation.Text = $"{weekDayPrefix}{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {Week.Current()}";
                 pictureBoxWeek.Image = WeekIcon.GetImage(Week.Current());
             }
             else

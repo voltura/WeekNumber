@@ -136,7 +136,12 @@ namespace WeekNumber
             Log.LogCaller();
             try
             {
-                notifyIcon.Text = $"{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
+                string weekDayPrefix = string.Empty;
+                if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                {
+                    weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
+                }
+                notifyIcon.Text = $"{weekDayPrefix}{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
                 System.Drawing.Icon prevIcon = notifyIcon.Icon;
                 notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
                 WeekIcon.CleanupIcon(ref prevIcon);
