@@ -1,7 +1,6 @@
 ﻿#region Using statements
 
 using System;
-using System.Globalization;
 using System.Runtime;
 using System.Threading;
 using System.Windows.Forms;

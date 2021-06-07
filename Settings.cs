@@ -154,9 +154,16 @@ namespace WeekNumber
             try
             {
                 string language = GetSetting(Resources.Language);
-                if (language == string.Empty)
+                if (language == string.Empty) // First run there is no setting for language
                 {
-                    language = Resources.English;
+                    if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                    {
+                        language = Resources.Swedish;
+                    }
+                    else
+                    {
+                        language = Resources.English;
+                    }
                 }
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(language, false);
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(language, false);
@@ -204,7 +211,7 @@ namespace WeekNumber
     <add key=""DisplayStartupNotification"" value=""True""/>
     <add key=""DisplayWeekChangedNotification"" value=""True""/>
     <add key=""UseSilentNotifications"" value=""True""/>
-    <add key=""Language"" value=""en-US""/>
+    <add key=""Language"" value=""""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

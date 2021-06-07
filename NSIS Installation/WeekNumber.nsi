@@ -92,7 +92,7 @@ Var KillResult
 !insertmacro MUI_PAGE_STARTMENU Application $StartMenuFolder
 !insertmacro MUI_PAGE_INSTFILES
 !define MUI_FINISHPAGE_RUN "$INSTDIR\WeekNumber.exe"
-!define MUI_FINISHPAGE_RUN_TEXT "Run WeekNumber" 
+!define MUI_FINISHPAGE_RUN_TEXT "$(RUNWEEKNUMBER)" 
 !define MUI_FINISHPAGE_SHOWREADME ""
 !define MUI_FINISHPAGE_SHOWREADME_TEXT "$(StartWithWindows)"
 !define MUI_FINISHPAGE_SHOWREADME_FUNCTION configureStartWithWindows
@@ -111,6 +111,10 @@ Var KillResult
 LicenseLangString LICENSETXT ${LANG_ENGLISH} "License.en-US.txt"
 
 LicenseLangString LICENSETXT ${LANG_SWEDISH} "License.sv-SE.txt"
+
+LangString RUNWEEKNUMBER ${LANG_ENGLISH} "Run WeekNumber"
+
+LangString RUNWEEKNUMBER ${LANG_SWEDISH} "Kör WeekNumber"
 
 LangString WeekNumberIsRunning ${LANG_ENGLISH} "WeekNumber is running, close it and run installer again."
 
@@ -328,6 +332,6 @@ Function .onInstSuccess
 
 FunctionEnd
 
-Function .onInit
-  !insertmacro MUI_LANGDLL_DISPLAY
-FunctionEnd
+;Function .onInit
+;  !insertmacro MUI_LANGDLL_DISPLAY
+;FunctionEnd

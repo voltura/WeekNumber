@@ -169,8 +169,9 @@
     <None Include="Release Handling\ReleaseManager.bat" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="NSIS Installation\License.txt" />
     <Content Include="Docs\ToDo_Ideas.txt" />
+    <Content Include="NSIS Installation\License.en-US.txt" />
+    <Content Include="NSIS Installation\License.sv-SE.txt" />
     <Content Include="Resources\weekicon.ico" />
   </ItemGroup>
   <ItemGroup>
