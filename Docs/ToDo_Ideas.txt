@@ -4,3 +4,13 @@
 	- Export / Import application settings
 - Custom context menu colors for text and background (use contextmenustrip...)
 - When user activates notifications, make sure Windows settings are also updated to display notifications for WeekNumber by Voltura AB application
+  suppression is stored in registry as well as a SquirrelSQL DB, need to get the GUID Windows assigns to the app, this could be used by querying the 
+  %LOCALAPPDATA%\Microsoft\Windows\Notifications\wpndatabase.db tables 
+  1) Notification (query right after first app start and use HandlerId from row with Payload containing "WeekNumber by Voltura AB")
+  2) NotificationHandler, use key ID (HandlerID from 1), take Primary Id: Microsoft.Explorer.Notification.{GUID for registry use here}
+  3) Using PrimaryID .> save to settings 
+  4) Remove suppression in registry when user activates messages in menu (or if show notifications setting is set during startup of app )
+  Reg path: 
+  Computer\HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify\ToastAppIdentities\Microsoft.Explorer.Notification.{<GUID>}
+  Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Explorer.Notification.{DCA0DF80-0DFB-3640-DBDE-97B2C8BD8B8D}
+  Enabled dword 0 <- remove
