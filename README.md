@@ -10,12 +10,17 @@ Windows 10 system tray area application that displays the current week number
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
 
 ## Features
-
 Always see the current week number in Windows system tray area in the taskbar and lookup the week number for any other date via double-click on the application icon.
 
 Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules and more. For details see _**Help section**_ below.
 
 The application is tiny and its memory consumption low. 
+
+### Supported Languages
+- English
+- Swedish
+
+<sub>_If you want to contribute with other languages, please create an Issue and I'll contact you!_<sub>
 
 ## Screenshots
 #### System tray area icon with default colors
@@ -25,14 +30,15 @@ The application is tiny and its memory consumption low.
 #### Find out week number for any date
 ![Weeknumber form](https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png)
 #### Settings menu
-![Settings menu](https://user-images.githubusercontent.com/2292809/120920725-8e65f880-c6c0-11eb-8ea8-777f6652203f.png)
+![Settings menu](https://user-images.githubusercontent.com/2292809/121083318-91a3d600-c7df-11eb-988b-b2d5b01a1b60.png)
+
 #### System tray area icon with customized colors
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
 #### Icon color picker, possible to define and use custom colors (both icon text and background can be customized)
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 #### More context menu options
-![image](https://user-images.githubusercontent.com/2292809/120920906-7642a900-c6c1-11eb-8d08-7a56986010e7.png)
-![image](https://user-images.githubusercontent.com/2292809/120920930-91151d80-c6c1-11eb-984b-86469dbf4ff8.png)
+![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
+![Settings Icon Resolution](https://user-images.githubusercontent.com/2292809/121083586-e9424180-c7df-11eb-948e-005b1a95bef9.png)
 
 ## Installation
 Download installer and run to install (option to start when installer finishes).
@@ -71,6 +77,9 @@ If the application icon is not visible then press the ^ symbol on the system tra
 - **Settings** - _Additional application settings displayed in sub-menus_
    - **Start with Windows** - _If ticked, the application starts automatically when user login to Windows_
    - **Update automatically** - _If ticked, the application will update itself automatically without user interaction_
+   - **Language** - _Change language used by the application_
+     - **English**
+     - **Svenska** - _Swedish_
    - **Application log** - _Application log settings in sub-menus_
       - **Use application log** - _Application writes to a log file if ticked_
       - **Show application log** - _If above is ticked, opens the application log file in a text editor (technical)_
