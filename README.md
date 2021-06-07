@@ -11,7 +11,7 @@ Windows 10 system tray area application that displays the current week number
 
 ## Features
 
-Always see the current week number in Windows system tray area in the taskbar and lookup the week number for any other date via right-click on the application icon.
+Always see the current week number in Windows system tray area in the taskbar and lookup the week number for any other date via double-click on the application icon.
 
 Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules and more. For details see _**Help section**_ below.
 
