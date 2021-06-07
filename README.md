@@ -20,7 +20,7 @@ The application is tiny and its memory consumption low.
 - English
 - Swedish
 
-<sub>_If you want to contribute with other languages, please create an Issue and I'll contact you!_<sub>
+<sub>_If you want to contribute with other languages, please create an Issue on Github and I'll contact you!_<sub>
 
 ## Screenshots
 #### System tray area icon with default colors
