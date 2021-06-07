@@ -6,10 +6,6 @@ Windows 10 system tray area application that displays the current week number
 
 [![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
 
-*- Completely Free and Open Source! Donations are very much appreciated!*
-
-[![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
-
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
 
@@ -100,6 +96,11 @@ If the application icon is not visible then press the ^ symbol on the system tra
 
   <img src="https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png" width="400">
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
+
+## Donations
+*- WeekNumber is completely free and open source! Donations are very much appreciated!*
+
+[![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
 
 ## Statistics
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
