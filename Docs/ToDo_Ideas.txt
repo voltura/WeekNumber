@@ -1,6 +1,5 @@
 ﻿Application improvement ideas
 =============================
-- Add multi-language support
 - New features:
 	- Export / Import application settings
 - Custom context menu colors for text and background (use contextmenustrip...)
