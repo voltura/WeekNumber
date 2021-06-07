@@ -12,5 +12,5 @@
   4) Remove suppression in registry when user activates messages in menu (or if show notifications setting is set during startup of app )
   Reg path: 
   Computer\HKEY_CURRENT_USER\SOFTWARE\Classes\Local Settings\Software\Microsoft\Windows\CurrentVersion\TrayNotify\ToastAppIdentities\Microsoft.Explorer.Notification.{<GUID>}
-  Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Explorer.Notification.{DCA0DF80-0DFB-3640-DBDE-97B2C8BD8B8D}
+  Computer\HKEY_CURRENT_USER\SOFTWARE\Microsoft\Windows\CurrentVersion\Notifications\Settings\Microsoft.Explorer.Notification.{<GUID>}
   Enabled dword 0 <- remove
