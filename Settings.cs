@@ -148,13 +148,13 @@ namespace WeekNumber
         /// <summary>
         /// Set application culture info
         /// </summary>
-        internal static void SetCultureInfoFromSettings()
+        internal static void SetCultureInfoFromSystemOrSettings()
         {
             Log.LogCaller();
             try
             {
                 string language = GetSetting(Resources.Language);
-                if (language == string.Empty) // First run there is no setting for language
+                if (string.IsNullOrEmpty(language)) // First run there is no setting for language
                 {
                     if (CultureInfo.CurrentCulture.Name == Resources.Swedish)
                     {
@@ -164,6 +164,7 @@ namespace WeekNumber
                     {
                         language = Resources.English;
                     }
+                    UpdateSetting(Resources.Language, language);
                 }
                 System.Threading.Thread.CurrentThread.CurrentUICulture = new CultureInfo(language, false);
                 System.Threading.Thread.CurrentThread.CurrentCulture = new CultureInfo(language, false);

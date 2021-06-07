@@ -196,7 +196,7 @@ namespace WeekNumber
                     mi.Enabled = false;
                     Settings.UpdateSetting(Resources.Language, mi.Name);
                     CheckMenuItemUncheckSiblings(mi);
-                    Settings.SetCultureInfoFromSettings();
+                    Settings.SetCultureInfoFromSystemOrSettings();
                     SettingsChangedHandler?.Invoke(null, null);
                 }
             }

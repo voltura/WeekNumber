@@ -32,7 +32,7 @@ namespace WeekNumber
             {
                 Settings.RestoreBackupSettings();
                 Log.Init();
-                Settings.SetCultureInfoFromSettings();
+                Settings.SetCultureInfoFromSystemOrSettings();
                 AppDomain.CurrentDomain.UnhandledException += UnhandledExceptionTrapper;
                 Log.Info = "=== Application started ===";
                 Log.Info = Application.ProductName + " version " + Application.ProductVersion;
