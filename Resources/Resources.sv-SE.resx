@@ -150,7 +150,7 @@ Copyright © Voltura AB 2018-2021</value>
     <value>Kalender</value>
   </data>
   <data name="CalendarWeekRuleMenu" xml:space="preserve">
-    <value>Vecko-regel</value>
+    <value>Årets-första-vecka'-regel</value>
   </data>
   <data name="CheckBrowserNavigation" xml:space="preserve">
     <value>Kontrollera om det går att navigera via en brower till denna adress:</value>
