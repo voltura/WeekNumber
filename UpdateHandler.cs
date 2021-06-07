@@ -16,7 +16,7 @@ namespace WeekNumber
 
         private static readonly string VERSION_CHECK_BASE_URL = "http://github.com/voltura/weeknumber/releases/latest/download/";
         private static readonly string VERSION_CHECK_URL = $"{VERSION_CHECK_BASE_URL}VERSION.TXT";
-        internal static readonly string APPLICATION_URL = "https://voltura.github.io/WeekNumber";
+        internal static readonly string APPLICATION_URL = "https://voltura.github.io/WeekNumber/";
 
         #endregion Private constants
 
