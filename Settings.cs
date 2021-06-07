@@ -156,7 +156,7 @@ namespace WeekNumber
                 string language = GetSetting(Resources.Language);
                 if (language == string.Empty) // First run there is no setting for language
                 {
-                    if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                    if (CultureInfo.CurrentCulture.Name == Resources.Swedish)
                     {
                         language = Resources.Swedish;
                     }
