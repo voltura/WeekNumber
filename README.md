@@ -12,15 +12,13 @@ Windows 10 system tray area application that displays the current week number
 ## Features
 Always see the current week number in the system tray area in Windows taskbar and lookup the week number for any other date via double-click on the application icon.
 
-Options to start with Windows, automatically update the application, customize colors, set icon resolution and calendar rules and more. For details see _**Help section**_ below.
-
-The application is tiny and its memory consumption low. 
+Options to start with Windows, customize icon colors, language, notifications, automatic updates, calendar rules and more. For details see _**Help section**_ below.
 
 ### Supported Languages
 - English
 - Swedish
 
-<sub>_If you want to contribute with other languages, please create an Issue on Github and I'll contact you!_<sub>
+<sub>_If you want to contribute with another language, please create an Issue on Github and I'll contact you!_<sub>
 
 ## Screenshots
 #### System tray area icon with default colors
@@ -29,7 +27,7 @@ The application is tiny and its memory consumption low.
 ![Context menu](https://user-images.githubusercontent.com/2292809/120920695-5d85c380-c6c0-11eb-93f4-3f932b853b03.png)
 #### Find out week number for any date
 ![Weeknumber form](https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png)
-#### Settings menu
+#### Settings menu with language selection
 ![Settings menu](https://user-images.githubusercontent.com/2292809/121083318-91a3d600-c7df-11eb-988b-b2d5b01a1b60.png)
 
 #### System tray area icon with customized colors
@@ -38,7 +36,6 @@ The application is tiny and its memory consumption low.
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 #### More context menu options
 ![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
-![Settings Icon Resolution](https://user-images.githubusercontent.com/2292809/121083586-e9424180-c7df-11eb-948e-005b1a95bef9.png)
 
 ## Installation
 Download installer and run to install (option to start when installer finishes).
@@ -100,6 +97,11 @@ If the application icon is not visible then press the ^ symbol on the system tra
    - **Icon** - _Application icon settings_
      - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
      - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
+     - **Graphics settings** - _Possibility to tweak icon graphics settings used by the application when drawing the week number icon_
+       - **Smoothing mode**
+       - **Compositing Quality**
+       - **Interpolation Mode**
+       - **Text Contrast**
      - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
 - **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
 
