@@ -604,7 +604,7 @@ för funktioner och inställningar</value>
     <comment>Setting, do not change</comment>
   </data>
   <data name="UseApplicationLogMenu" xml:space="preserve">
-    <value>Använda applikationslogg</value>
+    <value>Använd applikationslogg</value>
   </data>
   <data name="UseSilentNotifications" xml:space="preserve">
     <value>UseSilentNotifications</value>
