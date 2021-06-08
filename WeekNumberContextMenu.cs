@@ -1,6 +1,7 @@
 ﻿#region Using statements
 
 using System;
+using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 #endregion Using statements
@@ -32,6 +33,28 @@ namespace WeekNumber
         #endregion Internal event handling (used for icon update)
 
         #region Private event handling
+
+        private void NumbericOptionClick(object o, EventArgs e)
+        {
+            MenuItem mi = null;
+            try
+            {
+                Log.LogCaller();
+                mi = (MenuItem)o;
+                mi.Enabled = false;
+                Settings.UpdateSetting(mi.Parent.Name, mi.Tag.ToString());
+                CheckMenuItemUncheckSiblings(mi);
+                SettingsChangedHandler?.Invoke(null, null);
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
+        }
 
         private void ToogleTaskbarIconSizeMenuClick(object o, EventArgs e)
         {
@@ -427,12 +450,184 @@ namespace WeekNumber
         private MenuItem IconMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.IconMenu, new MenuItem[3]
+            return new MenuItem(Resources.IconMenu, new MenuItem[4]
                 {
                     ColorsMenu(),
                     IconResolutionMenu(),
+                    GraphicsSettingsMenu(),
                     new MenuItem(Resources.SaveIconMenu, SaveIconClick)
                 });
+        }
+
+        private MenuItem GraphicsSettingsMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.GraphicsSettingsMenu, new MenuItem[4]
+                {
+                    SmoothingModeMenu(),
+                    CompositingQualityMenu(),
+                    InterpolationModeMenu(),
+                    TextContrastMenu()
+                });
+        }
+
+        private MenuItem TextContrastMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.TextContrastMenu, new MenuItem[5]
+                    {
+                        new MenuItem(Resources.TextContrast1Menu, NumbericOptionClick)
+                        {
+                            Tag = 1,
+                            Checked = Settings.GetIntSetting(Resources.TextContrast, 1) == 1
+                        },
+                        new MenuItem(Resources.TextContrast2Menu, NumbericOptionClick)
+                        {
+                            Tag = 2,
+                            Checked = Settings.GetIntSetting(Resources.TextContrast, 1) == 2
+                        },
+                        new MenuItem(Resources.TextContrast3Menu, NumbericOptionClick)
+                        {
+                            Tag = 3,
+                            Checked = Settings.GetIntSetting(Resources.TextContrast, 1) == 3
+                        },
+                        new MenuItem(Resources.TextContrast4Menu, NumbericOptionClick)
+                        {
+                            Tag = 4,
+                            Checked = Settings.GetIntSetting(Resources.TextContrast, 1) == 4
+                        },
+                        new MenuItem(Resources.TextContrast5Menu, NumbericOptionClick)
+                        {
+                            Tag = 5,
+                            Checked = Settings.GetIntSetting(Resources.TextContrast, 1) == 5
+                        }
+                    })
+            {
+                Name = Resources.TextContrast
+            };
+        }
+
+        private MenuItem InterpolationModeMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.InterpolationModeMenu, new MenuItem[8]
+                    {
+                        new MenuItem(Resources.InterpolationModeDefaultMenu, NumbericOptionClick)
+                        {
+                            Tag = 0,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 0
+                        },
+                        new MenuItem(Resources.InterpolationModeLowMenu, NumbericOptionClick)
+                        {
+                            Tag = 1,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 1
+                        },
+                        new MenuItem(Resources.InterpolationModeHighMenu, NumbericOptionClick)
+                        {
+                            Tag = 2,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 2
+                        },
+                        new MenuItem(Resources.InterpolationModeBilinearMenu, NumbericOptionClick)
+                        {
+                            Tag = 3,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 3
+                        },
+                        new MenuItem(Resources.InterpolationModeBicubicMenu, NumbericOptionClick)
+                        {
+                            Tag = 4,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 4
+                        },
+                        new MenuItem(Resources.InterpolationModeNearestNeighborMenu, NumbericOptionClick)
+                        {
+                            Tag = 5,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 5
+                        },
+                        new MenuItem(Resources.InterpolationModeHighQualityBilinearMenu, NumbericOptionClick)
+                        {
+                            Tag = 6,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 6
+                        },
+                        new MenuItem(Resources.InterpolationModeHighQualityBicubicMenu, NumbericOptionClick)
+                        {
+                            Tag = 7,
+                            Checked = Settings.GetIntSetting(Resources.InterpolationMode, 0) == 7
+                        }
+                    })
+            {
+                Name = Resources.InterpolationMode
+            };
+        }
+
+        private MenuItem CompositingQualityMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.CompositingQualityMenu, new MenuItem[5]
+                    {
+                        new MenuItem(Resources.CompositingQualityDefaultMenu, NumbericOptionClick)
+                        {
+                            Tag = 0,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 0
+                        },
+                        new MenuItem(Resources.CompositingQualityHighSpeedMenu, NumbericOptionClick)
+                        {
+                            Tag = 1,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 1
+                        },
+                        new MenuItem(Resources.CompositingQualityHighQualityMenu, NumbericOptionClick)
+                        {
+                            Tag = 2,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 2
+                        },
+                        new MenuItem(Resources.CompositingQualityGammaCorrectedMenu, NumbericOptionClick)
+                        {
+                            Tag = 3,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 3
+                        },
+                        new MenuItem(Resources.CompositingQualityAssumeLinearMenu, NumbericOptionClick)
+                        {
+                            Tag = 4,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 4
+                        }
+                    })
+            {
+                Name = Resources.CompositingQuality
+            };
+        }
+
+        private MenuItem SmoothingModeMenu()
+        {
+            Log.LogCaller();
+            return new MenuItem(Resources.SmoothingModeMenu, new MenuItem[5]
+                    {
+                        new MenuItem(Resources.SmoothingModeDefaultMenu, NumbericOptionClick)
+                        {
+                            Tag = 0,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 0
+                        },
+                        new MenuItem(Resources.SmoothingModeHighSpeedMenu, NumbericOptionClick)
+                        {
+                            Tag = 1,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 1
+                        },
+                        new MenuItem(Resources.SmoothingModeHighQualityMenu, NumbericOptionClick)
+                        {
+                            Tag = 2,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 2
+                        },
+                        new MenuItem(Resources.SmoothingModeNoneMenu, NumbericOptionClick)
+                        {
+                            Tag = 3,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 3
+                        },
+                        new MenuItem(Resources.SmoothingAntiAliasMenu, NumbericOptionClick)
+                        {
+                            Tag = 4,
+                            Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 4
+                        }
+                    })
+            { 
+                Name = Resources.SmoothingMode 
+            };
         }
 
         private MenuItem CalendarSettingsMenu()

@@ -2,7 +2,9 @@
 =============================
 - New features:
 	- Export / Import application settings
+
 - Custom context menu colors for text and background (use contextmenustrip...)
+
 - When user activates notifications, make sure Windows settings are also updated to display notifications for WeekNumber by Voltura AB application
   suppression is stored in registry as well as a SquirrelSQL DB, need to get the GUID Windows assigns to the app, this could be used by querying the 
   %LOCALAPPDATA%\Microsoft\Windows\Notifications\wpndatabase.db tables 

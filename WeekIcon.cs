@@ -90,10 +90,10 @@ namespace WeekNumber
             using (Bitmap bitmap = new Bitmap(size, size))
             using (Graphics graphics = Graphics.FromImage(bitmap))
             {
-                graphics.SmoothingMode = System.Drawing.Drawing2D.SmoothingMode.HighQuality;
-                graphics.CompositingQuality = System.Drawing.Drawing2D.CompositingQuality.HighQuality;
-                graphics.InterpolationMode = System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic;
-                graphics.TextContrast = 1;
+                graphics.SmoothingMode = (System.Drawing.Drawing2D.SmoothingMode) Settings.GetIntSetting(Resources.SmoothingMode, (int)System.Drawing.Drawing2D.SmoothingMode.HighQuality);
+                graphics.CompositingQuality = (System.Drawing.Drawing2D.CompositingQuality) Settings.GetIntSetting(Resources.CompositingQuality, (int)System.Drawing.Drawing2D.CompositingQuality.HighQuality);
+                graphics.InterpolationMode = (System.Drawing.Drawing2D.InterpolationMode)Settings.GetIntSetting(Resources.InterpolationMode, (int)System.Drawing.Drawing2D.InterpolationMode.HighQualityBicubic);
+                graphics.TextContrast = Settings.GetIntSetting(Resources.TextContrast, 1);
                 DrawBackgroundOnGraphics(graphics, size);
                 DrawWeekNumberOnGraphics(weekNumber, graphics, size);
                 IntPtr bHicon = bitmap.GetHicon();

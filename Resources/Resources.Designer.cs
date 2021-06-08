@@ -216,6 +216,69 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CompositingQuality.
+        /// </summary>
+        internal static string CompositingQuality {
+            get {
+                return ResourceManager.GetString("CompositingQuality", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Assume Linear.
+        /// </summary>
+        internal static string CompositingQualityAssumeLinearMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityAssumeLinearMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string CompositingQualityDefaultMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityDefaultMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Gamma Corrected.
+        /// </summary>
+        internal static string CompositingQualityGammaCorrectedMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityGammaCorrectedMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Quality.
+        /// </summary>
+        internal static string CompositingQualityHighQualityMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityHighQualityMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Speed.
+        /// </summary>
+        internal static string CompositingQualityHighSpeedMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityHighSpeedMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Compositing Quality.
+        /// </summary>
+        internal static string CompositingQualityMenu {
+            get {
+                return ResourceManager.GetString("CompositingQualityMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Day.
         /// </summary>
         internal static string Day {
@@ -456,6 +519,15 @@ namespace WeekNumber {
         internal static string FridayMenu {
             get {
                 return ResourceManager.GetString("FridayMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Graphics settings.
+        /// </summary>
+        internal static string GraphicsSettingsMenu {
+            get {
+                return ResourceManager.GetString("GraphicsSettingsMenu", resourceCulture);
             }
         }
         
@@ -703,6 +775,96 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to InterpolationMode.
+        /// </summary>
+        internal static string InterpolationMode {
+            get {
+                return ResourceManager.GetString("InterpolationMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bicubic.
+        /// </summary>
+        internal static string InterpolationModeBicubicMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeBicubicMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Bilinear.
+        /// </summary>
+        internal static string InterpolationModeBilinearMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeBilinearMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string InterpolationModeDefaultMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeDefaultMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High.
+        /// </summary>
+        internal static string InterpolationModeHighMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeHighMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Quality Bicubic.
+        /// </summary>
+        internal static string InterpolationModeHighQualityBicubicMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeHighQualityBicubicMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Quality Bilinear.
+        /// </summary>
+        internal static string InterpolationModeHighQualityBilinearMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeHighQualityBilinearMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Low.
+        /// </summary>
+        internal static string InterpolationModeLowMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeLowMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Interpolation Mode.
+        /// </summary>
+        internal static string InterpolationModeMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Nearest Neighbor.
+        /// </summary>
+        internal static string InterpolationModeNearestNeighborMenu {
+            get {
+                return ResourceManager.GetString("InterpolationModeNearestNeighborMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Installer checksum incorrect, could not install automatically..
         /// </summary>
         internal static string InvalidChecksumCouldNotAutoInstall {
@@ -929,6 +1091,69 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Anti Alias.
+        /// </summary>
+        internal static string SmoothingAntiAliasMenu {
+            get {
+                return ResourceManager.GetString("SmoothingAntiAliasMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SmoothingMode.
+        /// </summary>
+        internal static string SmoothingMode {
+            get {
+                return ResourceManager.GetString("SmoothingMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default.
+        /// </summary>
+        internal static string SmoothingModeDefaultMenu {
+            get {
+                return ResourceManager.GetString("SmoothingModeDefaultMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Quality.
+        /// </summary>
+        internal static string SmoothingModeHighQualityMenu {
+            get {
+                return ResourceManager.GetString("SmoothingModeHighQualityMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to High Speed.
+        /// </summary>
+        internal static string SmoothingModeHighSpeedMenu {
+            get {
+                return ResourceManager.GetString("SmoothingModeHighSpeedMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Smoothing mode.
+        /// </summary>
+        internal static string SmoothingModeMenu {
+            get {
+                return ResourceManager.GetString("SmoothingModeMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to None.
+        /// </summary>
+        internal static string SmoothingModeNoneMenu {
+            get {
+                return ResourceManager.GetString("SmoothingModeNoneMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Right-click on icon in the system 
         ///tray for features and settings.
         /// </summary>
@@ -998,6 +1223,69 @@ namespace WeekNumber {
         internal static string SwitchToSmallTaskbarButtonsMenu {
             get {
                 return ResourceManager.GetString("SwitchToSmallTaskbarButtonsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to TextContrast.
+        /// </summary>
+        internal static string TextContrast {
+            get {
+                return ResourceManager.GetString("TextContrast", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 1.
+        /// </summary>
+        internal static string TextContrast1Menu {
+            get {
+                return ResourceManager.GetString("TextContrast1Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 2.
+        /// </summary>
+        internal static string TextContrast2Menu {
+            get {
+                return ResourceManager.GetString("TextContrast2Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 3.
+        /// </summary>
+        internal static string TextContrast3Menu {
+            get {
+                return ResourceManager.GetString("TextContrast3Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 4.
+        /// </summary>
+        internal static string TextContrast4Menu {
+            get {
+                return ResourceManager.GetString("TextContrast4Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to 5.
+        /// </summary>
+        internal static string TextContrast5Menu {
+            get {
+                return ResourceManager.GetString("TextContrast5Menu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Text Contrast.
+        /// </summary>
+        internal static string TextContrastMenu {
+            get {
+                return ResourceManager.GetString("TextContrastMenu", resourceCulture);
             }
         }
         

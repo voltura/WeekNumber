@@ -213,6 +213,10 @@ namespace WeekNumber
     <add key=""DisplayWeekChangedNotification"" value=""True""/>
     <add key=""UseSilentNotifications"" value=""True""/>
     <add key=""Language"" value=""""/>
+    <add key=""SmoothingMode"" value=""2""/>
+    <add key=""CompositingQuality"" value=""2""/>
+    <add key=""InterpolationMode"" value=""2""/>
+    <add key=""TextContrast"" value=""1""/>
   </appSettings>
 </configuration>";
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);

@@ -509,4 +509,123 @@ Please report to feedback@voltura.se!</value>
   <data name="SwedishMenu" xml:space="preserve">
     <value>Svenska</value>
   </data>
+  <data name="CompositingQuality" xml:space="preserve">
+    <value>CompositingQuality</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="CompositingQualityAssumeLinearMenu" xml:space="preserve">
+    <value>Assume Linear</value>
+    <comment>4</comment>
+  </data>
+  <data name="CompositingQualityDefaultMenu" xml:space="preserve">
+    <value>Default</value>
+    <comment>0</comment>
+  </data>
+  <data name="CompositingQualityGammaCorrectedMenu" xml:space="preserve">
+    <value>Gamma Corrected</value>
+    <comment>3</comment>
+  </data>
+  <data name="CompositingQualityHighQualityMenu" xml:space="preserve">
+    <value>High Quality</value>
+    <comment>2</comment>
+  </data>
+  <data name="CompositingQualityHighSpeedMenu" xml:space="preserve">
+    <value>High Speed</value>
+    <comment>1</comment>
+  </data>
+  <data name="CompositingQualityMenu" xml:space="preserve">
+    <value>Compositing Quality</value>
+  </data>
+  <data name="GraphicsSettingsMenu" xml:space="preserve">
+    <value>Graphics settings</value>
+  </data>
+  <data name="InterpolationMode" xml:space="preserve">
+    <value>InterpolationMode</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="InterpolationModeBicubicMenu" xml:space="preserve">
+    <value>Bicubic</value>
+    <comment>4</comment>
+  </data>
+  <data name="InterpolationModeBilinearMenu" xml:space="preserve">
+    <value>Bilinear</value>
+    <comment>3</comment>
+  </data>
+  <data name="InterpolationModeDefaultMenu" xml:space="preserve">
+    <value>Default</value>
+    <comment>0</comment>
+  </data>
+  <data name="InterpolationModeHighMenu" xml:space="preserve">
+    <value>High</value>
+    <comment>2</comment>
+  </data>
+  <data name="InterpolationModeHighQualityBicubicMenu" xml:space="preserve">
+    <value>High Quality Bicubic</value>
+    <comment>7</comment>
+  </data>
+  <data name="InterpolationModeHighQualityBilinearMenu" xml:space="preserve">
+    <value>High Quality Bilinear</value>
+    <comment>6</comment>
+  </data>
+  <data name="InterpolationModeLowMenu" xml:space="preserve">
+    <value>Low</value>
+    <comment>1</comment>
+  </data>
+  <data name="InterpolationModeMenu" xml:space="preserve">
+    <value>Interpolation Mode</value>
+  </data>
+  <data name="InterpolationModeNearestNeighborMenu" xml:space="preserve">
+    <value>Nearest Neighbor</value>
+    <comment>5</comment>
+  </data>
+  <data name="SmoothingAntiAliasMenu" xml:space="preserve">
+    <value>Anti Alias</value>
+    <comment>4 Specifies antialiased rendering.</comment>
+  </data>
+  <data name="SmoothingMode" xml:space="preserve">
+    <value>SmoothingMode</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="SmoothingModeDefaultMenu" xml:space="preserve">
+    <value>Default</value>
+    <comment>0 Specifies no antialiasing.</comment>
+  </data>
+  <data name="SmoothingModeHighQualityMenu" xml:space="preserve">
+    <value>High Quality</value>
+    <comment>2 Specifies antialiased rendering.</comment>
+  </data>
+  <data name="SmoothingModeHighSpeedMenu" xml:space="preserve">
+    <value>High Speed</value>
+    <comment>1 Specifies no antialiasing.</comment>
+  </data>
+  <data name="SmoothingModeMenu" xml:space="preserve">
+    <value>Smoothing mode</value>
+  </data>
+  <data name="SmoothingModeNoneMenu" xml:space="preserve">
+    <value>None</value>
+    <comment>3 Specifies no antialiasing.</comment>
+  </data>
+  <data name="TextContrast" xml:space="preserve">
+    <value>TextContrast</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="TextContrast1Menu" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="TextContrast2Menu" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="TextContrast3Menu" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="TextContrast4Menu" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="TextContrast5Menu" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="TextContrastMenu" xml:space="preserve">
+    <value>Text Contrast</value>
+    <comment>The gamma correction value used for rendering antialiased and ClearType text.</comment>
+  </data>
 </root>
