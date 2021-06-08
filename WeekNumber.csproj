@@ -84,7 +84,7 @@
     <ApplicationIcon>Resources\weekicon.ico</ApplicationIcon>
   </PropertyGroup>
   <PropertyGroup>
-    <ApplicationManifest>Properties\settings.manifest</ApplicationManifest>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <PropertyGroup>
     <SignAssembly>true</SignAssembly>
@@ -160,7 +160,7 @@
     <None Include="Properties\App.config">
       <SubType>Designer</SubType>
     </None>
-    <None Include="Properties\settings.manifest">
+    <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>
     <None Include="NSIS Installation\WeekNumber.nsi" />

@@ -262,7 +262,7 @@ namespace WeekNumber
             {
                 Log.ErrorString = msg;
                 Log.Error = ex;
-                if (!silent) Message.Show($"\r\n\r\n{msg}", isError: ex != null);
+                if (!silent) Message.Show(msg, isError: ex != null);
             }
         }
 

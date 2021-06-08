@@ -177,6 +177,7 @@ namespace WeekNumber.Forms
             this.pictureBoxWeek.Location = new System.Drawing.Point(682, 43);
             this.pictureBoxWeek.Name = "pictureBoxWeek";
             this.pictureBoxWeek.Size = new System.Drawing.Size(256, 256);
+            this.pictureBoxWeek.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBoxWeek.TabIndex = 17;
             this.pictureBoxWeek.TabStop = false;
             // 

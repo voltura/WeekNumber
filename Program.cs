@@ -40,6 +40,7 @@ namespace WeekNumber
                 SetGCSettings();
                 Application.EnableVisualStyles();
                 Application.VisualStyleState = VisualStyleState.ClientAndNonClientAreasEnabled;
+                Application.SetCompatibleTextRenderingDefault(false);
                 context = new WeekApplicationContext();
                 if (context?.Gui != null)
                 {
