@@ -1,4 +1,4 @@
-🌍*[English](readme.md) ∙ [Swedish](readme.sv-SE.md)*
+🌍[English](README.md) ∙ [Swedish](README.sv-SE.md)
 
 # WeekNumber
 Windows 10 system tray area application that displays the current week number
