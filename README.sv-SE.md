@@ -3,10 +3,9 @@
 # WeekNumber
 Windows 10 systemfältsapplikation som visar aktuellt veckonummer
 
-<img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/120940539-0f071200-c71e-11eb-8b03-8f24b9fb36ad.png)
+<img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
-
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
+[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -26,27 +25,32 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 ## Skärmbilder
 #### Ikon med standard-färger
 ![Taskbar icon](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
+
 #### Högerklicks-meny
-![Context menu](https://user-images.githubusercontent.com/2292809/120920695-5d85c380-c6c0-11eb-93f4-3f932b853b03.png)
+![Högerklicks-menu](https://user-images.githubusercontent.com/2292809/121432228-b08a9f80-c97a-11eb-9407-c79071133417.png)
+
 #### Ta reda på veckonummer för valfritt datum
-![Weeknumber form](https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png)
+![Weeknumber formulär](https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png)
+
 #### Inställningsmeny med språkval
-![Settings menu](https://user-images.githubusercontent.com/2292809/121083318-91a3d600-c7df-11eb-988b-b2d5b01a1b60.png)
+![Inställningsmeny](https://user-images.githubusercontent.com/2292809/121432466-00696680-c97b-11eb-8f34-797737331f33.png)
 
 #### Exempel på ikoner med anpassade färger
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
+
 #### Färgval, med möjlighet att definiera och nyttja egendefinierade färger; både ikonens text och bakgrundsfärg kan ändras
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
-#### Mera höger-klicksmenyval
-![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
+#### Mera höger-klicksmenyval
+![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
+   
 ## Installation
 Ladda ner installationsprogrammet och kör det för att installera, programmet startas efter installation.
 Om du laddat ned WeekNumber.zip via *Download latest release* packa först upp arkivet och kör sedan installationsprogrammet.
 För att ta bort applikationen så kör avinstallationsprogrammet eller använd dig av Windows *Lägg till/ta bort program*-funktion. Det går också att avinstallera via Windows kontrollpanel under sektionen *Program och funktioner*. 
 
 ### Installationsnotiser
-Välj att behålla filen som du laddat ner, ser ut liknande nedan (beroende av vilken webbläsare och inställningar du har)
+Välj att behålla filen som du laddat ner, ser ut liknande nedan (beroende av vilken webbläsare, språk och övriga inställningar du har)
 
 ![Keep file if prompted #1](https://user-images.githubusercontent.com/2292809/120716901-fa7d0c80-c4c6-11eb-9232-f279f959f0a6.png)
 
@@ -85,8 +89,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet
       - **Visa applikationslogg** - _Om ovan är ikryssad så visas applikationens loggfil i en texteditor (teknisk loggfil)_
    - **Notiser**
       - **Visa uppstartsnotis** - _Om ikryssad så visar applikationen en uppstartsnotis_
-      
-      <img src="https://user-images.githubusercontent.com/2292809/120921660-0b936c80-c6c5-11eb-974b-653954fca5ed.png" width="400">
+
+      <img src="https://user-images.githubusercontent.com/2292809/121431229-6ce36600-c979-11eb-9ec4-37b77892e9fa.png" width="400">
       
       - **Visa ny veckonotis** - _Om ikryssad så visas en notis då aktuell vecka ändras_
       
