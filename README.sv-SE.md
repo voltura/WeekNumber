@@ -45,7 +45,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 ![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
    
 ## Installation
-Ladda ner installationsprogrammet och kör det för att installera, programmet startas efter installation.
+Ladda ner installationsprogrammet och kör det för att installera, applikationen startas efter installation.
 Om du laddat ned WeekNumber.zip via *Download latest release* packa först upp arkivet och kör sedan installationsprogrammet.
 För att ta bort applikationen så kör avinstallationsprogrammet eller använd dig av Windows *Lägg till/ta bort program*-funktion. Det går också att avinstallera via Windows kontrollpanel under sektionen *Program och funktioner*. 
 
@@ -76,11 +76,11 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet
 
 ### Högerklicks-meny:
 - **Om WeekNumber** - _Visar versionsinformation_
-- **Se om ny version finns** - _Kontrollerar om ny programversion finns, om så är fallet finns val att uppdatera_
+- **Se om ny version finns** - _Kontrollerar om ny version finns, om så är fallet finns val att uppdatera_
 - **Öppna applikationens webbsida** - _Visar applikationens webbsida_
 - **Inställningar**
    - **Starta med Windows** - _Om ikryssad så startar applikationen automatiskt med Windows_
-   - **Uppdatera automatiskt** - _Om ikryssad så uppdaterar programmet sig automatiskt utan att du behöver göra något själv_
+   - **Uppdatera automatiskt** - _Om ikryssad så uppdaterar applikationen automatiskt utan att du behöver göra något själv_
    - **Språk** - _Ändrar vilket språk som applikationen använder_
      - **English** - _Engelska_
      - **Svenska** 
