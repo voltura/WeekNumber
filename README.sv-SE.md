@@ -72,7 +72,7 @@ För att avinstallera utan frågor/gränssnitt anropa avinstallationsprogrammet 
 
 ## Hjälpavsnitt
 Alla funktioner är tillgängliga genom att höger-klicka på applikationens ikon i Windows systemfält.
-Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet, klicka och håll inne musknappen medans du drar ikonen ned i systemfältet; då kommer ikonen fästas där och vara synlig.
+Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfältet, klicka och håll inne musknappen medans du drar ikonen ned i systemfältet; då kommer ikonen fästas där och vara synlig.
 
 ### Högerklicks-meny:
 - **Om WeekNumber** - _Visar versionsinformation_
@@ -112,7 +112,7 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet
      - **Spara ikon...** - _Sparar aktuell WeekNumber-ikon till en .ico fil_
 - **Få veckonummer för datum...** - _Visa veckonummer för angivet datum_
 
-  <img src="https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png" width="400">
+  <img src="https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png" width="400">
 - **Avsluta WeekNumber** - _Avslutar applikationen. Starta igen från Windows Startmeny_
 
 ## Donationer
