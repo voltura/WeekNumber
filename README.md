@@ -64,23 +64,23 @@ To silently uninstall call the uninstaller with /S parameter.
 > Uninstall WeekNumber.exe /S
 
 ## Help section
-All application features are accessible via right-click on the application icon residing in the Windows system tray area in the taskbar.
+All application features are accessible via right-click on the application icon residing in the system tray area in Windows taskbar.
 If the application icon is not visible then press the ^ symbol on the system tray area, click and hold on the application icon and then drag it to the visible system tray area to pin it there.
 
 ### Context menu options:
 - **About WeekNumber** - _Displays version information_
-- **Check for updated version** - _Checks if newer version is available, option to update if that is the case_
-- **Open application web page** - _Opens the default browser and navigates to the application web page_
-- **Settings** - _Additional application settings displayed in sub-menus_
-   - **Start with Windows** - _If ticked, the application starts automatically when user login to Windows_
-   - **Update automatically** - _If ticked, the application will update itself automatically without user interaction_
+- **Check for updated version** - _Checks if newer version is available, option to update if that's the case_
+- **Open application web page** - _Shows the application web page_
+- **Settings**
+   - **Start with Windows** - _If ticked, the application starts automatically with Windows_
+   - **Update automatically** - _If ticked, updates automatically without user interaction_
    - **Language** - _Change language used by the application_
      - **English**
      - **Svenska** - _Swedish_
-   - **Application log** - _Application log settings in sub-menus_
+   - **Application log**
       - **Use application log** - _Application writes to a log file if ticked_
       - **Show application log** - _If above is ticked, opens the application log file in a text editor (technical)_
-   - **Notifications** - _Control application startup message in sub-menus_
+   - **Notifications** - _Control the application notification messages in sub-menus_
       - **Display startup notification** - _If ticked, the application will show a notification when started_
       
       <img src="https://user-images.githubusercontent.com/2292809/120921660-0b936c80-c6c5-11eb-974b-653954fca5ed.png" width="400">
@@ -91,25 +91,25 @@ If the application icon is not visible then press the ^ symbol on the system tra
 
       - **Use silent notifications** - _If ticked, any notifications for this application will not trigger system sounds to be played_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
-   - **Calendar** - _Calendar rules used by the application (per default the application uses the systems regional settings to figure this out, but it can be manually overridden here)_
+   - **Calendar** - _Calendar rules used by the application; per default the application uses the systems regional settings to figure this out, but it can be manually overridden here_
      - **First Day Of Week** - _Calendar rule, select what day a week starts on_
      - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year_
    - **Icon** - _Application icon settings_
-     - **Icon colors** - _Allows user to change icon background and text (foreground) color or reset colors used back to default in sub-menus_
+     - **Icon colors** - _Allows user to change icon background and foreground color or reset colors used back to default in sub-menus_
      - **Icon resolution** - _Possibility to tweak the WeekNumber icon resolution, if the icon is fuzzy setting a higher or lower resolution can help with apperance_
      - **Graphics settings** - _Possibility to tweak icon graphics settings used by the application when drawing the week number icon_
        - **Smoothing mode**
        - **Compositing Quality**
        - **Interpolation Mode**
        - **Text Contrast**
-     - **Save icon...** - _Lets user save the current WeekNumber icon displayed to a .ico file_
-- **Get week number for date...** - _Get week number for specified date (shows form where date can be entered)_
+     - **Save icon...** - _Saves the current WeekNumber icon displayed to a .ico file_
+- **Get week number for date...** - _Get week number for specified date_
 
   <img src="https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png" width="400">
 - **Exit WeekNumber** - _Closes the application. Start it again from the Windows Start Menu_
 
 ## Donations
-*- WeekNumber is completely free and open source! Donations are very much appreciated!*
+*- WeekNumber is completely free and open source. Donations are very much appreciated!*
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
 
