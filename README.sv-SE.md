@@ -93,8 +93,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet
       <img src="https://user-images.githubusercontent.com/2292809/121431229-6ce36600-c979-11eb-9ec4-37b77892e9fa.png" width="400">
       
       - **Visa ny veckonotis** - _Om ikryssad så visas en notis då aktuell vecka ändras_
-      
-      <img src="https://user-images.githubusercontent.com/2292809/120921898-6da0a180-c6c6-11eb-82f0-4827dfbc2f4c.png" width="400">
+
+      <img src="https://user-images.githubusercontent.com/2292809/121434601-d6fe0a00-c97d-11eb-83f3-ff553706cde9.png" width="400">
 
       - **Använd tysta notiser** - _Om ikryssad så spelas inte något ljud upp då denna applikation visas notiser_
    - **Använd små / stora aktivitetsfältsikoner** - _Skiftar mellan stora och små aktivitetsfältsikoner. Har du svårt att se veckonumret? Testa att använda stora aktivitetsfältsikoner_
