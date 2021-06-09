@@ -51,33 +51,43 @@ För att ta bort applikationen så kör avinstallationsprogrammet eller använd 
 
 ### Installationsnotiser
 ![image](https://user-images.githubusercontent.com/2292809/121436155-5987c900-c980-11eb-887b-6fd36eac060a.png)
+   
 Tryck _Öppna fil..._
 
 ![image](https://user-images.githubusercontent.com/2292809/121436254-83d98680-c980-11eb-8296-21f3fa62399f.png)
+   
 Markera installationsprogrammet och välj _Kör_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436322-a8cdf980-c980-11eb-9519-9c622c0a863d.png)
+   
 Tryck _Mer information_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436394-c8fdb880-c980-11eb-9cbc-a11a9f101555.png)
+   
 Tryck _Kör ändå_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436506-ffd3ce80-c980-11eb-8367-de2f173b4ea9.png)
+   
 Tryck _Nästa_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436555-10844480-c981-11eb-9a8b-9b572cd25a83.png)
+   
 Läs igenom och godkänn licensavtalet genom att trycka på _Jag Godkänner_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436647-43c6d380-c981-11eb-9b23-d2e9552d5783.png)
+   
 Välj vart applikationen ska installeras och tryck _Nästa_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436672-504b2c00-c981-11eb-8e81-9fa2f5ad4f8b.png)
+   
 Välj om startmeny-genvägar ska skapas för applikationen och tryck sedan _Installera_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436739-6d7ffa80-c981-11eb-93c8-6fba598817cc.png)
+   
 Välj om WeekNumber ska startas med Windows och om applikationen ska startas då installationen är klar, tryck sedan _Slutför_
 
 ![image](https://user-images.githubusercontent.com/2292809/121436875-a15b2000-c981-11eb-9ebb-db089999b830.png)
+   
 En notis visas då WeekNumber är startad
 
 #### Distribuerad/tyst installation/avinstallation
