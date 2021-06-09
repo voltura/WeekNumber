@@ -90,6 +90,11 @@ Välj om WeekNumber ska startas med Windows och om applikationen ska startas då
    
 En notis visas då WeekNumber är startad
 
+![image](https://user-images.githubusercontent.com/2292809/121437224-3a8a3680-c982-11eb-898c-84d45d33611f.png)
+
+Aktuellt veckonummer visas nu bland systemfältets ikoner, ser du inte veckonummer tryck på taktecknet (^) i systemfältet och klicka-håll och dra ned ikonen så den blir synlig.
+
+   
 #### Distribuerad/tyst installation/avinstallation
 För att installera utan frågor ange /S som parameter till installationsprogrammet.
 > WeekNumber_{VERSION}_Installer.exe /S
