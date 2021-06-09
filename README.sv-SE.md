@@ -39,7 +39,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
 
 #### Färgval, med möjlighet att definiera och nyttja egendefinierade färger; både ikonens text och bakgrundsfärg kan ändras
-![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
+![Färgväljare](https://user-images.githubusercontent.com/2292809/121435848-dd8d8100-c97f-11eb-8cf9-5ce7178aea73.png)
 
 #### Mera höger-klicksmenyval
 ![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
