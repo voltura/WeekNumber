@@ -1,3 +1,5 @@
+🌍*[English](readme.md) ∙ [Swedish](readme.sv-SE.md)*
+
 # WeekNumber
 Windows 10 system tray area application that displays the current week number
 
@@ -43,7 +45,7 @@ If you downloaded WeekNumber.zip via *Download latest release* first unzip the a
 To remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. 
 
 ### Installation notes
-Choose to keep the file downloaded if prompted (it will look similar to this, depends on your web browser and settings)
+Choose to keep the file downloaded if prompted - it will look similar to this (depends on your web browser and settings)
 
 ![Keep file if prompted #1](https://user-images.githubusercontent.com/2292809/120716901-fa7d0c80-c4c6-11eb-9232-f279f959f0a6.png)
 
