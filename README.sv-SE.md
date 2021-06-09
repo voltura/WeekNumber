@@ -46,7 +46,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
    
 ## Installation
 Ladda ner installationsprogrammet och kör det för att installera, applikationen startas efter installation.
-Om du laddat ned WeekNumber.zip via *Download latest release* packa först upp arkivet och kör sedan installationsprogrammet.
+Om du laddat ned WeekNumber.zip via *LADDA NER SENASTE VERSIONEN* packa först upp arkivet och kör sedan installationsprogrammet.
 För att ta bort applikationen så kör avinstallationsprogrammet eller använd dig av Windows *Lägg till/ta bort program*-funktion. Det går också att avinstallera via Windows kontrollpanel under sektionen *Program och funktioner*. 
 
 ### Installationsnotiser
