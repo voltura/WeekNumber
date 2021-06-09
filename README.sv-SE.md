@@ -82,7 +82,7 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^)vid systemfältet
    - **Starta med Windows** - _Om ikryssad så startar applikationen automatiskt med Windows_
    - **Uppdatera automatiskt** - _Om ikryssad så uppdaterar programmet sig automatiskt utan att du behöver göra något själv_
    - **Språk** - _Ändrar vilket språk som applikationen använder_
-     - **English** - Engelska_
+     - **English** - _Engelska_
      - **Svenska** 
    - **Applikationslogg**
       - **Använd applikationlogg** - _Om ikryssad så skriver applikationen till en loggfil_
