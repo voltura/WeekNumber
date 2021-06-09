@@ -50,6 +50,8 @@ Om du laddat ned WeekNumber.zip via *LADDA NER SENASTE VERSIONEN* packa först u
 För att ta bort applikationen så kör avinstallationsprogrammet eller använd dig av Windows *Lägg till/ta bort program*-funktion. Det går också att avinstallera via Windows kontrollpanel under sektionen *Program och funktioner*. 
 
 ### Installationsnotiser
+Notis: Beroende på webbläsare och inställningar så kan nedladdningsförfarandet skilja sig, om webbläsaren blockerade nedladdningen så går det att tvinga den att spara den nedladdade filen, se den Engelska versionen av denna text för mer detaljer (välj _English_ högst upp i denna sida).
+   
 ![image](https://user-images.githubusercontent.com/2292809/121436155-5987c900-c980-11eb-887b-6fd36eac060a.png)
    
 Tryck _Öppna fil..._
