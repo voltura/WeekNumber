@@ -154,7 +154,7 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Tryck här för att donera!**_
    
-[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G74W5F8) __⟵__ _**Press here to buy me a coffee!**_
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G74W5F8) __⟵__ _**Tryck här för att köpa mig en kaffe!**_
 
 ## Statistik
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
