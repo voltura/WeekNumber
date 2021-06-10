@@ -230,6 +230,9 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="ExitMenu" xml:space="preserve">
     <value>Avsluta WeekNumber</value>
   </data>
+  <data name="ExportSettingsMenu" xml:space="preserve">
+    <value>Exportera inställningar...</value>
+  </data>
   <data name="FailedAutoInstall" xml:space="preserve">
     <value>Misslyckades ladda ner och köra installationen automatiskt.</value>
   </data>
@@ -241,6 +244,12 @@ Copyright © Voltura AB 2018-2021</value>
   </data>
   <data name="FailedToDownloadNewVersion" xml:space="preserve">
     <value>Misslyckades ladda ner ny version.</value>
+  </data>
+  <data name="FailedToExportSettings" xml:space="preserve">
+    <value>Misslyckades exportera inställningar!</value>
+  </data>
+  <data name="FailedToImportSettings" xml:space="preserve">
+    <value>Misslyckades importera inställningar!</value>
   </data>
   <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
     <value>Kunde inte informera Windows om att uppdatera storlek på taskbar.</value>
@@ -380,6 +389,9 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="IconResolutionMenu" xml:space="preserve">
     <value>Ikonupplösning</value>
   </data>
+  <data name="ImportSettingsMenu" xml:space="preserve">
+    <value>Importera inställningar...</value>
+  </data>
   <data name="Information" xml:space="preserve">
     <value>information</value>
   </data>
@@ -494,6 +506,12 @@ Copyright © Voltura AB 2018-2021</value>
   <data name="SeparatorMenu" xml:space="preserve">
     <value>-</value>
     <comment>Separator character, do not change</comment>
+  </data>
+  <data name="SettingsExported" xml:space="preserve">
+    <value>Export av inställningar lyckades!</value>
+  </data>
+  <data name="SettingsImported" xml:space="preserve">
+    <value>Import av inställningar lyckades!</value>
   </data>
   <data name="SettingsMenu" xml:space="preserve">
     <value>Inställningar</value>

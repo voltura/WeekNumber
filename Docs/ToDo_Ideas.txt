@@ -1,8 +1,5 @@
 ﻿Application improvement ideas
 =============================
-- New features:
-	- Export / Import application settings
-
 - Custom context menu colors for text and background (use contextmenustrip...)
 
 - When user activates notifications, make sure Windows settings are also updated to display notifications for WeekNumber by Voltura AB application

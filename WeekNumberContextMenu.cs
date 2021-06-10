@@ -382,6 +382,7 @@ namespace WeekNumber
             }
             EnableMenuItem(mi);
         }
+
         private void CheckWeekForDateClick(object o, EventArgs e)
         {
             Log.LogCaller();
@@ -390,6 +391,63 @@ namespace WeekNumber
             {
                 mi.Enabled = false;
                 Forms.DateForm.Display();
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
+        }
+
+        private void ImportSettingsClick(object o, EventArgs e)
+        {
+            Log.LogCaller();
+            MenuItem mi = (MenuItem)o;
+            try
+            {
+                mi.Enabled = false;
+                using (var ofd = new OpenFileDialog())
+                {
+                    ofd.InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}";
+                    ofd.FileName = $"{System.IO.Path.GetFileName(Application.ExecutablePath)}.Config";
+                    ofd.Title = Resources.ImportSettingsMenu;
+                    ofd.CheckFileExists = true;
+                    ofd.CheckPathExists = true;
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        Log.Info = $"Settings file '{ofd.FileName}' selected by user to import";
+                        bool importOK = Settings.ImportSettings(ofd.FileName);
+                        Message.Show("\r\n\r\n" + (importOK ? Resources.SettingsImported : Resources.FailedToImportSettings));
+                        if (importOK) SettingsChangedHandler?.Invoke(null, null);
+                    }
+                }
+            }
+            finally
+            {
+                EnableMenuItem(mi);
+            }
+        }
+
+        private void ExportSettingsClick(object o, EventArgs e)
+        {
+            Log.LogCaller();
+            MenuItem mi = (MenuItem)o;
+            try
+            {
+                mi.Enabled = false;
+                using (var ofd = new SaveFileDialog())
+                {
+                    ofd.InitialDirectory = $"{Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments)}";
+                    ofd.FileName = $"{System.IO.Path.GetFileName(Application.ExecutablePath)}.Config";
+                    ofd.Title = Resources.ExportSettingsMenu;
+                    ofd.CheckFileExists = false;
+                    ofd.CheckPathExists = true;
+                    if (ofd.ShowDialog() == DialogResult.OK)
+                    {
+                        Log.Info = $"File '{ofd.FileName}' specified by user to export application settings to.";
+                        bool exportOK = Settings.BackupSettings(ofd.FileName);
+                        Message.Show("\r\n\r\n" + (exportOK ? Resources.SettingsExported : Resources.FailedToExportSettings));
+                    }
+                }
             }
             finally
             {
@@ -426,7 +484,7 @@ namespace WeekNumber
         private MenuItem SettingsMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.SettingsMenu, new MenuItem[8]
+            return new MenuItem(Resources.SettingsMenu, new MenuItem[10]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
@@ -442,6 +500,8 @@ namespace WeekNumber
                     new MenuItem(TaskbarUtil.UsingSmallTaskbarButtons() ?
                         Resources.SwitchToLargeTaskbarButtonsMenu : Resources.SwitchToSmallTaskbarButtonsMenu,
                         ToogleTaskbarIconSizeMenuClick),
+                    new MenuItem(Resources.ExportSettingsMenu, ExportSettingsClick),
+                    new MenuItem(Resources.ImportSettingsMenu, ImportSettingsClick),
                     CalendarSettingsMenu(),
                     IconMenu()
                 });

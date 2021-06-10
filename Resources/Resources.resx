@@ -628,4 +628,22 @@ Please report to feedback@voltura.se!</value>
     <value>Text Contrast</value>
     <comment>The gamma correction value used for rendering antialiased and ClearType text.</comment>
   </data>
+  <data name="ExportSettingsMenu" xml:space="preserve">
+    <value>Export settings...</value>
+  </data>
+  <data name="FailedToExportSettings" xml:space="preserve">
+    <value>Failed to export settings!</value>
+  </data>
+  <data name="FailedToImportSettings" xml:space="preserve">
+    <value>Failed to import settings!</value>
+  </data>
+  <data name="ImportSettingsMenu" xml:space="preserve">
+    <value>Import settings...</value>
+  </data>
+  <data name="SettingsExported" xml:space="preserve">
+    <value>Settings successfully exported!</value>
+  </data>
+  <data name="SettingsImported" xml:space="preserve">
+    <value>Settings successfully imported!</value>
+  </data>
 </root>

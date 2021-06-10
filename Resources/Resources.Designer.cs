@@ -360,6 +360,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Export settings....
+        /// </summary>
+        internal static string ExportSettingsMenu {
+            get {
+                return ResourceManager.GetString("ExportSettingsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Failed to download and run the installer automatically..
         /// </summary>
         internal static string FailedAutoInstall {
@@ -392,6 +401,24 @@ namespace WeekNumber {
         internal static string FailedToDownloadNewVersion {
             get {
                 return ResourceManager.GetString("FailedToDownloadNewVersion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to export settings!.
+        /// </summary>
+        internal static string FailedToExportSettings {
+            get {
+                return ResourceManager.GetString("FailedToExportSettings", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Failed to import settings!.
+        /// </summary>
+        internal static string FailedToImportSettings {
+            get {
+                return ResourceManager.GetString("FailedToImportSettings", resourceCulture);
             }
         }
         
@@ -757,6 +784,15 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Import settings....
+        /// </summary>
+        internal static string ImportSettingsMenu {
+            get {
+                return ResourceManager.GetString("ImportSettingsMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to information.
         /// </summary>
         internal static string Information {
@@ -1060,6 +1096,24 @@ namespace WeekNumber {
         internal static string SeparatorMenu {
             get {
                 return ResourceManager.GetString("SeparatorMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings successfully exported!.
+        /// </summary>
+        internal static string SettingsExported {
+            get {
+                return ResourceManager.GetString("SettingsExported", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Settings successfully imported!.
+        /// </summary>
+        internal static string SettingsImported {
+            get {
+                return ResourceManager.GetString("SettingsImported", resourceCulture);
             }
         }
         

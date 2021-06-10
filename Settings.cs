@@ -5,6 +5,7 @@ using System;
 using System.Configuration;
 using System.Globalization;
 using System.IO;
+using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -83,25 +84,38 @@ namespace WeekNumber
         /// <summary>
         /// Creates a backup of the applications current settings file
         /// </summary>
-        internal static void BackupSettings()
+        internal static bool BackupSettings(string fileName = "")
         {
             Log.LogCaller();
             string settingsFile = Application.ExecutablePath + ".config";
             string settingsBackupDir = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp");
             string settingsFileBackup = Path.Combine(settingsBackupDir, Application.ExecutablePath + ".config.bak");
+            if (fileName != string.Empty)
+            {
+                settingsBackupDir = Path.GetDirectoryName(fileName);
+                settingsFileBackup = fileName;
+            }
             try
             {
+                if (settingsFile.Equals(settingsFileBackup, StringComparison.InvariantCultureIgnoreCase))
+                {
+                    Log.ErrorString = $"Cannot create copy of settings file since it has same fullpath as original: '{settingsFileBackup}'";
+                    return false;
+                }
                 if (File.Exists(settingsFile))
                 {
                     if (!Directory.Exists(settingsBackupDir)) Directory.CreateDirectory(settingsBackupDir);
                     File.Copy(settingsFile, settingsFileBackup, true);
-                    Log.Info = "Backup of settings file performed successfully";
+                    Log.Info = $"Copy of settings file created: '{settingsFileBackup}'.";
+                    return true;
                 }
             }
             catch (Exception ex)
             {
                 Log.Error = ex;
             }
+            Log.ErrorString = $"Failed to create copy of settings file: '{settingsFileBackup}'";
+            return false;
         }
 
         internal static void RestoreBackupSettings()
@@ -143,6 +157,56 @@ namespace WeekNumber
             {
                 Log.Error = ex;
             }
+        }
+
+        /// <summary>
+        /// Import settings from file
+        /// </summary>
+        /// <param name="fileToImport"></param>
+        /// <returns></returns>
+        internal static bool ImportSettings(string fileToImport)
+        {
+            Log.LogCaller();
+            string settingsFile = Application.ExecutablePath + ".config";
+            try
+            {
+                if (!File.Exists(fileToImport))
+{
+                    Log.ErrorString = $"Settings file '{fileToImport}' not found, no import made.";
+                    return false;
+                }
+                if (!File.Exists(settingsFile)) CreateSettings();
+                XmlDocument doc = new XmlDocument();
+                doc.Load(fileToImport);
+                XmlNodeList nodeList = doc.SelectNodes("/configuration/appSettings");
+                foreach (XmlNode node in nodeList)
+                    foreach (XmlNode child in node.ChildNodes)
+                        if (child.Name == "add")
+                        {
+                            XmlAttributeCollection attribs = child.Attributes;
+                            if (attribs.Count == 2)
+                            {
+                                string settingsName = attribs[0].Value;
+                                string settingsValue = attribs[1].Value;
+                                try
+                                {
+                                    UpdateSetting(settingsName, settingsValue);
+                                }
+                                catch (Exception ex)
+                                {
+                                    Log.Error = ex;
+                                }
+                            }
+                        }
+            }
+            catch (Exception ex)
+            {
+                Log.ErrorString = $"Failed to import settings file '{fileToImport}'.";
+                Log.Error = ex;
+                return false;
+            }
+            Log.Info = $"Imported settings from '{fileToImport}'.";
+            return true;
         }
 
         /// <summary>
