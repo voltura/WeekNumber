@@ -153,8 +153,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
 *- WeekNumber är fullständigt gratis och öppen källkod. Donationer uppskattas!*
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Tryck här för att donera!**_
-
-[![ko-fi](https://user-images.githubusercontent.com/2292809/121091832-e8fb7380-c7ea-11eb-9c56-9768b1790ae5.png)](https://ko-fi.com/voltura) __⟵__ _**Tryck här för att köpa mig en kaffe!**_
+   
+[![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G74W5F8) __⟵__ _**Press here to buy me a coffee!**_
 
 ## Statistik
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
