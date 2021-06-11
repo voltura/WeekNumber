@@ -142,7 +142,7 @@ namespace WeekNumber.Forms
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)selectedDate.DayOfWeek];
                 }
                 int selectedWeek = Week.GetWeekNumber(selectedDate);
-                lblInformation.Text = $"{weekDayPrefix}{selectedDate.ToLongDateString()}\r\n{Resources.Week} {selectedWeek}";
+                lblInformation.Text = $"{Resources.Week} {selectedWeek}\r\n{weekDayPrefix}{selectedDate.ToLongDateString()}";
                 _img = pictureBoxWeek.Image;
                 pictureBoxWeek.Image = WeekIcon.GetImage(selectedWeek);
                 _img?.Dispose();
@@ -153,7 +153,7 @@ namespace WeekNumber.Forms
                 {
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
                 }
-                lblInformation.Text = $"{weekDayPrefix}{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {Week.Current()}";
+                lblInformation.Text = $"{Resources.Week} {Week.Current()}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
                 pictureBoxWeek.Image = WeekIcon.GetImage(Week.Current());
             }
             else

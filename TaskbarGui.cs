@@ -141,7 +141,7 @@ namespace WeekNumber
                 {
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
                 }
-                notifyIcon.Text = $"{weekDayPrefix}{DateTime.Now.ToLongDateString()}\r\n{Resources.Week} {weekNumber}";
+                notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
                 System.Drawing.Icon prevIcon = notifyIcon.Icon;
                 notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
                 WeekIcon.CleanupIcon(ref prevIcon);

@@ -196,7 +196,6 @@ namespace WeekNumber
             {
                 // The method has been called simultaneously on multiple threads.
                 LogAndShow($@"{Resources.FailedToPerformVersionCheck}
-
 {Resources.CheckForNewVersionHere}
 {VERSION_CHECK_BASE_URL}", silent, nse);
                 return vi;
@@ -205,8 +204,9 @@ namespace WeekNumber
             if (versionInfo.Length != 2)
             {
                 LogAndShow($@"{Resources.FailedToPerformVersionCheck}
-
-{Resources.UnableToParse} '{VERSION_CHECK_URL}' {Resources.Information}.", silent, new InvalidDataException(Resources.FailedToPerformVersionCheck));
+{Resources.UnableToParse} '{VERSION_CHECK_URL}' {Resources.Information}.
+{Resources.CheckForNewVersionHere}
+{VERSION_CHECK_BASE_URL}", silent, new InvalidDataException(Resources.FailedToPerformVersionCheck));
                 return vi;
             }
             vi.Error = false;
