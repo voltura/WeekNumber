@@ -16,11 +16,18 @@ namespace WeekNumber
 
         #endregion Internal context menu
 
+        #region Private variables
+
+        private readonly UpdateHandler _updateHandler;
+
+        #endregion Private variables
+
         #region Internal contructor
 
         internal WeekNumberContextMenu()
         {
             Log.LogCaller();
+            _updateHandler = UpdateHandler.Instance;
             CreateContextMenu();
         }
 
@@ -468,8 +475,8 @@ namespace WeekNumber
                 {
                     DefaultItem = true
                 },
-                new MenuItem(Resources.CheckForNewVersionMenu, UpdateHandler.UpdateClick),
-                new MenuItem(Resources.OpenApplicationWebPageMenu, UpdateHandler.OpenApplicationWebPageClick),
+                new MenuItem(Resources.CheckForNewVersionMenu, _updateHandler.UpdateClick),
+                new MenuItem(Resources.OpenApplicationWebPageMenu, _updateHandler.OpenApplicationWebPageClick),
                 SettingsMenu(),
                 new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick),
                 new MenuItem(Resources.SeparatorMenu),

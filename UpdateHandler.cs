@@ -4,13 +4,15 @@ using System;
 using System.Diagnostics;
 using System.IO;
 using System.Net;
+using System.Net.Http;
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 #endregion Using statements
 
 namespace WeekNumber
 {
-    internal static class UpdateHandler
+    internal sealed class UpdateHandler
     {
         #region Private constants
 
@@ -31,15 +33,42 @@ namespace WeekNumber
 
         #endregion Internal struct
 
+        #region Private static variables
+
+        private static readonly Lazy<UpdateHandler> _lazy = new Lazy<UpdateHandler>(() => new UpdateHandler());
+
+        #endregion Private static variables
+
+        #region Private variables
+
+        private readonly HttpClient _client;
+
+        #endregion Private variables
+
+        #region Private constructor
+
+        private UpdateHandler() 
+        {
+            _client = new HttpClient();
+        }
+
+        #endregion Private constructor
+
+        #region Internal instance (singleton)
+
+        internal static UpdateHandler Instance { get { return _lazy.Value; } }
+
+        #endregion Internal instance (singleton)
+
         #region Internal methods
 
-        internal static void UpdateClick(object sender, EventArgs e)
+        internal void UpdateClick(object sender, EventArgs e)
         {
             Log.LogCaller();
             PerformUpdateCheck();
         }
 
-        internal static void OpenApplicationWebPageClick(object sender, EventArgs e)
+        internal void OpenApplicationWebPageClick(object sender, EventArgs e)
         {
             Log.LogCaller();
             try
@@ -55,7 +84,7 @@ namespace WeekNumber
             }
         }
 
-        internal static void PerformUpdateCheck(bool silent = false)
+        internal void PerformUpdateCheck(bool silent = false)
         {
             Log.LogCaller();
             string runningVersion = Application.ProductVersion;
@@ -73,63 +102,79 @@ namespace WeekNumber
 
 {Resources.DownloadAndInstallQuestion}"))
             {
+                string destinationFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp",
+    internetVersionInfo.Installer);
+
+                bool checksumDownloaded = DownloadFile(VERSION_CHECK_BASE_URL + internetVersionInfo.Installer + ".MD5", destinationFullPath + ".MD5");
+                if (!checksumDownloaded)
+                {
+                    LogAndShow($"{Resources.FailedToDownloadNewVersion}", silent);
+                    return;
+                }
+                bool installerDownloaded = DownloadFile(VERSION_CHECK_BASE_URL + internetVersionInfo.Installer, destinationFullPath);
+                if (!installerDownloaded)
+                {
+                    LogAndShow($"{Resources.FailedToDownloadNewVersion}", silent);
+                    return;
+                }
                 try
                 {
-                    string destinationFullPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData), "Temp",
-                        internetVersionInfo.Installer);
+                    if (File.Exists(destinationFullPath) &&
+                        File.Exists(destinationFullPath + ".MD5"))
+                    {
+                        //remove smartscreen filter (alternative data stream Zone.Identifier) on downloaded installer executable file
+                        UnblockFile(destinationFullPath);
+                        //validate installer checksum
+                        string installerMD5 = CalculateMD5(destinationFullPath);
+                        string installerInternetMD5 = File.ReadAllText(destinationFullPath + ".MD5").PadRight(32).Substring(0, 32);
+                        if (installerMD5 != installerInternetMD5)
+                        {
+                            LogAndShow($@"{Resources.FailedAutoInstall}
+{Resources.InvalidChecksumCouldNotAutoInstall}
+{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception($"{Resources.FailedAutoInstall} {Resources.InvalidChecksumCouldNotAutoInstall}"));
+                            return;
+                        }
+                        Settings.BackupSettings();
+                        //Start installer + close current app
+                        using (Process process = new Process()
+                        {
+                            StartInfo = new ProcessStartInfo(destinationFullPath)
+                            {
+                                UseShellExecute = true,
+                                CreateNoWindow = silent,
+                                WindowStyle = silent ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal,
+                                Arguments = silent ? "/S" : string.Empty
+                            }
+                        })
+                        {
+                            process.Start();
+                        }
+                        Application.Exit();
+                    }
+                    else
+                    {
+                        LogAndShow($@"{Resources.FailedAutoInstall}
+
+{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception(Resources.FailedAutoInstall));
+                        return;
+                    }
+                }
+                catch (InvalidOperationException ex)
+                {
+                    LogAndShow($@"{Resources.FailedToStartInstaller}
+
+{Resources.CloseAppAndManuallyRun} {destinationFullPath} {Resources.ToUpdateTheApplication}", silent, ex);
+                    return;
+                }
+
+                #region Previous code, can cause thread issues
+                /*
+                try
+                {
                     using (WebClient client = new WebClient())
                     {
                         client.DownloadFile(VERSION_CHECK_BASE_URL + internetVersionInfo.Installer + ".MD5", destinationFullPath + ".MD5");
                         client.DownloadFile(VERSION_CHECK_BASE_URL + internetVersionInfo.Installer, destinationFullPath);
-                    }
-                    try
-                    {
-                        if (File.Exists(destinationFullPath) &&
-                            File.Exists(destinationFullPath + ".MD5"))
-                        {
-                            //remove smartscreen filter (alternative data stream Zone.Identifier) on downloaded installer executable file
-                            UnblockFile(destinationFullPath);
-                            //validate installer checksum
-                            string installerMD5 = CalculateMD5(destinationFullPath);
-                            string installerInternetMD5 = File.ReadAllText(destinationFullPath + ".MD5").PadRight(32).Substring(0, 32);
-                            if (installerMD5 != installerInternetMD5)
-                            {
-                                LogAndShow($@"{Resources.FailedAutoInstall}
-{Resources.InvalidChecksumCouldNotAutoInstall}
-{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception($"{Resources.FailedAutoInstall} {Resources.InvalidChecksumCouldNotAutoInstall}"));
-                                return;
-                            }
-                            Settings.BackupSettings();
-                            //Start installer + close current app
-                            using (Process process = new Process()
-                            {
-                                StartInfo = new ProcessStartInfo(destinationFullPath)
-                                {
-                                    UseShellExecute = true,
-                                    CreateNoWindow = silent,
-                                    WindowStyle = silent ? ProcessWindowStyle.Hidden : ProcessWindowStyle.Normal,
-                                    Arguments = silent ? "/S" : string.Empty
-                                }
-                            })
-                            {
-                                process.Start();
-                            }
-                            Application.Exit();
-                        }
-                        else
-                        {
-                            LogAndShow($@"{Resources.FailedAutoInstall}
-
-{Resources.CheckForNewVersionHere} {VERSION_CHECK_BASE_URL}", silent, new Exception(Resources.FailedAutoInstall));
-                            return;
-                        }
-                    }
-                    catch (InvalidOperationException ex)
-                    {
-                        LogAndShow($@"{Resources.FailedToStartInstaller}
-
-{Resources.CloseAppAndManuallyRun} {destinationFullPath} {Resources.ToUpdateTheApplication}", silent, ex);
-                        return;
                     }
                 }
                 catch (WebException we)
@@ -152,6 +197,8 @@ namespace WeekNumber
 
 {VERSION_CHECK_BASE_URL}", silent, nse);
                 }
+                */
+                #endregion Previous code, can cause thread issues
             }
         }
 
@@ -159,7 +206,7 @@ namespace WeekNumber
 
         #region Private methods
 
-        private static VersionInfo GetInternetVersion(bool silent)
+        private VersionInfo GetInternetVersion(bool silent)
         {
             Log.LogCaller();
             VersionInfo vi = new VersionInfo
@@ -172,35 +219,39 @@ namespace WeekNumber
                 LogAndShow(Resources.FailedToCheckUpdateNoInternet, silent, new Exception(Resources.FailedToCheckUpdateNoInternet));
                 return vi;
             }
-            string versionInfoFromInternet;
+            string versionInfoFromInternet = GetVersionInfo();
+            Log.Info = $"versionInfoFromInternet='{versionInfoFromInternet}'";
+            #region Replaced code
+            /* synchronious version, not thread safe
+                        try
+                        {
+                            using (WebClient client = new WebClient())
+                            {
+                                versionInfoFromInternet = client.DownloadString(VERSION_CHECK_URL).Replace('\r', ' ').Replace('\n', ' ').TrimEnd();
+                            }
+                            Log.Info = $"versionInfoFromInternet='{versionInfoFromInternet}'";
+                        }
+                        catch (WebException we)
+                        {
+                            // The URI formed by combining System.Net.WebClient.BaseAddress and address is invalid.-or-
+                            // An error occurred while downloading the resource.
+                            LogAndShow($@"{Resources.FailedToPerformVersionCheck} 
 
-            try
-            {
-                using (WebClient client = new WebClient())
-                {
-                    versionInfoFromInternet = client.DownloadString(VERSION_CHECK_URL).Replace('\r', ' ').Replace('\n', ' ').TrimEnd();
-                }
-                Log.Info = $"versionInfoFromInternet='{versionInfoFromInternet}'";
-            }
-            catch (WebException we)
-            {
-                // The URI formed by combining System.Net.WebClient.BaseAddress and address is invalid.-or-
-                // An error occurred while downloading the resource.
-                LogAndShow($@"{Resources.FailedToPerformVersionCheck} 
-
-{Resources.CheckBrowserNavigation}
-{VERSION_CHECK_BASE_URL}", silent, we);
-                return vi;
-            }
-            catch (NotSupportedException nse)
-            {
-                // The method has been called simultaneously on multiple threads.
-                LogAndShow($@"{Resources.FailedToPerformVersionCheck}
-{Resources.CheckForNewVersionHere}
-{VERSION_CHECK_BASE_URL}", silent, nse);
-                return vi;
-            }
-            string[] versionInfo = versionInfoFromInternet.Split(new char[] { ' ', '\r', '\n' }, StringSplitOptions.RemoveEmptyEntries);
+            {Resources.CheckBrowserNavigation}
+            {VERSION_CHECK_BASE_URL}", silent, we);
+                            return vi;
+                        }
+                        catch (NotSupportedException nse)
+                        {
+                            // The method has been called simultaneously on multiple threads.
+                            LogAndShow($@"{Resources.FailedToPerformVersionCheck}
+            {Resources.CheckForNewVersionHere}
+            {VERSION_CHECK_BASE_URL}", silent, nse);
+                            return vi;
+                        }
+            */
+            #endregion Replaced code
+            string[] versionInfo = versionInfoFromInternet.Split(new char[] { ' ' }, StringSplitOptions.RemoveEmptyEntries);
             if (versionInfo.Length != 2)
             {
                 LogAndShow($@"{Resources.FailedToPerformVersionCheck}
@@ -215,6 +266,43 @@ namespace WeekNumber
             return vi;
         }
 
+        private string GetVersionInfo()
+        {
+            Log.LogCaller();
+            string versionFromInternet = GetAsyncVersionInfo().GetAwaiter().GetResult();
+            return versionFromInternet.Replace('\r', ' ').Replace('\n', ' ').TrimEnd();
+        }
+
+        private async Task<string> GetAsyncVersionInfo()
+        {
+            Log.LogCaller();
+            try
+            {
+                return await _client.GetStringAsync(VERSION_CHECK_URL).ConfigureAwait(false);
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            }
+            return string.Empty;
+        }
+
+        private bool DownloadFile(string source, string destination)
+        {
+            Log.LogCaller();
+            try
+            {
+                if (File.Exists(destination)) File.Delete(destination);
+                Task.Run(async () => { await new WebClient().DownloadFileTaskAsync(new Uri(source), destination); }).Wait();
+                return File.Exists(destination);
+            }
+            catch (Exception ex)
+            {
+                Log.Error = ex;
+            }
+            return false;
+        }
+
         /// <summary>
         /// Check if a newer version exist
         /// </summary>
@@ -225,10 +313,10 @@ namespace WeekNumber
         {
             Log.LogCaller();
             bool result = existingVersion != internetVersion;
+            if (!result) return false;
             char[] dotSeparator = new char[] { '.' };
             string[] existingVersionParts = existingVersion.Split(dotSeparator);
             string[] internetVersionParts = internetVersion.Split(dotSeparator);
-
             bool parseVer = Int32.TryParse(existingVersionParts[0], out int eMajor);
             if (!parseVer) return result;
             parseVer = Int32.TryParse(internetVersionParts[0], out int iMajor);

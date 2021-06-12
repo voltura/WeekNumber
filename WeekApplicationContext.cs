@@ -21,6 +21,7 @@ namespace WeekNumber
         private readonly Timer _timer;
         private int _currentWeek;
         private int _lastIconRes;
+        private readonly UpdateHandler _updateHandler;
 
         #endregion Private variables
 
@@ -32,6 +33,7 @@ namespace WeekNumber
             {
                 Log.LogCaller();
                 MonitorProcess.Run();
+                _updateHandler = UpdateHandler.Instance;
                 Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
@@ -117,7 +119,7 @@ namespace WeekNumber
             {
                 return;
             }
-            UpdateHandler.PerformUpdateCheck(silent: true);
+            _updateHandler.PerformUpdateCheck(silent: true);
         }
 
         private void UpdateIcon(bool force = false, bool redrawContextMenu = false)
