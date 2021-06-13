@@ -47,7 +47,7 @@ namespace WeekNumber
 
         #region Private constructor
 
-        private UpdateHandler() 
+        private UpdateHandler()
         {
             _client = new HttpClient();
         }

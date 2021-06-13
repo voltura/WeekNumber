@@ -5,7 +5,6 @@ using System;
 using System.Configuration;
 using System.Globalization;
 using System.IO;
-using System.Security.Cryptography;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -171,7 +170,7 @@ namespace WeekNumber
             try
             {
                 if (!File.Exists(fileToImport))
-{
+                {
                     Log.ErrorString = $"Settings file '{fileToImport}' not found, no import made.";
                     return false;
                 }

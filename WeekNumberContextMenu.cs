@@ -1,7 +1,6 @@
 ﻿#region Using statements
 
 using System;
-using System.Drawing.Drawing2D;
 using System.Windows.Forms;
 
 #endregion Using statements
@@ -692,8 +691,8 @@ namespace WeekNumber
                             Checked = Settings.GetIntSetting(Resources.SmoothingMode, 0) == 4
                         }
                     })
-            { 
-                Name = Resources.SmoothingMode 
+            {
+                Name = Resources.SmoothingMode
             };
         }
 
