@@ -33,7 +33,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 ![Weeknumber formulär](https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png)
 
 #### Inställningsmeny med språkval
-![Inställningsmeny](https://user-images.githubusercontent.com/2292809/121432466-00696680-c97b-11eb-8f34-797737331f33.png)
+![Inställningsmeny](https://user-images.githubusercontent.com/2292809/123408558-6bd34b00-d5ad-11eb-8527-180a915b249a.png)
 
 #### Exempel på ikoner med anpassade färger
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
@@ -132,6 +132,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
 
       - **Använd tysta notiser** - _Om ikryssad så spelas inte något ljud upp då denna applikation visar notiser_
    - **Använd små / stora aktivitetsfältsikoner** - _Skiftar mellan stora och små aktivitetsfältsikoner. Har du svårt att se veckonumret? Testa att använda stora aktivitetsfältsikoner_
+   - **Exportera inställningar..." - _Möjlighet att exportera / spara kopia av aktuella applikationsinställningar_
+   - **Importera inställningar..." - _Möjlighet att importera tidigare exporterad / sparad kopia av applikationsinställningar_
    - **Kalender** - _Kalenderregler som appliationen använder sig av; vanligtvis tas detta från de regionella inställningar som är inställda på systemet, men de går alltså att justera manuellt här_
      - **'Första-dag-i-vecka'-regel** - _Kalenderregel, välj dag som en vecka startar på_
      - **'Årets-första-vecka'-regel** - _Ytterligare kalender-regel som anger vilket regelverk som ska nyttjas för årets första vecka_
