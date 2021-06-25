@@ -30,7 +30,7 @@ Options to start with Windows, customize icon colors, language, notifications, a
 #### Find out week number for any date
 ![Weeknumber form](https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png)
 #### Settings menu with language selection
-![Settings menu](https://user-images.githubusercontent.com/2292809/121083318-91a3d600-c7df-11eb-988b-b2d5b01a1b60.png)
+![Settings menu](https://user-images.githubusercontent.com/2292809/123407542-5f022780-d5ac-11eb-9b75-434086f4c4ea.png)
 
 #### System tray area icon with customized colors
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
@@ -40,8 +40,8 @@ Options to start with Windows, customize icon colors, language, notifications, a
 ![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
 ## Installation
-Download installer and run to install (option to start when installer finishes).
-If you downloaded WeekNumber.zip via *Download latest release* first unzip the archive, then run the installer.
+Download installer and run to install with option to start the application when the installer finishes.
+If you downloaded WeekNumber.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip) first unzip the archive, then run the installer.
 To remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. 
 
 ### Installation notes
@@ -56,7 +56,6 @@ Use below actions to allow the installer to run on your PC when Microsoft SmartS
 ![smartscreen_0](https://user-images.githubusercontent.com/2292809/120404034-c201f500-c345-11eb-9abd-670e927c4a36.png)
 
 ![smartscreen_1](https://user-images.githubusercontent.com/2292809/120404043-c4fce580-c345-11eb-945d-a5931bb5b721.png)
-
 
 #### Distributed / Silent install / uninstall options
 To silently install call the installer with /S parameter.
@@ -81,7 +80,7 @@ If the application icon is not visible then press the ^ symbol on the system tra
      - **Svenska** - _Swedish_
    - **Application log**
       - **Use application log** - _Application writes to a log file if ticked_
-      - **Show application log** - _If above is ticked, opens the application log file in a text editor (technical)_
+      - **Show application log** - _If above is ticked, opens the application log file in a text editor; quite technical_
    - **Notifications** - _Control the application notification messages in sub-menus_
       - **Display startup notification** - _If ticked, the application will show a notification when started_
       
@@ -93,6 +92,8 @@ If the application icon is not visible then press the ^ symbol on the system tra
 
       - **Use silent notifications** - _If ticked, any notifications for this application will not trigger system sounds to be played_
    - **Use small / large taskbar buttons** - _Toogles Windows taskbar size and also adjusts the application icon resolution to match. Having trouble seeing the week number? Try using large taskbar buttons_
+   - **Export settings...** - _Option to export / backup the current application settings_
+   - **Import settings...** - _Option to import previously exported / backed up application settings_
    - **Calendar** - _Calendar rules used by the application; per default the application uses the systems regional settings to figure this out, but it can be manually overridden here_
      - **First Day Of Week** - _Calendar rule, select what day a week starts on_
      - **Calendar week rule** - _Additional calendar rule that tells what rule is used for the first week of a year_
