@@ -676,6 +676,24 @@ namespace WeekNumber {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to IconBackgroundAlpha.
+        /// </summary>
+        internal static string IconBackgroundAlpha {
+            get {
+                return ResourceManager.GetString("IconBackgroundAlpha", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Use transparent background.
+        /// </summary>
+        internal static string IconBackgroundAlphaMenu {
+            get {
+                return ResourceManager.GetString("IconBackgroundAlphaMenu", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to IconBackgroundBlue.
         /// </summary>
         internal static string IconBackgroundBlue {

@@ -78,6 +78,22 @@ namespace WeekNumber
             }
         }
 
+        private void IconBackgroundAlphaMenuClick(object o, EventArgs e)
+        {
+            try
+            {
+                Log.LogCaller();
+                MenuItem mi = (MenuItem)o;
+                mi.Checked = !mi.Checked;
+                Settings.UpdateSetting(mi.Name, mi.Checked ? "0" : "255");
+                SettingsChangedHandler?.Invoke(null, null);
+            }
+            catch (Exception ex)
+            {
+                Message.Show(Resources.UnhandledException, ex);
+            }
+        }
+
         private static void ExitMenuClick(object o, EventArgs e)
         {
             Log.LogCaller();
@@ -118,6 +134,7 @@ namespace WeekNumber
                     Settings.UpdateSetting(Resources.IconBackgroundRed, 0.ToString());
                     Settings.UpdateSetting(Resources.IconBackgroundGreen, 0.ToString());
                     Settings.UpdateSetting(Resources.IconBackgroundBlue, 0.ToString());
+                    Settings.UpdateSetting(Resources.IconBackgroundAlpha, 255.ToString());
                 }
                 else
                 {
@@ -773,7 +790,7 @@ namespace WeekNumber
         private MenuItem ColorsMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.ColorsMenu, new MenuItem[3]
+            return new MenuItem(Resources.ColorsMenu, new MenuItem[4]
             {
                 new MenuItem(Resources.IconForegroundMenu, ColorMenuClick)
                 {
@@ -786,6 +803,11 @@ namespace WeekNumber
                 new MenuItem(Resources.ResetColorsMenu, ColorMenuClick)
                 {
                     Name = Resources.ResetColors
+                },
+                new MenuItem(Resources.IconBackgroundAlphaMenu, IconBackgroundAlphaMenuClick)
+                {
+                    Name = Resources.IconBackgroundAlpha,
+                    Checked = Settings.SettingIsValue(Resources.IconBackgroundAlpha, "0")
                 }
             });
         }

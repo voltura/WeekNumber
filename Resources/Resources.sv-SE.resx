@@ -345,6 +345,13 @@ Copyright © Voltura AB 2018-2021</value>
     <value>IconBackground</value>
     <comment>Setting, do not change</comment>
   </data>
+  <data name="IconBackgroundAlpha" xml:space="preserve">
+    <value>IconBackgroundAlpha</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconBackgroundAlphaMenu" xml:space="preserve">
+    <value>Använd transparent bakgrund</value>
+  </data>
   <data name="IconBackgroundBlue" xml:space="preserve">
     <value>IconBackgroundBlue</value>
     <comment>Setting, do not change</comment>

@@ -152,7 +152,7 @@ namespace WeekNumber
             {
                 size = _defaultSize;
             }
-            Color backgroundColor = Color.FromArgb(
+            Color backgroundColor = Color.FromArgb(Settings.GetIntSetting(Resources.IconBackgroundAlpha),
                 Settings.GetIntSetting(Resources.IconBackgroundRed),
                 Settings.GetIntSetting(Resources.IconBackgroundGreen),
                 Settings.GetIntSetting(Resources.IconBackgroundBlue));

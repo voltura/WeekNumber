@@ -646,4 +646,11 @@ Please report to feedback@voltura.se!</value>
   <data name="SettingsImported" xml:space="preserve">
     <value>Settings successfully imported!</value>
   </data>
+  <data name="IconBackgroundAlpha" xml:space="preserve">
+    <value>IconBackgroundAlpha</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="IconBackgroundAlphaMenu" xml:space="preserve">
+    <value>Use transparent background</value>
+  </data>
 </root>
