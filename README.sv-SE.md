@@ -1,7 +1,7 @@
 🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber
-Windows 10 systemfältsapplikation som visar aktuellt veckonummer
+Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
