@@ -1,4 +1,4 @@
-Copyright © 2021 Voltura AB
+Copyright © 2022 Voltura AB
 
 Denna programvara tillhandahålls "som den är" utan någon uttrycklig eller underförstådd garanti. Under inga omständigheter kommer författarna att hållas ansvariga för skador som uppstår till följd av användningen av denna programvara.
 

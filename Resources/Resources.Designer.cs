@@ -63,7 +63,7 @@ namespace WeekNumber {
         /// <summary>
         ///   Looks up a localized string similar to WeekNumber by Voltura AB
         ///
-        ///Copyright © Voltura AB 2018-2021.
+        ///Copyright © Voltura AB 2018-2022.
         /// </summary>
         internal static string About {
             get {

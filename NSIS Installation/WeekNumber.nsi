@@ -29,7 +29,7 @@ VIProductVersion ${VERSION}
 VIAddVersionKey ProductName "${PRODUCT_NAME} Installer"
 VIAddVersionKey Comments "An installer for ${PRODUCT_NAME}"
 VIAddVersionKey CompanyName "${PRODUCT_PUBLISHER}"
-VIAddVersionKey LegalCopyright "Copyright © ${PRODUCT_PUBLISHER} 2018-2021"
+VIAddVersionKey LegalCopyright "Copyright © ${PRODUCT_PUBLISHER} 2018-2022"
 VIAddVersionKey FileDescription "${PRODUCT_NAME} Installer"
 VIAddVersionKey FileVersion ${VERSION}
 VIAddVersionKey ProductVersion ${VERSION}

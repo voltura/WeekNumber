@@ -188,7 +188,7 @@ namespace WeekNumber.Forms
             this.lblInformation.Name = "lblInformation";
             this.lblInformation.Size = new System.Drawing.Size(581, 107);
             this.lblInformation.TabIndex = 16;
-            this.lblInformation.Text = "Sunday, 5th of June 2021\r\nWeek 22";
+            this.lblInformation.Text = "Week 22\r\nSunday, 5th of June 2021";
             // 
             // ccbDay
             // 
