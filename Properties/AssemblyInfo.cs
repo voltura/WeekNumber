@@ -13,7 +13,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Voltura AB")]
 [assembly: AssemblyProduct("WeekNumber")]
-[assembly: AssemblyCopyright("Copyright © Voltura AB 2018-2021")]
+[assembly: AssemblyCopyright("Copyright © Voltura AB 2018-2022")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
