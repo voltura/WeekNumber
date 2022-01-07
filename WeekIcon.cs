@@ -180,17 +180,17 @@ namespace WeekNumber
         {
             if (size == 0) size = _defaultSize;
             float fontSize = (float)System.Math.Abs(size * .78125);
-            float insetX = (float)-(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .12) : System.Math.Abs(fontSize * .07));
+            // float insetX = (float)-(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .12) : System.Math.Abs(fontSize * .07));
             float insetY = (float)(size > (int)IconSize.Icon16 ? System.Math.Abs(fontSize * .2) : System.Math.Abs(fontSize * .08));
             Color foregroundColor = Color.FromArgb(
                 Settings.GetIntSetting(Resources.IconForegroundRed),
                 Settings.GetIntSetting(Resources.IconForegroundGreen),
                 Settings.GetIntSetting(Resources.IconForegroundBlue));
 
-            using (Font font = new Font(FontFamily.GenericMonospace, fontSize, FontStyle.Bold,
+            using (Font font = new Font("Aurulent Sans Mono", fontSize * 0.8f, FontStyle.Regular,
                 GraphicsUnit.Pixel, 0, false))
             using (Brush brush = new SolidBrush(foregroundColor))
-                graphics?.DrawString(weekNumber.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), font, brush, insetX, insetY);
+                graphics?.DrawString(weekNumber.ToString(CultureInfo.InvariantCulture).PadLeft(2, '0'), font, brush, 0.0f, insetY);
         }
 
         private static double GetWindowsZoom()

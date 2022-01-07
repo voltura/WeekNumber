@@ -32,7 +32,7 @@ namespace WeekNumber
             try
             {
                 Log.LogCaller();
-                MonitorProcess.Run();
+                //MonitorProcess.Run(); // Removed because of false positive virus varning
                 _updateHandler = UpdateHandler.Instance;
                 Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
@@ -65,7 +65,8 @@ namespace WeekNumber
                 {
                     return _timer;
                 }
-                int calculatedInterval = 86400000 - ((DateTime.Now.Hour * 3600000) + (DateTime.Now.Minute * 60000) + (DateTime.Now.Second * 1000));
+                //int calculatedInterval = 86400000 - ((DateTime.Now.Hour * 3600000) + (DateTime.Now.Minute * 60000) + (DateTime.Now.Second * 1000));
+                int calculatedInterval = 10000;  // workaround for blurry icon due to Windows icon rendering bug, update icon every 10 seconds instead of when week change occurs only
                 Timer timer = new Timer
                 {
                     Interval = calculatedInterval,
