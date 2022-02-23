@@ -15,7 +15,7 @@ on:
 jobs:
   analyze:
     name: Analyze
-    runs-on: windows-latest
+    runs-on: windows-10
     permissions:
       actions: write
       contents: write
