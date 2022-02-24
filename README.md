@@ -57,6 +57,15 @@ Use below actions to allow the installer to run on your PC when Microsoft SmartS
 
 ![smartscreen_1](https://user-images.githubusercontent.com/2292809/120404043-c4fce580-c345-11eb-945d-a5931bb5b721.png)
 
+### Security notes / alternative lightweight version
+Microsoft Defender / Windows Security identifies installer and application as a trojan and/or malware which is *not* the case.
+There is a way to still allow the full version of WeekNumber to run without warnings, but for users that are not confortable and/or skilled to do configure this there is another option.
+I have created a lightweight version that does not trigger any false alarm, but this version only can display the current week number in the task area, nothing else.
+Not autostart with Windows (it can manually be made to start with Windows - google how), it has no installer, it does not auto-update. 
+Nor do the lightweight version have options to change icon colors or anything else that the full version of WeekNumber can do.
+   
+See more here if interested: https://github.com/voltura/WeekNumberLite
+   
 #### Distributed / Silent install / uninstall options
 To silently install call the installer with /S parameter.
 > WeekNumber_{VERSION}_Installer.exe /S
