@@ -2,6 +2,7 @@
 
 using Microsoft.Win32;
 using System;
+using System.Threading;
 using System.Windows.Forms;
 
 #region Test code
@@ -137,11 +138,13 @@ namespace WeekNumber
             try
             {
                 string weekDayPrefix = string.Empty;
-                if (System.Threading.Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish)
+                string longDateString = DateTime.Now.ToLongDateString();
+                const string SWEDISH_LONG_DATE_PREFIX_STRING = "den ";
+                if (Thread.CurrentThread.CurrentUICulture.Name == Resources.Swedish || longDateString.StartsWith(SWEDISH_LONG_DATE_PREFIX_STRING))
                 {
                     weekDayPrefix = Message.SWEDISH_DAY_OF_WEEK_PREFIX[(int)DateTime.Now.DayOfWeek];
                 }
-                notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{DateTime.Now.ToLongDateString()}";
+                notifyIcon.Text = $"{Resources.Week} {weekNumber}\r\n{weekDayPrefix}{longDateString}";
                 System.Drawing.Icon prevIcon = notifyIcon.Icon;
                 notifyIcon.Icon = WeekIcon.GetIcon(weekNumber, iconResolution);
                 WeekIcon.CleanupIcon(ref prevIcon);
