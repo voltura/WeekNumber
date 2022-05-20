@@ -60,7 +60,7 @@ SET "UPLOAD_URL="
 SET "SEVEN_ZIP_FULLPATH=C:\Program Files\7-Zip\7z.exe"
 SET "MSBUILD_FULLPATH=C:\Program Files (x86)\Microsoft Visual Studio\2019\Professional\MSBuild\Current\Bin\amd64\MSBuild.exe"
 SET "FART=%SCRIPT_DIR%\..\Tools\fart.exe"
-SET "CURL=C:\Program Files\curl-7.76.1-win64-mingw\bin\curl.exe"
+SET "CURL=C:\Program Files\curl-7.81.0-win64-mingw\bin\curl.exe"
 
 :: ==========================
 :: Script logic
