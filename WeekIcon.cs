@@ -40,8 +40,8 @@ namespace WeekNumber
                 Log.Info = $"UsingSmallTaskbarButtons={usingSmallTaskbarIcons}";
                 Log.Info = $"Guessed icon resolution={myDbl}x{myDbl}";
 
-                // find closes match to existing configs (do not allow 16,20,24)
-                List<int> list = new List<int> { 32, 40, 48, 64, 128, 256, 512 };
+                // find closes match to existing configs (do not allow 16, 20, 24, 32, 40, 48, 64, 128)
+                List<int> list = new List<int> { 256, 512 };
                 int closest = list.Aggregate((x, y) => Math.Abs(x - myDbl) < Math.Abs(y - myDbl) ? x : y);
 
                 Log.Info = $"Closest icon resolution={closest}x{closest}";
