@@ -6,7 +6,7 @@ Windows 11/10 system tray area application that displays the current week number
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/120940539-0f071200-c71e-11eb-8b03-8f24b9fb36ad.png)
 
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
+[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.2.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -40,39 +40,23 @@ Options to start with Windows, customize icon colors, language, notifications, a
 ![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
 ## Installation
-Download installer and run to install with option to start the application when the installer finishes.
-If you downloaded WeekNumber.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip) first unzip the archive, then run the installer.
-To remove the application run the uninstaller or use Windows *Add or remove programs* feature or via the Control Panels *Programs And Features* section. 
+After download of WeekNumber_v1.6.6.2.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.2.zip) first unzip the archive, then run WeekNumber.exe.
+To remove the application just delete the executable and other files extracted from the zip archive and the generated application configuration file WeekNumber.exe.config. 
 
-### Installation notes
+### Download notes
 Choose to keep the file downloaded if prompted - it will look similar to this (depends on your web browser and settings)
 
 ![Keep file if prompted #1](https://user-images.githubusercontent.com/2292809/120716901-fa7d0c80-c4c6-11eb-9232-f279f959f0a6.png)
 
-![Keep file if prompted #2](https://user-images.githubusercontent.com/2292809/118524536-8c9eba00-b73e-11eb-9c6c-bc8defde0caa.png)
-
-Use below actions to allow the installer to run on your PC when Microsoft SmartScreen is active:
-
-![smartscreen_0](https://user-images.githubusercontent.com/2292809/120404034-c201f500-c345-11eb-9abd-670e927c4a36.png)
-
-![smartscreen_1](https://user-images.githubusercontent.com/2292809/120404043-c4fce580-c345-11eb-945d-a5931bb5b721.png)
 
 ### Security notes / alternative lightweight version
-Microsoft Defender / Windows Security identifies installer and application as a trojan and/or malware which is *not* the case.
-There is a way to still allow the full version of WeekNumber to run without warnings, but for users that are not comfortable and/or skilled to do configure this there is another option.
-I have created a lightweight version that does not trigger any false alarm, but this version only can display the current week number in the task area, nothing else.
-Not autostart with Windows (it can manually be made to start with Windows - google how), it has no installer, it does not auto-update. 
+Microsoft Defender / Windows Security could identify application as a virus, trojan and/or malware which is *not* the case.
+I have created a lightweight version that does not trigger any false alarm, this version only can display the current week number in the task area, nothing else.
+Not autostart with Windows (it can manually be made to start with Windows - google how). 
 Nor do the lightweight version have options to change icon colors or anything else that the full version of WeekNumber can do.
    
 See more [here](https://voltura.github.io/WeekNumberLite2/) if interested.
    
-#### Distributed / Silent install / uninstall options
-To silently install call the installer with /S parameter.
-> WeekNumber_{VERSION}_Installer.exe /S
-
-To silently uninstall call the uninstaller with /S parameter.
-> Uninstall WeekNumber.exe /S
-
 ## Help section
 All application features are accessible via right-click on the application icon residing in the system tray area in Windows taskbar.
 If the application icon is not visible then press the ^ symbol on the system tray area, click and hold on the application icon and then drag it to the visible system tray area to pin it there.
