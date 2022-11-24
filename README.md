@@ -6,7 +6,7 @@ Windows 11/10 system tray area application that displays the current week number
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/120940539-0f071200-c71e-11eb-8b03-8f24b9fb36ad.png)
 
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.2.zip)
+[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.3.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -40,7 +40,7 @@ Options to start with Windows, customize icon colors, language, notifications, c
 ![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
 ## Installation
-After download of WeekNumber_v1.6.6.2.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.2.zip) first unzip the archive, then run WeekNumber.exe.
+After download of WeekNumber_v1.6.6.3.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.3.zip) first unzip the archive, then run WeekNumber.exe.
 To remove the application just delete the executable and other files extracted from the zip archive and the generated application configuration file WeekNumber.exe.config. 
 
 ### Download notes
