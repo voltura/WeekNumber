@@ -371,3 +371,8 @@ GITHUB_ACCESS_TOKEN.bat
 /Tools/curl-7.84.0_4-win64-mingw.zip
 release_info.txt
 /NSIS Installation/Plugins
+/NSIS Installation/CompileInstaller.bat
+/NSIS Installation/WeekNumber.nsi
+/Installation/CompileInstaller.bat
+/Installation/WeekNumber.nsi
+/Installation/Plugins

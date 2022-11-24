@@ -159,22 +159,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
-    <None Include="NSIS Installation\CompileInstaller.bat" />
+    <None Include="Installation\CompileInstaller.bat" />
     <None Include="Properties\App.config">
       <SubType>Designer</SubType>
     </None>
     <None Include="Properties\app.manifest">
       <SubType>Designer</SubType>
     </None>
-    <None Include="NSIS Installation\WeekNumber.nsi" />
+    <None Include="Installation\WeekNumber.nsi" />
     <None Include="Properties\WeekNumber.snk" />
     <None Include="Release Handling\CreateRelease.bat" />
     <None Include="Release Handling\ReleaseManager.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\ToDo_Ideas.txt" />
-    <Content Include="NSIS Installation\License.en-US.txt" />
-    <Content Include="NSIS Installation\License.sv-SE.txt" />
+    <Content Include="Installation\License.en-US.txt" />
+    <Content Include="Installation\License.sv-SE.txt" />
     <Content Include="Resources\weekicon.ico" />
   </ItemGroup>
   <ItemGroup>
