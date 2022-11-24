@@ -5,7 +5,7 @@ Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber.zip)
+[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.3.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -45,64 +45,14 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 ![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
    
 ## Installation
-Ladda ner installationsprogrammet och kör det för att installera, applikationen startas efter installation.
-Om du laddat ned WeekNumber.zip via *LADDA NER SENASTE VERSIONEN* packa först upp arkivet och kör sedan installationsprogrammet.
-För att ta bort applikationen så kör avinstallationsprogrammet eller använd dig av Windows *Lägg till/ta bort program*-funktion. Det går också att avinstallera via Windows kontrollpanel under sektionen *Program och funktioner*. 
+Ladda ner zip, extrahera och kör WeekNumber.exe.
 
-### Installationsnotiser
-Notis: Beroende på webbläsare och inställningar så kan nedladdningsförfarandet skilja sig, om webbläsaren blockerade nedladdningen så går det att tvinga den att spara den nedladdade filen, se den Engelska versionen av denna text för mer detaljer (välj _English_ högst upp i denna sida).
-   
-![image](https://user-images.githubusercontent.com/2292809/121436155-5987c900-c980-11eb-887b-6fd36eac060a.png)
-   
-Tryck _Öppna fil..._
-
-![image](https://user-images.githubusercontent.com/2292809/121436254-83d98680-c980-11eb-8296-21f3fa62399f.png)
-   
-Markera installationsprogrammet och välj _Kör_
-
-![image](https://user-images.githubusercontent.com/2292809/121436322-a8cdf980-c980-11eb-9519-9c622c0a863d.png)
-   
-Tryck _Mer information_
-
-![image](https://user-images.githubusercontent.com/2292809/121436394-c8fdb880-c980-11eb-9cbc-a11a9f101555.png)
-   
-Tryck _Kör ändå_
-
-![image](https://user-images.githubusercontent.com/2292809/121436506-ffd3ce80-c980-11eb-8367-de2f173b4ea9.png)
-   
-Tryck _Nästa_
-
-![image](https://user-images.githubusercontent.com/2292809/121436555-10844480-c981-11eb-9a8b-9b572cd25a83.png)
-   
-Läs igenom och godkänn licensavtalet genom att trycka på _Jag Godkänner_
-
-![image](https://user-images.githubusercontent.com/2292809/121436647-43c6d380-c981-11eb-9b23-d2e9552d5783.png)
-   
-Välj vart applikationen ska installeras och tryck _Nästa_
-
-![image](https://user-images.githubusercontent.com/2292809/121436672-504b2c00-c981-11eb-8e81-9fa2f5ad4f8b.png)
-   
-Välj om startmeny-genvägar ska skapas för applikationen och tryck sedan _Installera_
-
-![image](https://user-images.githubusercontent.com/2292809/121436739-6d7ffa80-c981-11eb-93c8-6fba598817cc.png)
-   
-Välj om WeekNumber ska startas med Windows och om applikationen ska startas då installationen är klar, tryck sedan _Slutför_
-
-![image](https://user-images.githubusercontent.com/2292809/121436875-a15b2000-c981-11eb-9ebb-db089999b830.png)
-   
 En notis visas då WeekNumber är startad
 
 ![image](https://user-images.githubusercontent.com/2292809/121437224-3a8a3680-c982-11eb-898c-84d45d33611f.png)
 
 Aktuellt veckonummer visas nu bland systemfältets ikoner, ser du inte veckonummer tryck på taktecknet (^) i systemfältet och klicka-håll och dra ned ikonen så den blir synlig.
 
-   
-#### Distribuerad/tyst installation/avinstallation
-För att installera utan frågor ange /S som parameter till installationsprogrammet.
-> WeekNumber_{VERSION}_Installer.exe /S
-
-För att avinstallera utan frågor/gränssnitt anropa avinstallationsprogrammet med parameter /S.
-> Uninstall WeekNumber.exe /S
 
 ## Hjälpavsnitt
 Alla funktioner är tillgängliga genom att höger-klicka på applikationens ikon i Windows systemfält.
