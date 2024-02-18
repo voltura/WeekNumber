@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Net.WebRequestMethods;
 
 #endregion Using statements
 
@@ -16,7 +17,7 @@ namespace WeekNumber
     {
         #region Private constants
 
-        private static readonly string VERSION_CHECK_BASE_URL = "http://github.com/voltura/weeknumber/releases/latest/download/";
+        private static readonly string VERSION_CHECK_BASE_URL = "https://github.com/voltura/WeekNumber/releases/latest/download/";
         private static readonly string VERSION_CHECK_URL = $"{VERSION_CHECK_BASE_URL}VERSION.TXT";
         internal static readonly string APPLICATION_URL = "https://voltura.github.io/WeekNumber/";
 
@@ -119,14 +120,14 @@ namespace WeekNumber
                 }
                 try
                 {
-                    if (File.Exists(destinationFullPath) &&
-                        File.Exists(destinationFullPath + ".MD5"))
+                    if (System.IO.File.Exists(destinationFullPath) &&
+                        System.IO.File.Exists(destinationFullPath + ".MD5"))
                     {
                         //remove smartscreen filter (alternative data stream Zone.Identifier) on downloaded installer executable file
                         UnblockFile(destinationFullPath);
                         //validate installer checksum
                         string installerMD5 = CalculateMD5(destinationFullPath);
-                        string installerInternetMD5 = File.ReadAllText(destinationFullPath + ".MD5").PadRight(32).Substring(0, 32);
+                        string installerInternetMD5 = System.IO.File.ReadAllText(destinationFullPath + ".MD5").PadRight(32).Substring(0, 32);
                         if (installerMD5 != installerInternetMD5)
                         {
                             LogAndShow($@"{Resources.FailedAutoInstall}
@@ -235,7 +236,7 @@ namespace WeekNumber
                         {
                             // The URI formed by combining System.Net.WebClient.BaseAddress and address is invalid.-or-
                             // An error occurred while downloading the resource.
-                            LogAndShow($@"{Resources.FailedToPerformVersionCheck} 
+                            LogAndShow($@"{Resources.FailedToPerformVersionCheck}
 
             {Resources.CheckBrowserNavigation}
             {VERSION_CHECK_BASE_URL}", silent, we);
@@ -292,9 +293,9 @@ namespace WeekNumber
             Log.LogCaller();
             try
             {
-                if (File.Exists(destination)) File.Delete(destination);
+                if (System.IO.File.Exists(destination)) System.IO.File.Delete(destination);
                 Task.Run(async () => { await new WebClient().DownloadFileTaskAsync(new Uri(source), destination); }).Wait();
-                return File.Exists(destination);
+                return System.IO.File.Exists(destination);
             }
             catch (Exception ex)
             {
@@ -360,11 +361,11 @@ namespace WeekNumber
             string fileMD5Hash = string.Empty;
             try
             {
-                if (File.Exists(filename))
+                if (System.IO.File.Exists(filename))
                 {
                     using (System.Security.Cryptography.MD5 md5 = System.Security.Cryptography.MD5.Create())
                     {
-                        using (FileStream stream = File.OpenRead(filename))
+                        using (FileStream stream = System.IO.File.OpenRead(filename))
                         {
                             byte[] hash = md5.ComputeHash(stream);
                             fileMD5Hash = BitConverter.ToString(hash).Replace("-", "").ToLowerInvariant();
@@ -385,7 +386,7 @@ namespace WeekNumber
         }
 
         /// <summary>
-        /// Removes Zone Identification tagging that are using Alternate Data Streams (Zone.Identifier) created on file 
+        /// Removes Zone Identification tagging that are using Alternate Data Streams (Zone.Identifier) created on file
         /// when downloaded from internet, also called 'Mark of the Web'
         /// Allows to execute file without Microsoft Defender SmartScreen interferance.
         /// See https://www.winhelponline.com/blog/bulk-unblock-files-downloaded-internet/ for more info
@@ -398,7 +399,7 @@ namespace WeekNumber
             string parameters = @"-Command ""& {Unblock-File -Path """ + fullPath + @""" }""";
             try
             {
-                if (!File.Exists(fullPath))
+                if (!System.IO.File.Exists(fullPath))
                 {
                     Log.ErrorString = $"File '{fullPath}' not found.";
                     return result;
