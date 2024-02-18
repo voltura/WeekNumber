@@ -228,7 +228,9 @@ GOTO :DO_VER_UPDATE
 CALL :DISP_MSG "Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'..." 0
 "%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion% >NUL
 SET FART_RESULT=%ERRORLEVEL%
-IF "%FART_RESULT%" NEQ "1" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
+CALL :DISP_MSG "FART ERROR = '%ERRORLEVEL%'
+PAUSE 
+IF "%FART_RESULT%" NEQ "2" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
 SET VERSION=%NewAssemblyFileVersion%
 CALL :DISP_MSG "Version updated from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'." 2
 CALL :SYNC_SOURCE
