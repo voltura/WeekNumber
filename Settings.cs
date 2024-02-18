@@ -250,7 +250,7 @@ namespace WeekNumber
         private static void CreateSettings()
         {
             string settingsFile = Application.ExecutablePath + ".config";
-            if (!File.Exists(settingsFile))
+            if (!File.Exists(settingsFile) || !File.ReadAllText(settingsFile).Contains("Language"))
             {
                 Log.LogCaller();
                 CultureInfo currentCultureInfo = CultureInfo.CurrentCulture;
@@ -283,6 +283,7 @@ namespace WeekNumber
     <add key=""TextContrast"" value=""1""/>
   </appSettings>
 </configuration>";
+                File.Delete(settingsFile);
                 File.WriteAllText(settingsFile, xml, System.Text.Encoding.UTF8);
                 Log.Info = $"Created '{settingsFile}'";
             }
