@@ -58,7 +58,7 @@ SET "UPLOAD_URL="
 :: Tools
 :: ==========================
 SET "SEVEN_ZIP_FULLPATH=C:\Program Files\7-Zip\7z.exe"
-SET "MSBUILD_FULLPATH=C:\Program Files\Microsoft Visual Studio\2022\Community\MSBuild\Current\Bin\amd64\MSBuild.exe"
+SET "MSBUILD_FULLPATH=C:\Program Files\Microsoft Visual Studio\2022\Professional\MSBuild\Current\Bin\amd64\MSBuild.exe"
 SET "FART=%SCRIPT_DIR%\..\Tools\fart.exe"
 SET "CURL=C:\Program Files\curl-7.84.0_4-win64-mingw\bin\curl.exe"
 
@@ -228,8 +228,6 @@ GOTO :DO_VER_UPDATE
 CALL :DISP_MSG "Updating version from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'..." 0
 "%FART%" -q "%SCRIPT_DIR%\..\Properties\AssemblyInfo.cs" %CurrentAssemblyFileVersion% %NewAssemblyFileVersion% >NUL
 SET FART_RESULT=%ERRORLEVEL%
-CALL :DISP_MSG "FART ERROR = '%ERRORLEVEL%'
-PAUSE 
 IF "%FART_RESULT%" NEQ "2" CALL :ERROR_MESSAGE_EXIT "Failed to update version." 170
 SET VERSION=%NewAssemblyFileVersion%
 CALL :DISP_MSG "Version updated from '%CurrentAssemblyFileVersion%' to '%NewAssemblyFileVersion%'." 2
