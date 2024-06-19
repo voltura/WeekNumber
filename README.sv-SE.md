@@ -1,4 +1,4 @@
-🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
+🌍[English](README.md) ∙ [Deutsch](README.de-DE.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber
 Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
@@ -18,6 +18,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 
 ### Språkstöd
 - Engelska
+- Tyska
 - Svenska
 
 <sub>_Om du vill bidra med översättning till ett annat språk, vänligen skapa ett ärende på GitHub så kontaktar jag dig!_<sub>
@@ -43,7 +44,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automati
 
 #### Mera höger-klicksmenyval
 ![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
-   
+
 ## Installation
 Ladda ner zip, extrahera och kör WeekNumber.exe.
 
@@ -67,7 +68,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
    - **Uppdatera automatiskt** - _Om ikryssad så uppdaterar applikationen automatiskt utan att du behöver göra något själv_
    - **Språk** - _Ändrar vilket språk som applikationen använder_
      - **English** - _Engelska_
-     - **Svenska** 
+     - **German** - _Tyska_
+     - **Svenska**
    - **Applikationslogg**
       - **Använd applikationlogg** - _Om ikryssad så skriver applikationen till en loggfil_
       - **Visa applikationslogg** - _Om ovan är ikryssad så visas applikationens loggfil i en texteditor (teknisk loggfil)_
@@ -75,7 +77,7 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
       - **Visa uppstartsnotis** - _Om ikryssad så visar applikationen en uppstartsnotis_
 
       <img src="https://user-images.githubusercontent.com/2292809/121431229-6ce36600-c979-11eb-9ec4-37b77892e9fa.png" width="400">
-      
+
       - **Visa ny veckonotis** - _Om ikryssad så visas en notis då aktuell vecka ändras_
 
       <img src="https://user-images.githubusercontent.com/2292809/121434601-d6fe0a00-c97d-11eb-83f3-ff553706cde9.png" width="400">
@@ -105,7 +107,7 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
 *- WeekNumber är fullständigt gratis och öppen källkod. Donationer uppskattas!*
 
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Tryck här för att donera!**_
-   
+
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G74W5F8) __⟵__ _**Tryck här för att köpa mig en kaffe!**_
 
 ## Statistik

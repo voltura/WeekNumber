@@ -1,4 +1,4 @@
-🌍[English](README.md) ∙ [Svenska](README.sv-SE.md)
+🌍[English](README.md) ∙ [Deutsch](README.de-DE.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber
 Windows 11/10 system tray area application that displays the current week number
@@ -18,6 +18,7 @@ Options to start with Windows, customize icon colors, language, notifications, c
 
 ### Supported Languages
 - English
+- Deutsch
 - Swedish
 
 <sub>_If you want to contribute with another language, please create an Issue on Github and I'll contact you!_<sub>
@@ -40,8 +41,8 @@ Options to start with Windows, customize icon colors, language, notifications, c
 ![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
 ## Installation
-After download of WeekNumber_v1.6.6.3.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.3.zip) first unzip the archive, then run WeekNumber.exe.
-To remove the application just delete the executable and other files extracted from the zip archive and the generated application configuration file WeekNumber.exe.config. 
+After download of WeekNumber_v1.6.6.7.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.7.zip) first unzip the archive, then run WeekNumber.exe.
+To remove the application just delete the executable and other files extracted from the zip archive and the generated application configuration file WeekNumber.exe.config.
 
 ### Download notes
 Choose to keep the file downloaded if prompted - it will look similar to this (depends on your web browser and settings)
@@ -52,11 +53,11 @@ Choose to keep the file downloaded if prompted - it will look similar to this (d
 ### Security notes / alternative lightweight version
 Microsoft Defender / Windows Security could identify application as a virus, trojan and/or malware which is *not* the case.
 I have created a lightweight version that does not trigger any false alarm, this version only can display the current week number in the task area, nothing else.
-Not autostart with Windows (it can manually be made to start with Windows - google how). 
+Not autostart with Windows (it can manually be made to start with Windows - google how).
 Nor do the lightweight version have options to change icon colors or anything else that the full version of WeekNumber can do.
-   
+
 See more [here](https://voltura.github.io/WeekNumberLite2/) if interested.
-   
+
 ## Help section
 All application features are accessible via right-click on the application icon residing in the system tray area in Windows taskbar.
 If the application icon is not visible then press the ^ symbol on the system tray area, click and hold on the application icon and then drag it to the visible system tray area to pin it there.
@@ -70,17 +71,18 @@ If the application icon is not visible then press the ^ symbol on the system tra
    - **Update automatically** - _If ticked, updates automatically without user interaction_
    - **Language** - _Change language used by the application_
      - **English**
+     - **Deutsch**
      - **Svenska** - _Swedish_
    - **Application log**
       - **Use application log** - _Application writes to a log file if ticked_
       - **Show application log** - _If above is ticked, opens the application log file in a text editor; quite technical_
    - **Notifications** - _Control the application notification messages in sub-menus_
       - **Display startup notification** - _If ticked, the application will show a notification when started_
-      
+
       <img src="https://user-images.githubusercontent.com/2292809/120921660-0b936c80-c6c5-11eb-974b-653954fca5ed.png" width="400">
-      
+
       - **Display new week notification** - _If ticked, a notification will be shown when the week changes_
-      
+
       <img src="https://user-images.githubusercontent.com/2292809/120921898-6da0a180-c6c6-11eb-82f0-4827dfbc2f4c.png" width="400">
 
       - **Use silent notifications** - _If ticked, any notifications for this application will not trigger system sounds to be played_
@@ -110,7 +112,7 @@ If the application icon is not visible then press the ^ symbol on the system tra
 [![Donate](https://img.shields.io/badge/donate_via-paypal_or_card-blue)](https://www.paypal.com/donate?hosted_button_id=7PN65YXN64DBG) __⟵__ _**Press here to donate!**_
 
 [![ko-fi](https://ko-fi.com/img/githubbutton_sm.svg)](https://ko-fi.com/G2G74W5F8) __⟵__ _**Press here to buy me a coffee!**_
-   
+
 ## Statistics
 [![Open issues](https://img.shields.io/github/issues/voltura/WeekNumber)](https://github.com/voltura/WeekNumber/issues)
 [![Code Quality](https://img.shields.io/github/workflow/status/voltura/WeekNumber/CodeQL)]()

@@ -173,11 +173,15 @@
     </None>
     <None Include="Installation\WeekNumber.nsi" />
     <None Include="Properties\WeekNumber.snk" />
+    <None Include="README.md" />
+    <None Include="README.de-DE.md" />
+    <None Include="README.sv-SE.md" />
     <None Include="Release Handling\CreateRelease.bat" />
     <None Include="Release Handling\ReleaseManager.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\ToDo_Ideas.txt" />
+    <Content Include="Installation\License.de-DE.txt" />
     <Content Include="Installation\License.en-US.txt" />
     <Content Include="Installation\License.sv-SE.txt" />
     <Content Include="Resources\weekicon.ico" />

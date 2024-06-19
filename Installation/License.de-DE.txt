@@ -1,0 +1,10 @@
+Copyright © 2024 Voltura AB
+
+Diese Software wird 'wie sie ist' bereitgestellt, ohne jegliche ausdrückliche oder stillschweigende Gewährleistung. In keinem Fall werden die Autoren für irgendwelche Schäden haftbar gemacht, die sich aus der Nutzung dieser Software ergeben.
+
+Es wird die Erlaubnis erteilt, diese Software für jeden Zweck zu verwenden, einschließlich kommerzieller Anwendungen, und sie zu verändern und frei weiterzuverbreiten, vorbehaltlich der folgenden Einschränkungen:
+
+1. Die Herkunft dieser Software darf nicht falsch dargestellt werden; Sie dürfen nicht behaupten, dass Sie die ursprüngliche Software geschrieben haben.
+Wenn Sie diese Software in einem Produkt verwenden, wäre ein Hinweis in der Produktdokumentation wünschenswert, aber nicht erforderlich.
+2. Veränderte Versionen müssen deutlich als solche gekennzeichnet sein und dürfen nicht als die ursprüngliche Software dargestellt werden.
+3. Dieser Hinweis darf nicht aus einer Verteilung entfernt oder geändert werden.
