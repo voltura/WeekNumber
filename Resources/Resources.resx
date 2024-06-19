@@ -509,6 +509,13 @@ Please report to feedback@voltura.se!</value>
   <data name="SwedishMenu" xml:space="preserve">
     <value>Svenska</value>
   </data>
+  <data name="German" xml:space="preserve">
+    <value>de-DE</value>
+    <comment>Setting, do not change</comment>
+  </data>
+  <data name="GermanMenu" xml:space="preserve">
+    <value>Deutsch</value>
+  </data>
   <data name="CompositingQuality" xml:space="preserve">
     <value>CompositingQuality</value>
     <comment>Setting, do not change</comment>

@@ -769,7 +769,7 @@ namespace WeekNumber
         private MenuItem LanguageMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.LanguageMenu, new MenuItem[2]
+            return new MenuItem(Resources.LanguageMenu, new MenuItem[3]
                     {
                         new MenuItem(Resources.EnglishMenu, LanguageClick)
                         {
@@ -780,6 +780,11 @@ namespace WeekNumber
                         {
                             Name = Resources.Swedish,
                             Checked = Settings.SettingIsValue(Resources.Language, Resources.Swedish)
+                        },
+                        new MenuItem(Resources.GermanMenu, LanguageClick)
+                        {
+                            Name = Resources.German,
+                            Checked = Settings.SettingIsValue(Resources.Language, Resources.German)
                         }
                     })
             {
