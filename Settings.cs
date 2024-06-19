@@ -223,6 +223,10 @@ namespace WeekNumber
                     {
                         language = Resources.Swedish;
                     }
+                    else if (CultureInfo.CurrentCulture.Name == Resources.German)
+                    {
+                        language = Resources.German;
+                    }
                     else
                     {
                         language = Resources.English;

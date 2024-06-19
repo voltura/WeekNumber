@@ -1280,6 +1280,25 @@ namespace WeekNumber {
             }
         }
         
+                
+        /// <summary>
+        ///   Looks up a localized string similar to de-DE.
+        /// </summary>
+        internal static string German {
+            get {
+                return ResourceManager.GetString("German", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Deutsch.
+        /// </summary>
+        internal static string GermanMenu {
+            get {
+                return ResourceManager.GetString("GermanMenu", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Use large taskbar.
         /// </summary>
