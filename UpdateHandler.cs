@@ -1,7 +1,9 @@
 ﻿#region Using statements
 
 using System;
+using System.Configuration;
 using System.Diagnostics;
+using System.Globalization;
 using System.IO;
 using System.Net;
 using System.Net.Http;
@@ -87,7 +89,19 @@ namespace WeekNumber
 
         internal void PerformUpdateCheck(bool silent = false)
         {
+            if (silent)
+            {
+                string lastUpdateValue = Settings.GetSetting("LastUpdateCheck");
+                if (DateTime.TryParse(lastUpdateValue, out DateTime lastUpdate) &&
+                    (DateTime.Now - lastUpdate).TotalDays < 7)
+                {
+                    // If less than a week since the last update, skip the silent update check
+                    return;
+                }
+            }
+
             Log.LogCaller();
+            UpdateLastUpdateCheck();
             string runningVersion = Application.ProductVersion;
             VersionInfo internetVersionInfo = GetInternetVersion(silent);
             if (internetVersionInfo.Error) return;
@@ -206,6 +220,11 @@ namespace WeekNumber
         #endregion Internal methods
 
         #region Private methods
+
+        private void UpdateLastUpdateCheck()
+        {
+            Settings.UpdateSetting("LastUpdateCheck", DateTime.Now.ToString(CultureInfo.InvariantCulture));
+        }
 
         private VersionInfo GetInternetVersion(bool silent)
         {

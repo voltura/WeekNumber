@@ -285,6 +285,7 @@ namespace WeekNumber
     <add key=""CompositingQuality"" value=""2""/>
     <add key=""InterpolationMode"" value=""2""/>
     <add key=""TextContrast"" value=""1""/>
+    <add key=""LastUpdateCheck"" value=""""/>
   </appSettings>
 </configuration>";
                 File.Delete(settingsFile);
