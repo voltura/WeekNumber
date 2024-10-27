@@ -174,8 +174,6 @@
     <None Include="README.md" />
     <None Include="README.de-DE.md" />
     <None Include="README.sv-SE.md" />
-    <None Include="Release Handling\CreateRelease.bat" />
-    <None Include="Release Handling\ReleaseManager.bat" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Docs\ToDo_Ideas.txt" />
