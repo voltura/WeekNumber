@@ -27,23 +27,17 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, kalender
 #### Ikon med standard-färger
 ![Taskbar icon](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
 
-#### Högerklicks-meny
-![Högerklicks-menu](https://user-images.githubusercontent.com/2292809/121432228-b08a9f80-c97a-11eb-9407-c79071133417.png)
+#### Högerklicks-meny - Inställningsmeny med språkval
+![Högerklicks-menu](https://github.com/user-attachments/assets/d536981f-7566-4709-95a9-aea89b418280)
 
 #### Ta reda på veckonummer för valfritt datum
 ![Weeknumber formulär](https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png)
-
-#### Inställningsmeny med språkval
-![Inställningsmeny](https://user-images.githubusercontent.com/2292809/123408558-6bd34b00-d5ad-11eb-8527-180a915b249a.png)
 
 #### Exempel på ikoner med anpassade färger
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
 
 #### Färgval, med möjlighet att definiera och nyttja egendefinierade färger; både ikonens text och bakgrundsfärg kan ändras
 ![Färgväljare](https://user-images.githubusercontent.com/2292809/121435848-dd8d8100-c97f-11eb-8cf9-5ce7178aea73.png)
-
-#### Mera höger-klicksmenyval
-![Mera inställningar](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
 
 ## Installation
 Ladda ner zip, extrahera och kör WeekNumber.exe.
