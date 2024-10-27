@@ -26,19 +26,15 @@ Options to start with Windows, customize icon colors, language, notifications, c
 ## Screenshots
 #### System tray area icon with default colors
 ![Taskbar icon](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
-#### Context menu - accessible via right-click on icon
-![Context menu](https://user-images.githubusercontent.com/2292809/120920695-5d85c380-c6c0-11eb-93f4-3f932b853b03.png)
+#### Context menu - accessible via right-click on icon - with language selection
+![Context menu](https://github.com/user-attachments/assets/53a8908f-0674-4563-b458-a13b93da5248)
 #### Find out week number for any date
-![Weeknumber form](https://user-images.githubusercontent.com/2292809/120942749-3a442e00-c72b-11eb-8b16-88fcbfe756f1.png)
-#### Settings menu with language selection
-![Settings menu](https://user-images.githubusercontent.com/2292809/123407542-5f022780-d5ac-11eb-9b75-434086f4c4ea.png)
+![Weeknumber form](https://github.com/user-attachments/assets/918860bb-9926-44c0-8363-84d3ecfed81f)
 
 #### System tray area icon with customized colors
 ![Custom colors #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Custom colors #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Custom colors #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
 #### Icon color picker, possible to define and use custom colors; both icon text and background can be customized
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
-#### More context menu options
-![Settings Language](https://user-images.githubusercontent.com/2292809/121083488-c9ab1900-c7df-11eb-9a09-6dac98153ba2.png)
 
 ## Installation
 After download of WeekNumber_v1.6.6.9.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip) first unzip the archive, then run WeekNumber.exe.
