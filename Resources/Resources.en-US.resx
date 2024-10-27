@@ -120,7 +120,7 @@
   <data name="About" xml:space="preserve">
     <value>WeekNumber by Voltura AB
 
-Copyright © Voltura AB 2018-2022</value>
+Copyright © Voltura AB 2018-2024</value>
     <comment>About box text</comment>
   </data>
   <data name="AboutMenu" xml:space="preserve">
@@ -131,16 +131,6 @@ Copyright © Voltura AB 2018-2022</value>
   </data>
   <data name="ApplicationLogMenu" xml:space="preserve">
     <value>Application log</value>
-  </data>
-  <data name="AutoUpdate" xml:space="preserve">
-    <value>AutoUpdate</value>
-    <comment>Setting, do not change</comment>
-  </data>
-  <data name="AutoUpdateMenu" xml:space="preserve">
-    <value>Update automatically</value>
-  </data>
-  <data name="AvailableVersion" xml:space="preserve">
-    <value>New version:</value>
   </data>
   <data name="Blue" xml:space="preserve">
     <value>Blue</value>
@@ -171,12 +161,6 @@ Copyright © Voltura AB 2018-2022</value>
   <data name="CheckBrowserNavigation" xml:space="preserve">
     <value>Check if you can navigate via a web browser to this address:</value>
   </data>
-  <data name="CheckForNewVersionHere" xml:space="preserve">
-    <value>Manually check for newer version here:</value>
-  </data>
-  <data name="CheckForNewVersionMenu" xml:space="preserve">
-    <value>Check for updated version</value>
-  </data>
   <data name="CheckWeekForDateMenu" xml:space="preserve">
     <value>Get week number for date...</value>
   </data>
@@ -196,39 +180,21 @@ Copyright © Voltura AB 2018-2022</value>
   <data name="DisplayStartupNotificationMenu" xml:space="preserve">
     <value>Display startup notification</value>
   </data>
-  <data name="DownloadAndInstallQuestion" xml:space="preserve">
-    <value>Download and install new version now?</value>
-  </data>
   <data name="ExitMenu" xml:space="preserve">
     <value>Exit WeekNumber</value>
   </data>
-  <data name="FailedAutoInstall" xml:space="preserve">
-    <value>Failed to download and run the installer automatically.</value>
-  </data>
   <data name="FailedToChangeIconResolution" xml:space="preserve">
     <value>Failed to update icon resolution.</value>
-  </data>
-  <data name="FailedToCheckUpdateNoInternet" xml:space="preserve">
-    <value>Failed to perform version check, cannot find an active internet connection.</value>
-  </data>
-  <data name="FailedToDownloadNewVersion" xml:space="preserve">
-    <value>Failed to download new version.</value>
   </data>
   <data name="FailedToNotifyWindowsOfTaskbarIconSizeChange" xml:space="preserve">
     <value>Could not inform Windows about change of taskbar icon size.
 
 Please report to feedback@voltura.se!</value>
   </data>
-  <data name="FailedToPerformVersionCheck" xml:space="preserve">
-    <value>Failed to perform version check.</value>
-  </data>
   <data name="FailedToSetIcon" xml:space="preserve">
     <value>Could not set Icon. 
 
 Please report to feedback@voltura.se!</value>
-  </data>
-  <data name="FailedToStartInstaller" xml:space="preserve">
-    <value>Failed to start the installer automatically.</value>
   </data>
   <data name="FailedToUpdateCalendarWeekRule" xml:space="preserve">
     <value>Could not calendar week rule setting. 
@@ -508,6 +474,12 @@ Please report to feedback@voltura.se!</value>
   </data>
   <data name="SwedishMenu" xml:space="preserve">
     <value>Svenska</value>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>de-DE</value>
+  </data>
+  <data name="GermanMenu" xml:space="preserve">
+    <value>German</value>
   </data>
   <data name="CompositingQuality" xml:space="preserve">
     <value>CompositingQuality</value>

@@ -15,18 +15,11 @@ namespace WeekNumber
 
         #endregion Internal context menu
 
-        #region Private variables
-
-        private readonly UpdateHandler _updateHandler;
-
-        #endregion Private variables
-
         #region Internal contructor
 
         internal WeekNumberContextMenu()
         {
             Log.LogCaller();
-            _updateHandler = UpdateHandler.Instance;
             CreateContextMenu();
         }
 
@@ -346,27 +339,6 @@ namespace WeekNumber
             }
         }
 
-        private void AutoUpdateClick(object o, EventArgs e)
-        {
-            try
-            {
-                Log.LogCaller();
-                MenuItem mi = (MenuItem)o;
-                if (mi != null)
-                {
-                    mi.Enabled = false;
-                    mi.Checked = !mi.Checked;
-                    Settings.UpdateSetting(Resources.AutoUpdate, mi.Checked ? "True" : "False");
-                    EnableMenuItem(mi);
-                    SettingsChangedHandler?.Invoke(null, null);
-                }
-            }
-            catch (Exception ex)
-            {
-                Message.Show(Resources.UnhandledException, ex);
-            }
-        }
-
         private void AboutClick(object o, EventArgs e)
         {
             Log.LogCaller();
@@ -374,7 +346,7 @@ namespace WeekNumber
             try
             {
                 mi.Enabled = false;
-                Forms.MessageForm.LogAndDisplayLinkMessage(Resources.About, UpdateHandler.APPLICATION_URL);
+                Forms.MessageForm.LogAndDisplayMessage(Resources.About);
             }
             finally
             {
@@ -485,14 +457,12 @@ namespace WeekNumber
         internal void CreateContextMenu()
         {
             Log.LogCaller();
-            ContextMenu = new ContextMenu(new MenuItem[7]
+            ContextMenu = new ContextMenu(new MenuItem[5]
             {
                 new MenuItem(Resources.AboutMenu, AboutClick)
                 {
                     DefaultItem = true
                 },
-                new MenuItem(Resources.CheckForNewVersionMenu, _updateHandler.UpdateClick),
-                new MenuItem(Resources.OpenApplicationWebPageMenu, _updateHandler.OpenApplicationWebPageClick),
                 SettingsMenu(),
                 new MenuItem(Resources.CheckWeekForDateMenu, CheckWeekForDateClick),
                 new MenuItem(Resources.SeparatorMenu),
@@ -507,15 +477,11 @@ namespace WeekNumber
         private MenuItem SettingsMenu()
         {
             Log.LogCaller();
-            return new MenuItem(Resources.SettingsMenu, new MenuItem[10]
+            return new MenuItem(Resources.SettingsMenu, new MenuItem[9]
                 {
                     new MenuItem(Resources.StartWithWindowsMenu, StartWithWindowsClick)
                     {
                         Checked = Settings.StartWithWindows
-                    },
-                    new MenuItem(Resources.AutoUpdateMenu, AutoUpdateClick)
-                    {
-                        Checked = Settings.SettingIsValue(Resources.AutoUpdate, "True")
                     },
                     LanguageMenu(),
                     ApplicationLogMenu(),

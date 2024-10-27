@@ -5,7 +5,7 @@ Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.8.zip)
+[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -14,7 +14,7 @@ Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 Aktuellt veckonummer visas som en ikon i systemfältet i Windows aktivitetsfält.
 Slå upp veckonummer för andra datum genom att dubbel-klicka på ikonen.
 
-Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, automatiska uppdatering, kalender-regler och mycket mer. För detaljerad beskrivning se _**Hjälpavsnitt**_ nedan.
+Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, kalender-regler och mycket mer. För detaljerad beskrivning se _**Hjälpavsnitt**_ nedan.
 
 ### Språkstöd
 - Engelska
@@ -61,11 +61,8 @@ Om du inte ser applikationens ikon så tryck på taktecknet (^) vid systemfälte
 
 ### Högerklicks-meny:
 - **Om WeekNumber** - _Visar versionsinformation_
-- **Se om ny version finns** - _Kontrollerar om ny version finns, om så är fallet finns val att uppdatera_
-- **Öppna applikationens webbsida** - _Visar applikationens webbsida_
 - **Inställningar**
    - **Starta med Windows** - _Om ikryssad så startar applikationen automatiskt med Windows_
-   - **Uppdatera automatiskt** - _Om ikryssad så uppdaterar applikationen automatiskt utan att du behöver göra något själv_
    - **Språk** - _Ändrar vilket språk som applikationen använder_
      - **English** - _Engelska_
      - **German** - _Tyska_

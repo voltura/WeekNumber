@@ -21,7 +21,6 @@ namespace WeekNumber
         private readonly Timer _timer;
         private int _currentWeek;
         private int _lastIconRes;
-        private readonly UpdateHandler _updateHandler;
 
         #endregion Private variables
 
@@ -32,8 +31,6 @@ namespace WeekNumber
             try
             {
                 Log.LogCaller();
-                //MonitorProcess.Run(); // Removed because of false positive virus varning
-                _updateHandler = UpdateHandler.Instance;
                 Settings.StartWithWindows = Settings.SettingIsValue(Resources.StartWithWindows, true.ToString());
                 Application.ApplicationExit += OnApplicationExit;
                 SystemEvents.UserPreferenceChanged += OnUserPreferenceChanged;
@@ -42,7 +39,6 @@ namespace WeekNumber
                 Gui = new TaskbarGui(_currentWeek, _lastIconRes);
                 Gui.UpdateRequest += GuiUpdateRequestHandler;
                 _timer = GetTimer;
-                AutoUpdateCheck();
             }
             catch (Exception ex)
             {
@@ -85,7 +81,6 @@ namespace WeekNumber
         private void GuiUpdateRequestHandler(object sender, EventArgs e)
         {
             Log.LogCaller();
-            AutoUpdateCheck();
             UpdateIcon(true, true);
         }
 
@@ -98,7 +93,6 @@ namespace WeekNumber
         private void OnUserPreferenceChanged(object sender, EventArgs e)
         {
             Log.LogCaller();
-            AutoUpdateCheck();
             int iconRes = WeekIcon.GetIconResolution(true);
             if (iconRes != _lastIconRes)
             {
@@ -110,17 +104,6 @@ namespace WeekNumber
         private void OnTimerTick(object sender, EventArgs e)
         {
             UpdateIcon();
-            AutoUpdateCheck();
-        }
-
-        private void AutoUpdateCheck()
-        {
-            Log.LogCaller();
-            if (!Settings.SettingIsValue(Resources.AutoUpdate, "True"))
-            {
-                return;
-            }
-            _updateHandler.PerformUpdateCheck(silent: true);
         }
 
         private void UpdateIcon(bool force = false, bool redrawContextMenu = false)

@@ -7,7 +7,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Voltura AB")]
 [assembly: AssemblyProduct("WeekNumberMonitor")]
-[assembly: AssemblyCopyright("Copyright © Voltura AB 2022")]
+[assembly: AssemblyCopyright("Copyright © Voltura AB 2024")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]

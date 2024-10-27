@@ -5,7 +5,7 @@ Windows 11/10 Systemtray-Anwendung, die die aktuelle Kalenderwoche anzeigt
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
-[![Neueste Version herunterladen](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.8.zip)
+[![Neueste Version herunterladen](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -14,7 +14,7 @@ Windows 11/10 Systemtray-Anwendung, die die aktuelle Kalenderwoche anzeigt
 Das aktuelle Kalenderwoche wird als Symbol im Systemtray der Windows-Taskleiste angezeigt.
 Durch Doppelklicken auf das Symbol können Sie die Kalenderwoche für andere Daten nachschlagen.
 
-Stellen Sie ein, dass die Anwendung mit Windows startet, passen Sie die Symbolfarben, die Sprache, Benachrichtigungen, automatische Updates, Kalenderregeln und vieles mehr an. Für eine detaillierte Beschreibung siehe den _**Hilfebereich**_ unten.
+Stellen Sie ein, dass die Anwendung mit Windows startet, passen Sie die Symbolfarben, die Sprache, Benachrichtigungen, Kalenderregeln und vieles mehr an. Für eine detaillierte Beschreibung siehe den _**Hilfebereich**_ unten.
 
 ### Sprachunterstützung
 - Englisch
@@ -61,11 +61,8 @@ Wenn Sie das Symbol der Anwendung nicht sehen, klicken Sie auf das Dachsymbol (^
 
 ### Kontextmenü:
 - **Über WeekNumber** - _Zeigt Versionsinformationen an_
-- **Nach neuer Version suchen** - _Überprüft, ob eine neue Version verfügbar ist; wenn ja, gibt es die Option zu aktualisieren_
-- **Öffnen Sie die Webseite der Anwendung** - _Zeigt die Webseite der Anwendung an_
 - **Einstellungen**
    - **Mit Windows starten** - _Wenn angekreuzt, startet die Anwendung automatisch mit Windows_
-   - **Automatisch aktualisieren** - _Wenn angekreuzt, wird die Anwendung automatisch aktualisiert, ohne dass Sie etwas tun müssen_
    - **Sprache** - _Ändert die Sprache, die die Anwendung verwendet_
      - **English** - _Englisch_
      - **Deutsch**

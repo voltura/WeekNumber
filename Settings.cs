@@ -276,7 +276,6 @@ namespace WeekNumber
     <add key=""StartWithWindows"" value=""False""/>
     <add key=""MaxLogFileSizeInMB"" value=""10""/>
     <add key=""UseApplicationLog"" value=""False""/>
-    <add key=""AutoUpdate"" value=""False""/>
     <add key=""DisplayStartupNotification"" value=""True""/>
     <add key=""DisplayWeekChangedNotification"" value=""True""/>
     <add key=""UseSilentNotifications"" value=""True""/>
@@ -285,7 +284,6 @@ namespace WeekNumber
     <add key=""CompositingQuality"" value=""2""/>
     <add key=""InterpolationMode"" value=""2""/>
     <add key=""TextContrast"" value=""1""/>
-    <add key=""LastUpdateCheck"" value=""""/>
   </appSettings>
 </configuration>";
                 File.Delete(settingsFile);
