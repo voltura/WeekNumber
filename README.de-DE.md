@@ -27,23 +27,17 @@ Stellen Sie ein, dass die Anwendung mit Windows startet, passen Sie die Symbolfa
 #### Symbol mit Standardfarben
 ![Taskbar-Symbol](https://user-images.githubusercontent.com/2292809/120904782-473f1f80-c64e-11eb-9256-c3d0ddab2124.png)
 
-#### Kontextmenü
-![Kontextmenü](https://user-images.githubusercontent.com/2292809/121432228-b08a9f80-c97a-11eb-9407-c79071133417.png)
+#### Kontextmenü - Einstellungsmenü mit Sprachauswahl
+![Kontextmenü]()
 
 #### Kalenderwoche für ein beliebiges Datum nachschlagen
-![Kalenderwoche-Formular](https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png)
-
-#### Einstellungsmenü mit Sprachauswahl
-![Einstellungsmenü](https://user-images.githubusercontent.com/2292809/123408558-6bd34b00-d5ad-11eb-8527-180a915b249a.png)
+![Kalenderwoche-Formular](https://github.com/user-attachments/assets/c629bf3f-439a-4415-93df-dfa4f9af19e0)
 
 #### Beispiele für Symbole mit benutzerdefinierten Farben
 ![Benutzerdefinierte Farben #1](https://user-images.githubusercontent.com/2292809/118048718-f4d74f80-b37c-11eb-8b36-211250ff25c5.png) ![Benutzerdefinierte Farben #2](https://user-images.githubusercontent.com/2292809/120920791-e997eb00-c6c0-11eb-889e-9a3e67787033.png) ![Benutzerdefinierte Farben #3](https://user-images.githubusercontent.com/2292809/120921288-498f9100-c6c3-11eb-8451-d2c3e19fba30.png)
 
 #### Farbauswahl, mit der Möglichkeit, benutzerdefinierte Farben zu definieren und zu verwenden; sowohl die Textfarbe als auch die Hintergrundfarbe des Symbols können geändert werden
 ![Farbwähler](https://user-images.githubusercontent.com/2292809/121435848-dd8d8100-c97f-11eb-8cf9-5ce7178aea73.png)
-
-#### Weitere Kontextmenüoptionen
-![Weitere Einstellungen](https://user-images.githubusercontent.com/2292809/121432695-49b9b600-c97b-11eb-8576-89b792cd2514.png)
 
 ## Installation
 Zip-Datei herunterladen, extrahieren und WeekNumber.exe ausführen.
@@ -97,7 +91,7 @@ Wenn Sie das Symbol der Anwendung nicht sehen, klicken Sie auf das Dachsymbol (^
      - **Symbol speichern...** - _Speichert das aktuelle WeekNumber-Symbol in einer .ico-Datei_
 - **Kalenderwoche für Datum erhalten...** - _Zeigt die Kalenderwoche für das angegebene Datum an_
 
-  <img src="https://user-images.githubusercontent.com/2292809/121432297-c730f680-c97a-11eb-9530-005d5062039b.png" width="400">
+  <img src="https://github.com/user-attachments/assets/c629bf3f-439a-4415-93df-dfa4f9af19e0" width="400">
 - **WeekNumber beenden** - _Beendet die Anwendung. Starten Sie sie erneut im Windows-Startmenü_
 
 ## Spenden
