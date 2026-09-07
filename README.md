@@ -1,12 +1,21 @@
 🌍[English](README.md) ∙ [Deutsch](README.de-DE.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber
+
+> [!IMPORTANT]
+> **WeekNumber has been replaced by [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).**
+> I will no longer develop this old WeekNumber app. There will be no further features or bug fixes here; development continues in Voltura WeekNumber.
+>
+> **[Download Voltura WeekNumber for Windows](https://github.com/voltura/voltura-weeknumber/releases/latest)** · [Visit the new project](https://github.com/voltura/voltura-weeknumber)
+
+The documentation below describes the old app and is kept for existing users.
+
 Windows 11/10 system tray area application that displays the current week number
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/120940539-0f071200-c71e-11eb-8b03-8f24b9fb36ad.png)
 
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=download%20latest%20release&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip)
+[![Download Voltura WeekNumber](https://img.shields.io/badge/Download-Voltura%20WeekNumber-blue?style=for-the-badge)](https://github.com/voltura/voltura-weeknumber/releases/latest)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -21,7 +30,7 @@ Options to start with Windows, customize icon colors, language, notifications, c
 - Deutsch
 - Swedish
 
-<sub>_If you want to contribute with another language, please create an Issue on Github and I'll contact you!_<sub>
+To contribute, please visit [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).
 
 ## Screenshots
 #### System tray area icon with default colors
@@ -36,8 +45,10 @@ Options to start with Windows, customize icon colors, language, notifications, c
 #### Icon color picker, possible to define and use custom colors; both icon text and background can be customized
 ![Color picker](https://user-images.githubusercontent.com/2292809/118050315-4e407e00-b37f-11eb-8ac9-17cc1a08aa08.png)
 
-## Installation
-After download of WeekNumber_v1.6.6.9.zip via [*Download latest release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip) first unzip the archive, then run WeekNumber.exe.
+## Legacy installation
+For new installations, use [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber/releases/latest).
+
+If you still need the old app, download WeekNumber_v1.6.6.9.zip via [*Download legacy release*](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip), unzip the archive, then run WeekNumber.exe.
 To remove the application just delete the executable and other files extracted from the zip archive and the generated application configuration file WeekNumber.exe.config.
 
 ### Download notes
