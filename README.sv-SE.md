@@ -1,11 +1,20 @@
 🌍[English](README.md) ∙ [Deutsch](README.de-DE.md) ∙ [Svenska](README.sv-SE.md)
 
 # WeekNumber
+
+> [!IMPORTANT]
+> **WeekNumber har ersatts av [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).**
+> Jag kommer inte längre att utveckla den här gamla appen WeekNumber. Inga fler funktioner eller buggfixar kommer att släppas här; utvecklingen fortsätter i Voltura WeekNumber.
+>
+> **[Ladda ner Voltura WeekNumber för Windows](https://github.com/voltura/voltura-weeknumber/releases/latest)** · [Besök det nya projektet](https://github.com/voltura/voltura-weeknumber)
+
+Dokumentationen nedan beskriver den gamla appen och finns kvar för befintliga användare.
+
 Windows 11/10 systemfältsapplikation som visar aktuellt veckonummer
 
 <img src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" data-canonical-src="https://user-images.githubusercontent.com/2292809/120221521-d6a79580-c23e-11eb-99d1-be6210b43fcf.png" alt="WeekNumber" width="150" height="150" /> ![image](https://user-images.githubusercontent.com/2292809/121431601-e8451780-c979-11eb-9734-f30304c348d1.png)
 
-[![Latest release ZIP](https://img.shields.io/github/v/release/voltura/WeekNumber?label=ladda%20ner%20senaste%20versionen&style=for-the-badge)](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip)
+[![Ladda ner Voltura WeekNumber](https://img.shields.io/badge/Ladda%20ner-Voltura%20WeekNumber-blue?style=for-the-badge)](https://github.com/voltura/voltura-weeknumber/releases/latest)
 
 [![Github All Releases](https://img.shields.io/github/downloads/voltura/WeekNumber/total.svg)]()
 [![License](https://img.shields.io/badge/licence-MIT-green)]()
@@ -21,7 +30,7 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, kalender
 - Tyska
 - Svenska
 
-<sub>_Om du vill bidra med översättning till ett annat språk, vänligen skapa ett ärende på GitHub så kontaktar jag dig!_<sub>
+Om du vill bidra, besök [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).
 
 ## Skärmbilder
 #### Ikon med standard-färger
@@ -39,8 +48,10 @@ Ställ in att starta med Windows, anpassa ikonfärger, språk, notiser, kalender
 #### Färgval, med möjlighet att definiera och nyttja egendefinierade färger; både ikonens text och bakgrundsfärg kan ändras
 ![Färgväljare](https://user-images.githubusercontent.com/2292809/121435848-dd8d8100-c97f-11eb-8cf9-5ce7178aea73.png)
 
-## Installation
-Ladda ner zip, extrahera och kör WeekNumber.exe.
+## Installation av den gamla appen
+För nya installationer, använd [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber/releases/latest).
+
+Om du fortfarande behöver den gamla appen, ladda ner [WeekNumber_v1.6.6.9.zip](https://github.com/voltura/weeknumber/releases/latest/download/WeekNumber_v1.6.6.9.zip), extrahera arkivet och kör WeekNumber.exe.
 
 En notis visas då WeekNumber är startad
 
