@@ -3,10 +3,11 @@
 # WeekNumber
 
 > [!IMPORTANT]
-> **WeekNumber har ersatts av [Voltura WeekNumber](https://github.com/voltura/voltura-weeknumber).**
-> Jag kommer inte längre att utveckla den här gamla appen WeekNumber. Inga fler funktioner eller buggfixar kommer att släppas här; utvecklingen fortsätter i Voltura WeekNumber.
+> **WeekNumber har ersatts av [Voltura WeekNumber](https://voltura.github.io/voltura-weeknumber/).**
 >
-> **[Ladda ner Voltura WeekNumber för Windows](https://github.com/voltura/voltura-weeknumber/releases/latest)** · [Besök det nya projektet](https://github.com/voltura/voltura-weeknumber)
+> Den här gamla appen underhålls inte längre och kommer inte att få några fler funktioner eller buggfixar. Utvecklingen fortsätter i Voltura WeekNumber.
+>
+> [**Besök webbplatsen för Voltura WeekNumber**](https://voltura.github.io/voltura-weeknumber/) · [Ladda ner för Windows](https://github.com/voltura/voltura-weeknumber/releases/latest) · [Källkod](https://github.com/voltura/voltura-weeknumber)
 
 Dokumentationen nedan beskriver den gamla appen och finns kvar för befintliga användare.
 
